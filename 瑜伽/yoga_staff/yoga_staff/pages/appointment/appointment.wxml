@@ -1,0 +1,83 @@
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}">
+    <view class="nav-padding bg-white">
+      <view class="nav">
+        <view class="nav-item color-999 font-md {{checkedNav == item.id ?'nav-checked font-bold':''}}" wx:for="{{courseSpecies}}" wx:key="index" bindtap="checkNav" data-id="{{item.id}}">{{item.name}}</view>
+      </view>
+    </view>
+    <!-- <scroll-view class="categories bg-white" scroll-x="true" enhanced="{{true}}" paging-enabled="{{true}}" binddragging="scrollEnd" scroll-into-view="{{toView}}">
+      <view class="date-item {{ checkedDate==item.date ? 'checked-date' : ''}}" wx:for="{{date}}" wx:for-item="item" wx:key='index' bindtap="checkDate"
+        data-idx="{{index}}" id="{{item.id}}" data-date="{{item.date}}" data-week="{{item.week}}">
+        <view class="week {{ checkedDate == item.date ? 'base-must-color' : ''}}">{{ item.date == currentDayData ? '今天' : item.week}}</view>
+        <view class="date {{ checkedDate == item.date ? 'base-must-bg base-must-color' : ''}}">{{item.month}}.{{item.day}}</view>
+      </view>
+    </scroll-view> -->
+    <view>
+      <swiper current="{{swiperCurrentIndex}}" class="swiper-container" bindchange="getSwiperCurrentIndex">
+        <block wx:for="{{swiperArr}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item flex-box flex-j-around {{item}}">
+                <view class="date-item {{ checkedDate == itm.date ? 'checked-date' : ''}}" wx:for="{{item.list}}" wx:for-item="itm" wx:for-index="idx" wx:key='idx' bindtap="checkDate"
+                data-idx="{{idx}}" id="{{itm.id}}" data-date="{{itm.date}}" data-week="{{itm.week}}">
+                <view class="week {{ checkedDate == itm.date ? 'base-must-color' : ''}}">{{ itm.date == currentDayData ? '今天' : itm.week}}</view>
+                <view class="date {{ checkedDate == itm.date ? 'base-must-bg base-must-color' : ''}}">{{itm.month}}.{{itm.day}}</view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 团课 -->
+    <view class="group-lesson" >
+      <block wx:if="{{checkedNav != 4}}">
+        <view class="lesson-item common-relative"  wx:for="{{classList}}" wx:key='id'
+          wx:for-item='item' data-id="{{item.id}}"  data-cid="{{item.course_id}}" bindtap="goBooking">
+          <view class="lesson-content common-relative">
+            <view class="flex-box flx-a-center flex-j-between">
+                <view class="teacher">
+                    <image class="head-img" src="{{item.head_img}}"></image>
+                    <view class="teacher-base-info">
+                        <view class="teacher-name font-md color-333 font-weight">{{item.coach_staff_name}}</view>
+                        <view class="teacher-timer color-666 font-base">{{item.start_time}}-{{item.end_time}}</view>
+                    </view>
+                </view>
+                <view class="lesson-status color-white font-md" data-id="{{item.id}}"  data-cid="{{item.course_id}}" catchtap="goBookingDetail">代约</view>
+            </view>
+            <view class="lesson-name font-weight color-333 font-15">{{item.course_name}}</view>
+            <view class="lesson-time font-md color-666">课程人数：{{item.min_user}}/{{item.max_user}}</view>
+            <view class="lesson-address color-666 font-sm"><text>预约人数：{{item.preengage_num}}人</text><text class="margin-space">排队人数：{{item.line_count}}人</text><text>签到人数：{{item.sign_count}}人</text></view>
+            <view class="course-status-img"><image src="{{statusArr[item.status].icon}}"></image></view>
+          </view>
+        </view>
+      </block>
+      <!-- 私教课 -->
+      <block wx:elif="{{showPersonalData.length}}">
+        <view class="personal-trainer bg-white">
+          <view class="trainer-item common-relative" wx:for="{{showPersonalData}}" wx:key="index" >
+            <view class="trainer-header flex-box flex-a-center flex-j-between common-relative" style="z-index:1;">
+              <view class="teacher-info flex-box flex-a-center">
+                <image class="avatar" src="{{item.head_img}}"></image>
+                <view class="nickname font-lg color-333 font-bold">{{item.coach_staff_name}}</view>
+              </view>
+              <view class="teach-course color-white font-md" bindtap="toggle" data-id="{{item.id}}">{{ item.unfold ? '收起' : '所授课程'}}</view>
+            </view>
+            <view class="trainer-list common-relative" wx:if="{{item.unfold}}" style="z-index:1;">
+              <view class="trainer-list-item flex-box flex-a-center" wx:for="{{item.detail}}" wx:for-item="course" wx:key-index="idx" wx:key="idx" data-id="{{course.id}}" data-cid="{{course.course_id}}" bindtap="goBooking">
+                <view class="course-name font-md color-333 on-line">{{course.course_name}}</view>
+                <view class="course-book-num font-sm color-666">预约/签到：{{course.preengage_num}}/{{course.sign_count}}</view>
+                <view class="course-book font-sm color-white" data-id="{{course.id}}" data-cid="{{course.course_id}}" catchtap="goBookingDetail">代约</view>
+              </view>
+            </view>
+            <!-- <view class="trainer-shadow"></view> -->
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{(checkedNav !=4 && !classList.length) ||  (checkedNav == 4 && !showPersonalData.length)}}">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/d553cad4f1b1546bf1afc3d3759afe37.png" class="noclass"></image>
+        <view class="nocourse">暂无排课~</view>
+      </block>
+    </view>
+  </view>
+  <!-- {{scheduleShow ? 'show-course-icon' : ''}} -->
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211011/724d39da75e721f1a05502bd656a7cae.png" class="course-table " bindtap="goSchedule"></image>
+<!-- 公共tabbar -->
+<tab-bar selected="{{1}}"></tab-bar>

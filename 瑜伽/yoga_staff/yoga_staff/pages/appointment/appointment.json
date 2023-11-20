@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "drap-down-select":"/components/drapDownSelect/index",
+    "tab-bar": "/components/tab-bar/tabbar"
+  },
+  "navigationBarTitleText": "约课",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

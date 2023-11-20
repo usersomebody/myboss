@@ -1,0 +1,15 @@
+<view class="container" wx:if="{{isLoad}}">
+    <view class="course-list bg-white">
+        <view wx:for="{{courseType}}" wx:key="index" class="course-item flex-box flex-a-center flex-j-between" data-checked="{{item.switchVal}}" data-link="{{item.link}}" bindtap="getCourseData">
+            <view class="name font-md color-333">{{item.name}}</view>
+            <view class="right flex-box flex-a-center">
+                <switch class="switch-item" catchtap="switchChange" data-id="{{item.id}}" data-value="{{item.switchVal}}" checked="{{item.switchVal ? true : false}}" color="#DED1FF"></switch>
+                <view><image class="right-icon" src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+    </view>
+    <view class="add-btn flex-box flex-a-center flex-j-center">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+</view>

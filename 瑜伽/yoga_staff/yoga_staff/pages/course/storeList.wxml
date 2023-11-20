@@ -1,0 +1,14 @@
+<view class="container">
+    <view wx:if="{{storeList.length}}" class="item-padding">
+        <van-checkbox-group value="{{ checkedIds }}" bind:change="onChange">
+            <view class="store-item" wx:for="{{storeList}}" wx:key="index" >
+                <van-checkbox name="{{item.id}}" checked-color="#9B77F4" value-class="value-class">{{item.name}}</van-checkbox>
+            </view>
+        </van-checkbox-group>
+        <view class="submitBtn flex-box flex-a-center flex-j-center">
+            <view class="btn back" bindtap="back">返回</view>
+            <view class="btn sure" bindtap="sure">确定</view>
+        </view>
+    </view>
+    <view wx:else class="text-center font-md color-666" style="padding-top:60rpx;">暂无数据</view>
+</view>

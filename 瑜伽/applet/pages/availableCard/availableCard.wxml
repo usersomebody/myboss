@@ -1,0 +1,34 @@
+<!--pages/availableCard/availableCard.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="card-item" wx:for="{{cardList}}" wx:for-item="item" wx:key='id' bindtap="check_card"
+      data-item="{{item}}">
+      <image class="card-bg" src="/imgs/type-bg1.png" wx:if="{{item.type==1}}"></image>
+      <image class="card-bg" src="/imgs/type-bg2.png" wx:if="{{item.type==2}}"></image>
+      <image class="card-bg" src="/imgs/type-bg3.png" wx:if="{{item.type==3}}"></image>
+      <image class="card-bg" src="/imgs/type-bg4.png" wx:if="{{item.type==4}}"></image>
+      <view class="card-content">
+        <view class="card-title">
+          <view class="cardname">{{item.card_type_name}}
+            <view class="card-type" wx:if="{{item.type==1}}">期限卡</view>
+            <view class="card-type" wx:if="{{item.type==2}}">次数卡</view>
+            <view class="card-type" wx:if="{{item.type==3}}">储值卡</view>
+            <view class="card-type" wx:if="{{item.type==4}}">计时卡</view>
+          </view>
+
+            <view class="balance" wx:if="{{item.type==1&&item.is_unlimited==1}}"><text class="unit">长期有效</text></view>
+            <view class="balance" wx:if="{{item.type==1&&item.is_unlimited==0}}">{{item.remain_days}}<text class="unit">天</text></view>
+            <view class="balance" wx:if="{{item.type==2}}">{{item.assets_num}}<text class="unit">次</text></view>
+            <view class="balance" wx:if="{{item.type==3}}">{{item.assets_money/100}}<text class="unit">元</text></view>
+            <view class="balance" wx:if="{{item.type==4}}">{{item.assets_time}}<text class="unit">分</text></view>
+
+        </view>
+        <view class="card-validate">
+          <view class="use_day" wx:if="{{item.status==1&&item.is_unlimited==1}}">有效期:长期有效</view>
+          <view class="use_day" wx:else>有效期:{{item.use_start_time}}-{{item.use_end_time}}</view>
+          <view>卡内剩余</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

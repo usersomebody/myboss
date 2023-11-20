@@ -1,0 +1,26 @@
+.container{
+    padding:0 30rpx;
+    background:#fff;
+}
+
+.li{
+    padding:28rpx 0 30rpx;
+    border-bottom:2rpx solid #E2E3E8;
+}
+
+.border-none{
+    border-bottom:none;
+}
+
+.li .item-value{
+    text-align: right;
+    justify-content: flex-end;
+    width: 80%;
+}
+.li .item-value .value-placeholder{
+    margin-right:16rpx;
+}
+
+.color-504{
+    color:#504766;
+}

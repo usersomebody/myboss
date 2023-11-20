@@ -1,0 +1,77 @@
+.my-bg .my-bg-cover{
+    width:100%;
+    height:354rpx;
+}
+.push-customer-account{
+    width:94%;
+    margin:-20rpx auto 20rpx;
+}
+.account-cover{
+    width:100%;
+    height:120rpx;
+}
+.my-info{
+    /* margin:-160rpx 0 0 40rpx; */
+    position: absolute;
+    bottom:60rpx;
+    left:40rpx;
+}
+.avatar{
+    width:100rpx;
+    height:100rpx;
+    margin-right:25rpx;
+    border-radius:50%;
+}
+
+.right-icon{
+    width:42rpx;
+    height:42rpx;
+    margin-left:22rpx;
+}
+.account-info{
+    width:92%;
+    position: absolute;
+    left:30rpx;
+    top:36rpx;
+}
+.account-left{
+    color:rgb(117, 84, 49);
+}
+.color-132{
+    color:rgb(132, 97, 34)
+}
+.right-go{
+    width:32rpx;
+    height:32rpx;
+}
+.common-box{
+    padding:20rpx 30rpx;
+    border-radius: 16rpx;
+    margin:0 20rpx 20rpx;
+}
+.margin-b-12{
+    margin-bottom:12rpx;
+}
+.order-status-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.common-content{
+    margin-top:40rpx;
+}
+
+.common-set-item{
+    padding:30rpx 26rpx;
+    border-radius:16rpx;
+    margin-bottom:20rpx;
+}
+.setting-icon{
+    width:48rpx;
+    height:48rpx;
+    margin-right:10rpx;
+}
+.setting{
+    margin:0 20rpx;
+}

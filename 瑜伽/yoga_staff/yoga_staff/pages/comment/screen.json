@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "screen-switch": "/components/common-comment-screen/index"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "评价管理"
+    
+  }

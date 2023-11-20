@@ -1,0 +1,58 @@
+<!--pages/courses/courses.wxml-->
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}">
+  <view class="nav">
+    <view class="nav-item {{currentChecked==index?'nav-checked font-weight':''}}" wx:for="{{nav}}" wx:key='id' bindtap="checkNav"
+      data-idx="{{index}}">
+      {{nav[index].name}}
+      <image wx:if="{{currentChecked==index}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_switched.png" class="item-checked"></image>
+    </view>
+  </view>
+  <view class="content">
+    <block wx:if="{{!isLogin}}">
+      <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/d553cad4f1b1546bf1afc3d3759afe37.png" top="254rpx"></no-data-cover>
+      <view class="login-tip">登录后才能看到属于你的课程哦~</view>
+      <view class="loginBtn authorize" open-type='getUserInfo' bindtap="getUserInfo">立即登录</view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{nodata}}">
+        <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/d553cad4f1b1546bf1afc3d3759afe37.png" top="254rpx"></no-data-cover>
+        <view class="nocourse">{{nav[currentChecked].noData}}</view>
+      </block>
+      <block wx:else>
+        <view class="lesson-item" wx:for="{{classList}}" wx:key='id' wx:for-item="item">
+          <view class="flex-box fle-a-center lesson-item-top">
+            <image class="lesson-bg flex-shrink" src="{{item.course.cover_img}}" bindtap="handleSign" data-editcheck="{{item.edit_check}}" data-storeid="{{item.store_id}}" data-courseid="{{item.course_id}}" data-teacherid="{{item.course.coach_staff_id}}" data-start="{{item.course_arrangee.start_time}}" data-end="{{item.course_arrangee.end_time}}" data-week="{{item.week}}" data-tid="{{item.course_type_id}}" data-id="{{item.course_arrange_id}}"  data-bindid="{{item.id}}" data-date="{{item.course_arrangee.date}}"></image>
+            <view class="lesson-content" bindtap="handleSign" data-editcheck="{{item.edit_check}}" data-courseid="{{item.course_id}}" data-storeid="{{item.store_id}}" data-teacherid="{{item.course.coach_staff_id}}" data-start="{{item.course_arrangee.start_time}}" data-end="{{item.course_arrangee.end_time}}" data-week="{{item.week}}" data-tid="{{item.course_type_id}}" data-id="{{item.course_arrange_id}}"  data-bindid="{{item.id}}" data-date="{{item.course_arrangee.date}}">
+              <view class="teacher font-lg color-333">
+                <image class="head-img" src="{{item.course.coach_staff.head_img}}"></image>
+                {{item.course.coach_staff.name}}
+              </view>
+              <view class="lesson-name font-md color-333 font-bold">{{item.course.name}}</view>
+              <view class="lesson-time font-sm color-99 ">
+                {{item.course_arrangee.start_time}}-{{item.course_arrangee.end_time}}　
+              </view>
+              <!-- <view class="lesson-time" wx:else>
+                  {{item.bookstart}}-{{item.bookend}}　
+                </view> -->
+              <view class="lesson-address font-sm color-99">上课地点：{{item.course.store.address}}</view>
+            </view>
+          </view>
+         
+          <view class="operate {{show_preengage_member=='2' || (show_preengage_member=='1' && user_type=='1') ? 'flex-j-between' : 'flex-j-end'}}">
+            <view class="order-num" wx:if="{{show_preengage_member=='2' || (show_preengage_member=='1' && user_type=='1')}}">已有<text class="base-must-color">{{item.course_arrangee.preengage_num}}</text>人预约</view>
+            <view class="order-r" >
+              <view class="btn font-sm {{item.edit_check == '-1' ? 'btn-disabled' : ''}}" wx:if="{{currentChecked==1||currentChecked==0 || currentChecked==2 }}" data-storeid="{{item.store_id}}" bindtap="handleCancel" data-id="{{item.id}}" data-type="{{item.course_type_id}}" data-uid="{{item.user_id}}" data-editcheck="{{item.edit_check}}" >取消</view>
+              <view class="btn sign font-sm {{item.edit_check == '-1' ? 'btn-disabled' : ''}}" bindtap="handleSign"  data-storeid="{{item.store_id}}" data-courseid="{{item.course_id}}" data-start="{{item.course_arrangee.start_time}}" data-end="{{item.course_arrangee.end_time}}" data-week="{{item.week}}" data-id="{{item.course_arrange_id}}"  data-bindid="{{item.id}}" data-date="{{item.course_arrangee.date}}" data-tid="{{item.course_type_id}}" data-teacherid="{{item.course.coach_staff_id}}" data-editcheck="{{item.edit_check}}" wx:if="{{currentChecked==1 ||  currentChecked==2}}">签到</view>
+              <view class="btn sign font-sm" bindtap="handleSign" data-storeid="{{item.store_id}}" data-courseid="{{item.course_id}}" data-start="{{item.course_arrangee.start_time}}" data-end="{{item.course_arrangee.end_time}}" data-week="{{item.week}}" data-id="{{item.course_arrange_id}}"  data-bindid="{{item.id}}" data-date="{{item.course_arrangee.date}}" data-tid="{{item.course_type_id}}" data-teacherid="{{item.course.coach_staff_id}}" data-evaluate="{{ item.is_comment}}" wx:if="{{currentChecked==3 && item.is_show_comment == 1}}">{{item.is_comment == 2 ? '我要评价' : '查看评价'}}</view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+    </block>
+
+
+  </view>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{2}}"></tab-bar>

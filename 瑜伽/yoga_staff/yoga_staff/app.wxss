@@ -1,0 +1,37 @@
+/**app.wxss**/
+.container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #ECECEC;
+  font-family: PingFang SC;
+  font-weight: 400;
+}
+
+image {
+  display: block;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  line-height: inherit;
+  height: 100rpx;
+  border-radius: 0;
+  border: none;
+  font-size: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button::after {
+  border: none;
+}
+.color_blue{
+  color:#21DBC3!important;
+}
+@import "common.wxss";
+@import "iconfont.wxss";
+@import "./components/loading/index.wxss";
+

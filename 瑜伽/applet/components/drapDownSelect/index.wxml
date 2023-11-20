@@ -1,0 +1,15 @@
+<!-- 下拉筛选  复选 -->
+<view class="select">
+    <view class="container">
+    <scroll-view class="scroll-height"  scroll-y="{{true}}" >
+        <view class="content">
+            <view wx:for="{{list}}" wx:key="index" class="li {{item.select ? 'active' : ''}} one-line"  data-id="{{item.id}}"  bindtap="select">{{item.name}}</view>
+        </view>
+    </scroll-view>
+    <view wx:if="{{(key == 1 || key == 3 ) && selectName}}" class="font-md color-33 course-name-show">{{key == 1 ? '课程名称：' : '店铺名称：'}}<text class="color-99 font-sm">{{selectName}}</text></view>
+    <view class="btn">
+        <view class="button clear" bindtap="clear">清空</view>
+        <view class="button sure"  bindtap="selectData">确定</view>
+    </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+<view class="container">
+    <view class="comment-content">
+        <!-- 评价时间 -->
+        <view class="limit-date">
+            <view class="limit-date-title font-md color-333 common-relative">评价时间</view>
+            <view class="limit-date-select flex-box flex-a-center flex-j-between">
+                <view class="left flex-box flex-a-center">
+                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                    <view>
+                        <picker mode="date" value="{{dateObj.use_start_date}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_start_date" bindchange="bindDateChange">
+                            <view class="picker font-md color-504">
+                                {{dateObj.use_start_date || '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="line-distance">----</view>
+                <view class="right flex-box flex-a-center">
+                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                    <view>
+                        <picker mode="date" value="{{dateObj.use_end_date}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_end_date" bindchange="bindDateChange">
+                            <view class="picker font-md color-504">
+                                {{dateObj.use_end_date || '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <!-- 筛选条件 天数 -->
+            <view class="filter-date flex-box flex-a-center">
+                <view class="filter-date-item color-525 font-md {{item.id == dateId ? 'active' : ''}}" wx:for="{{filterDateList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchDate">{{item.name}}</view>
+            </view>
+        </view>
+        <!-- 组件筛选 -->
+        <view class="course-switch">
+            <!-- 课程 -->
+            <screen-switch wx:if="{{course.length && isLoaded}}" list="{{course}}" type="course" name="课程" bind:updateCourse="updateList"></screen-switch>
+            <!-- 教师 -->
+            <screen-switch wx:if="{{staff.length && isLoaded}}" list="{{staff}}" type="staff" name="教师" bind:updateCourse="updateList"></screen-switch>
+            <!-- 评分 -->
+            <screen-switch wx:if="{{stars.length && isLoaded}}" list="{{stars}}" type="stars" name="评分" bind:updateCourse="updateList"></screen-switch>
+            <!-- 只看有评论 -->
+            <screen-switch wx:if="{{hasCommentList.length && isLoaded}}" list="{{hasCommentList}}" type="content" name="只看有评论内容" bind:updateCourse="updateList"></screen-switch>
+        </view>
+    </view>
+    <view class="edit-btn flex-box flex-a-center flex-j-center" bindtap="sure">
+        <view class="common-edit-btn edit-back" data-type="1">返回</view>
+        <view class="common-edit-btn edit-sure" data-type="2">保存</view>
+    </view>
+</view>

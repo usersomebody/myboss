@@ -1,0 +1,334 @@
+<!--index.wxml-->
+<!-- 自定义头部 -->
+<!-- <view class="custom" style="padding-top:{{statusBarHeight}}px;">
+  <view class="store-name" bindtap="checkStore" wx:if="{{userInfo.user_type!==1||userInfo.user_type!==2}}">
+  <view class="store-name">
+    {{store_name}}
+    <image src="/imgs/right.png" class="arrow-r"></image>
+  </view>
+  </view>
+  <view class="store-name" wx:else>
+    {{store_name}}
+  </view>
+</view> -->
+
+<!-- <view class="empty_custom" style="padding-top:{{ statusBarHeight }}px;"></view> -->
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}">
+  <swiper wx:if="{{coverList.length>0}}" interval='3000' autoplay="{{true}}" circular='{{true}}' class="swiper">
+    <block wx:for="{{coverList}}" wx:for-item="cover" wx:key="*this">
+      <swiper-item>
+        <image src="{{cover}}" class="index-bg"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/cacd9426ee43c764b89b68babf44f19.jpg?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=1983220330&Signature=KZECtHqtZTWAVOEQeGL4FSNHalk%3D" class="index-bg" wx:else></image>
+  <!-- 店铺 ps说实话 我真的看不懂 这里判断的逻辑啥意思 自相矛盾 不敢乱改 后人见谅-->
+  <view class="store_info">
+    <view wx:if="{{userInfo.user_type!==1||userInfo.user_type!==2}}" class="store_name flex-box flex-a-center flex-j-between" bindtap="checkStore">
+      <view class="flex-box flex-a-center">
+          <view class="flex-shrink store-logo"><image class="store-img" src="{{brand_logo}}"></image></view>
+          <view class="store-name font-md base-color font-bold color-333">
+            <view class="font-lg font-bold">{{store_name}}</view>
+            <!-- <view class="font-md">营业时间 {{store_name}}</view> -->
+          </view>
+      </view>
+      <image wx:if="{{!isShareIn}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_store.png" class="arrow-r"></image>
+    </view>
+    <view wx:else class="font-lger base-color font-bold">{{store_name}}</view>
+  </view>
+  <!-- 导航 -->
+  <view class="store-nav">
+    <view class="nav-item" wx:for="{{storeNav}}" wx:key="index" data-id="{{item.id}}" data-url="{{item.url}}" bindtap="handelAction">
+      <image src="{{item.cover}}"></image>
+      <view class="color-333 font-sm">{{item.name}}</view>
+    </view>
+  </view>
+  <!-- 热门活动 -->
+  <view class="activity-list" wx:if="{{activityData.activity_cat_id}}">
+      <view class="item-head flex-box flex-a-center flex-j-between" bindtap="toActivityList">
+          <view class="color-333 font-lg font-bold flex-box flex-a-center" >
+            <view style="font-weight:600;">限时活动</view>
+          </view>
+          <view class="base-must-color font-md flex-box flex-a-center">
+            <view>更多</view>
+            <image class="right-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220120/cd2fcae9bcdbec2a5e3dee777fdafab9.png"></image>
+          </view>
+      </view>
+      <view class="item bg-white" >
+          
+          <view class="flex-box flex-a-center">
+              <image class="activity-timer-sign" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210807/cut_down_sign.png"></image>
+              <flash-sale wx:if="{{timeShow && activityData.start_time && activityData.end_time}}" startTime="{{activityData.start_time}}" endTime="{{activityData.end_time}}" currentTime="{{activityData.current}}" title="距结束:" type="2" typeStyle="2" bind:updateData="updateProdStatus"></flash-sale>
+          </view>
+          <view class="item-content flex-box flex-a-center" data-aid="{{activityData.activity_id}}" data-cid="{{activityData.activity_cat_id}}" data-storeid="{{activityData.store_id}}" data-start="{{activityData.isInActivity}}" bindtap="toActivityPage">
+              <view class="common-relative" style="overflow:hidden;">
+                  <image class="flex-shrink" src="{{activityData.desc_img}}"></image>
+                  <view class="act-name-sign">{{signText[activityData.activity_cat_id]}}</view>
+              </view>
+              <view class="info">
+                  <view class="name font-lg font-light one-line font-weight color-333">{{activityData.name}}</view>
+                  <view wx:if="{{activityData.activity_cat_id != 24}}" class="price font-md color-77 {{ activityData.activityIsOver ? 'color-99' : ''}}"><text class="font-lg">{{activityData.activity_cat_id == 21 ? '最低' : '秒杀价'}}</text ><text class="font-bold font-20" style="font-weight:600;">￥{{activityData.buying_price}}</text></view>
+                  <view wx:if="{{activityData.activity_cat_id != 24}}" class="btn-price flex-box flex-a-center flex-j-between">
+                      <view class="original-price font-md font-light">原价:<text class="line-through font-md color-66">￥{{activityData.original_price}}</text></view>
+                      <!-- <view class="button color-white font-md">{{btnText[activityData.activity_cat_id]}}</view> -->
+                  </view>
+              </view>
+          </view>
+      </view>
+  </view>
+  <!-- 签到 登录 预约课程 -->
+  <view class="page-section page-section-spacing">
+      <swiper  autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}">
+        <block wx:for="{{swiperData}}" wx:key="*this">
+          <swiper-item wx:if="{{item.type == 1}}">
+            <image  bindtap="goLive" class="swiper-bg-cover" src="{{item.cover}}"></image>
+          </swiper-item>
+          <swiper-item wx:else>
+            <view class="course-title font-lg color-333" style="font-weight:600;">即将开始的课程</view>
+            <view class="course flex-box flex-a-center flex-j-between">
+              <view style="width:60%;">
+                  <view class="flex-box flex-a-center">
+                      <view class="course-left">
+                        <view class="common-item-style" wx:if="{{noLogin}}">
+                            <button class="login-btn appoint font-lg color-white font-md" open-type='getUserInfo' bindtap="getUserInfo">立即登录</button>
+                            <view class="login-btn-info font-md color-99">登录查看预约课程</view>
+                        </view>
+                        <view wx:elif="{{noclass}}">
+                            <view class="swiper-btn font-lg color-white font-md" bindtap="handleAppoint">+ 预约课程</view>
+                            <view class="login-btn-info font-md color-66">您还未预约任何课程</view>
+                        </view>
+                        <view wx:else>
+                            <view class="color-333 font-lg font-bold two-line" style="width:300rpx;">{{classInfo.course.name}}</view>
+                            <view class="color-99 font-sm  course-info-time">{{classInfo.course_arrangee.start_time}} - {{classInfo.course_arrangee.end_time}}</view>
+                            <view class="swiper-btn color-white font-sm" style="margin-bottom:0;" bindtap="handleSign">立即签到</view>
+                        </view>
+                      </view>
+                    </view>
+                </view>
+                <view class="course-right"><image src="{{item.cover}}"></image></view>
+            </view>
+            
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!-- 体测报告 -->
+  <image class="report" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_index_w_bg.png" bindtap="lookReport"></image>
+  <!-- 头条资讯 -->
+  <view>
+      <view class="information-title flex-box flex-a-center flex-j-between">
+          <view class="color-333 font-lg flex-box flex-a-center" >
+            <view class="tab-item common-relative" wx:for="{{tabList}}" wx:key="index" data-id="{{item.id}}" bindtap="tabSwitch">
+              <view class="font-lg color-66 {{item.id == tabId ? 'color-333 font-weight' : ''}}">{{item.name}}</view>
+              <image wx:if="{{item.id == tabId}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_switched.png" class="item-checked"></image>
+            </view>
+          </view>
+          <view class="base-must-color font-md flex-box flex-a-center" bindtap="goInfoList">
+            <view>更多</view>
+            <image class="right-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220120/cd2fcae9bcdbec2a5e3dee777fdafab9.png"></image>
+          </view>
+      </view>
+      <view wx:if="{{tabId == 1}}" class="information">
+        <!-- 资讯列表 -->
+        <view class="info-list" wx:if="{{infoList.length}}">
+          <view class="li-item bg-white flex-box flex-a-center" wx:for="{{infoList}}" wx:key="index" data-id="{{item.id}}" bindtap="goDetail">
+              <view class="covers">
+                  <image src="{{item.thumb}}"></image>
+              </view>
+              <view class="info-message">
+                  <view class="info-name font-md color-333 bold font-weight">{{item.title}}</view>
+                  <view class="info-data color-909 font-sm flex-box flex-a-center flex-j-between">
+                      <view class="time flex-box flex-a-center ">
+                          <image class="margin-r-12" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/8a25c34b41ba23ca46ef23447d339589.png"></image>
+                          <view>{{item.update_time}}</view>
+                      </view>
+                      <view class="number flex-box flex-a-center">
+                          <image class="margin-r-12" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/4125c686f951af1cfbb205dd772a6348.png"></image>
+                          <view>{{item.read_num}}看过</view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{tabId == 2}}" class="notice-list">
+          <view class="notice-item bg-white common-relative" wx:for="{{announce}}" wx:key="index" data-id="{{item.id}}">
+              <view class="notice-title color-333 font-lg">{{item.title}}</view>
+              <view class="notice-time color-99 font-md flex-box flex-a-center">
+                  <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211227/90b481dc3e836946dcd96daef0112551.png"></image>
+                  <view class="color-99 font-md">{{item.send_start_time}}</view>
+              </view>
+              <view class="notice-info color-66 font-md two-line">{{item.content}}</view>
+              <!-- <view class="notice-status color-white font-sm" style="background:{{statusMap[item.type].color}}">{{statusMap[item.type].name}}</view> -->
+          </view>
+          <view wx:if="{{!announce.length}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/638b66752919384fc59370ad4ab1223f.png"></image>
+            <view class="font-sm color-999">暂无记录~</view>
+        </view>
+      </view>
+  </view>
+
+  <!-- 明星老师 -->
+  <view wx:if="{{teacher.length}}" >
+    <view class="teacher-tit" style="font-weight:600;">明星老师</view>
+    <view class="teacher-container">
+      <swiper style="height:220rpx;" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}">
+          <block wx:for="{{teacher}}" wx:key='id' wx:for-item="item" >
+            <swiper-item>
+              <view class="flex-box flex-a-center" data-id="{{item.id}}" data-empty="{{item.isEmpty}}" bindtap="lookTeacher">
+                <view class="teacher-photo flex-shrink ">
+                    <image src="{{item.head_img}}"></image>
+                </view>
+                <view class="teacher-info">
+                  <view class="teacher-name color-333 font-lg">{{item.name}}</view>
+                  <view class="teacher-intro flex-box flex-a-center">
+                    <!-- <view class="teacher-level">星星</view> -->
+                    <!-- <view class="teacher-specialty color-333 font-md">健身服务</view> -->
+                    <view class="teacher-support flex-box flex-a-center">
+                      <view class="course-type font-base">团</view>
+                      <view wx:if="{{item.is_private == 1}}" class="course-type font-base">私</view>
+                    </view>
+                  </view>
+                  <view class="teacher-course flex-box flex-a-center">
+                    <view class="course-item font-sm color-66" wx:for="{{item.skill_list}}" wx:key="idx" wx:for-item="course" wx:for-index="idx" wx:if="{{idx < 3}}">{{course.name}}</view>
+                  </view>
+                  <view class="teacher-day-course flex-box flex-a-center" wx:if="{{item.work_years}}">
+                    <view class="course-name font-sm color-99">从业年数：{{item.work_years}}</view>
+                    <!-- <view class="course-type font-base">团</view> -->
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+      </swiper>
+      <!-- <scroll-view class="scroll-view" scroll-x="true" style="width: 100%;height:300rpx;">
+        <view class="teacher " wx:if="{{teacher.length}}">
+          <view class="teacher-item  teacher-item-{{item.isEmpty ? '' : item.idx}}" wx:for="{{teacher}}" wx:key='id' wx:for-item="item" bindtap="lookTeacher"
+            data-id="{{item.id}}" data-empty="{{item.isEmpty}}">
+            <image src="{{item.head_img}}" class="teacher-img"></image>
+            <view class="teacher-line teacher-line-{{item.idx}} "></view>
+            <view class="teacher-name">{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view> -->
+    </view>
+  </view>
+  <!-- 明星学员 -->
+  <view>
+    <view class="cadet-t teacher-tit">
+      <view class="title-l font-bold" style="font-weight:600;">明星学员</view>
+      <view class="title-r base-must-color flex-box flex-a-center" bindtap="look_rank">实时榜单 <image class="right-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220120/cd2fcae9bcdbec2a5e3dee777fdafab9.png"></image></view>
+    </view>
+    <view wx:if="{{student.length}}" class="cadet-container">
+      <view class="cadet">
+        <view class="cadet-item" wx:for="{{student}}" wx:for-item="it" wx:key='index'>
+          <image src="{{it.head_img}}" class="cadet-img flex-shrink"></image>
+          <view class="nickname">{{it.nickname}}</view>
+          <view class="times">本月打卡{{it.times}}次</view>
+        </view>
+  
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 弹窗 -->
+<view class="cover" bindtap="closeCover" wx:if="{{showCover}}" catchtouchmove="ture">
+</view>
+<view class="place" wx:if="{{showCover}}">
+  <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/e2be98d5045d6551870e892e5b161e2.png" class="place-bg"></image>
+  <image src="{{myInfo.head_img}}" class="head-img"></image>
+  <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/1778941696aff507150f103a08f48cd.png" class="head-decoration" wx:if="{{rank==1}}"></image>
+  <image src="/imgs/punch2.png" class="head-decoration" wx:if="{{rank==2}}"></image>
+  <image src="/imgs/punch3.png" class="head-decoration" wx:if="{{rank==3}}"></image>
+  <image src="/imgs/ribbon1.png" class="ribbon" wx:if="{{rank==1}}"></image>
+  <image src="/imgs/ribbon2.png" class="ribbon" wx:if="{{rank==2}}"></image>
+  <image src="/imgs/ribbon3.png" class="ribbon" wx:if="{{rank==3}}"></image>
+  <view class="punch">本月打卡次数</view>
+  <view class="punch-num">{{myInfo.times}} <text class="punch-unit">次</text> </view>
+  <view class="share" bindtap="get_poster">生成海报</view>
+</view>
+<view class="cover {{showPoster?'':'hidePoster'}}">
+  <painter use2D='{{false}}' id="poster" palette="{{template}}" bind:imgOK="onImgOK"
+    customStyle='position: absolute; left: -9999rpx;' />
+  <image mode="widthFix" src="{{poster}}" bindlongpress="saveImage" class="poster" />
+  <image src="/imgs/close.png" class="close" bindtap="closePoster"></image>
+</view>
+<!-- 添加到小程序 --> 
+<view wx:if="{{shareTips}}" class="add-mini-program " style="top:{{statusBarHeight + 36}}px">
+  <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/e6a49f8625460aba77f6681748187276.png" class="tips-bg"></image>
+  <view class="flex-box flex-a-center flex-j-center tips-text">
+      <view class="font-md color-white flex-box flex-a-center">点击右上角<image class="more-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211217/9aca39f2bd6cace3cd9e999dc6204059.png"></image> 添加到我的小程序</view>
+      <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/0c6509a020a31e6b40e4a3d3f6f8e753.png" class="close-cover" bindtap="closeShare"></image>
+  </view>
+  
+</view>
+<!-- 首屏图片 -->
+<view class="first-screen-cover" wx:if="{{showScreenCover}}">
+  <image class="first-cover" src="{{coverInfo.imgUrl}}"></image>
+  <view class="screen-cover-info">
+    <view class="flex-box flex-a-center flex-j-end" bindtap="updateScreenShow"><view class="close-first-cover font-md flex-box flex-a-center flex-j-between"><text style="margin-right:6rpx;">关闭</text><text wx:if="{{firstCount >= 0}}">{{firstCount}}s</text></view></view>
+    <view class="first-marks color-white"></view>
+    <view class="font-24 first-cover-title" style="color:{{coverInfo.color}}">@{{coverInfo.nickname}},<text>{{coverInfo.greetings}}</text></view>
+    <view wx:if="{{coverInfo.type != 3}}">
+      <view class="font-lg line-58-height" style="color:{{coverInfo.color}}">上一周</view>
+      <view class="font-lg line-58-height" style="color:{{coverInfo.color}}">你一共预约了<text class="font-weight">{{coverInfo.bookingNum}}</text>节课，签到<text class="font-weight">{{coverInfo.sign}}</text>节,<text wx:if="{{coverInfo.type == 2}}">旷课{{coverInfo.truant}}节</text></view>
+      <view class="font-lg line-58-height" style="color:{{coverInfo.color}}">你打败了场馆<text class="font-weight">{{coverInfo.recent}}%</text>的会员,上的最多</view>
+      <view class="font-lg line-58-height" style="color:{{coverInfo.color}}">的<text class="font-weight">{{coverInfo.courseName}}</text>;</view>
+    </view>
+    <view wx:if="{{coverInfo.type == 3}}" style="color:{{coverInfo.color}};width:90%;line-height:56rpx;">上一周，你未参与任何课程，优秀的人周均训练次数已达<text class="font-weight">4</text>次，成年人的放纵，从身材管理开始，趁年轻，不做旁观者，约课走起~</view>
+    <view class="font-lg line-58-height first-tips" style="color:{{coverInfo.color}};width:90%;">{{coverInfo.info}}</view>
+    <view class="font-lg line-58-height" style="color:{{coverInfo.color}}">{{coverInfo.info2}}</view>
+    <view class="first-marks color-white text-right"></view>
+  </view>
+</view>
+
+<!-- 公告通知 -->
+<view wx:if="{{showAnn}}" class="announce-shadow-box">
+  <view class="announce-content">
+    <image class="announce-head" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220120/8acf3d367d4c47bb587bad4c0c1c63cd.png"></image>
+    <scroll-view scroll-y="true" enhanced="true" show-scrollbar="true" class="scroll-height" style="height:{{announceList.length == 1 ? 'auto' : ''}}">
+      <view wx:for="{{announceList}}" wx:key="index" class="announce-item">
+        <view class="announce-item-title font-md color-333 font-weight">{{item.title}}</view>
+        <view class="announce-item-content font-md color-66">{{item.content}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <image class="close-img-btn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220120/ecd75c0c07fa12666ac6f32e2807071d.png" bindtap="closeAnnounce"></image>
+</view>
+
+<!-- 提示去评价 -->
+<view style="background:rgba(0,0,0,.7);" class="overlayer {{ showShadowlayer ? 'show' : ''}}"></view>
+
+<view wx:if="{{showCommentModel}}" class="comment-model-box flex-box flex-v-type flex-a-center flex-j-center">
+    <view class="comment-model">
+        <view class="comment-main flex-box flex-v-type flex-a-center flex-j-center">
+            <image class="comment-model-user-img" src="{{commentModel.avatar}}"></image>
+            <view class="font-md color-333 font-weight">{{commentModel.name}}</view>
+            <view class="font-md color-333 comment-inquiry">课程已结束,您对本节课还满意吗？</view>
+            <view class="comment-main-info common-relative">
+                <view class="common-relative">
+                    <image class="comment-main-bg" src="{{commentModel.course.cover}}"></image>
+                    <view style="background:rgba(0,0,0,.4);" class="image-shadow"></view>
+                  </view>
+                <view class="main-info">
+                  <view class="main-teacher-info flex-box flex-a-center">
+                    <image src="{{commentModel.course.avatar}}" class="flex-shrink"></image>
+                    <view class="font-md color-white font-weight">{{commentModel.course.name}}</view>
+                  </view>
+                  <view class="main-course-name font-sm color-white">{{commentModel.course.courseName}}</view>
+                  <view class="main-course-time font-sm color-white">{{commentModel.course.cuorseTime}} ({{commentModel.course.week}})</view>
+                </view>
+            </view>
+            <view class="main-comment-btn color-white comment-like font-md" data-type="2" bindtap="showEvaluate">满意,我要去鼓励下</view>
+            <view class="main-comment-btn comment-not-like font-md base-must-color" data-type="2" bindtap="showEvaluate">不满意,我要吐槽</view>
+        </view>
+    </view>
+    <image class="comment-model-closeBtn" bindtap="toggleClose" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220215/7e767ff791085daa547a9c9679600c8e.png"></image>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{0}}"></tab-bar>
+<!-- <view class="cell">
+  <cell bind:startmessage='startmessage' bind:completemessage="completemessage"
+    plugid='ef7dc5020bf2438e4908bd67f86d65f1' styleType='2' class="cell-btn" serviceText='1'>联系我们</cell>
+</view> -->

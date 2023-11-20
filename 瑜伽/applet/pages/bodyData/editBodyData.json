@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-dialog": "@vant/weapp/dialog/index"
+    },
+    "navigationBarTitleText": "体测数据",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

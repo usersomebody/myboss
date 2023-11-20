@@ -1,0 +1,88 @@
+<!--pages/mycard/mycard.wxml-->
+<view class="container">
+  <view class="common-relative">
+    <image class="vip-card-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/vip-card.png"></image>
+    <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="../../imgs/arrow-r.png"></image></view>
+    <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">我的会员卡</view>
+  </view>
+  <swiper indicator-dots="{{swiper.indicatorDots}}" previous-margin="{{swiper.left}}" next-margin="{{swiper.margin}}" bindchange="sliding_choice" style="margin-top:-220rpx;">
+    <block wx:for="{{cardarrList}}" wx:key="index">
+      <swiper-item class="categories">
+        <view class="date-item ">
+            <view class="date_item_list ">
+              <view class="name bg{{item.type}}"><text>{{item.card_type_name}}</text></view>
+              <view class="surplus_day bg{{item.type}}">
+                <text>{{cardTypeInfo[item.type].name}} </text>
+                <text>{{item.type == 1 && item.is_unlimited == 1 ? '长期有效' : item[cardTypeInfo[item.type].key]}}{{item.type == 1 && item.is_unlimited == 1 ? '' : cardTypeInfo[item.type].symbol}} </text>
+              </view>
+              <view wx:if="{{item.status == 5}}" class="indate bg{{item.type}}">有效期：0000-00-00 ~ 0000-00-00</view>
+              <view wx:elif="{{item.is_unlimited == 1}}"  class="indate bg{{item.type}}">有效期：长期有效</view>
+              <!-- <view class="indate bg{{item.type}}" wx:if="{{item.is_unlimited == 1 || item.status == 5}}">有效期: 0000-00-00 ~ 0000-00-00</view> -->
+              <view wx:else class="indate bg{{item.type}}">有效期:{{item.use_start_time}}~{{item.use_end_time}}</view>
+            </view>
+            <image src="{{cardType[item.type]}}"></image>
+            <view class="absolute_status bgcolor{{item.type}}"><text>{{item.cardStatusName}}</text></view>
+          </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="nav">
+    <view class="nav_date">
+      <picker mode="date" value="" start="" end="" bindchange="changedate" fields="month">
+        <view class="picker_year"></view>
+        <view class="picker_day">
+        <text class="font-lg">{{showYear}}年{{showDay}}</text>
+        <text>月</text>
+        <image src="/imgs/arrow-b.png"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="nav_tit">
+      <view class="nav_tit_item">
+        <text class="font-lger base-color font-weight">{{ expenseList.subscribe ? expenseList.subscribe : 0 }}</text>
+        <view class="font-lg">预约<text class="font-md">(节)</text></view>
+      </view>
+      <view class="nav_tit_item">
+        <text class="font-lger base-color font-weight">{{ expenseList.sign ? expenseList.sign : 0 }}</text>
+        <view class="font-lg">签到<text class="font-md">(节)</text></view>
+      </view>
+      <view class="nav_tit_item clear_margin">
+        <text class="font-lger base-color font-weight">{{ expenseList.cancel?expenseList.cancel : 0 }}</text>
+        <view class="font-lg">取消<text class="font-md">(节)</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content_tit">消费记录</view>
+   
+    <block wx:if="{{consumption_record.length!==0}}">
+      <view class="cont_list " wx:for="{{consumption_record}}" wx:for-item="item" wx:key='index'
+        data-idx="{{index}} ">
+        <!-- <image class="cont_l cont_item flex-shrink" src="{{item.staff_head}}" wx:if="{{item.type>5 && item.staff_head }}"> </image>
+        <image class="cont_l cont_item" src="{{avatarUrl}}" wx:else> </image> -->
+        <view class="cont_m cont_item">
+          <view class="bold font-bold">{{statusMap[item.type].type == 1 ? item.course_name : statusMap[item.type].name}}</view>
+          <view class="cont_mm" wx:if="{{index != consumption_record.length - 1 && statusMap[item.type].type == 1}}">上课时间：{{item.course_arrange_start_time}} {{item.course_arrange_end_time ? '~' + item.course_arrange_end_time : ''}}</view>
+          <view wx:if="{{statusMap[item.type].type == 1}}">{{item.type == 3 ? '取消' : '预约'}}时间：{{item.create_time}}</view>
+          <view wx:if="{{statusMap[item.type].type == 2}}">{{statusMap[item.type].name}}时间：{{item.create_time}}</view>
+        </view>
+        <view class="cont_r cont_item">
+          <view class="font-lg color-333"><text>{{item.render_symbol}}</text><text>{{item.render_time_type}}</text></view>
+          <view class="font-md color-99">{{item.render_time_remain_type}}</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <!-- <image class="no-data-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210901/6a813c30030c2e985e157c0a4ea8739b.png"></image> -->
+      <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/326881e3dc5c565856fdaeb46bdbd74a.png" top="100rpx"></no-data-cover>
+      <view class="text" wx:if="{{card_status=='4'}}">卡片当前已失效，续/办卡请联系场馆~</view>
+      <view class="text" wx:if="{{card_status=='2'}}">卡片当前已被禁用，恢复请联系场馆~</view>
+      <view class="text" wx:if="{{card_status=='3' && card_is_leave==0}}">卡片当前处于停卡状态，恢复请联系场馆~</view>
+      <view class="text" wx:if="{{card_status=='5'}}">卡片还未激活哦，如需激活使用该卡片约课即可~</view>
+      <!-- <view class="text" wx:if="{{card_status=='1'}}">哇哦~本月居然还没有预约的课程</view> -->
+      <view class="text" wx:if="{{card_status=='3' && card_is_leave==1}}">卡片当前处于请假状态~</view>
+      <view class="button" wx:if="{{(card_status=='1'||card_status=='5') && card_type != 1}}" bindtap="go_classappmont">预约课程</view>
+      <!-- <view class="button" wx:if="{{expenseList.cardstatus==1}}&&{{expenseList.cardstatus==2}}">联系场馆</view> -->
+    </block>
+  </view>
+</view>

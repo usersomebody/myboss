@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "pre-auth": "/components/preAuth/index"
+    },
+    "navigationBarTitleText": "提现",
+    "navigationBarTextStyle": "black"
+  }

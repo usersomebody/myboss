@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-dialog": "@vant/weapp/dialog/index",
+    "no-data-cover":"/components/no-data/index"
+  },
+  "navigationBarTitleText": "请假",
+  "navigationBarBackgroundColor": "#A37FFC",
+  "navigationBarTextStyle": "white"
+}

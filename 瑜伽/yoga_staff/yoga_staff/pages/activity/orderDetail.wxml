@@ -1,0 +1,103 @@
+<view class="container">
+    <!-- 搜索 -->
+    <view wx:if="{{activityType ==4 }}" class="search-box flex-box flex-a-center">
+        <view class="input-box flex-box flex-a-center">
+            <image class="search-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/6ea8b786b2c88c95c219e3916e7eb6d3.png"></image>
+            <view class="search-type common-relative">
+                <view class="search-type-name font-md color-5f5" bindtap="toggleSearchType">{{search_type == 1 ? '昵称' : '兑奖码'}}</view>
+                <view class="search-type-list" wx:if="{{showSearchType}}">
+                    <view class="search-type-name font-md {{search_type == item.id ? 'active' : ''}}" wx:for="{{searchType}}" wx:key="index" data-type="{{item.id}}" bindtap="selectSearchType">{{item.name}}</view>
+                </view>
+            </view>
+            <input class="search-input color-999" type="text" placeholder="{{search_type == 1 ? '请输入用户呢称' : '请输入兑奖码'}}" placeholder-class="font-md color-b3b" bindinput="getSearchVal"/>
+        </view>
+        <view class="search-btn color-333 font-md" bindtap="searchData">搜索</view>
+    </view>
+    <view class="order-data">
+        <view class="order-chart bg-white flex-box flex-a-center">
+            <view class="left">
+                <view class="browse flex-box flex-a-center" wx:for="{{orderData}}" wx:key="index">
+                    <view class="title font-sm white-space" style="color:{{item.color}}">{{item.title}}</view>
+                    <view class="line {{item.type}}" style="background:{{item.bg}}"></view>
+                    <view class="common-relative">
+                        <image class="img {{item.type}}" src="{{item.cover}}"></image>
+                        <view class="color-white font-md count">{{item.number}}</view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{activityType !=4 }}" class="right">
+                <view class="font-sm color-333">活动收益金额</view>
+                <view class="font-lg color-fc8" style="margin:16rpx 0;">{{success_money}}</view>
+                <view class="font-base color-333">单位：元</view>
+            </view>
+            <view wx:if="{{activityType == 4}}">
+                <view wx:for="{{activity_prize}}" wx:key="index"  wx:if="{{index < 3}}" class="activity-prize-item flex-box flex-a-center color-b3b font-sm white-space"><text class="prize-name">{{item.name_copy}}</text> <text class="font-md color-333" style="margin-left:10rpx;">{{item.consume_number}}/{{item.number}}</text></view>
+                <view wx:if="{{activity_prize.length > 3}}" class="base-color font-md" bindtap="togglePrizeList">查看奖品详情</view>
+            </view>
+        </view>
+        <view class="order-list">
+            <view wx:if="{{activityType !=4 }}" class="li-item" wx:for="{{list}}" wx:key="index">
+                <view class="order-number color-333 font-sm flex-box flex-a-center flex-j-between">
+                    <view>订单编号：</view>
+                    <view>{{item.order_sn}}</view>
+                </view>
+                <view class="order-detail flex-box flex-a-center flex-j-beween">
+                    <view class="order-cover flex-box flex-a-center">
+                        <image class="flex-shrink" src="{{item.head_img}}"></image>
+                        <view class="content">
+                            <view class="user color-333 font-sm">{{item.user_name}} ({{item.is_member == 1 ? '会员' : '非会员'}})</view>
+                            <view class="flex-box flex-a-center flex-j-between content-bottom">
+                                <view class="price font-sm color-666">付款：<text class="color-fa4">{{item.buy_price}}</text></view>
+                                <view class="order-time color-333 font-base">{{item.create_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{activityType ==4 }}" class="lucky-draw-item bg-white" wx:for="{{list}}" wx:key="index">
+                <view class="lucky-item-info flex-box flex-a-center flex-j-between">
+                    <view class="info-left flex-box flex-a-center">
+                        <image src="{{item.head_img}}" class="win-user-avatar flex-shrink"></image>
+                        <view class="win-user-name color-333 font-md">{{item.user_name}}</view>
+                    </view>
+                    <!-- wx:if="{{item.redeem_status == 1}}" -->
+                    <view wx:if="{{item.redeem_status == 1}}" class="info-right color-white font-md" data-id="{{item.id}}" data-name="{{item.user_name}}"  data-number="{{item.redeem_number}}" bindtap="getInfo">兑换</view>
+                </view>
+                <view class="color-666 font-md">奖品名称: 获得{{item.prize_name}}</view>
+                <view class="color-666 font-md">抽奖时间：{{item.create_time}}</view>
+                <view class="color-666 font-md">兑奖码：{{item.redeem_number}}</view>
+                <view class="color-666 font-md">兑奖状态：{{item.redeem_status == 1 ? '未兑换' : '已兑换'}}</view>
+                <view wx:if="{{item.redeem_status == 2}}" class="color-666 font-md">兑奖时间：{{item.create_time}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<view wx:if="{{showCovert}}" class="common-fixed covert-box">
+    <view class="covert-content">
+        <view class="font-lg color-333 text-center">确认兑换</view>
+        <view class="font-md color-333 covert-user-name p-l-50">用户昵称：{{numberInfo.name}}</view>
+        <view class="covert-number flex-box flex-a-center p-l-50">
+            <view class="font-md color-333">兑奖码：</view>
+            <view class="flex-box flex-a-center">
+                <view class="font-md color-333 font-weight">{{numberInfo.showNumber}}</view>
+                <input class="input-covert-box" type="number" maxlength="2" bindinput="getCovertNumber"/>
+            </view>
+        </view>
+        <view class="covert-btn flex-box flex-a-center">
+            <view class="cancle font-lg" bindtap="toggleCvertBox">取消</view>
+            <view class="sure font-lg" bindtap="checkNumber">确认</view>
+        </view>
+    </view>
+</view>
+
+<!-- 中奖详情 -->
+<view wx:if="{{showPrizeList}}" class="common-fixed covert-box">
+    <view class="covert-content">
+        <view class="font-lg color-333 text-center">奖品详情</view>
+        <view class="prize-list">
+            <view wx:for="{{activity_prize}}" wx:key="index" class="prize-li font-md color-333 flex-box flex-a-center flex-j-between"><text>{{item.name}}</text><text class="font-md color-333" style="margin-left:10rpx;">{{item.consume_number}}/{{item.number}}</text></view>
+        </view>
+        <view class="prize-btn font-lg" bindtap="togglePrizeList">知道了</view>
+    </view>
+</view>

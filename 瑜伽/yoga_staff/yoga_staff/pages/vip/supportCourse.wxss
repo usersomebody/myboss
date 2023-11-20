@@ -1,0 +1,50 @@
+.course-list{
+    padding:0  32rpx;
+}
+.course-item{
+    padding:28rpx 0;
+    border-bottom:1rpx solid #ececec;
+}
+.right-icon{
+    width:10rpx;
+    height:18rpx;
+    margin-left:24rpx;
+}
+.switch-item{
+    margin-right:60rpx;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #7D49FB !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c2c6cc!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+.add-btn{
+    margin-top:84rpx;
+}
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}

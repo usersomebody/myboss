@@ -1,0 +1,48 @@
+<import src="../../components/loading/index.wxml" />
+
+<view class="container">
+    <view class='type-list bg-white flex-box flex-a-center flex-j-around'>
+        <view class="type-item color-666 font-md {{ checkedId == item.id ? 'active font-weight' : ''}}" wx:for="{{courseType}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+    </view>
+    <view class="status common-relative flex-box flex-a-center flex-j-end">
+        <view class="status-type flex-box flex-a-center flex-j-center" bindtap="showStatus">
+            <view class="font-md color-white">{{statusName}}</view>
+            <image class="{{statusShow ? 'icon-style-active' : ''}} selectIcon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/d1cd740ecbda5df645ec43c1f2be773b.png"></image>
+        </view>
+        <view wx:if="{{statusShow}}" class="status-type-list">
+            <view class="status-item font-md color-999 text-center {{statusId == item.id ? 'active' : ''}}" wx:for="{{statusArr}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="getStatus">{{item.name}}</view>
+        </view>
+    </view>
+    <view class="course-list">
+        <block wx:if="{{list.length}}">
+            <view class="list-item bg-white common-relative" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-sid="{{item.store_id}}" data-type="2" bindtap="goDetail">
+                <view class="header flex-box flex-a-center">
+                    <view class="course-left color-333 font-lg common-relative">
+                        <image src="{{item.img}}"></image>
+                        <view class="cardType-name font-sm" style="color:{{cardType[item.type].color}}">{{cardType[item.type].name}}</view>
+                    </view>
+                    <view class="course-right color-666 font-md">
+                        <view class="font-md color-333 two-line {{item.type == 1 ? 'typeOne' : ''}}">{{item.name}}</view>
+                        <view class="font-sm color-666">售卖金额：{{item.price}}</view>
+                        <view wx:if="{{item.type != 1}}" class="font-sm color-666">卡内额度：{{item[cardType[item.type].key]}}</view>
+                        <view class="font-sm color-666">使用天数：{{item.day}}</view>
+                    </view>
+                </view>
+                <view class="footer flex-box flex-a-center flex-j-end"><image class="use-people-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211217/6f99df15783ca8141185eeb6be98ce2f.png"></image><view class="font-sm color-999">{{item.card_user_num}}人在使用</view></view>
+                <image wx:if="{{statusId == 2}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/9e7a766053566bd7c9e43c3660a50b17.png" class="stop-card"></image>
+            </view>
+        </block>
+        <block wx:if="{{!list.length && isLast}}">
+            <view class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/cf26c677ddd15ece873e7513ec2a85e0.png"></image>
+                <view class="font-sm color-999">暂无数据</view>
+            </view>
+        </block>
+    </view>
+    <view class="addVipCard" bindtap="goDetail" data-type="1">
+        <image class="add-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/3a5abd6b221783c81aac8584f9069bc9.png"></image>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>

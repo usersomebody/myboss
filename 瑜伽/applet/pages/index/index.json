@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "painter": "/components/painter/painter",
+    "tab-bar": "/components/tab-bar/tabbar",
+    "flash-sale":"/components/flashSale/index"
+  },
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,22 @@
+<view class="container">
+    <view class="container-box common-relative">
+        <image class="bg-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220608/3b1e796bd2a0f14487cc73f7b093c045.png"></image>
+        <view class="service-qr-code ">
+            <view class="flex-box flex-a-center flex-j-center flex-v-type">
+                <image 	show-menu-by-longpress="{{true}}" class="qr-code" src="{{serviceInfo.customer_service_qrcode}}"></image>
+                <view class="color-51 font-lg m-t-20 padding-b-60">微信扫一扫添加客服</view>
+            </view>
+            <view class="service-mobile flex-box flex-a-center flex-j-between bg-white">
+                <view class="service-mobile-left flex-box flex-a-center">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220608/2f74f97474221af9ce80ea96a6ef5f09.png" class="mobile-icon"></image>
+                    <view>
+                        <view class="mobile-title color-51 font-lg">客服热线</view>
+                        <view class="mobile-num color-137 font-sm">{{serviceInfo.customer_service_link}}</view>
+                    </view>
+                </view>
+                <view class="service-mobile-right" bindtap="callPhone">立即拨打</view>
+            </view>
+        </view>
+        
+    </view>
+</view>

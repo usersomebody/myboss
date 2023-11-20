@@ -1,0 +1,488 @@
+/* pages/classAppointment/classAppointment.wxss */
+page{
+  background:#FBFBFB;
+}
+.container{
+}
+.pd-x{
+  padding-bottom:168rpx;
+}
+.pd-un{
+  padding-bottom:100rpx;
+}
+.categories {
+  width: 750rpx;
+  height: 160rpx;
+  white-space: nowrap;
+  display: flex;
+  padding: 16rpx 20rpx 0;
+  box-sizing: border-box;
+}
+
+.date-item {
+  width:90rpx;
+  display: inline-block;
+  text-align: center;
+  padding:20rpx 6rpx;
+}
+
+.date-item .week {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #666666;
+  margin-bottom: 14rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.date-item .week-checked {
+  color: #21DBC3;
+}
+.date-item.checked-date{
+  border-radius:16rpx;
+  color:#C7A9FF!important;
+}
+.base-must-color{
+  color:#C7A9FF!important;
+  
+}
+.base-must-bg{
+  background: rgba(199, 169, 255, 0.19);
+  border-radius:16rpx;
+  
+}
+.date-item .date {
+  font-size: 28rpx;
+  font-family: SF Pro Display;
+  color: #999999;
+  width:90rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  border-radius:60rpx;
+}
+
+.date-item .date-checked {
+  background: #21DBC3;
+  border-radius: 50%;
+  color: #fff;
+}
+.nav-padding{
+  padding:32rpx 30rpx 12rpx;
+}
+
+.nav {
+  display: flex;
+  padding: 18rpx 4rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius:40rpx;
+}
+
+.nav-item {
+  white-space: nowrap;
+  padding:0 46rpx;
+  border-right: 2rpx solid #E8E8E8;
+  display:flex;
+  align-items: center;
+}
+
+.nav-item:last-child{
+  border-right:none;
+}
+
+.nav-checked {
+  color:#8F33FF!important;
+  font-size:36rpx;
+}
+
+/* 团课 */
+.lesson-item {
+  position: relative;
+  width: 702rpx;
+  height: 336rpx;
+  margin: 0 auto 24rpx;
+}
+
+.lesson-item .lesson-bg {
+  width: 702rpx;
+  height: 336rpx;
+  border-radius:16rpx;
+}
+
+.lesson-content {
+  width: 702rpx;
+  height: 336rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  z-index: 88;
+  color: #fff;
+}
+
+.teacher {
+  display: flex;
+  align-items: center;
+  margin-bottom: 52rpx;
+}
+
+.head-img {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.lesson-name {
+  line-height: 50rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+}
+
+.lesson-time {
+  margin-top: 8rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 30rpx;
+}
+.lesson-item text{
+  /* width: 196rpx; */
+height: 42rpx;
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 42rpx;
+color: #FFFFFF;
+margin-left: 24rpx;
+opacity: 1;
+}
+
+.lesson-address {
+  margin-top: 8rpx;
+  line-height: 42rpx;
+  height: 42rpx;
+  font-size: 24rpx;
+}
+
+.lesson-status {
+  width: 124rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  background: #0DBD47;
+  opacity: 1;
+  border-radius: 40rpx 0px 0px 40rpx;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  top:30rpx;
+  right: 0;
+}
+
+.full {
+  background: #FA4F3B;
+  z-index: 98;
+}
+
+.nervous {
+  background: #FFBC0B;
+}
+.arranged{
+  background-color: #FFA987;
+}
+.overdue{
+  background-color: #9c9c9c;
+}
+/* 私教 */
+.personal-item {
+  width: 702rpx;
+  height: 136rpx;
+  background: #FFFFFF;
+  margin: 0 auto 24rpx;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.personal-teacher {
+  margin-bottom: 0;
+}
+
+.personal-lesson .lesson-time {
+  margin-top: 24rpx;
+}
+
+/* 暂无排课 */
+.nodata {
+  margin-top: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nodata .no-lesson {
+  width: 624rpx;
+  height: 262rpx;
+}
+
+.nodata .tip1 {
+  margin-top: 62rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #000000;
+}
+
+.nodata .tip2 {
+  margin-top: 18rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #999999;
+}
+
+.nodata .experience {
+  width: 420rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #fff;
+  background: #21DBC3;
+  margin-top: 70rpx;
+  border-radius: 48rpx;
+  text-align: center;
+}
+
+/* 弹窗 */
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+
+.hide {
+  display: none;
+}
+
+/* 体重信息 */
+.weigh_nodata {
+  margin-top: 190rpx;
+  width: 590rpx;
+  height: 487rpx;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.weigh_info {
+  margin-top: 190rpx;
+  width: 590rpx;
+  height: 487rpx;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.weigh_data {
+  width: 590rpx;
+  height: 487rpx;
+}
+
+.weighInfo-content {
+  position: absolute;
+  top: 0;
+  z-index: 188;
+  padding: 0 61rpx;
+  box-sizing: border-box;
+}
+
+.weighInfo-content .weigh,
+.weighInfo-content .height {
+  height: 31rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.weighInfo-content .weigh {
+  margin-top: 158rpx;
+}
+
+.weighInfo-content .height {
+  margin-top: 61rpx;
+}
+
+.weigh_num {
+  height: 43rpx;
+  line-height: 43rpx;
+  font-size: 60rpx;
+  font-family: DINPro;
+  font-weight: bold;
+  color: #21DBC3;
+  margin-top: 21rpx;
+}
+
+.weigh_num .unit {
+  font-size: 36rpx;
+  font-family: DINPro;
+  font-weight: 400;
+  color: #21DBC3;
+  margin-left: 9rpx;
+}
+
+.weigh_no_num {
+  height: 34rpx;
+  font-size: 36rpx;
+  font-weight: 400;
+  color: #CCCCCC;
+  margin-top: 30rpx;
+}
+
+.close {
+  width: 48rpx;
+  height: 48rpx;
+  margin:  30rpx auto;
+}
+.noclass{
+  width: 350rpx;
+  height: 325rpx;
+  margin: 110px auto 20px;
+}
+.nocourse{
+  color: #999;
+  text-align: center;
+}
+
+.typeActive{
+  color:#333;
+  font-size:32rpx;
+}
+.img-active{
+  transform:rotate(180deg);
+}
+.type-content{
+  padding:0 30rpx 60rpx;
+  /* background:#ffffff; */
+}
+.switchTab .type:first-child{
+  padding-right:40rpx;
+}
+.box-fixed{
+  top:0;
+  z-index:99;
+  background:#fff;
+}
+.color-999{
+  color:#999;
+}
+.color-666{
+  color:#666;
+  
+}
+
+.bg-shadow{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%); */
+  /* background: linear-gradient(180deg, rgba(207, 215, 233, 0.7) 0%, rgba(1, 95, 172, 0.7) 100%); */
+  background: linear-gradient(180deg, rgba(235, 212, 212, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
+  /* background: linear-gradient(180deg, rgba(194, 173, 229, 0.7) 0%, rgba(86, 29, 195, 0.7) 100%); */
+  /* background: rgba(0, 0, 0, 0.4); */
+  border-radius:16rpx;
+}
+.personal-trainer{
+  padding:0 30rpx;
+}
+.trainer-item{
+  border-radius:20rpx;
+  background: url(https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210906/8b0c20a4ccab302097eb03efc990ef85.png) no-repeat;
+  background-size: cover;
+  margin-bottom:32rpx;
+}
+.trainer-item:last-child{
+  margin-bottom:0;
+}
+.trainer-header{
+  padding:34rpx 30rpx 20rpx;
+}
+.teacher-info .avatar{
+  width:80rpx;
+  height:80rpx;
+  /* border:6rpx solid #fff; */
+  border-radius:50%;
+  margin-right:24rpx;
+}
+.teach-course{
+  position: absolute;
+  right:0;
+  width:152rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  background:#FA4F3B;
+  border-radius: 40px 0px 0px 40px;
+  text-align: center;
+}
+.trainer-list{
+  padding:26rpx 60rpx 26rpx 40rpx;
+  border-top:4rpx dashed rgba(255,255,255,.3);
+}
+.trainer-list-item{
+  margin-bottom:50rpx;
+}
+.trainer-list-item:last-child{
+  margin-bottom:0;
+}
+.course-book{
+  width:98rpx;
+  height:34rpx;
+  line-height: 34rpx;
+  background:#9169FB;
+  text-align: center;
+  border-radius:24rpx;
+}
+
+.trainer-shadow{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,.5);
+  pointer-events: none;
+  border-radius: 20rpx;
+}
+.overdue_style{
+  background:#999;
+}
+.course-store-dingwei{
+  width:22rpx;
+  height:26rpx;
+  margin-right:10rpx;
+}
+.describe_r .booking-personal{
+  margin-left:0;
+}
+.course-stars{
+  color:#FFBB38!important;
+  letter-spacing: 2px;
+  font-size:32rpx!important;
+}
+.course-start-time{
+  position: absolute;
+  bottom: 0;
+  top: 37rpx;
+  right: 156rpx;
+}
+.address-icon{
+  width: 20rpx;
+  height: 25rpx;
+  margin-right:10rpx;
+}

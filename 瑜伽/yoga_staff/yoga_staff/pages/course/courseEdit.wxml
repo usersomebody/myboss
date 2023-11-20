@@ -1,0 +1,58 @@
+<view class="container">
+    <view class="li  flex-a-center flex-j-between {{ item.key == 'consume' || item.key == 'cover_img' ? '' : 'flex-box'}} {{ index == list.length - 1 ? 'border-none' : ''}} {{ item.key == 'min_user' ? 'item-must-style' : ''}}" wx:for="{{list}}" wx:key="index">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="flex-box flex-a-center {{ item.key == 'consume' || item.key == 'cover_img' ? '' : 'item-value'}}" data-item="{{item}}" bindtap="toggelePopup">
+            <!-- input输入框 -->
+            <view wx:if="{{item.isInput}}" class="{{item.isHandle ? 'value-placeholder' : 'value-nohandle-placeholder'}} font-md color-999 "><input always-embed="{{true}}" class="text-right color-504" type="text" placeholder="{{item.placeholder}}" placeholder-class="color-999" value="{{item.value}}" data-key="{{item.key}}" disabled="{{item.disable}}" bindblur="getNumberValue"/></view>
+            <!-- 图片上传 -->
+            <view wx:elif="{{item.key == 'cover_img'}}" class="upload" style="margin-top:20rpx;">
+                <view wx:if="{{!item.value}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                    <view class="font-lg">+</view>
+                    <view>上传图片</view>
+                </view>
+                <image wx:else src="{{item.value}}" bindtap="getImg"></image>
+                <view class="tailoring" wx:if="{{imgSrc}}">
+                    <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                    
+                    <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                    <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                </view>
+            </view>
+            <!-- input输入 对比框 -->
+            <view wx:elif="{{item.key == 'consume'}}" class="flex-box flex-a-center" style="margin-top:20rpx;">
+                <view class="font-md color-333 flex-box flex-a-center" style="margin-right:30rpx;"><input class="consume-box color-504" type="text" data-key="consume" data-subkey="time" value="{{item.value}}" disabled="{{item.disable}}"  bindblur="getNumberValue"/><view>次</view></view>
+                <view class="font-md color-333 flex-box flex-a-center"><input class="consume-box color-504" type="text" data-key="consume" bindblur="getNumberValue" value="{{item.money}}" data-subkey="money" disabled="{{item.disable}}" /><view>元</view></view>
+            </view>
+            <!-- start 星星 -->
+            <view wx:elif="{{item.key == 'difficulty_star'}}" class="start">
+                <van-rate  
+                value="{{ item.value }}"
+                size="{{ 15 }}"
+                color="#ffd21e"
+                void-icon="star"
+                void-color="#eee"
+                readonly="{{item.disable}}"
+                bind:change="onChange" />
+            </view>
+            <!-- 支持卡 -->
+            <view wx:elif="{{item.key == 'support_cards' && supportCardList.length}}" class="support-card">
+                <view class="card-item font-md color-504" wx:for="{{supportCardList}}" wx:key="index">
+                    <view wx:for="{{item.ids}}" wx:for-index="idx" wx:for-item="itm" wx:key="idx" class="card-item font-md color-504 text-right">{{itm.name}}</view>
+                </view>
+            </view>
+            <!-- textarea输入框 -->
+            <view wx:elif="{{item.key != 'synopsis'}}" class="{{item.isHandle ? 'value-placeholder' : 'value-nohandle-placeholder'}} font-md {{item.value ? 'color-504' : 'color-999'}}">
+                <view wx:if="{{item.key == 'color'}}" class="color-block" style="background:{{item.value}}"></view>
+                <view wx:else>{{item.value ? item.value : item.placeholder}}</view>
+            </view>
+            <view wx:else class="{{item.isHandle ? 'value-placeholder' : 'value-nohandle-placeholder'}} font-md color-999"><textarea always-embed="{{true}}" class="memo" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="synopsis"  disabled="{{item.disable}}"  bindinput="getMemoValue"></textarea></view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view class="add-btn" wx:if="{{isAction == 2 && isSameStore}}">
+        <view class="cancle btn font-lg" bindtap="cancle">{{editId ? '删除' : '返回' }}</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">{{editId ? '保存' : '添加' }}</view>
+    </view>
+</view>
+
+<common-popup class="component-popup" wx:if="{{popupShow && popupData.list.length}}" name="{{popupData.name}}" list="{{popupData.list}}" key="{{popupData.key}}" selectId="{{popupData.selectId}}" valName="{{popupData.value}}" bind:updataData="updateSelectData"></common-popup>

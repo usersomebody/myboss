@@ -1,0 +1,67 @@
+<view class="container">
+    <view class="my-bg common-relative">
+        <image class="my-bg-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/aa91614cb006f16514bee07043ff5501.png"></image>
+        <view class="my-info flex-box flex-a-center">
+            <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+            <view class="name font-20">{{userInfo.nickName}}</view>
+        </view>
+    </view>
+    <!-- 联盟推客账号 -->
+    <view class="push-customer-account common-relative"  bindtap="goCustomer">
+        <image class="account-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/390f651e25f30a339c48e18cfeee77c9.png"></image>
+        <view class="account-info flex-box flex-a-center flex-j-between">
+            <view class="account-left color-117 font-lg font-weight">{{!promoterCount.count ? '您还没有绑定联盟推客账号' : '我的推客账号'}}</view>
+            <view class="account-right flex-box flex-a-center">
+                <view class="color-132 font-lg font-weight" wx:if="{{!promoterCount.count}}">去绑定</view>
+                <image class="right-icon" src='https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/90aa267edd9fcfe54bb421b1da377fe1.png'></image>
+            </view>
+        </view>
+    </view>
+    <!-- 免费领样 -->
+    <view class="common-box bg-white">
+        <view class="common-head flex-box flex-a-center flex-j-between">
+            <view class="font-lg color-51">免费领样</view>
+            <image class="right-go" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/06f3ea8b239d4e5e999ba5b1ddad3b8a.png"></image>
+        </view>
+        <view class="common-content flex-box flex-a-center flex-j-around">
+            <view class="order-status-item" wx:for="{{freeStatusList}}" wx:key="index" data-id="{{item.id}}" data-type="1" bindtap="goOrder">
+                <view class="font-lg color-51 margin-b-12">{{item.value}}</view>
+                <view class="font-md color-102">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 成本领样 -->
+    <view class="common-box bg-white">
+        <view class="common-head flex-box flex-a-center flex-j-between">
+            <view class="font-lg color-51">成本领样</view>
+            <image class="right-go" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/06f3ea8b239d4e5e999ba5b1ddad3b8a.png"></image>
+        </view>
+        <view class="common-content flex-box flex-a-center flex-j-around">
+            <view class="order-status-item" wx:for="{{costStatusList}}" wx:key="index" data-id="{{item.id}}" data-type="2" bindtap="goOrder">
+                <van-icon wx:if="{{item.num > 0}}" name="{{item.icon}}" info="{{item.num}}" color="rgb(252, 86, 57)" size="24px" class="margin-b-12"/>
+                <van-icon wx:else name="{{item.icon}}" color="rgb(252, 86, 57)" size="24px" class="margin-b-12"/>
+                <view class="font-md color-102">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 设置列表 -->
+    <view class="setting">
+        <view class="common-set-item bg-white flex-box flex-a-center flex-j-between" bindtap="goAddress">
+            <view class="setting-left flex-box flex-a-center">
+                <image class="setting-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/2ef56abc453c467c4474779f86be2256.png"></image>
+                <view class="font-lg color-51">地址管理</view>
+            </view>
+            <image class="right-go" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/06f3ea8b239d4e5e999ba5b1ddad3b8a.png"></image>
+        </view>
+        <view class="common-set-item bg-white flex-box flex-a-center flex-j-between" bindtap="goService">
+            <view class="setting-left flex-box flex-a-center">
+                <image class="setting-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/6c24f68d7e6d9a3237a1ba4a114acf8d.png"></image>
+                <view class="font-lg color-51">联系客服</view>
+            </view>
+            <image class="right-go" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/06f3ea8b239d4e5e999ba5b1ddad3b8a.png"></image>
+        </view>
+    </view>
+</view>
+<pre-auth wx:if="{{show_pre_auth_pannel}}"/>
+<!-- 公共tabbar -->
+<tab-bar selected="{{1}}"></tab-bar>

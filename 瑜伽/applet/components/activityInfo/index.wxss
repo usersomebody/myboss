@@ -1,0 +1,30 @@
+@import "../../common.wxss";
+.goods-info{
+    padding:32rpx 30rpx;
+    background:#fff;
+}
+.goods-img{
+    margin-right:20rpx;
+}
+.good-info{
+    flex:1;
+}
+.good-info .card-name{
+    display:inline-flex;
+    padding:4rpx 10rpx;
+    background: #FFF2F1;
+    border-radius: 8rpx;
+    margin-top:12rpx;
+    margin-bottom:48rpx;
+}
+.goods-img image{
+    width:180rpx;
+    height:180rpx;
+    border-radius:8rpx;
+}
+.buy_price{
+    margin-right:16rpx;
+}
+.color-e83{
+    color:#E83926;
+}

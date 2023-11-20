@@ -1,0 +1,98 @@
+page{
+    background: #F4F5F4;
+    }
+    .poster{
+        position: relative;
+        height:100vh;
+        overflow: hidden;
+    }
+    
+    
+    .poster image{
+        margin:auto;
+    }
+    .copy-extend-text{
+        padding:20rpx 30rpx;
+        background:#fff;
+    }
+    .copy{
+        padding:20rpx;
+        border:1px solid #EDECF0;
+        background:#F9FAFB;
+        color:#9B9B9B;
+        margin:20rpx 0;
+    }
+    .flex-end{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .copy-btn{
+        display:inline-block;
+        padding:4rpx 14rpx;
+        border-radius:24rpx;
+        color:#fff;
+    }
+    .canvas{
+        position: absolute;
+        top:0;
+        left:100%;
+        background:rgba(0,0,0,0)
+    }
+    .iphonex{
+        margin-bottom:68rpx;
+    }
+    .fixed-mask {
+        position: fixed;
+        z-index: 3000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      
+      .pre-login-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pre-login-main {
+        box-sizing: border-box;
+        padding-top: 22rpx;
+        width: 80%;
+        border-radius: 8rpx;
+        text-align: center;
+        background-color: #fff;
+      }
+      .pre-login-title {
+        line-height: 70rpx;
+      }
+      .pre-login-content {
+        padding: 20rpx 50rpx;
+      }
+
+      .poster-preview-wrap {
+        position: fixed;
+        top: 100rpx;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5000;
+        border-radius: 8rpx;
+    }
+    .poster-box {
+        padding: 0 10vw;
+    }
+    .save{
+        margin-top:20rpx;
+    }
+    .save-btn{
+        width: 500rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        text-align: center;
+        background: #9169FB;
+        border-radius: 8rpx;
+        margin:50rpx auto 0;
+        color:#fff;
+        font-size:34rpx;
+    }

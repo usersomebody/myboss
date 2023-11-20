@@ -1,0 +1,106 @@
+const app = getApp()
+Page({
+    data:{
+        showlist:[{
+            id:1,
+            name:'卡名称',
+            key:'card_type_name',
+            value:'',
+        },{
+            id:2,
+            name:'卡类型',
+            key:'type_name',
+            value:'',
+        },{
+            id:3,
+            name:'卡号',
+            key:'card_number',
+            value:'',
+        },{
+            id:4,
+            name:'发卡场馆',
+            key:'get_store_name',
+            value:'',
+        },{
+            id:5,
+            name:'发卡日期',
+            key:'create_time',
+            value:'',
+        },{
+            id:6,
+            name:'开卡日期',
+            key:'use_start_time',
+            value:'',
+        },{
+            id:7,
+            name:'有效期至',
+            key:'use_end_time',
+            value:'',
+        },{
+            id:9,
+            name:'实收金额',
+            key:'puy_pay_money',
+            value:'',
+        },{
+            id:10,
+            name:'剩余内容',
+            key:'remain',
+            value:'',
+        },{
+            id:11,
+            name:'适用场馆',
+            key:'store_name',
+            value:'',
+        },{
+            id:12,
+            name:'备注',
+            key:'memo',
+            value:'',
+        }],
+        cardType:{
+            1:{
+                name:'剩余天数:',
+                key:'day',
+                symbol:'天',
+                type:'期限卡',
+                sale:'day'
+            },
+            2:{
+                name:'剩余次数:',
+                key:'assets_num',
+                symbol:'次',
+                type:'次数卡',
+                sale:"consume_num"
+            },
+            3:{
+                name:'剩余金额:',
+                key:'assets_money',
+                symbol:'元',
+                type:'储值卡',
+                sale:'consume_price'
+            },
+            4:{
+                name:'剩余时间:',
+                key:'assets_time',
+                symbol:'分钟',
+                type:'计时卡',
+                sale:'consume_time'
+
+            }
+        },
+    },
+    onLoad(){
+        let cardInfo = wx.getStorageSync('vip_card_info')
+        const { showlist, cardType } = this.data
+        showlist.forEach(item => {
+            if(item.key == 'remain'){
+                item.value = cardInfo.type == 1 && cardInfo.is_unlimited ? '长期有效' : `${cardInfo[cardType[cardInfo.type].key]}${cardType[cardInfo.type].symbol}`
+            }else{
+                item.value = cardInfo[item.key]
+            }
+        });
+        this.setData({
+            showlist
+        })
+    }
+})

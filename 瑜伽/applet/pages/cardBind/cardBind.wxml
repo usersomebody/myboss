@@ -1,0 +1,42 @@
+<!--pages/cardBind/cardBind.wxml-->
+<view class="container">
+  <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/9ed1932398fac96fd3e23fef7a93460.jpg?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=5223220283&Signature=zHZsBQ%2BiaaYRxc%2B9KhkXXc8qDcg%3D" class="card-bg"></image>
+  <view class="form">
+    <form catchsubmit="verify" catchreset="formReset">
+      <view class="form-item">
+        <view class="tip">手机号</view>
+        <input type="text" class="form-input" placeholder="办卡预留的手机号" name='tel' />
+      </view>
+      <view class="form-item">
+        <view class="tip">姓　名</view>
+        <input type="text" class="form-input" placeholder="办卡预留的姓名" name='name' />
+      </view>
+      <view class="form-item" wx:if="{{is_success==0}}">
+        <view class="tip">卡　号</view>
+        <button class="verify" form-type="submit">验证</button>
+      </view>
+      <block wx:if="{{is_success==1}}">
+        <view class="form-item">
+          <view class="tip">卡　号</view>
+          <input type="text" class="form-input" value="{{cardNumber}}" />
+        </view>
+        <view class="form-item">
+          <view class="tip">到期日期</view>
+          <input type="text" class="form-input" value="{{time}}" />
+        </view>
+      </block>
+      <block wx:if="{{is_success==2}}">
+        <view class="form-item">
+          <view class="tip">卡　号</view>
+          <button class="verify" form-type="submit">验证</button>
+        </view>
+        <view class="form-item">
+          <view class="tip"></view>
+          <view type="text" class="form-tip">卡号和姓名输入错误，请重新输入~</view>
+        </view>
+      </block>
+
+      <button class="submit" bindtap="formSubmit">确认</button>
+    </form>
+  </view>
+</view>

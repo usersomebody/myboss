@@ -1,0 +1,99 @@
+.container{
+
+}
+
+.store-item{
+    padding:34rpx 0;
+    background:#fff;
+    border-bottom:1rpx solid #E6E6E6;
+}
+
+.store-item:last-child{
+    border:none;
+}
+
+.card-list{
+    border-bottom:1rpx solid #EDEDED;
+}
+
+.value-class{
+    color:#3A3A3A;
+    font-size: 32rpx;
+}
+
+.item-padding{
+    padding:0 30rpx;
+    background:#fff;
+}
+
+.submitBtn{
+    margin-top:80rpx;
+}
+
+.submitBtn .btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background:#fff;
+    border:2rpx solid #7D49FB;
+    color:#7D49FB;
+    font-size:34rpx;
+    border-radius:8rpx;
+    text-align: center;
+}
+
+.submitBtn .sure{
+    background:#7D49FB;
+    color:#fff;
+    font-size:34rpx;
+    margin-left:56rpx;
+}
+
+.consume-input{
+    width: 210rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    margin:0 10rpx;
+    padding-left:30rpx;
+}
+
+.consume-box{
+    padding-left:46rpx;
+    margin-top:18rpx;
+}
+
+.switch-item{
+    padding:28rpx 0 ;
+}
+.switch-item.active{
+    font-size:32rpx;
+    color:#8F33FF;
+    border-bottom:6rpx solid #8F33FF;
+    font-weight:600;
+}
+.switchTab{
+    margin-bottom:20rpx;
+    padding:0 60rpx;
+    background:#fff;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #DED1FF !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+    
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}

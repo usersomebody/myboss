@@ -1,0 +1,12 @@
+@import "../../app.wxss";
+.no-data-box{
+    margin-top:240rpx;
+}
+.no-data{
+    margin-top:40rpx;
+}
+.data-icon{
+    width:240rpx;
+    height:240rpx;
+    margin-bottom:30rpx;
+}

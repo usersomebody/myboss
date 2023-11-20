@@ -1,0 +1,54 @@
+<view class="container">
+    <view class="base-title color-999 font-md">奖品设置<text class="font-sm color-999">(设置的所有奖项中奖概率总和应等于100%)</text></view>
+    <view class="prize-set-content">
+        <view wx:for="{{prizes_list}}" wx:key="index" class="failed-win-prize bg-white">
+            <view wx:if="{{item.winning_type == 1}}" class="prize-data flex-box flex-a-center">
+                <view class="font-md color-333 width-112">奖项</view>
+                <input class="prize-input color-504 font-md" type="text" value="{{item.name}}" data-type="name" data-index="{{index}}" bindinput="getVal"/>
+            </view>
+            <view class="win-prize-name flex-box flex-a-center flex-j-between">
+                <view wx:if="{{item.winning_type == 2}}" class="prize-name flex-box flex-a-center">
+                    <view class="font-md color-333">奖品名称</view>
+                    <input class="common-prize-input color-504 font-md" type="text" value="{{item.name}}" data-type="name" data-index="{{index}}" bindinput="getVal"/>
+                </view>
+                <view wx:if="{{item.winning_type == 1}}" class="prize-name flex-box flex-a-center">
+                    <view class="font-md color-333">奖品数量</view>
+                    <input class="common-prize-input color-504 font-md" type="number" value="{{item.number}}" data-type="number" data-index="{{index}}" bindinput="getVal"/>
+                </view>
+                <view class="prize-name flex-box flex-a-center">
+                    <view class="font-md color-333">中奖概率</view>
+                    <input class="common-prize-input color-504 font-md" type="number" value="{{item.prob}}" data-type="prob" data-index="{{index}}" bindblur="getValProb"/>
+                    <view class="font-md color-333">%</view>
+                </view>
+            </view>
+            <view class="upload-box flex-box">
+                <view class="font-md color-333">奖品图片</view>
+                <view class="upload">
+                    <view wx:if="{{!item.icon}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" data-index="{{index}}" bindtap="getImg">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <image wx:else src="{{item.icon}}" data-index="{{index}}" bindtap="getImg"></image>
+                    <view class="tailoring" wx:if="{{imgSrc}}">
+                        <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" data-index="{{index}}" bindtap="getImg"></image-cropper>
+                        
+                        <view class="btn tailoringSure" data-index="{{index}}" bindtap="effectiveImg">确定</view>
+                        <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{item.winning_type == 1}}" class="flex-box flex-a-center flex-j-end"  data-index="{{index}}" bindtap="deleteList">
+                <image class="delete-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211222/2fe41b10df81dbfc811d81cefcde2531.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{prizes_list.length < 8}}" class="add-prize flex-box flex-a-center" bindtap="addData">
+            <image class="add-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220223/c938d5a6ae8f2846915b56b9e1f46fb2.png"></image>
+            <view class="base-color font-md">添加奖项</view>
+            <view class="m-l-24 font-sm color-act">(最少3个，最多8个)</view>
+        </view>
+    </view>
+    <view class="add-btn">
+        <view class="cancle btn font-lg" bindtap="cancle">返回</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">保存</view>
+    </view>
+</view>

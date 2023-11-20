@@ -1,0 +1,159 @@
+<!--pages/teacher/teacher.wxml-->
+
+<view class="container">
+  <view class="main">
+    <view class="common-relative">
+        <image src="{{teacher.cover_img}}" class="cover-bg" wx:if="{{teacher.cover_img}}"></image>
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/108fdee1415f3cd292a6751bb86c5f47.png" class="cover-bg" wx:else></image>
+        <view class="box-shadow"></view>
+    </view>
+    
+    <view class="teacher-info">
+        <image src="{{teacher.head_img}}" class="teacher-img"></image>
+        <view class="name">{{teacher.name}}</view>
+        <view class="intro">瑜伽老师<text class="vertical-line">|</text> 从业{{teacher.work_years}}年</view>
+    </view>
+    <view class="good-at ">擅长方向
+      <view class="label" wx:for="{{skill}}" wx:for-item='it' wx:key='index'>{{it}}</view>
+    </view>
+    <view class="nav">
+      <view class="nav-item {{currentNav == 0 ? 'active' : ''}}" bindtap="checkNav" data-flag="0">教师简介<view class="nav-line" wx:if="{{currentNav==0}}">
+        </view>
+      </view>
+      <view class="nav-item {{currentNav == 1 ? 'active' : ''}}" bindtap="checkNav" data-flag="1">课程预约<view class="nav-line" wx:if="{{currentNav==1}}">
+        </view>
+      </view>
+    </view>
+    <view class="divide"></view>
+    <view class="brief" wx:if="{{currentNav==0}}">
+      <view class="tit">个人简介</view>
+      <view wx:if="{{resume.length}}">
+        <view class="con"  wx:for="{{resume}}" wx:key="index">{{item}}</view>
+      </view>
+      <view class="con" wx:else>暂无简介</view>
+    </view>
+    <view wx:if="{{currentNav==1}}">
+      <view class="nav-padding bg-white">
+        <view class="navs">
+          <view class="navs-item color-999 font-md {{checkedNav == item.id ?'navs-checked font-bold':''}}" wx:for="{{courseSpecies}}" wx:key="index" bindtap="switchkNav" data-id="{{item.id}}">{{item.name}}</view>
+        </view>
+      </view>
+      <scroll-view class="categories" scroll-x="true" >
+        <view class="date-item" wx:for="{{date}}" wx:for-item="item" wx:key='index' bindtap="checkDate"
+          data-idx="{{index}}">
+          <view class="week {{checkedDate==item.date?'week-checked':''}}">{{item.week}}</view>
+          <view class="date {{checkedDate==item.date?'date-checked':''}}">{{item.month}}.{{item.day}}</view>
+        </view>
+      </scroll-view>
+
+    </view>
+
+  </view>
+  <view class="foot {{ currentNav != 0 ? 'top' : ''}}">
+    <block wx:if="{{currentNav==0}}">
+      <view class="title">个人风采</view>
+      <scroll-view class="scroll-view" scroll-x="true" style="width: 100%">
+        <block wx:for="{{personal_style}}" wx:for-item="item" wx:key='index'>
+          <image class="scroll-img" src="{{item.url}}" wx:if="{{item.type==1}}" data-url="{{item.url}}" bindtap="previewImg">
+          </image>
+
+          <video id="myVideo" wx:else src="{{item.url}}" binderror="videoErrorCallback" class="scroll-img" enable-danmu
+            danmu-btn show-center-play-btn='{{false}}' controls='{{true}}' picture-in-picture-mode="{{['push', 'pop']}}"
+            poster="{{item.cover_url}}"></video>
+        </block>
+
+      </scroll-view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{checkedNav != 4}}">
+        <view class="lesson-item common-relative" bindtap="handleBooking" data-id="{{item.id}}" data-type="{{item.course_type_id}}" wx:for="{{classList}}" wx:key='id'
+          wx:for-item='item'>
+          <image class="lesson-bg" src="{{item.course_detail.cover_img}}">
+          </image>
+          <view class="bg-shadow"></view>
+          <view class="lesson-content">
+            <view class="teacher">
+              <image class="head-img" src="{{item.course_detail.coach_staff.head_img}}"></image>
+              {{item.course_detail.coach_staff.name}}
+            </view>
+            <view class="lesson-name">{{item.course_detail.name}}</view>
+            <!-- <view class="lesson-time">
+              {{item.start_time}}-{{item.end_time}}
+              <text wx:if="{{item.show_preengage_member=='2' || (item.show_preengage_member=='1' && user_type=='1')}}">
+                  <text class="describe_r font-sm" wx:if="{{item.preengage_num >= item.max_user && item.is_open_queue=='1'}}">约满，当前<text class="color-ff">{{item.preengage_num}}</text>人排队 </text>
+                  <text wx:else>预约人数：{{item.preengage_num}}/{{item.max_user}}</text>
+              </text>
+            </view> -->
+            <view class="lesson-time">
+              <!-- {{item.start_time}}-{{item.end_time}} -->
+              <text class="font-sm" style="margin:0;">难度系数:<text class="font-md course-stars">{{item.course_stars}}</text></text>
+              <text>
+                <!-- <text class="describe_r font-sm" wx:if="{{(item.status != 2 && item.status != 3 && item.status != 4) && item.preengage_num >= item.max_user && item.is_open_queue=='1' && item.queue_num > 0}}">约满，当前<text class="booking-personal">{{item.queue_num}}</text>人排队 </text>
+                <text wx:else>预约人数：{{item.preengage_num}}/{{item.max_user}}</text> -->
+                <text wx:if="{{item.show_word == 1}}">还可预约{{item.max_user - item.preengage_num}}人</text>
+                <text wx:if="{{item.show_word == 2}}">{{item.preengage_num}}/{{item.max_user}}</text>
+                <text wx:if="{{item.show_word == 3}}">约满{{item.min_user}}人开课</text>
+              </text>
+            </view>
+            <view class="lesson-address flex-box flex-a-center"><image class="address-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220330/9e4b6f193ddacd3a7855ad7496bdf0c7.png"></image>{{item.course_detail.store.address}}</view>
+          </view>
+          <!-- <block wx:if="{{item.subscribe==1||item.subscribe==3}}">
+            <view class="lesson-status arranged">已预约</view>
+          </block> -->
+        <view class="course-start-time font-lg color-white">{{item.start_time}}~{{item.end_time}}</view>
+          
+        <block wx:if="{{item.subscribe==1}}">
+          <view class="lesson-status arranged">已预约</view>
+        </block>
+        <block wx:elif="{{item.subscribe==3 && item.isInstartOpen && item.status==2}}">
+          <view class="lesson-status arranged">已签到</view>
+        </block>
+        <view class="lesson-status base-new-bg inClass" wx:elif="{{item.status==2 && item.isInstartOpen}}">待上课</view>
+        <view class="lesson-status base-new-bg inClass" wx:elif="{{item.status==2 && item.isInRealstartOpen}}">上课中</view>
+          <block wx:else>
+            <view class="lesson-status overdue" wx:if="{{item.status==3}}">已过期</view>
+            <view class="lesson-status overdue" wx:elif="{{item.status==4}}">已完成</view>
+            <block wx:else>
+              <view class="lesson-status full" wx:if="{{item.subscribe==6&&item.is_open_queue=='1'}}">排队中</view>
+            <view class="lesson-status full" wx:elif="{{item.preengage_status==3&&item.is_open_queue=='1'}}">排队</view>
+              <view class="lesson-status full" wx:elif="{{item.preengage_status==3}}">已约满</view>
+              <view class="lesson-status nervous" wx:elif="{{item.preengage_status==2}}">紧张</view>
+              <view class="lesson-status " wx:if="{{item.preengage_status==1}}">充足</view>
+            </block>
+          </block>
+        </view>
+      </block>
+      <!-- 私教课 -->
+      <block wx:elif="{{showPersonalData.length}}">
+        <view class="personal-trainer">
+          <view class="trainer-item common-relative" wx:for="{{showPersonalData}}" wx:key="index" >
+            <view class="trainer-header flex-box flex-a-center flex-j-between common-relative" style="z-index:1;">
+              <view class="teacher-info-data flex-box flex-a-center">
+                <image class="avatar" src="{{item.head_img}}"></image>
+                <view class="nickname font-lg color-white font-bold">{{item.teacherName}}</view>
+              </view>
+              <view class="teach-course color-white font-md" bindtap="toggle" data-id="{{item.id}}">{{ item.unfold ? '收起' : '所授课程'}}</view>
+            </view>
+            <view class="trainer-list common-relative" wx:if="{{item.unfold}}" style="z-index:1;">
+              <view class="trainer-list-item flex-box flex-a-center flex-j-between" wx:for="{{item.info}}" wx:for-item="course" wx:key-index="idx" wx:key="idx">
+                <view class="course-name font-md color-white">{{course[0].name}}</view>
+                <!-- <block wx:for="{{course}}" wx:for-item="children" wx:key-index="in"> -->
+                  <view class="course-book font-sm color-white {{isBeforeNow ? 'overdue_style' : ''}}" data-item="{{course}}" bindtap="goBooking">{{isBeforeNow ? '已过期' : course[0].is_sub ? '已约' : '预约'}}</view>
+                <!-- </block> -->
+              </view>
+            </view>
+            <view class="trainer-shadow"></view>
+          </view>
+        </view> 
+      </block>
+      <block wx:if="{{(checkedNav !=4 && !classList.length) ||  (checkedNav == 4 && !showPersonalData.length)}}">
+        <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/d553cad4f1b1546bf1afc3d3759afe37.png" top="100rpx"></no-data-cover>
+        <view class="nocourse">暂无排课~</view>
+      </block>
+    </block>
+  </view>
+  <!-- <view class="foot">
+    <view class="title">学员评价</view>
+    <view class="evaluate">评价功能暂未开放</view>
+  </view> -->
+</view>

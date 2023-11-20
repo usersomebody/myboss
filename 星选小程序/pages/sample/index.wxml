@@ -1,0 +1,58 @@
+<scroll-view scroll-y="{{true}}" class="order-container {{ iPhonex && productInfo.leadSample == 1 ? 'iphonex' : 'pd-un'}}">
+    <!-- 收货地址 -->
+    <view class="receiving-address flex-box flex-a-center flex-j-between bg-white" bindtap="goAddress">
+        <view wx:if="{{addressInfo.realname}}" class="">
+            <view class="font-weight font-lg flex-box flex-a-center font-lg color-51">
+                <text class="margin-r-50">{{addressInfo.realname}}</text>
+                <text>{{addressInfo.mobile}}</text>
+            </view>
+            <view class="address-detail font-md color-102">
+                {{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} {{addressInfo.address}}
+            </view>
+        </view>
+        <view class="color-153 font-lg" wx:else>创建收货地址</view>
+        <image src="../../imgs/arrow-r.png" class="right-icon"></image>
+    </view>
+    <!-- 产品信息 -->
+    <view class="product-detail bg-white flex-box flex-a-center">
+        <image class="product-cover flex-shrink" src="{{productInfo.head_img_name[0]}}"></image>
+        <view class="product-info">
+            <view class="product-name font-md color-51 one-line">{{productInfo.title}}</view>
+            <view class="product-price flex-box flex-a-center">
+                <text class="price font-md color-51 margin-r-50">￥{{productInfo.min_price_float}}</text>
+                <text class="commission base-color font-sm"><text class="font-sm color-102">{{productInfo.leadSample == 1 ? '成本价' : '赚'}}</text>￥ {{productInfo.leadSample == 1 ? productInfo.buy_price_float : productInfo.commission_value_total}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 推客账号 -->
+    <view class="push-account">
+        <view wx:if="{{productInfo.leadSample == 2}}" class="rule flex-box flex-a-center bg-base-shallow">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/090d8a1fc3c37a5f2a119b578021b1c8.png" class="rule-icon"></image>
+            <view class="font-md sign-color ">免费领样要求：近30日推客销量要求≥{{productInfo.sell_order_num}}</view>
+        </view>
+        <view class="push-list bg-white" wx:if="{{promoterList.length}}">
+            <view class="push-title color-51 font-lg">选择推客账号</view>
+            <view class="push-item">
+                <van-radio-group value="{{ pushRadio }}" bind:change="selectPushCustomer">
+                    <view class="radio-item" wx:for="{{promoterList}}" wx:key="index">
+                        <van-radio name="{{item.authorizer_appid}}" checked-color="rgb(252, 132, 57)"><text class="color-102 font-lg">{{item.promotor_name}}</text></van-radio>
+                    </view>
+                </van-radio-group>
+            </view>
+        </view>
+    </view>
+    <!-- 填写备注 -->
+    <view class="remark">
+        <textarea bindblur="bindTextAreaBlur" 	adjust-position="true" value="{{textValue}}" class="text-remark bg-white" placeholder="请输入备注" />
+    </view>
+    <!-- 免费领样 -->
+    <view wx:if="{{productInfo.leadSample == 2}}" class="free-sample-btn font-lg color-white" bindtap="checkAuth">免费领样</view>
+</scroll-view>
+<!-- 操作按钮 -->
+<view wx:if="{{productInfo.leadSample == 1}}" class="action-btn flex-box flex-a-center bg-white flex-j-between {{iPhonex ? 'pd-68' : ''}}">
+    <view class="font-md flex-box flex-a-center">
+        <text class="font-lg base-color">￥{{productInfo.buy_price_float}}</text>
+        <text class="font-sm color-153" style="margin-left:14rpx;">省{{optimizationPrice}}</text>
+    </view>
+    <view class="btn font-lg color-white" bindtap="checkAuth">立即下单</view>
+</view>

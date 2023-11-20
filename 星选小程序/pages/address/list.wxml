@@ -1,0 +1,26 @@
+<scroll-view scroll-y="{{true}}" class="container">
+    <view class="common-relative list-box">
+        <!-- 地址列表 -->
+        <view wx:if="{{address.length}}" class="address-list"> 
+            <view wx:for="{{address}}" wx:key="index" class="receiving-address flex-box flex-a-center flex-j-between bg-white">
+                <view class="address-info" data-id="{{item.id}}" catchtap="selectAddress">
+                    <view class="font-weight font-lg flex-box flex-a-center font-lg color-51">
+                        <text class="margin-r-50">{{item.realname}}</text>
+                        <text>{{item.mobile}}</text>
+                        <text wx:if="{{item.isdefault == 1}}" class="default-address color-white font-sm">默认</text>
+                    </view>
+                    <view class="address-detail font-md color-102">
+                        {{item.province}} {{item.city}} {{item.area}} {{item.address}}
+                    </view>
+                </view>
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/89959147c21394b4fbb090a21c863ddc.png" class="right-icon" data-id="{{item.id}}" catchtap="editAddress"></image>
+            </view>
+        </view>
+        <view wx:if="{{!address.length}}" class="text-center font-sm shallow-color no-data">
+            <no-data text="您还没有地址信息~" cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220621/4ac31a1617b685945e466561091fc7e5.png"></no-data>
+        </view>
+        <!-- 新增地址 -->
+        <view class="free-sample-btn font-lg color-white {{!address.length ? 'no-data-bottom' : ''}}" bindtap="editAddress">新增收货地址</view>
+    </view>
+    
+</scroll-view>

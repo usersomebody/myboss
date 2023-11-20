@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+      "no-data": "/components/no-data/index"
+    },
+    "navigationBarTitleText": "推客账号",
+    "navigationBarTextStyle": "black"
+  }

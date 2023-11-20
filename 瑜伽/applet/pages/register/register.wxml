@@ -1,0 +1,29 @@
+<!--pages/register/register.wxml-->
+<view class="container" >
+    <image class="record_image" src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/cacd9426ee43c764b89b68babf44f19.jpg?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=1983220330&Signature=KZECtHqtZTWAVOEQeGL4FSNHalk%3D"></image>
+    <view class="content">
+      <view class="cont">
+        <image class="icon_one" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210906/de1a6fa61ba472139cd325e90f0da390.png"></image>
+        <input type="text" class="phone_input" placeholder="请输用户名" value="{{user_name}}" maxlength="11" bindinput="user_name" />
+      </view>
+      <view class="line"></view>
+      <view class="cont">
+        <image class="icon_one" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210906/1c66fa31b8ed2c4db6558c59f14f1ab1.png"></image>
+        <input type="number" class="phone_input" placeholder="请输入手机号" maxlength="11" bindinput='lovePhone'/>
+        <!-- <button class="acquire" bindtap="register_getCode">获取验证码</button> -->
+      </view>
+      <!-- <view class="line"></view>
+      <view class="cont cont_two">
+        <image class="icon_one" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/97ffeaa7ef3037e5b9d6581ebba3be2.png"></image>
+        <input type="number" class="phone_input" placeholder="请输入短信验证码" maxlength='10' />
+      </view> -->
+      <view class="line"></view>
+      <!-- <view class="reminder_two" wx:if="{{register_status=='1'}}">
+        <image src="/imgs/审批通过@2x.png"></image>
+        <text>验证码已发送，可能会有延后，请耐心等待</text>
+      </view> -->
+      <button class="footer" bindtap="auth_btn" >注册</button>
+    </view>
+  </view>
+
+

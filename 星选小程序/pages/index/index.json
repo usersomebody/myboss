@@ -1,0 +1,14 @@
+{
+    "component": true,
+    "usingComponents": {
+      "tab-bar": "/components/tab-bar/tabbar",
+      "van-checkbox": "@vant/weapp/checkbox/index",
+      "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+      "van-button": "@vant/weapp/button/index",
+      "van-action-sheet": "@vant/weapp/action-sheet/index",
+      "no-data": "/components/no-data/index"
+    },
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  }

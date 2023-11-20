@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "image-cropper": "../../components/image-cropper/image-cropper"
+      
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "会员卡"
+  }

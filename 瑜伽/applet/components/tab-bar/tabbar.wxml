@@ -1,0 +1,12 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<view class="tab-bar">
+    <view class="tab-bar-border"></view>
+    <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+      <!-- <image hidden="{{index == 2}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image> -->
+      <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+      <view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+    </view>
+    <!-- <image bindtap="toLive" src="{{selected == 2 ? 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_live_select.png' : 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_live.png'}}" class="big-img big-style"></image> -->
+    
+  </view>
+  

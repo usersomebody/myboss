@@ -1,0 +1,15 @@
+<view class="container">
+    <view class="classroom-list">
+        <view class="classroom-item flex-box flex-a-center flex-j-between bg-white" wx:for="{{list}}" wx:key="index">
+            <view class="left flex-box flex-a-center">
+                <view class="font-lg color-333">{{item.name}}</view>
+                <image class="edit-btn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211228/2ed856734fe9434b22786ebe8f223e9d.png" data-id="{{item.id}}" data-item="{{item}}" bindtap="showModal"></image>
+                <image class="del-icon font-size color-red" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211222/2fe41b10df81dbfc811d81cefcde2531.png" data-item="{{item}}" data-id="{{item.id}}" bindtap="delClassroom"></image>
+            </view>
+            <switch bindchange="switchChange" data-id="{{item.id}}" data-item="{{item}}" checked="{{item.status == 1 ? true : false}}" color="#9B77F4"></switch>
+        </view>
+    </view>
+</view>
+<view class="addVipCard" bindtap="addModal">
+    <image class="add-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/3a5abd6b221783c81aac8584f9069bc9.png"></image>
+</view>

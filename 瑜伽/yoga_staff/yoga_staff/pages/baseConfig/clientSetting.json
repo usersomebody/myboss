@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {},
+    "navigationBarTitleText": "约课端设置",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

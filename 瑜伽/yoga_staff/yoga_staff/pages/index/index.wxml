@@ -1,0 +1,93 @@
+<scroll-view scroll-y="true" class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}" >
+    <view class="common-relative">
+        <image class="index-nav-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/index-bg.png"></image>
+        <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">{{storeName}}</view>
+    </view>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" circular="true" indicator-color="{{swiper.indicatorColor}}" indicator-active-color="{{swiper.indicatorActiveColor}}" bindchange="sliding_choice" class="swiper">
+        <block wx:for="{{banner}}" wx:key="index">
+          <swiper-item class="categories">
+            <image src="{{item.thumb}}" data-url="{{item.link}}" bindtap="togoweb"></image>
+          </swiper-item>
+        </block>
+    </swiper>
+    <view class="section">
+        <!-- 导航栏 -->
+        <view class="nav-tab">
+            <view wx:for="{{navList}}" wx:key="index" class="nav" data-tabbar="{{item.isTabbar}}" data-url="{{item.url}}" bindtap="gotoPage">
+                <image class="nav-cover" src="{{item.cover}}"></image>
+                <view class="nav-name font-sm color-333">{{item.name}}</view>
+            </view>
+        </view>
+        <!-- 课程情况 -->
+        <view class="course-today">
+            <view class="course-title font-lg font-weight">今日课程情况</view>
+            <view class="course-booking-detail flex-box flex-a-center flex-j-between">
+                <view wx:for="{{courseList}}" wx:key="index" class="item common-relative bg-{{index}}">
+                    <view class="course-name font-sm">{{item.name}}</view>
+                    <view class="course-num font-md">{{item.num}}人</view>
+                    <view class="left-top"></view>
+                    <view class="right-bottom"></view>
+                </view>
+            </view>
+            <view class="course-arrang-booking flex-box flex-a-center flex-j-between">
+                <view wx:for="{{arrangList}}" wx:key="index" class="item common-relative">
+                    <view class="arrang-num font-sm flex-box flex-a-center font-base color-666"><text class="num color-white">{{item.num}}</text>节</view>
+                    <view class="arrang-name color-333 font-sm">{{item.name}}</view>
+
+                </view>
+            </view>
+        </view>
+        <!-- 待办事项 -->
+        <view class="matters-do">
+            <view class="matters-left color-333 font-lg font-weight">
+                <view>待办</view>
+                <view>事项</view>
+            </view>
+            <view class="matters-right">
+                <view class="font-sm color-333 title">去约参谋提醒您：</view>
+                <swiper vertical="{{true}}" style="height:40rpx;" interval="3000" autoplay="ture" circular="true" bindchange="getCurrent">
+                    <block wx:for="{{process}}" wx:key="*this">
+                        <swiper-item>
+                            <view class="color-666 font-md info flex-box flex-a-center" data-link="{{processType[item.type].link}}" bindtap="gotoMember">
+                                <view class="label font-base text-center color-white">{{processType[item.type].name}}</view>
+                                <view class="label-info one-line">{{item.msg}}</view>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+            <view class="matters-go" bindtap="gotoMember"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/right-go.png"></image></view>
+        </view>
+        <!-- 本月运营数据 -->
+        <view wx:if="{{isCanSeeData}}" class="operating-data">
+            <view class="title font-lg font-weight color-333">本月运营数据</view>
+            <view class="charts flex-box flex-a-center flex-j-around">
+                <view class="charts-item">
+                    <view class="font-base">累计售卡</view>
+                    <view class="font-md color-333 spacing">{{buyCard.money}}元</view>
+                    <view class="font-md color-FE6">{{buyCard.count}}张</view>
+                    <view class="charts-item-img"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/sale-chart-img.png"></image></view>
+                </view>
+                <view class="charts-item">
+                    <view class="font-base">累计新增</view>
+                    <view class="font-md color-333 spacing">{{newUser.count_all}}人</view>
+                    <view class="font-md color-7D4">{{newUser.count_month}}人</view>
+                    <view class="charts-item-img"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/add-chart-img.png"></image></view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="goGoodsCenter">前往带货中心</view>
+    </view>
+    <!-- <view><video src="https://vd2.bdstatic.com/mda-mjh4xrjyu5rmnwz7/sc/cae_h264_clips/1634527918783566354/mda-mjh4xrjyu5rmnwz7.mp4?auth_key=1634552348-0-0-2de5dbbec3b352c711d277245de8491a&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest=3000186_2"></video></view> -->
+</scroll-view>
+<!-- 添加到小程序 --> 
+<view wx:if="{{shareTips}}" class="add-mini-program " style="top:{{statusBarHeight + 36}}px">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/e6a49f8625460aba77f6681748187276.png" class="tips-bg"></image>
+    <view class="flex-box flex-a-center flex-j-center tips-text">
+        <view class="font-md color-white flex-box flex-a-center">点击右上角<image class="more-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211217/9aca39f2bd6cace3cd9e999dc6204059.png"></image> 添加到我的小程序</view>
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/0c6509a020a31e6b40e4a3d3f6f8e753.png" class="close-cover" bindtap="closeShare"></image>
+    </view>
+    
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{0}}"></tab-bar>

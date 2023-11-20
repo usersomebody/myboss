@@ -1,0 +1,65 @@
+<import src="../../components/wxParse/wxParse.wxml" />
+
+<view class="container bg-white">
+    <view class="info-title font-lger color-333">{{detail.title}}</view>
+    <view class="store-info flex-box flex-a-center flex-j-between">
+        <view class="left flex-box flex-a-center">
+            <view class="logo"><image src="{{current_store_info.brand_logo || 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211208/8df6efd87fbb544fa545013b5337460f.png'}}"></image></view>
+            <view class="store-name font-md color-333">{{current_store_info.sto_name}}</view>
+        </view>
+        <view class="call-btn font-sm color-white" data-phone="{{current_store_info.sto_phone}}" bindtap="callPhone">联系TA</view>
+    </view>
+    <view class="store-qrcode">
+        <!-- <template is="wxParse" data="{{wxParseData:content.nodes}}" /> -->
+        <!-- //老版本 -->
+        <rich-text nodes="{{detail.detail}}" space="emsp"></rich-text>
+    </view>
+    <view class="en-qr-code">
+        <image bindtap="editEnCode" show-menu-by-longpress="true" wx:if="{{detail.diy_info.qr_data.qr_merge_img}}" src="{{detail.diy_info.qr_data.qr_merge_img}}"></image>
+        <view wx:if="{{!sid && !detail.diy_info.qr_data.qr_merge_img}}" class="add-qr-code font-lg" bindtap="editEnCode">
+            插入微信/企业微信二维码
+        </view>
+    </view>
+    <view class="read-num font-md color-999">阅读{{detail.new_page_view}}</view>
+    <!-- 点赞分享 -->
+    <view class="action flex-box flex-a-center">
+        <view class="share flex-box flex-a-center">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/70bd494628e1e32e3ceccbea54f08298.png"></image>
+            <button open-type="share" class="font-md base-color">分享</button>
+        </view>
+        <view class="praise flex-box flex-a-center" bindtap="handlePraise">
+            <image src="{{like[detail.is_like]}}"></image>
+            <view class="font-md base-color">点赞{{detail.new_like_num}}</view>
+        </view>
+    </view>
+    <view class="font-md color-666">{{detail.share_desc}}</view>
+    <view wx:if="{{!sid}}" class="edit-business-card flex-box flex-a-center" bindtap="editBusiness">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/2227e4c6104dd6ce5fab0c8191ea385c.png"></image>
+        <view class="base-color font-lg">修改名片</view>
+    </view>
+    <view wx:if="{{storeInfo.card_merge_img}}" class="business-card common-relative">
+        <image src="{{storeInfo.card_merge_img}}"></image>
+        <view class="call-phone" data-phone="{{storeInfo.phone || detail.diy_info.phone}}" bindtap="callPhone"></view>
+    </view>
+    <!-- 默认店铺信息图 -->
+    <view  wx:if="{{!storeInfo.card_merge_img}}"  class="store-info-picture common-relative">
+        <image class="bg-picture" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/6acbfa60188d166d393d04e8cc8ef1be.png"></image>
+        <view class="call-phone" data-phone="{{storeInfo.phone || detail.diy_info.phone}}" bindtap="callPhone"></view>
+        <view class="detail">
+            <view class="head-logo flex-box flex-a-center">
+                <image class="logo" src="{{storeInfo.logo || current_store_info.brand_logo || 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211208/8df6efd87fbb544fa545013b5337460f.png'}}"></image>
+                <view class="detail-name font-lg color-333 font-weight">{{storeInfo.name}}</view>
+            </view>
+            <view class="content-city">
+                <view class="content-phone font-md color-666">{{storeInfo.phone}}</view>
+                <view class="content-address font-md color-666">{{storeInfo.address}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<article-poster wx:if="{{showPoster}}" redirectUrl="{{redirectUrl}}" articleCover="{{detail.thumb}}" title="{{detail.title}}" shareDesc="{{detail.share_desc}}" posterContent="{{posterContent}}" infoId="{{infoId}}" sid="{{sid}}" bind:drawPoster="toggleCanvas"></article-poster>
+<!-- 分享按钮 -->
+<view class="share-icon">
+    <image bindtap="toggleCanvas" class="share-icon-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220315/f38d8a2f0ec4eabda3e57929f7407745.png"></image>
+</view>

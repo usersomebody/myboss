@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tab-bar": "/components/tab-bar/tabbar",
+    "no-data-cover":"/components/no-data/index"
+  },
+  "navigationBarTitleText": "我的课程"
+}

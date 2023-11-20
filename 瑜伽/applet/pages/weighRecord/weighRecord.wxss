@@ -1,0 +1,281 @@
+/* pages/weighRecord/weighRecord.wxss */
+.container {
+  position: relative;
+  padding-bottom: 58rpx;
+}
+
+.header {
+  padding:40rpx 30rpx 80rpx;
+  background: #A37FFC;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.header .info {
+  display: flex;
+}
+
+.header .head-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.header .nickname {
+  height: 50rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+}
+
+.header .tips {
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #FFFFFF;
+  margin-top: 4rpx;
+}
+
+.header .look-report {
+  padding:8rpx 18rpx;
+  font-size: 24rpx;
+  color: #9945FF;
+  background:#fff;
+  border-radius:28rpx;
+}
+
+.report {
+  padding:0 30rpx;
+  margin-top:-42rpx;
+}
+
+.report .content {
+  z-index: 99;
+  padding: 34rpx 28rpx 20rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.report .content .weight-bg image{
+  width:248rpx;
+  height:242rpx;
+  border-radius:50%;
+  margin:0 auto;
+}
+
+.circle-b {
+  width: 264rpx;
+  height: 264rpx;
+  background: #E8FFFC;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-s {
+  width: 216rpx;
+  height: 216rpx;
+  background: #21DBC3;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.circle-s .number {
+  height: 58rpx;
+  font-size: 42rpx;
+  line-height: 44rpx;
+  color: #FFFFFF;
+  margin-top: 60rpx;
+}
+.unit{
+  font-size: 32rpx;
+}
+.circle-s .to-record {
+  width: 96rpx;
+  height: 32rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin: 24rpx auto 0;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #21DBC3;
+}
+
+.report .data {
+  margin-top: 100rpx;
+  height: 108rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.report .data .data-item {
+  text-align: center;
+}
+
+
+.report .data-item .data-t {
+  height: 44rpx;
+  font-size: 42rpx;
+  line-height: 44rpx;
+  color: #21DBC3;
+}
+
+.report .data-item .data-b {
+  margin-top: 24rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.history {
+  background: #FFFFFF;
+  margin:20rpx 30rpx 24rpx;
+  padding: 16rpx 16rpx 26rpx 24rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.history .title {
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333333;
+}
+
+.history .tips {
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #999999;
+  margin-top: 10rpx;
+  display:flex;
+  align-items: center;
+}
+
+.history .data {
+  margin-top: 54rpx;
+  display: flex;
+  overflow: scroll;
+  white-space: nowrap
+}
+
+.history .data-item.active{
+  background:#A38FFF;
+}
+
+.history .data-item {
+  /* width:132rpx; */
+  padding:8rpx 0;
+  background:#F2F2F2;
+  border-radius:12rpx;
+  margin-right:20rpx;
+  flex:0 0 132rpx;
+}
+
+.history .data .data-item .weigh{
+  padding-top:10rpx;
+  border-top:2rpx solid #333;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.history .data .data-item .weigh.active{
+  border-top:2rpx solid #fff;
+  
+}
+
+.history .data-item .week {
+  padding:0 12rpx;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom:6rpx;
+}
+
+.history .data-item .current-week {
+  color: #21DBC3;
+}
+
+.lineChart {
+  width: 702rpx;
+  height: 500rpx;
+  background: #FFFFFF;
+  margin: 24rpx auto 0;
+  position: relative;
+}
+.echart_panel {
+  position: absolute;
+  top: 0rpx;
+  left: 10rpx;
+  z-index: 88;
+  width: 702rpx;
+  height: 500rpx;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.weight-info{
+  position: absolute;
+  top:66rpx;
+  left:50%;
+  transform: translateX(-50%);
+  margin:0 auto;
+}
+
+.weight-info-value{
+  margin:10rpx 0 20rpx;
+}
+
+.color-81{
+  color:#81D2A7;
+}
+
+.weight-info-tips{
+  margin-top:26rpx;
+}
+
+.margin-r-38{
+  margin-right:38rpx;
+}
+.go-record-icon{
+  width:30rpx;
+  height:30rpx;
+  margin-right:8rpx;
+  
+}
+
+.color-red{
+  color:#FF6661;
+}
+
+.color-yellow{
+  color:#E9CE25;
+}
+
+.color-green{
+  color:#009C48;
+}
+.weight-record{
+  padding:0 30rpx;
+  width:642rpx;
+  flex-wrap: wrap;
+  margin:0 auto;
+  background:#fff;
+  border-radius:20rpx;
+}
+.weight-record .item{
+  margin-bottom:24rpx;
+}
+.weight-record .item:nth-child(2){
+  margin:0 66rpx 24rpx;
+}

@@ -1,0 +1,57 @@
+.container{
+    padding:20rpx 30rpx;
+}
+
+.guide-cover{
+    width:690rpx;
+    height:260rpx;
+    border-radius:16rpx;
+}
+
+.problem .problem-title{
+    padding:30rpx 0 20rpx;
+}
+.problem-list{
+    border-radius:16rpx;
+    /* margin-top:20rpx; */
+}
+.problem-list .problem-li{
+    padding:32rpx 20rpx;
+    border-bottom:1rpx solid #EDEDED;
+}
+.problem-left{
+    width:80%;
+}
+.problem-sort{
+    margin-right:20rpx;
+}
+.right-icon{
+    width: 14rpx;
+    height: 26rpx;
+}
+
+movable-area{
+    height: 100%;
+    width: 220rpx;
+    background-color: rgba(0,0,0,0);
+    overflow: hidden;
+    position: absolute;
+    right:0;
+    top:0;
+    /* pointer-events: none; */
+}
+movable-view{
+    right:0;
+    top:40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:218rpx;
+    height:156rpx;
+}
+.course-table{
+   
+    width:218rpx;
+    height:156rpx;
+    z-index:1;
+}

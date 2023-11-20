@@ -1,0 +1,109 @@
+<scroll-view scroll-y="{{true}}" class="order-detail-container {{ iPhonex && statusMap[orderInfo.info.status].action.length ? 'iphonex' : 'pd-un'}}">
+    <view class="order-detail-banner color-white common-relative flex-box flex-v-type flex-a-center flex-j-center">
+        <view style="margin-top:100rpx;">{{statusMap[orderInfo.info.status].name}}</view>
+        <view style="margin-top:14rpx;" class="font-md" wx:if="{{orderInfo.info.status == 5}}">取消理由{{closeTypeStatus[orderInfo.info.order_close_type]}}</view>
+        <view wx:if="{{orderInfo.info.status == 1}}">
+            <count-down startTime="" endTime="{{end_time}}" currentTime="{{now_time}}" title="" type="2"  styleType="1" activityTime="{{isInOrderTime}}" bind:updateData="updateOrderStatus"></count-down>
+        </view>
+        <image class="back-icon" style="top:{{statusBarHeight}}px" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220608/13ce0645b3811d325360c7fabce93190.png" bindtap="back"></image>
+    </view>
+    <view class="order-list">
+        <view class="order-item">
+            <view class="order-top flex-box flex-a-center">
+                <view class="order-store flex-box flex-a-center">
+                    <image class="store-img" src="{{shopInfo.head_img}}"></image>
+                    <view class="store-name color-51 font-md">{{shopInfo.shop_name}}</view>
+                </view>
+            </view>
+            <view class="order-detail flex-box flex-a-center">
+                <image class="product-img flex-shrink" src="{{orderInfo.product_info.head_img}}"></image>
+                <view class="product-info">
+                    <view class="product-name one-line font-md color-51">{{orderInfo.product_info.title}}</view>
+                    <view class="product-price font-md color-51">￥{{orderInfo.product_info.min_price}}</view>
+                </view>
+            </view>
+            <view class="order-total flex-box flex-a-center flex-j-end font-lg color-51" wx:if="{{orderInfo.info.order_type == 2}}">
+                <text class="font-md color-51">{{orderInfo.info.status == 1 ? '应付款：' : orderInfo.info.status == 5 && orderInfo.info.refund_status ? '退款金额:' : '实付款：'}}</text>￥{{orderInfo.product_info.price}}
+            </view>
+        </view>
+        <!-- 订单信息 -->
+        <view class="order-info bg-white">
+            <view class="order-title font-lg color-51">{{orderInfo.info.status == 5 ? '售后信息' : '订单信息'}}</view>
+            <view class="order-detail">
+                <view wx:if="{{orderInfo.info.status !== 5}}">
+                    <view class="flex-box flex-a-center order-detail-item common-relative">
+                        <text class="detail-title font-md color-153">收货人</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.buy_info.realname}} {{orderInfo.buy_info.mobile}}</text>
+                        <text class="detail-action font-md" wx:if="{{orderInfo.info.status == 1 || orderInfo.info.status == 2}}" bindtap="updateAddress">修改</text>
+                    </view>
+                    <view class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">收货地址</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.buy_info.address}}</text>
+                    </view>
+                    <view class="flex-box flex-a-center order-detail-item common-relative">
+                        <text class="detail-title font-md color-153">订单编号</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.info.ordersn}}</text>
+                        <text class="detail-action font-md" data-text="{{orderInfo.info.ordersn}}" bindtap="clipboardText">复制</text>
+                    </view>
+                    <view class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">下单时间</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.info.create_time_name}}</text>
+                    </view>
+                    <view wx:if="{{orderInfo.info.status != 1}}" class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">支付方式</text>
+                        <text class="detail-content font-md color-51">微信支付</text>
+                    </view>
+                    <view wx:if="{{orderInfo.info.status != 1}}" class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">支付时间</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.info.pay_time_name}}</text>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{orderInfo.info.remark_seller}}" class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">拒绝理由</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.info.remark_seller}}</text>
+                    </view>
+                    <!-- <view class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">售后单号</text>
+                        <text class="detail-content font-md color-51">789456123</text>
+                    </view> -->
+                    <view class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">退款时间</text>
+                        <text class="detail-content font-md color-51">{{orderInfo.info.cancel_pay_time_name}}</text>
+                    </view>
+                    <view class="flex-box flex-a-center order-detail-item">
+                        <text class="detail-title font-md color-153">退款方式</text>
+                        <text class="detail-content font-md color-51">微信零钱</text>
+                    </view>
+                </view>
+                
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<!-- 操作按钮 -->
+<view class="bg-white action-btn flex-box flex-a-center flex-j-end {{iPhonex ? 'pd-68' : ''}}" wx:if="{{statusMap[orderInfo.info.status].action.length}}">
+    <view class="action-btn-item font-md {{itm.hasBg == 1 ? 'btn-style-1' : ''}}" wx:for="{{statusMap[orderInfo.info.status].action}}" wx:for-item="itm" wx:for-index="idx" wx:key="idx" data-id="{{itm.id}}" catchtap="actionOrder">
+        {{itm.name}}
+    </view>
+</view>
+<van-action-sheet show="{{ logisticsShow }}" description="" bind:close="toggleLogisticsSheet">
+    <view class="logisticsInfo">
+        <view class="logisticsCompany flex-box flex-a-center flex-j-between">
+            <view class="company flex-box flex-a-center">
+                <image class="company-img" src="{{expressInfo.logo}}"></image>
+                <view class="company-name font-md color-51">{{expressInfo.expresscom}}</view>
+                <view class="company-num font-md color-51">{{expressInfo.expresssn}}</view>
+            </view>
+            <view class="clipboardBtn font-md color-153" data-text="{{expressInfo.expresssn}}" bindtap="clipboardText">复制</view>
+        </view>
+        <view>
+            <van-steps
+            steps="{{ steps }}"
+            active="{{ stepActive }}"
+            direction="vertical"
+            active-color="rgb(0, 128, 255)"
+          />
+        </view>
+    </view>
+</van-action-sheet>

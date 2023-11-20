@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="consume font-md color-666">消费<text class="color-ff2">{{spending_power.money}}</text>元，超过了场馆的<text class="color-ff2">{{spending_power.ranking}}</text>%会员</view>
+    <view class="form">
+        <view class="li flex-box flex-a-center flex-j-between" wx:for="{{showList}}" wx:key="index">
+            <view class="li-item-title font-md color-333">{{item.name}}</view>
+            <view class="li-item-content flex-box flex-a-center {{ !item.isShowIcon && !item.isDelete ? 'pad-r-34' : ''}}">
+                <view wx:if="{{item.isInput}}" class="value-placeholder font-md color-999 "><input always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-b3b'}}" placeholder-class="font-md color-b3b" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" disabled="{{item.disable ? true : false}}" bindblur="getNumberValue"/></view>
+                <view wx:elif="{{item.isPicker}}" class="">
+                    <picker wx:if="{{item.key == 'birthday'}}" mode="date" value="{{item.value}}" start="1970-01-01" :end="{{currentDate}}" data-key="{{item.key}}" bindchange="bindDateChange">
+                        <view class="picker font-md {{item.value ? 'color-504' : 'color-b3b'}}">
+                            {{item.value ? item.value : '选填'}}
+                        </view>
+                    </picker>
+                    <picker wx:elif="{{item.key == 'address'}}" mode="region" value="{{region}}"  data-key="{{item.key}}" bindchange="bindRegionChange">
+                        <view class="picker font-md {{region[1] ? 'color-504' : 'color-b3b'}}">
+                            {{region[0]}}{{region[1]}}{{region[2]}}
+                        </view>
+                    </picker>
+                    <picker wx:else mode="selector" value="{{item.index}}" range="{{item.list}}" range-key="name" data-key="{{item.key}}" bindchange="bindPickerChange">
+                        <view class="picker font-md {{item.value ? 'color-504' : 'color-b3b'}}">
+                            {{item.value ? item.value : '选填'}}
+                        </view>
+                    </picker>
+                </view>
+                <view wx:else class="value-placeholder font-md {{item.value ? 'color-504' : 'color-b3b'}}">{{item.value ? item.value : item.placeholder}}</view>
+                <view wx:if="{{item.isDelete}}" data-key="{{item.key}}" class="delete-icon" bindtap="deleteDiy"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/5ba1329e3dda65ed06784131a250a4e5.png"></image></view>
+                <view wx:if="{{item.isShowIcon}}" class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+        <view class="add-new-key font-md" bindtap="addKey">+添加基本信息</view>
+        <van-dialog
+        use-slot
+        title="增加基本信息"
+        show="{{ show }}"
+        show-cancel-button
+        confirm-button-open-type="getInputVal"
+        bind:confirm="getInputVal"
+        bind:close="onClose">
+        <input class="addKeyInput font-md" type="text" placeholder="输入基本信息字段名称" bindinput="getNewValKey"/>
+        </van-dialog>
+    </view>
+    <view class="add-btn">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+</view>

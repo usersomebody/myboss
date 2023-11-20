@@ -1,0 +1,228 @@
+/* pages/sign/sign.wxss */
+.container {
+  padding-bottom: 98rpx;
+}
+
+.header {
+  position: relative;
+}
+
+.lesson-img {
+  width: 750rpx;
+  height: 440rpx;
+}
+
+.head-img {
+  position: absolute;
+  right: 24rpx;
+  bottom: -60rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.lesson {
+  background-color: #fff;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.lesson-title {
+  height: 50rpx;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #333333;
+}
+
+.lesson-info {
+  display: flex;
+  align-items: center;
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #999999;
+}
+
+.lesson-info .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+
+.lesson-person {
+  margin-top: 32rpx;
+}
+
+.lesson-time {
+  margin-top: 16rpx;
+}
+
+.lesson-intro {
+  margin-top: 12rpx;
+  color: #333333;
+}
+
+.intro-item {
+  font-size: 26rpx;
+  line-height: 48rpx;
+  color: #999999;
+  text-indent: 2em;
+}
+
+.member {
+  margin-top: 24rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.member-title {
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333333;
+}
+
+.member .line {
+  margin: 24rpx 0;
+  height: 2rpx;
+  background: #E5E5E5;
+}
+
+.member .member-info {
+  display: flex;
+  justify-content: space-between;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.warning {
+  padding: 24rpx;
+  box-sizing: border-box;
+  height: 170rpx;
+  background: #FFFBF2;
+  margin: 24rpx 0;
+  color: #D4B0A2;
+}
+
+.warning .title {
+  height: 42rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.warning .con {
+  margin-top: 4rpx;
+  height: 36rpx;
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+
+.sign {
+  position: fixed;
+  bottom: 26rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 702rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #21DBC3;
+  border-radius: 48rpx;
+  font-size: 36rpx;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.cover {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cover .content {
+  margin: 260rpx auto 0;
+  width: 640rpx;
+  height: 684rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  position: relative;
+  text-align: center;
+}
+
+.cover .cover-bg {
+  height: 240rpx;
+}
+
+.cover .status {
+  position: absolute;
+  top: 166rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 148rpx;
+  height: 148rpx;
+  border-radius: 50%;
+}
+
+.cover .title {
+  margin: 98rpx 0 24rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+  color: #333333;
+}
+
+.cover .tip {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.cover .open {
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  width: 460rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #21DBC3;
+  margin: 48rpx auto 0;
+  border-radius: 48px;
+}
+
+.cover .close {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 48rpx auto;
+}
+.sign_red{
+  background-color: #FFA987;
+}
+
+.member .num .num_round {
+  width: 10px;
+  height: 10px;
+  background: #FFFFFF;
+  border: 2px solid #21DBC3;
+  border-radius: 50%;
+  opacity: 1;
+  float: left;
+  margin-right: 8rpx;
+}
+
+.member .num_text {
+  width: 140rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 34rpx;
+  color: #333333;
+  opacity: 1;
+  float: left;
+}
+@import "./courseSign.wxss";

@@ -1,0 +1,30 @@
+<!--pages/targetSet/targetSet.wxml-->
+<view class="vessel container">
+  <view class="title">目标体重</view>
+  <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/c1aba615be2d43d527e50ca0376b0f0.png?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=5223220307&Signature=ZfgWb5HKN2UBuc%2B4%2BRiW%2FjNnNEY%3D" class="icon"></image>
+  <view class="number">{{weight}}kg</view>
+  <!-- <view class="tips">建议最佳体重在40.4-60.4kg</view> -->
+  <view class="scale">
+    <scale min="20" max="100" int="{{false}}" step="1" fiexNum="80" single="10" h="60" active="{{initWeight}}"
+      styles="{{styles}}" bindvalue="bindWeigh"></scale>
+  </view>
+
+  <view class="title">目标天数</view>
+  <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/591b29861ab0f09fc83874eb97b78ab.png?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=5223220270&Signature=eXQ1%2B%2B0STeoQqawN5DoudtGcELc%3D" class="icon"></image>
+  <view class="number">{{day}}天</view>
+  <view class="tips">建议每周减重不超过0.9公斤</view>
+  <view class="tips">每月不超过3.6公斤</view>
+  <view class="scale">
+    <scale min="0" max="90" int="{{true}}" step="1" fiexNum="80" single="10" h="60" active="{{initDay}}"
+      styles="{{styles}}" bindvalue="bindDay"></scale>
+  </view>
+  <view class="reset" bindtap="reset">
+    完成
+  </view>
+</view>
+<view class="cover" wx:if="{{showCover}}">
+  <view class="loading">
+    <image src="/imgs/loading.gif" class="loading-gif"></image>
+    <view class="loading-txt">加载中~</view>
+  </view>
+</view>

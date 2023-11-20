@@ -1,0 +1,104 @@
+.container{
+    background:#ECECEC;
+    padding-bottom:164rpx;
+}
+.pd-x{
+    padding-bottom:168rpx;
+  }
+  .pd-un{
+    padding-bottom:100rpx;
+  }
+.vip-list{
+    background:#ECECEC;
+    
+}
+.vip-item{
+    display:flex;
+    align-items: center;
+}
+
+.vip-headImg{
+    width: 80rpx;
+    height: 80rpx;
+    background: #E8E8E8;
+    border-radius: 8rpx;
+    margin-right:24rpx;
+}
+
+.van-index-anchor--active{
+    background:#ECECEC!important;
+}
+
+.image-padding{
+    padding:20rpx 0 20rpx 30rpx;
+}
+
+.name-padding{
+    padding:20rpx 0;
+    border-bottom:1rpx solid #F2F2F2;
+}
+
+.border-none{
+    border:none;
+}
+
+.nickName{
+    margin-bottom:10rpx;
+}
+
+.star-vip-title{
+    padding:20rpx 16rpx;
+    background:#ECECEC;
+}
+
+.search-input{
+    width:556rpx;
+    height:66rpx;
+    line-height: 66rpx;
+    border-radius:12rpx;
+    background:#ECECEC;
+    padding-left:20rpx;
+}
+
+.search-vip{
+    padding:20rpx 30rpx;
+}
+
+.search-btn{
+    margin-left:32rpx;
+}
+
+.placeStyle{
+    color:#ccc;
+}
+.search-icon{
+    width:26rpx;
+    height:26rpx;
+    margin-right:24rpx;
+    
+}
+.star-icon{
+    width:30rpx;
+    height:30rpx;
+}
+.add-cover{
+    position: fixed;
+    right:30rpx;
+    bottom:200rpx;
+    width:100rpx;
+    height:100rpx;
+}
+
+.switch-tab{
+    padding:0 20rpx;
+    background:#fff;
+}
+
+.switch-item{
+    padding:30rpx 0;
+    margin-right:40rpx;
+}
+.switch-item.active{
+    border-bottom:4rpx solid #7D49FB;
+    color:#7D49FB;
+}

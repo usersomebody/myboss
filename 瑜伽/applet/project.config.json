@@ -1,0 +1,191 @@
+{
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": false,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": false,
+    "useStaticServer": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.18.0",
+  "appid": "wxf5834833e932e404",
+  "projectname": "yoga",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "约课",
+          "pathName": "pages/classAppointment/classAppointment",
+          "query": "weigh_info=1",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人主页",
+          "pathName": "pages/myPage/myPage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "目标体重",
+          "pathName": "pages/targetWeight/targetWeight",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "设置目标体重",
+          "pathName": "pages/targetSet/targetSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "初始体重",
+          "pathName": "pages/initWeight/initWeight",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会员卡",
+          "pathName": "pages/memberCard/memberCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "课程",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "签到",
+          "pathName": "pages/sign/sign",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约课程",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "可用卡片",
+          "pathName": "pages/availableCard/availableCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "绑定会员卡",
+          "pathName": "pages/cardBind/cardBind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "可预约卡片",
+          "pathName": "pages/appointmentCard/appointmentCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "体重记录",
+          "pathName": "pages/weighRecord/weighRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "记录",
+          "pathName": "pages/record/record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "体重报告",
+          "pathName": "pages/weightReport/weightReport",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑体重信息",
+          "pathName": "pages/editInfo/editInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "查看指数介绍",
+          "pathName": "pages/indexIntroduction/indexIntroduction",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

@@ -1,0 +1,111 @@
+<view>
+    <view class="common-relative">
+        <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/af0b6d4d5e788ff46ddc3742480aa9e6.png"></image></view>
+        <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">幸运抽奖</view>
+    </view>
+    <image class="lucky-draw-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220301/7c40dc22a22c48bbc7911ac1d2eb5f6c.png"></image>
+    <view class="store-info flex-box flex-a-center common-absolute" style="top:{{statusBarHeight + 48}}px">
+        <image class="store-avatar" src="{{storeInfo.logo}}"></image>
+        <view class="store-name font-md color-white">{{storeInfo.storeName}}</view>
+    </view>
+    <view class="lucky-draw-box">
+        <view class="lucky-draw-times">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/ce4cebd8db2d20861107946c1a959e2d.png"></image>
+            <view class="font-lg color-white draw-times-nums">您还有<text class="color-fde">{{day_count}}</text>次抽奖机会</view>
+        </view>
+        <image class="draw-base" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/6da27f4c869b041833497eb4c4f1d38f.png"></image>
+        <image class="common-relative draw-lucky-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/ff0efd189d89843937aa40c1250489bc.png"></image>
+        <view class="myLucky">
+            <lucky-wheel
+                id="myLucky"
+                width="480rpx"
+                height="480rpx"
+                blocks="{{blocks}}"
+                prizes="{{prizes}}"
+                buttons="{{buttons}}"
+                default-config="{{defaultConfig}}"
+                default-style="{{defaultStyle}}"
+                bindstart="start"
+                bindend="end"
+                />
+        </view>
+    </view>
+    <!-- 中奖记录 -->
+    <view class="win-prize" style="top:{{statusBarHeight + 62}}px">
+        <image bindtap="callPhone" class="win-prize-kefu" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/cb99b9a4bf81f6c1cbda49aec397cfd6.png"></image>
+        <image bindtap="goList" class="win-prize-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/b7e9b8134e216ff710adc90f1455df5e.png"></image>
+    </view>
+    <!-- 抽奖记录 -->
+    <view class="lucky-draw-record {{ isIphoneX ? 'iPhoneX' : ''}}">
+        <view wx:if="{{activity.is_open_winning_info == 1 && recordList.length}}" class="record-title flex-box flex-a-center flex-j-center">
+            <image class="record-title-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/dd624ddcc463f3f772505da95a50c415.png"></image>
+            <view class="font-weight font-lger color-white">中奖信息</view>
+            <image class="record-title-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/cc5b064d3dfffe6b958a84be88b4add2.png"></image>
+        </view>
+        <view wx:if="{{activity.is_open_winning_info == 1 && recordList.length}}" class="record-list-box">
+            <view class="list-box-shadow">
+                <swiper wx:if="{{recordList.length >= 6}}" vertical="true" autoplay="true" circular="true" interval="3000" display-multiple-items='{{recordList.length > 6 ? 6 : recordList.length}}' style="height:{{recordList.length > 6 ? '480rpx' : '480rpx'}}" class="bg-white swiper-bg">
+                    <view class="record-list-head">
+                        <block wx:for="{{recordList}}" wx:key="index">
+                            <swiper-item>
+                                <view class="flex-box flex-a-center flex-j-between record-item">
+                                    <view class="font-md color-draw-name">恭喜{{item.nickname}}</view>
+                                    <view class="font-md color-draw-name draw-prize-symbol">抽中</view>
+                                    <view class="font-md color-draw-prize draw-prize-name">{{item.prize_name_copy}}</view>
+                                </view>
+                            </swiper-item>
+                        </block>
+                    </view>
+                </swiper>
+                <view wx:if="{{recordList.length < 6}}" class="record-list-head" style="height:480rpx">
+                    <block wx:for="{{recordList}}" wx:key="index">
+                        <view class="flex-box flex-a-center flex-j-between record-item">
+                            <view class="font-md color-draw-name">恭喜{{item.nickname}}</view>
+                            <view class="font-md color-draw-name draw-prize-symbol">抽中</view>
+                            <view class="font-md color-draw-prize draw-prize-name">{{item.prize_name_copy}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <!-- 活动规则 -->
+        <view class="record-title flex-box flex-a-center flex-j-center">
+            <image class="record-title-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/dd624ddcc463f3f772505da95a50c415.png"></image>
+            <view class="font-weight font-lger color-white">活动说明</view>
+            <image class="record-title-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220221/cc5b064d3dfffe6b958a84be88b4add2.png"></image>
+        </view>
+        <view class="font-sm color-white draw-rule">
+            <view class="li color-white font-md" wx:for="{{ruleList}}" wx:key="index">{{item}}</view>
+        </view>
+        <view class="ruler-imgs">
+            <image wx:for="{{activity.rule_imgs}}" wx:key="index" src="{{item}}" class="ruler-imgs-item"></image>
+        </view>
+    </view>
+</view>
+ <!-- 抢购弹窗 -->
+ <view wx:if="{{payBoxShow}}" class="common-fixed pay-fixed">
+    <view class="pay-box">
+        <image class="closebtn" src="./imgs/icon-close-1.png" bindtap="closeBox"></image>
+        <view class="title font-bold font-lg text-center">绑定会员信息</view>
+        <view class="phone input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-phone.png"></image><input type="number" maxlength="11" placeholder="请输入手机号" placeholder-class="placeStyle" data-key="phone" bindinput="getVal"/></view>
+        <view class="code input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-authcode.png"></image><input type="text" placeholder="请输入验证码" placeholder-class="placeStyle" data-key="code" bindinput="getVal"/><text wx:if="{{!codeDisable}}" class="code-width color-929 authCode" bindtap="getCode">获取验证码</text><text class="authCode {{codeDisable ? 'bg-deep' : ''}}" wx:if="{{codeDisable}}">{{seconds}}</text></view>
+        <view class="nick-name input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-nickname.png"></image><input type="text" placeholder="请填写昵称" placeholder-class="placeStyle"  value="{{nickName}}" data-key="name" bindinput="getVal"/></view>
+        <view class="sure-btn base-bg color-white font-lg text-center {{hasData ? 'bg-deep' : ''}}" bindtap="joinPowerActivity">确定</view>
+    </view>
+    <!-- <image class="close" src="./imgs/close-one.png" bindtap="closeBox"></image> -->
+</view>
+<!-- 弹窗 -->
+<view wx:if="{{showBuyBox}}" class="common-fixed pay-fixed">
+    <view class="common-relative">
+        <image class="buying-box" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/d1ad4027f2ea124e77f49720ada7d79b.png"></image>
+        <view class="buying-title color-c16 font-lger">
+            <view class="font-weight text-center">{{buyingBox.title}}</view>
+            <view class="font-weight text-center {{buyingBox.status == 1 ? 'font-20 color-ff6' : ''}}">{{buyingBox.content}}</view>
+        </view>
+        <view class="buying-btn color-c16 font-20 font-weight text-center" bindtap="goNext">{{buyingBox.btnName}}</view>
+        <view class="font-sm color-white surplus-times">{{buyingBox.times}}</view>
+        <view class="buying-close" bindtap="closeBuyBox"></view>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+

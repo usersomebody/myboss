@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+      "flash-sale":"/components/flashSale/index",
+      "lucky-wheel": "/miniprogram_npm/@lucky-canvas/mini/lucky-wheel/index",
+      "lucky-grid": "/miniprogram_npm/@lucky-canvas/mini/lucky-grid/index"
+    },  
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "活动专区",
+    "navigationBarBackgroundColor": "#A37FFC",
+      "navigationBarTextStyle": "white"
+    }

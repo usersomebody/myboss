@@ -1,0 +1,23 @@
+<view style="background:rgba(0,0,0,.5);" class="overlayer show" bindtap="saveData"></view>
+<view class="popup-box">
+    <view class="popup-content bg-white">
+        <view class="name font-md color-333">{{name}}</view>
+        <view class="spceing">
+            <!-- 搜索框 -->
+            <!-- <view wx:if="{{key == 2}}" class="input-box flex-box flex-a-center common-relative"><image class="search-image-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-icon.png"></image><input class="font-md" type="text" value="{{searchWord}}" bindinput="searchCourseResult" placeholder="请输入课程名称" placeholder-class="search-place-style"/><view class="searc-btn color-333 font-lg" bindtap="search">搜索</view></view> -->
+            <!-- 选择框的公共样式 -->
+            <view wx:if="{{key != 'course_type'}}" class="list flex-box flex-a-center">
+                <view class="li-item color-333 text-center font-md one-line {{item.id == checkedId && key != 10 ? 'active' : ''}}" style="background:{{key == 'color' ? item : ''}}" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" bindtap="switchTab">
+                    <view wx:if="{{key == 'color' && item == checkedId }}" class="sign-symbol font-base color-white"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/correct-icon.png"></image></view>
+                    {{key == 10 ? '' : item.name}}
+                </view>
+            </view>
+            <view wx:else class="list flex-box flex-a-center">
+                <view class="li-item color-333 text-center font-md one-line {{item.checked ? 'active' : ''}}" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" bindtap="multipleChoose">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+        <view class="saveBtn color-white font-lg" bindtap="saveData">保存</view>
+    </view>
+</view>

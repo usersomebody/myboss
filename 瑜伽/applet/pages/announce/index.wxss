@@ -1,0 +1,41 @@
+.notice-list{
+    padding:20rpx 30rpx;
+}
+.notice-item{
+    padding:34rpx 30rpx;
+    border-radius:16rpx;
+    margin-bottom:20rpx;
+}
+.notice-time{
+    margin:22rpx 0 32rpx;
+}
+.notice-time image{
+    width:28rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+.notice-status{
+    position: absolute;
+    right:0;
+    top:0;
+    width: 100rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+    text-align: center;
+    background: #FA9552;
+    border-radius: 0px 16rpx 0px 16rpx;
+}
+.no-list-data{
+    padding-top:50rpx;
+    margin:0 auto;
+  }
+  .no-list-data image{
+    width:424rpx;
+    height:360rpx;
+    margin-bottom:20rpx;
+  }
+  .showAll{
+      position: absolute;
+      right:0;
+      bottom:0;
+  }

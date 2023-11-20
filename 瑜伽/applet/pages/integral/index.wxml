@@ -1,0 +1,39 @@
+<view class="container">
+        <view class="common-relative">
+            <image class="index-nav-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/584dbe17de342f43a6f697f6aaeda79b.png"></image>
+            <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/af0b6d4d5e788ff46ddc3742480aa9e6.png"></image></view>
+            <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">我的积分</view>
+            <!-- 提现金额 -->
+            <view class="integral-info">
+                <view class="font-72 color-white text-center">{{credit_total}}</view>
+                <view class="font-md color-e9e text-center">当前积分</view>
+            </view>
+        </view>
+        <view class="withdrawal-info-box">
+            
+            <!-- 提现记录 -->
+            <view class="withdrawal-record">
+                <view class="record-title font-lg color-333 bold">积分明细</view>
+                <view class="record-list">
+                    <view wx:for="{{list}}" wx:key="index" class="record-item flex-box flex-a-center flex-j-between">
+                        <view class="left">
+                            <view class="left-title font-lg color-333">{{item.title}}</view>
+                            <view class="course-title font-md color-99">{{item.source_tip}}</view>
+                            <view wx:if="{{item.source_type == 5}}" class="course-title font-md color-99">{{item.create_staff_name}}</view>
+                            <view class="font-md color-99">{{item.create_time}}</view>
+                            <!-- <view class="course-remark font-md color-99">{{item.remark}}</view> -->
+                        </view>
+                        <view class="right font-lger color-333 flex-box flex-a-center">
+                            <view>{{item.number}}</view>
+                            <image class="money-symbol" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/4525e6db72bba29cf0358f21ced893c0.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{!list.length}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                    <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/be881863e1e83297567becda7fe57d37.png" top="100rpx"></no-data-cover>
+                    <view class="font-sm color-99">暂无记录~</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    

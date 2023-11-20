@@ -1,0 +1,190 @@
+<!-- pages/leave/leave.wxml -->
+<view class="container">
+  <view class="nav">
+    <view class="nav_item nva_l flex-center {{currentNav == 0 ? 'base-must-color nav_item_checked' : ''}}" bindtap="checkNav" data-flag="0">
+      我要请假
+      <view class="nav_line" wx:if="{{currentNav==0}}"></view>
+    </view>
+    <view class="nav_item nav_r flex-center {{currentNav == 1 ? 'base-must-color nav_item_checked' : ''}}" bindtap="checkNav" data-flag="1">
+      请假记录
+      <view class="nav_line" wx:if="{{currentNav==1}}"></view>
+    </view>
+  </view>
+  <view class="cont {{ currentNav == 1 ? 'record-list-bg' : ''}}">
+    <block class="contone" wx:if="{{currentNav==0}}">
+      <view class="cont dialog_cont flex-box flex-a-center flex-j-between">
+        <view class="contl common-flex-input"><image class="submit-required" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/1338ec7e9a8ccea4c72dfbb391fc90c5.png"></image>会员卡</view>
+        <view class="contr">
+          <view class="section">
+            <view class="font-md color-66" bindtap="handelCardBox">{{select_card_name ? select_card_name : '请选择会员卡类型'}}</view>
+            <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{cardInfo}}" range-key="card_type_name">
+              <view class="picker">{{cardInfo[index].card_type_name}}</view>
+            </picker> -->
+          </view>
+          <view class="cont_img">
+            <image src="/imgs/arrow-r.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cont dialog_cont flex-box flex-a-center flex-j-between">
+        <view class="contl common-flex-input"><image class="submit-required" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/1338ec7e9a8ccea4c72dfbb391fc90c5.png"></image>开始日期</view>
+        <view class="contr">
+          <view class="section">
+            <picker mode="date" value="{{begindate}}" start="{{initialdata}}" end="2030-09-01" bindchange="bindDateChange">
+              <view class="picker">{{begindate}}</view>
+            </picker>
+          </view>
+          <view class="cont_img">
+            <image src="/imgs/arrow-r.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cont flex-box flex-a-center flex-j-between">
+        <view class="contl common-flex-input"><image class="submit-required" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/1338ec7e9a8ccea4c72dfbb391fc90c5.png"></image>结束日期</view>
+        <view class="contr">
+          <view class="section">
+            <picker mode="date" value="{{enddate}}" start="{{limit_enddate}}" end="2030-09-01" bindchange="bindendDateChange">
+              <view class="picker">{{enddate}}</view>
+            </picker>
+          </view>
+          <view class="cont_img">
+            <image src="/imgs/arrow-r.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cont_audit">
+      <text> 当前卡片剩余请假次数</text>
+         <text class="day_color">{{cardInfo[index].residue_day}}</text>
+          <text>次，审核通过后，该卡将延卡</text> 
+          <text class="day_color">{{day}}</text>
+           <text>天。</text>
+      </view>
+      <view class="foot">
+        <view class="foota common-flex-input"><image class="submit-required" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/1338ec7e9a8ccea4c72dfbb391fc90c5.png"></image>请假原因</view>
+        <textarea bindblur="inputeidt" name="" id="" cols="30" maxlength="100" rows="3" placeholder="{{textvalue_input}}" value="{{textvalue}}"></textarea>
+      </view>
+      <view class="btn" bindtap="apply_btn">申请</view>
+      <!-- <view class="btn" bindtap="apply_btn" wx:if="{{assets_num!==0}}">申请</view>
+      <view class="btn" wx:else>购买请假次数</view> -->
+    </block>
+    <block class="conttwo" wx:if="{{currentNav==1}}">
+      <view wx:if="{{leave_recordo.length==0}}" class="noclass" >
+        <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/e730f88e1439afcdf0abfa87d3e4619c.png" top="200rpx"></no-data-cover>
+        <view class="nocourse">暂无请假记录~</view>
+      </view>
+      <view class="conttwo_list" data-id="{{item.id}}" wx:for="{{leave_recordo}}" wx:key='id' wx:for-item='item'>
+        <!-- <image class="conttwo_log" src="{{phone_user}}"></image> -->
+        <view class="conttwo_r">
+          <view class="flex-box flex-a-center flex-j-between">
+            <view class="flex-box flex-a-center">
+                <view class="label-sign"></view>
+                <view class="conttwo_tit" wx:if="{{item.create_staff_id==0}}">
+                    申请人:{{item.create_staff_id==0 ? item.user_name : item.staff_name}}
+                </view>
+            </view>
+            <view class="tit_text font-md">{{item.create_time}}</view>
+          </view>
+          <view class="conttwo_card">
+            会员卡:
+            <text>{{item.name}}</text>
+          </view>
+          <view class="conttwo_card">
+            请假时间:
+            <text>{{item.leave_start_time}}-{{item.leave_end_time}}</text>
+          </view>
+          <view class="conttwo_fot flex-box flex-a-center flex-j-between">
+            <view class="flex-box flex-a-center">
+              <image class="conttwo_statusimg flex-shrink" src="{{statusMap[item.leave_check_status].cover}}"></image>
+              <view class="conttwo_status">{{statusMap[item.leave_check_status].name}}</view>
+              <view class="conttwo_refuse" wx:if="{{item.leave_check_status==2}}">
+                {{item.leave_refuse_cause}}
+               </view>
+            </view>
+            <view class="conttwo_rit flex-box flex-a-center" wx:if="{{item.leave_check_status==1}}">
+              <view class="conttwo_repeal conttwo_right" bindtap="repeal" data-listone="{{item}}" >
+                撤销
+              </view>
+              <view class="conttwo_repeal conttwo_right cont_flrig" bindtap="amend"  data-list="{{item}}" >
+                修改
+              </view>
+            </view>
+          </view>
+          
+        </view>
+      </view>
+      
+      <!-- 修改的弹窗 -->
+      <van-dialog use-slot title="修改" show="{{ show }}" show-confirm-button="{{false}}" bind:close="onClose" bind:getuserinfo="getUserInfo">
+        <view class="dialog_cont">
+          <view class="contl">会员卡</view>
+          <view class="contr">
+            <view class="section">{{modify_leave.name}}</view>
+          </view>
+        </view>
+        <view class="dialog_cont">
+          <view class="contl">开始日期</view>
+          <view class="contr">
+            <view class="section">
+              <picker mode="date" value="{{update_begindate}}" start="{{update_initialdata}}" end="2030-09-01" bindchange="update_bindDateChange">
+                <view class="picker">{{update_begindate}}</view>
+              </picker>
+            </view>
+            <view class="cont_img">
+              <image src="/imgs/arrow-r.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="dialog_cont border-none">
+          <view class="contl">结束日期</view>
+          <view class="contr">
+            <view class="section">
+              <picker mode="date" value="{{update_enddate}}" start="{{limit_update_enddate}}" end="2030-09-01" bindchange="update_bindendDateChange">
+                <view class="picker">{{update_enddate}}</view>
+              </picker>
+            </view>
+            <view class="cont_img">
+              <image src="/imgs/arrow-r.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="cont_audit bg-white">
+          审核通过后，该卡将延卡
+          <text class="day_color">{{update_day}}</text>
+          天。
+        </view>
+        <view class="dialog_ament_foot">
+          <view class="foota">修改原因</view>
+          <textarea bindblur="update_amend_inputeidt" name="" id="" cols="30" maxlength="100" rows="3" placeholder="{{amend_inputeidt}}" class="common-relative">
+            <view class="angle" >
+            <text class="font-base angle-color" >{{update_amend_inputeidt.length}}</text><text class="font-base">/100</text>
+            </view>
+          </textarea>
+        </view>
+        <view class="dialog-footer">
+          <view class="footer-button" bindtap="onClose">取消</view>
+          <view class="footer-button sure" bindtap="getUserInfo">确认</view>
+        </view>
+      </van-dialog>
+      <!-- 撤销弹窗 -->
+      <!-- <van-dialog use-slot title="确认要撤销吗" show="{{ repeal_show }}" show-cancel-button bind:close="repeal_onClose" bind:confirm="repeal_getUserInfo" confirmButtonText="确认" confirm-button-color="#333333" cancel-button-color="#333333">
+        <textarea class="repeal_textarea" bindblur="repeal_inputeidt" name="" id="" cols="30" maxlength="100" rows="3" placeholder="{{repeal_inputeidt}}"></textarea>
+        <view class="repeal_con">审核通过后，扣除的请假次数会退回到卡中</view>
+      </van-dialog> -->
+    </block>
+  </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+
+<view class="select-card" wx:if="{{showOverlayer}}">
+  <view class="card-list">
+      <view class="close" bindtap="handelCardBox"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/1ade82d9a1d501dc5241f37f8aadeeb4.png"></image></view>
+      <radio-group class="margin-t-4" bindchange="bindPickerChange">
+          <label class="weui-cell weui-check__label flex-box flex-a-center select-item" wx:for="{{cardInfo}}" wx:key="index">
+            <view class="weui-cell__hd">
+              <radio value="{{index}}" checked="{{select_card_id == item.id}}"/>
+            </view>
+            <view class="weui-cell__bd">{{item.card_type_name}}</view>
+          </label>
+      </radio-group>
+  </view>
+</view>

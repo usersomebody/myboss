@@ -1,0 +1,22 @@
+<!--pages/address/address.wxml-->
+<view class="container">
+  <view class="vessel">
+    <view class="top"></view>
+    <view class="province">
+      <view class="pitem {{checkedProIdx==index?'pchecked':''}}" wx:for="{{proData}}" wx:for-item="pro" wx:key='id'
+        bindtap="checkPro" data-index="{{index}}">{{pro.name}}</view>
+    </view>
+    <view class="city">
+      <view class="citem {{checkedCityIdx==index?'checked':''}}" wx:for="{{cityData}}" wx:for-item="city" wx:key='id'
+        bindtap="checkCity" data-index="{{index}}">{{city.name}}</view>
+    </view>
+    <view class="area">
+      <view class="aitem {{area.checked?'checked':''}}" wx:for="{{areaData}}" wx:for-item="area" wx:key='id'
+        bindtap="checkArea" data-index="{{index}}">{{area.name}}</view>
+    </view>
+  </view>
+  <view class="operation">
+    <view class="btn" bindtap="resetCheck">清除</view>
+    <view class="btn confirmDevice" bindtap="confirmCheck">确定</view>
+  </view>
+</view>

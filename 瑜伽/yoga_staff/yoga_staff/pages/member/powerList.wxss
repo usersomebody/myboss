@@ -1,0 +1,243 @@
+page{
+    background:#f7f7f7;
+}
+.container-box{
+    height:auto;
+    padding-bottom:184rpx;
+}
+.switchTab{
+    border-radius:8rpx;
+    width:480rpx;
+    box-sizing: border-box;
+    margin:0 auto;
+    padding:24rpx 0;
+}
+.switch-item{
+    width:200rpx;
+    height:72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    background:#fff; 
+    /* border:1rpx solid #9B77F4; */
+    color:#9B77F4;
+}
+.switch-item.active{
+    background:#9B77F4;
+    color:#fff;
+}
+.powerList{
+    background:#fff;
+}
+.powerList .left{
+    height:100%;
+    width:300rpx;
+    background:#F9F9F9;
+}
+.powerList .right{
+    height:100%;
+    flex:1;
+}
+.left-item{
+    padding:32rpx 30rpx;
+}
+.left-item.active{
+    background:#fff;
+    color:#333;
+}
+.right-item{
+    flex-wrap: wrap;
+}
+.right-itm{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin:0 0 30rpx;
+    width:33%;
+}
+.power-icon{
+    padding:28rpx;
+    border-radius:10rpx;
+    border:2rpx solid #E4E3E6;
+    margin-bottom:16rpx;
+}
+.power-icon.active{
+    border:2rpx solid #9B77F4;
+    
+}
+.power-img{
+    width:32rpx;
+    height:32rpx;
+}
+.left-num{
+    position: absolute;
+    right:20rpx;
+    top:40%;
+    width:36rpx;
+    height:36rpx;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    background:#E1D5FF;
+}
+.base-deep-bg{
+    background: #9B77F4;
+}
+
+.submitBtn{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #f7f7f7;
+    padding-top: 30rpx;
+    padding-bottom:68rpx;
+}
+
+.submitBtn .btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background:#fff;
+    border:2rpx solid #7D49FB;
+    color:#7D49FB;
+    font-size:34rpx;
+    border-radius:8rpx;
+    text-align: center;
+}
+
+.submitBtn .sure{
+    background:#7D49FB;
+    color:#fff;
+    font-size:34rpx;
+    margin-left:56rpx;
+}
+
+.course-config{
+    padding:0 30rpx;
+}
+
+.store-item{
+    padding:34rpx 0;
+    background:#fff;
+    border-bottom:1rpx solid #E6E6E6;
+}
+
+.store-item:last-child{
+    border:none;
+}
+
+.private-config{
+    padding:22rpx 34rpx;
+    background:#FCFBFF;
+    border-radius: 10rpx;
+    margin-top:28rpx;
+    
+}
+.limit-date-select{
+    padding:24rpx 26rpx;
+    border:1rpx solid #E6E6E6;
+}
+.color-504{
+    color:#504766;
+}
+.limit-date-title{
+    margin-bottom:24rpx;
+}
+.limit-date{
+    margin-bottom:30rpx;
+}
+.week-list{
+    width:90%;
+}
+.week-item{
+    width: 14%;
+    height: 72rpx;
+    line-height: 72rpx;
+    background: #FFFFFF;
+    border: 2rpx solid #ECECEC;
+    border-radius: 8rpx;
+    color:#666666;
+    text-align: center;
+    margin-right:10rpx;
+}
+.week-item:last-child{
+    margin:0;
+}
+.week-item.active{
+    background: #F2EEFF;
+    border: 2rpx solid #9B77F4;
+    color:#9169FB;
+}
+.select-r-b-icon{
+    position: absolute;
+    right:0;
+    bottom:0;
+    width:30rpx;
+    height:30rpx;
+}
+.date-cover .cover{
+    width:38rpx;
+    height:34rpx;
+    margin-right:10rpx;
+}
+.add-restTime{
+    margin-top:30rpx;
+}
+.add-icon{
+    width:32rpx;
+    height:32rpx;
+    border-radius:50%;
+    background:#9B77F4;
+    color:#fff;
+    font-size:20rpx;
+    margin-right:12rpx;
+}
+.rest-time-left{
+    width:80%;
+}
+.del-icon{
+    position: absolute;
+    right:20rpx;
+    top:40%;
+    width:24rpx;
+    height:28rpx;
+    margin-left:20rpx;
+    z-index:1;
+}
+.empty-btn{
+    margin-top:52rpx;
+}
+.empty-btn .empty-title{
+    width: 236rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    background: #DFD2FF;
+    border: 1rpx solid #9B77F4;
+    border-radius: 10rpx;
+}
+.switchTab-box{
+    border: 2rpx solid #9B77F4;
+    border-radius: 8rpx;
+}
+.switchTab-box .switch-item:nth-child(2){
+    border-right:2rpx solid #9B77F4;
+    border-left:2rpx solid #9B77F4;
+}
+.data-range{
+    margin-top:80rpx;
+}
+.data-range-title{
+    padding-left:25rpx;
+    margin-bottom:20rpx;
+}
+.radio-item{
+    padding:32rpx 30rpx;
+    border-bottom:1rpx solid #EDEDED;
+}
+.data-range-warn{
+    padding:20rpx 30rpx;
+    color:#F93737;
+}

@@ -1,0 +1,94 @@
+.container{
+}
+.swiper{
+    height:280rpx;
+    width:100%;
+}
+
+/* 指示点样式 */
+.swiper .wx-swiper-dot{ 
+    height: 16rpx;
+    width: 16rpx;
+    margin-top:-40rpx;
+}
+
+.swiper .wx-swiper-dot-active{
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 6rpx;
+    margin-top:-40rpx;
+}
+
+.categories image{
+    width:100%;
+    height:280rpx;
+    border-radius:20rpx;
+}
+.info-list{
+    padding:20rpx 30rpx;
+    
+}
+.li-item{
+    padding:32rpx 20rpx;
+    border-radius:20rpx;
+    margin-top:20rpx;
+}
+
+.li-item .cover image{
+    width:240rpx;
+    height:180rpx;
+    border-radius:8rpx;
+    margin-right:22rpx;
+}
+
+.info-message{
+    width:65%;
+}
+
+.info-message .info-data{
+    margin-top:80rpx;
+}
+
+.info-message .info-data .time image{
+    width:28rpx;
+    height:28rpx;
+}
+
+.info-message .info-data .number image{
+    width:30rpx;
+    height:22rpx;
+}
+
+.margin-r-12{
+    margin-right:12rpx;
+}
+
+.color-909{
+    color:#909499;
+}
+
+.switch-list{
+    width:100%;
+}
+.switch-item{
+    position: relative;
+    width:50%;
+    text-align: center;
+    padding:26rpx 0 26rpx;
+    color:#999999;
+    font-size:28rpx;
+}
+.switch-item.active{
+    color:#333;
+    font-size:34rpx;
+    font-weight:600;
+}
+.item-checked{
+    position: absolute;
+    bottom: 6rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 40rpx;
+    height: 12rpx;
+}

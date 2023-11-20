@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "common-bottom-frame":"/components/common-bottom-frame/index"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "课程资料"
+  }

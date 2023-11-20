@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+      "no-data": "/components/no-data/index"
+    },
+    "navigationBarTitleText": "搜索",
+    "navigationBarTextStyle": "black"
+  }

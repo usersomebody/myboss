@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="val bg-white">
+        <van-radio-group value="{{ radio }}" bind:change="onChange" >
+            <view wx:for="{{radioList}}" wx:key="index" class="radio-item">
+                <van-radio  name="{{item.id}}" class="font-md color-333" checked-color="#9B77F4">{{item.name}}</van-radio>
+                <view wx:if="{{radio == 3 && item.id == 3}}" class="input-form">
+                    <view wx:for="{{inputList}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx" class="input-item">
+                        <view>{{itm.name}}</view>
+                        <input class="input-box" placeholder="{{itm.placeholder}}" value="{{itm.val}}" type="number" data-key="{{itm.key}}" bindinput="getNumberValue"/>
+                    </view>
+                </view>
+            </view>
+        </van-radio-group>
+    </view>
+    <view class="add-btn flex-box flex-a-center flex-j-center">
+            <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+            <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+        </view>
+</view>

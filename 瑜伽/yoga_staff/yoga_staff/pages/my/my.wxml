@@ -1,0 +1,21 @@
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}">
+    <view class="nav-list">
+        <view class="nav-item bg-white" wx:for="{{nav}}" wx:key="index">
+            <view class="nav-item-title color-4b4 font-md font-weight">{{item.title}}</view>
+            <view class="nav-sub flex-box flex-a-center">
+                <view class="nav-sub-item flex-box flex-a-center flex-j-center" wx:for-item="itm" wx:for-index="idx" wx:for="{{item.subList}}" wx:key="idx" data-link="{{itm.link}}" bindtap="goToPage">
+                    <image style="width:{{itm.width}};height:{{itm.height}}" src="{{itm.cover}}"></image>
+                    <view class="font-sm color-333">{{itm.name}}</view>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+    <!-- 切换门店 -->
+    <view class="switch-store flex-box flex-a-center flex-j-between" data-link="/pages/store/store" bindtap="goToPage">
+        <view class="store-title font-weight font-md color-333">切换门店</view>
+        <image class="switch-icon" src='https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_store.png'></image>
+    </view>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{4}}"></tab-bar>

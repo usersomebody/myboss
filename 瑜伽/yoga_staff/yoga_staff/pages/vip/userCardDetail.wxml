@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="li flex-box flex-a-center flex-j-between {{ index == showlist.length - 1 ? 'border-none' : ''}}" wx:for="{{showlist}}" wx:key="index">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="item-value flex-box flex-a-center">
+            <view class="value-placeholder font-sm color-504">{{item.value}}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,54 @@
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}"> 
+    <!-- 类型切换 -->
+    <view class="switch-tab flex-box flex-a-center">
+        <view class="switch-item font-md color-666 {{item.id == switchId ? 'active' : ''}}" wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switch">{{item.name}}</view>
+    </view>
+    <!-- //搜索框 -->
+    <view class="search-vip flex-box flex-a-center bg-white">
+        <view class="search-input flex-box flex-a-center "><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/6ea8b786b2c88c95c219e3916e7eb6d3.png" class="search-icon"></image><input placeholder="请输入姓名或者手机号" value="{{searchWord}}" type="text" placeholder-class="placeStyle" bindinput="getVal"/></view>
+        <view class="search-btn font-lg color-333" bindtap="search">搜索</view>
+    </view>
+    <!-- 星标会员 -->
+    <view classs="star-vip" wx:if="{{strArr.length}}">
+        <view class="star-vip-title font-md color-333 flex-box flex-a-center"><image class="star-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/d6fa1634f1aaa6e67e8dc6a6c6bfd9ae.png"></image>星标会员</view>
+        <view class="star-vip-list bg-white">
+            <view>
+                <view class="vip-item" wx:for="{{strArr}}" wx:key="idx" wx:for-item="v" wx:for-index="idx" data-id="{{v.id}}" bindtap="checkVipDetail">
+                    <view class="image-padding flex-shrink">
+                        <image class="vip-headImg" src="{{v.head_img}}"></image> 
+                    </view>
+                    <view class="color-333 flex-1 name-padding {{idx == item[1].length - 1 ? 'border-none' : ''}}" >
+                        <view class="font-lg nickName">{{v.name}}</view>
+                        <view class="font-sm color-666">{{v.phone}}</view>
+                    </view>    
+                </view>
+            </view>
+        </view>
+    </view>
+    <van-index-bar index-list="{{letter}}" highlight-color="#7D49FB">     
+        <view wx:for="{{contactPersonData}}" wx:key="index" >  
+            <view class="vip-list">
+                <van-index-anchor index="{{item[0]}}">{{ item[0] }}</van-index-anchor>    
+            </view>
+            <view class="bg-white">
+                <van-cell wx:for="{{item[1]}}" wx:key="idx" wx:for-item="v" wx:for-index="idx" title="{{v.name}}" data-id="{{v.id}}" bindtap="checkVipDetail">
+                    <view class="vip-item">
+                        <view class="image-padding flex-shrink">
+                            <image class="vip-headImg" src="{{v.head_img}}"></image> 
+                        </view>
+                        <view class="color-333 flex-1 name-padding {{idx == item[1].length - 1 ? 'border-none' : ''}}" >
+                            <view class="font-lg nickName">{{v.name}}</view>
+                            <view class="font-sm color-666">{{v.phone}}</view>
+                        </view>    
+                    </view>
+                </van-cell>     
+            </view>
+        </view>    
+    </van-index-bar>  
+    <view class="font-md color-999 text-center" wx:if="{{!strArr.length && !letter.length}}" style="margin-top:100rpx;">暂无数据</view>
+</view>
+<view class="addVipCard" bindtap="goDetail" data-type="1">
+    <image class="add-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/3a5abd6b221783c81aac8584f9069bc9.png"></image>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{2}}"></tab-bar>

@@ -1,0 +1,130 @@
+<view class="bg-f7">
+<view class="switchTab flex-box flex-a-center flex-j-center">
+    <view class="switchTab-box flex-box flex-a-center flex-j-center">
+        <view class="switch-item font-md color-666 {{switchId == item.id ? 'active' : ''}}" wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+    </view>
+</view>
+<view class="container-box {{switchId != 3 ? 'bg-white' : ''}}">
+<!-- 权限配置 -->
+<view wx:if="{{switchId == 1}}" class="powerList flex-box">
+    <view class="left">
+        <view class="left-item color-666 font-md common-relative {{checkId == item.id ? 'active' : ''}}" wx:for="{{allAuthRole}}" wx:key="index" data-id="{{item.id}}" bindtap="checkLeft">{{item.name}}<view class="left-num {{checkId == item.id ? 'base-deep-bg' : ''}}">{{item.checkNum}}</view></view>
+    </view>
+    <view class="right" style="padding-top:20rpx;">
+        <view class="right-item font-md flex-box flex-a-start {{checkId == item.id ? 'bg-white color-333' : ''}}" wx:for="{{allAuthRole}}" wx:key="index" wx:if="{{checkId == item.id}}">
+            <view class="right-itm font-md {{itm.checked ? 'base-color' : ''}}" wx:for="{{item.children}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx" data-id="{{itm.id}}" data-code="{{itm.auth_code}}" data-oid="{{item.id}}" bindtap="checkChildren">
+                <view class="power-icon {{itm.checked ? 'active' : ''}}"><image class="power-img" src="{{itm.checked ? item.click_icon : item.icon}}"></image></view>
+                <view class="font-sm">{{itm.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 私教课程配置 -->
+<view wx:if="{{switchId == 2}}" class="course-config">
+    <van-checkbox-group value="{{ courseId }}" bind:change="onChange">
+        <view class="store-item" wx:for="{{courseList}}" wx:key="index" >
+            <van-checkbox name="{{item.id}}" checked-color="#9B77F4" value-class="value-class">{{item.name}}</van-checkbox>
+            <view wx:if="{{isShowPrivate && item.id == 2}}" class="private-config">
+                <!-- 私教上课时间配置 -->
+                <view class="limit-date">
+                    <view class="limit-date-title font-md color-333">私教上课时间配置</view>
+                    <view class="week-list flex-box flex-a-center flex-j-between">
+                        <view class="week-item common-relative {{item.id == weekId ? 'active' : ''}}" wx:for="{{weekList}}" wx:key="index" data-id="{{item.id}}"  bindtap="switch">
+                            {{item.name}}
+                            <image wx:if="{{item.attend.length || item.rest.length}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/5966f6bbe1613d899543edd7fd874d28.png" class="select-r-b-icon"></image>
+                        </view>
+                    </view>
+                </view>
+                <!-- 上班时间 -->
+                <view class="limit-date">
+                    <view class="limit-date-title font-md color-666">上班时间</view>
+                    <view class="limit-date-select flex-box flex-a-center flex-j-between" style="width:80%;">
+                        <view class="left flex-box flex-a-center">
+                            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                            <view>
+                                <picker mode="time" value="{{dateObj.use_start_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_start_time" bindchange="bindDateChange">
+                                    <view class="picker font-md color-504">
+                                        {{dateObj.use_start_time || '请选择'}}
+                                    </view>
+                                </picker>
+                            </view>
+                        </view>
+                        <view class="line-distance">----</view>
+                        <view class="right flex-box flex-a-center">
+                                <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                <view>
+                                    <picker mode="time" value="{{dateObj.use_end_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_end_time" bindchange="bindDateChange">
+                                        <view class="picker font-md color-504">
+                                            {{dateObj.use_end_time || '请选择'}}
+                                        </view>
+                                    </picker>
+                                </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 休息时间 -->
+                <view class="attend-class">
+                    <view class="font-md color-666 limit-date-title">休息时间</view>
+                    <view wx:if="{{dateObj.restTime.length}}" wx:for="{{dateObj.restTime}}" wx:key="index" class="flex-box flex-a-center flex-j-between common-relative" style="margin-bottom:20rpx;">
+                        <view class="rest-time-left limit-date-select flex-box flex-a-center flex-j-between">
+                            <view class="left flex-box flex-a-center">
+                                <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                <view>
+                                    <picker mode="time" value="{{item.rest_start_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="rest_start_time" data-id="{{index}}" bindchange="bindRestChange">
+                                        <view class="picker font-md color-504">
+                                            {{item.rest_start_time || '请选择'}}
+                                        </view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="line-distance">----</view>
+                            <view class="right flex-box flex-a-center">
+                                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                    <view>
+                                        <picker mode="time" value="{{item.rest_end_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="rest_end_time" data-id="{{index}}" bindchange="bindRestChange">
+                                            <view class="picker font-md color-504">
+                                                {{item.rest_end_time || '请选择'}}
+                                            </view>
+                                        </picker>
+                                    </view>
+                            </view>
+                        </view>
+                        <image class="del-icon font-size color-red" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211222/2fe41b10df81dbfc811d81cefcde2531.png" data-index="{{index}}" bindtap="delRestTime"></image>
+                    </view>
+                </view>
+
+                <!-- 添加休息时间 -->
+                <view class="add-restTime base-color flex-box flex-a-center" >
+                    <image class="add-icon font-md flex-box flex-a-center flex-j-center" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/ee2994b61b6be986aa6e0ed9f8f112c1.png" bindtap="addRestTime"></image>
+                    <view bindtap="addRestTime">添加休息时间</view>
+                </view>
+                <!-- 清除当前配置 -->
+                <view class="empty-btn flex-box flex-a-center flex-j-end" >
+                    <view class="empty-title font-lg base-color" bindtap="emptyData">清除当前配置</view>
+                </view>
+            </view>
+            
+        </view>
+    </van-checkbox-group>
+</view>
+
+<!-- 数据可见范围 -->
+<view class="data-range" wx:if="{{switchId == 3}}">
+    <view class="color-333 font-lg data-range-title">数据可见范围</view>
+    <van-radio-group value="{{ dataRangeVal }}" bind:change="onDataRangeChange">
+        <view class="radio-item bg-white" wx:for="{{dataCanSeeRange}}" wx:key="index">
+            <van-radio name="{{item.id}}" checked-color="#9B77F4" icon-size="20px" class="font-md">{{item.name}}</van-radio>
+        </view>
+    </van-radio-group>
+    <view class="data-range-warn font-sm">选择个人数据只看到自己添加的会员信息；选择全部数据能看到所有的会员信息</view>
+</view>
+
+</view>
+
+<!-- 确认btn -->
+<view class="submitBtn flex-box flex-a-center flex-j-center">
+    <view wx:if="{{switchId == 1}}" class="btn back" bindtap="actionType">{{ !isSelectAll ? '重置' : '全选'}}</view>
+    <view wx:if="{{switchId != 1}}" class="btn back" bindtap="actionType">返回</view>
+    <view class="btn sure" bindtap="sure">确定</view>
+</view>
+</view>

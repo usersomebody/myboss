@@ -1,0 +1,33 @@
+<view class="live container">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_nodata_6.png"></image>
+    <view class="title color-99 font-md">该模块暂未开放</view>
+</view>
+<!-- 后面排课场馆可能会用到的效果 试试 -->
+<!-- <view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}">
+    <view class="left">1</view>
+    <scroll-view class="right" scroll-x="{{true}}">
+        <view class="item">
+            <view class="items week">周一</view>
+            <view class="items week">周二</view>
+            <view class="items week">周三</view>
+            <view class="items week">周四</view>
+            <view class="items week">周五</view>
+            <view class="items week">周六</view>
+            <view class="items week">周日</view>
+        </view>
+        <view class="item">
+            <view class="items">1</view>
+            <view class="items">2</view>
+            <view class="items">3</view>
+            <view class="items">4</view>
+            <view class="items">5</view>
+            <view class="items">6</view>
+            <view class="items">7</view>
+        </view>
+    </scroll-view>
+</view> -->
+<!-- <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view> -->
+<!-- canvas -->
+<!-- <view class="canvas" bindtap="showCanvas">canvas</view> -->
+<!-- <share-poster wx:if="{{canvasShow}}" bind:updateData="updateData"></share-poster> -->
+<tab-bar selected="{{2}}"></tab-bar>

@@ -1,0 +1,21 @@
+<view class="container bg-white">
+    <view class="li flex-box flex-a-center flex-j-between {{ index == list.length - 1 ? 'border-none' : ''}}" wx:for="{{list}}" wx:key="index" wx:if="{{item.isShow}}">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="item-value flex-box flex-a-center" data-item="{{item}}" bindtap="toggelePopup">
+            <view wx:if="{{item.key != 10}}" class="value-placeholder font-sm {{item.key == 11 ? 'color-e83' : ''}} {{item.value ? 'color-504' : 'color-999'}}">{{item.value ? item.value : item.placeholder}}</view>
+            <view wx:else class="value-placeholder font-sm {{item.value ? 'color-504' : 'color-999'}}">
+                {{item.value ? '' : item.placeholder}}
+                <view wx:if="{{item.value}}" style="background:{{item.value}}" class="color-block"></view>
+            </view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view class="handle-btn flex-box flex-a-center flex-j-center">
+        <view class="btn left color-white font-lg" bindtap="handleBack">{{scheduleId ? '删除排课' : '返回'}}</view>
+        <view wx:if="{{courseType != 4}}" class="btn right color-white font-lg" bindtap="submitData">{{scheduleId ? '保存' : '添加排课'}}</view>
+        <view wx:if="{{courseType == 4}}" class="btn right color-white font-lg" bindtap="submitData">{{scheduleId ? '返回' : '添加排课'}}</view>
+    </view>
+    
+</view>
+
+<common-popup class="component-popup" wx:if="{{popupShow && popupData.list.length}}" name="{{popupData.name}}" list="{{popupData.list}}" key="{{popupData.key}}" selectId="{{popupData.selectId}}" valName="{{popupData.value}}" courseType="{{courseType}}" bind:updataData="updateSelectData"></common-popup>

@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="switch-list bg-white">
+        <view class="switch-item flex-box flex-a-center flex-j-between" wx:for="{{switchList}}" wx:key="index">
+            <view class="font-md color-333">{{item.name}}</view>
+            <switch bindchange="switchChange" data-id="{{item.id}}" checked="{{item.value == 1 ? true : false}}" color="#9B77F4"></switch>
+        </view>
+    </view>
+    <view class="setting-info">
+        <view class="font-sm color-999">后台消息提醒：收到吐槽评价时，在页面中弹窗提醒处理</view>
+        <view class="font-sm color-999">企业微信提醒：收到吐槽评价时，发送至企业微信消息接收人处</view>
+    </view>
+    <view class="edit-btn flex-box flex-a-center flex-j-center" bindtap="sure">
+        <view class="common-edit-btn edit-back" data-type="1">返回</view>
+        <view class="common-edit-btn edit-sure" data-type="2">保存</view>
+    </view>
+</view>

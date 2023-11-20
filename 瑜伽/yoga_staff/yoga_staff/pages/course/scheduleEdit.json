@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "common-popup": "/components/commonPopup/commonPopup"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "新增排课"
+  }

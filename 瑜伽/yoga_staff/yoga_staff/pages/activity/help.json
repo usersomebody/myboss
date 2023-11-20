@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "image-cropper": "../../components/image-cropper/image-cropper"
+    },
+    "navigationBarBackgroundColor": "#7D49FB",
+    "navigationBarTitleText": "助力活动",
+    "navigationBarTextStyle": "white"
+  }

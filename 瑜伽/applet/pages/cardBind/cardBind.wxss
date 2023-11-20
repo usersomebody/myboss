@@ -1,0 +1,66 @@
+/* pages/cardBind/cardBind.wxss */
+.card-bg {
+  width: 750rpx;
+  height: 440rpx;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 92rpx auto 0;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+
+.form-item .tip {
+  min-width: 132rpx;
+  margin-right: 42rpx;
+  text-align: left;
+}
+
+.form-item .form-input {
+  width: 360rpx;
+  height: 64rpx;
+  border: 2rpx solid #999999;
+  border-radius: 10rpx;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+}
+
+.form-item .verify {
+  width: 360rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border: 2rpx solid #999999;
+  border-radius: 10rpx;
+  color: #333333;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.form-tip {
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #FF9387;
+}
+
+.submit {
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 702rpx;
+  height: 96rpx;
+  background: #21DBC3;
+  border-radius: 48rpx;
+  color: #fff;
+  font-size: 36rpx;
+}

@@ -1,0 +1,68 @@
+<!-- <view class="container-bg" >
+    <button class="generate-btn" bindtap="drawCanvas">generate</button>
+</view> -->
+<view class="course-switch flex-box flex-a-center flex-j-center">
+    <view wx:for="{{courseTypeList}}" wx:key="index" class="switch-item font-md {{switchId == item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="switch">{{item.name}}</view>
+</view>
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}" id="wrapper">
+    <view class="left draw">
+        <view class="arrang-image flex-box flex-a-center flex-j-center draw"><image class="draw" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+        <view class="arrang color-333 font-sm text-center draw" wx:for="{{scheduleList}}" wx:key="index" style="height:{{item.height}}rpx" data-text="{{item.time}}">
+                {{item.time}}
+        </view>
+    </view>
+    <scroll-view class="right draw" scroll-x="{{true}}">
+        <view class="weeks draw">
+            <view wx:for="{{weekList}}" wx:key="index" class="items week font-md color-666 draw">
+                <view class="{{item.select ? 'week-active' : ''}} font-md draw" data-text="{{item.week}}">{{item.week}}</view>
+                <view class="{{item.select ? 'date-active' : ''}} font-base draw" data-text="{{item.date}}">{{item.date}}</view>
+            </view>
+        </view>
+        <view class="schedule draw" style="width:{{maxWidth}}rpx">
+            <view class="schedule-item draw" style="display:flex;" wx:for="{{scheduleList}}" wx:key="index">
+                <view class="schedule-time draw" wx:for="{{item.data}}" wx:for-item="itemDate" wx:for-index="idx" wx:key="idx">
+                    <view class="schedule-course draw" wx:for="{{itemDate.children}}" wx:for-item="v" wx:for-index="i" wx:key="i" style="background:{{v.color}}" data-item="{{v}}" bindtap="gotoEdit">
+                        <view class="font-base color-white text-center one-line draw" data-text="{{v.course_name}}">{{v.course_name}}</view>
+                        <view class="font-base color-white text-center draw" data-text="{{v.start_time}}">{{v.start_time}}-{{v.end_time}}</view>
+                        <view class="font-base color-white text-center draw" data-text="{{v.coach_staff_name}}">{{v.coach_staff_name}}</view>
+                        <view class="font-base color-white text-center draw" data-text="{{v.classroom_name}}">{{v.classroom_name}}</view>
+                        <view class="font-base color-white text-center draw" data-text="{{v.status}}">{{statusMap[v.status]}}</view>
+                        <view class="font-base color-white text-center draw" data-text="{{v.star_level}}">{{v.star_level}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+</view>
+
+<view class="add-course font-md color-white" bindtap="gotoAdd">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/a784f338075c230e0f9c86e09c5069f6.png"></image>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<!-- 添加课程弹窗和分享课表 -->
+<view class="share-popup" wx:if="{{showActionlayer}}">
+    <view class="flex-box flex-j-between flex-a-center" style="padding:0 20rpx;">
+        <view class="img-icon" wx:for="{{addList}}" wx:key="index" data-link="{{item.link}}" data-type="{{item.type}}" bindtap="gotoPage">
+            <image src="{{item.cover}}" alt=""></image>
+            <view>{{item.name}}</view>
+        </view>
+    </view>
+    <image bindtap="gotoAdd" class="close-share-popup" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/0540cb2e4f513083ed916ad4da361506.png"></image>
+</view>
+<!-- //分享课表 -->
+<view wx:if="{{showShareSchedule}}" class="share-schedule-content">
+    <view class="schedule-content-box">
+        <image class="share-schedule-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220302/cacae0998be4047523769cf62af01905.png"></image>
+        <view class="share-schedule-btn current text-center" data-type="1" bindtap="getCourseImg">分享本周课表</view>
+        <view class="share-schedule-btn next text-center" data-type="2" bindtap="getCourseImg">分享下周课表</view>
+    </view>
+    <image class="closeBtn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220225/06119b3006fbd066222d662355ad04bb.png" bindtap="toggleScheduleBox"></image>
+</view>
+<!-- <canvas canvas-id="canvas-map" class="share-canvas" style="width:750px;height:{{canvasHeight}}"></canvas>
+<view wx:if="{{imgSrc}}" class="fixed-img">
+    <image src="{{imgSrc}}"></image>
+</view> -->
+
+
+

@@ -1,0 +1,141 @@
+<view class="container">
+    <!-- 自定义头 -->
+    <scroll-view class="scroll-height {{ isIphoneX ? 'iPhoneX' : ''}}" scroll-y="{{true}}">
+        <!-- 顶部店铺信息 -->
+        <view class="store-info flex-box flex-a-center flex-j-between">
+            <view class="store-logo flex-box flex-a-center">
+                <image class="logo" src="{{storeInfo.logo}}"></image>
+                <view class="store-name font-md color-333">{{storeInfo.storeName}}</view>
+            </view>
+            <view class="store-phone font-sm color-white" bindtap="callPhone">联系场馆</view>
+        </view>
+        <!-- 页面back -->
+        <!-- <view class="back common-fixed" style="top:{{statusBarHeight}}px" bindtap="back"><image src="../../imgs/arrow-r.png"></image></view> -->
+        <!-- 顶部banner -->
+        <view class="swiper-content">
+            <swiper indicator-dots="{{indicatorDots}}" class="power-swiper" bindchange="changeIndicator">
+                <block wx:for="{{bannerList}}" wx:key="index">
+                    <swiper-item>
+                        <image class="secondKill-banner" src="{{item}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <!-- style="right: 4%;top:{{indicatorTop}}px" -->
+            <view wx:if="{{bannerList.length > 1}}" class="play-control play-muted" >{{swiperCurrent + 1}}/{{bannerList.length}} </view>
+        </view>
+        <!-- 活动产品信息 -->
+        <view class="activity-info">
+            <!-- <view class="flex-box flex-a-center trapezoid-box">
+                <view class="trapezoid-sign color-white font-sm ">秒杀价</view>
+                <view class="trapezoid"></view>
+            </view> -->
+            <view class="product-info flex-box flex-a-center flex-j-between">
+                <view class="flex-box flex-a-center info-price-left">
+                    <view class="info-left bg-power">
+                        <view class="price color-white"><text class="font-md">秒杀价￥</text>{{buying_price}}</view>
+                        <view class="sale flex-box flex-a-center">
+                            <view class="original-price line-through color-white font-md"><text class="font-md">原价</text>￥{{original_price}}</view>
+                            <view class="vertical-line"></view>
+                            <view class="num color-white font-md">仅剩{{remainingNum}}张</view>
+                        </view>
+                    </view>
+                    <!-- <view class="triangle-right"></view> -->
+                </view>
+                
+                <view class="info-right">
+                    <view class="font-md color-white">距活动结束</view>
+                    <count-down wx:if="{{cutDown.start_time && cutDown.end_time}}" startTime="{{cutDown.start_time}}" endTime="{{cutDown.end_time}}" currentTime="{{cutDown.now_time}}" title="" type="2"  styleType="2" activityTime="{{isActivityTime}}" bind:updateData="updateProdStatus"></count-down>
+                </view>
+            </view>
+        </view>
+        <!-- 会员卡详情 -->
+        <view class="card-info bg-white">
+            <view class="color-333 font-lg font-bold title">会员卡详情</view>
+            <view class="card-intro font-md">
+                <view class="name color-66 flex-box flex-a-center">
+                    <view class="width-20">卡名称</view>
+                    <view class="color-333">{{card_name}}</view>
+                </view>
+                <view class="valid color-66 flex-box flex-a-center">
+                    <view class="width-20">生效方式</view>
+                    <view class="color-333">{{card_use_time}}</view>
+                </view>
+                <view wx:if="{{card_info.type != 1}}" class="valid color-66 flex-box flex-a-center">
+                    <view class="width-20">卡内容</view>
+                    <view class="color-333">{{card_info[cardTypeInfo[card_info.type].key]}}{{cardTypeInfo[card_info.type].symbol}}</view>
+                </view>
+                <view class="failure color-66 flex-box flex-a-center">
+                    <view class="width-20">有效期  </view>
+                    <view class="color-333">{{ card_info.is_unlimited == 1 ? '长期有效' : card_info.day + '天'}}</view>
+                </view>
+            </view>
+        </view>
+         <!-- 支持课程 -->
+        <view class="course-support bg-white">
+            <view class="card-detail-title color-10 font-lg font-bold">支持课程</view>
+            <view class="course-list-box">
+                <view class="course-x-list" style="height:200rpx;">
+                    <view class="list-item" wx:for="{{courseList}}" wx:key="index">
+                        <image src="{{item.cover_img}}"></image>
+                        <view class="course-nama">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 活动说明 -->
+        <view class="course-support bg-white" wx:if="{{ruler_imgs.length}}">
+            <view class="card-detail-title color-10 font-lg font-bold">活动说明</view>
+            <view class="course-list-box" style="height:auto;">
+                <view class="li-item color-66 font-md" wx:for="{{ruler_imgs}}" wx:key="index">
+                    <image src="{{item}}"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 活动规则 -->
+        <view class="course-support bg-white">
+            <view class="card-detail-title color-10 font-lg font-bold">活动规则</view>
+            <view class="course-list-box" style="height:auto;">
+                <view class="li color-66 font-md" wx:for="{{ruler}}" wx:key="index">{{item}}</view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 底部按钮 -->
+    <view wx:if="{{!isShowBtn && card_id}}" class="footer flex-box flex-a-center {{ isIphoneX ? 'iPhoneX' : ''}}">
+        <button class="left color-black bg-white btn-space flex-box flex-a-center flex-j-center font-md color-333 flex-v-type" open-type="share"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_share.png"></image>分享</button>
+        <view class="right font-18 color-white base-rgb-bg btn-space flex-box flex-a-center flex-j-center {{avtivityOver ? 'overActive' : ''}}" bindtap="toJoin">{{remainingNum == 0 || is_end != 9 ? '活动已结束' : buy_status == 2 ? '已抢购' : '￥' + buying_price + '立即抢购'}}</view>
+    </view>
+    <!-- 遮挡层 -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+    <!-- 抢购弹窗 -->
+    <view wx:if="{{payBoxShow}}" class="common-fixed pay-fixed">
+        <view class="pay-box">
+            <image class="closebtn" src="./imgs/icon-close-1.png" bindtap="closeVipBox"></image>
+            <view class="title font-bold font-lg text-center">绑定会员信息</view>
+            <view class="phone input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-phone.png"></image><input type="number" maxlength="11" placeholder="请输入手机号" placeholder-class="placeStyle" data-key="phone" bindinput="getVal"/></view>
+            <view class="code input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-authcode.png"></image><input type="text" placeholder="请输入验证码" placeholder-class="placeStyle" data-key="code" bindinput="getVal"/><text wx:if="{{!codeDisable}}" class="code-width color-929 authCode" bindtap="getCode">获取验证码</text><text class="authCode {{codeDisable ? 'bg-deep' : ''}}" wx:if="{{codeDisable}}">{{seconds}}</text></view>
+            <view class="nick-name input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-nickname.png"></image><input type="text" placeholder="请填写昵称" placeholder-class="placeStyle"  value="{{nickName}}" data-key="name" bindinput="getVal"/></view>
+            <view class="sure-btn base-bg color-white font-lg text-center {{hasData ? 'bg-deep' : ''}}" bindtap="joinPowerActivity">确定</view>
+        </view>
+        <!-- <image class="close" src="./imgs/close-one.png" bindtap="closeBox"></image> -->
+    </view>
+    <!-- 活动结束 -->
+    <view wx:if="{{overBox}}" class="activity-over common-fixed pay-fixed">
+        <view class="over-box flex-box flex-a-center flex-j-center">
+            <image class="closebtn" src="./imgs/icon-close.png" bindtap="closeOverBox"></image>
+            <image class="img-over" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210901/9af532f684b1237bc22d94b1145be30d.png"></image>
+            <view class="text color-333 font-lger">活动太火爆，已经结束啦~</view>
+            <view class="btn font-lger color-white" bindtap="toList">查看其它活动</view>
+        </view>
+    </view>
+    <!-- 用户购买成功 -->
+    <view wx:if="{{getSuccess}}"  class="common-fixed pay-fixed " style="background:rgba(0,0,0,.5);">
+        <view class="get-success-box common-relative">
+            <image class="kill-head-img" src="./imgs/kill-head.png"></image>
+            <view class="color-10 font-bold font-20 card_name one-line text-center font-bold">{{card_name}}</view>
+            <view class="marginTop color-10 font-bold font-lg card_name one-line text-center">限时可用</view>
+            <view class="use-btn color-white btn base-bg text-center" bindtap="toBooking">立即使用</view>
+            <view class="color-333 font-md text-center" style="margin-top:36rpx;">在"我的会员卡"中查看</view>
+        </view>
+        <image class="close-icon-img" src="./imgs/close-one.png" bindtap="closeBox"></image>
+    </view>
+</view>

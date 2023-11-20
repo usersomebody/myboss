@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="edit-input-item flex-box flex-a-center bg-white">
+        <view class="title font-lg color-51">联系人</view>
+        <input class="weui-input width-70" value="{{addressInfo.realname}}" placeholder="请输入联系人" placeholder-class="font-md" data-key="realname" bindinput="getVal"/>
+    </view>
+    <view class="edit-input-item flex-box flex-a-center bg-white">
+        <view class="title font-lg color-51">手机号</view>
+        <input class="weui-input width-70" value="{{addressInfo.mobile}}" placeholder="请输入手机号" placeholder-class="font-md" data-key="mobile" bindinput="getVal"/>
+    </view>
+    <view class="edit-input-item flex-box flex-a-center bg-white">
+        <view class="title font-lg color-51" >选择地区</view>
+        <view class="{{addressInfo.city ? 'color-51' : 'color-102 font-md'}} width-70" bindtap="onPopupClose">{{addressInfo.province}} {{addressInfo.city}} {{addressInfo.area}} </view>
+    </view>
+    
+    <view class="edit-input-item flex-box flex-a-center bg-white">
+        <view class="title font-lg color-51">详细地址</view>
+        <textarea  auto-height class="weui-input width-70" value="{{addressInfo.address}}" placeholder="请输入" placeholder-class="font-md" data-key="address" bindinput="getVal" style="width:70%;"/>
+    </view>
+    <view class="address-set-default">
+        <van-checkbox
+        value="{{ addressInfo.isdefault == 1 ? true : false}}"
+        checked-color="rgb(252, 132, 57)"
+        bind:change="isDefaultAddress"
+        >
+        <text class="font-md">设置为默认地址</text>
+        </van-checkbox>
+    </view>
+    <van-popup
+    show="{{ popupshow }}"
+    position="bottom"
+    custom-style="height: 600rpx;"
+    bind:close="onPopupClose"
+  >
+  <view>
+    <van-area 
+    area-list="{{ areaList }}" 
+    columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}"
+    title="" 
+    visible-item-count="{{4}}"
+    value="{{addressInfo.area_code}}"
+    bind:cancel="onPopupClose"
+    bind:confirm="getChangeValue"/>
+  </view>
+  
+</van-popup>
+    <!-- 新增地址 -->
+    <view wx:if="{{!editId}}" class="free-sample-btn font-lg color-white" bindtap="addAddress">保存地址</view>
+    <view wx:else class="address-action flex-box flex-a-center">
+        <view class="del-btn common-btn font-lg base-color" bindtap="delAddress">删除</view>
+        <view class="save-btn common-btn font-lg color-white" bindtap="addAddress">保存地址</view>
+    </view>
+</view>

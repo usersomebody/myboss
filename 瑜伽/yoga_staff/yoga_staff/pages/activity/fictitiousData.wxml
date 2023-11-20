@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="fictitious-title font-md color-999">虚拟中奖数据<text class="font-sm color-999">（设置虚拟数据，在中奖信息里显示）</text></view>
+    <view class="fictitious-data">
+        <view class="fictitious-data-item flex-box flex-a-center flex-j-between bg-white" wx:for="{{fictitiousData}}" wx:key="index">
+            <view class="data-item-left">
+                <view class="nick-name flex-box flex-a-center">
+                    <view class="font-md color-333">恭喜</view>
+                    <input class="fictitious-input" type="text" placeholder="虚拟会员名称" placeholder-class="font-md color-b3b" value="{{item.nickname}}" data-type="nickname" data-index="{{index}}" bindinput="getVal"/>
+                </view>
+                <view class="prize-name flex-box flex-a-center">
+                    <view class="font-md color-333">抽中</view>
+                    <input class="fictitious-input" type="text" placeholder="已设置的奖品名称" placeholder-class="font-md color-b3b" value="{{item.prize_name}}" data-type="prize_name" data-index="{{index}}" bindinput="getVal"/>
+                </view>
+            </view>
+            <view class="flex-box flex-a-center flex-j-end"  data-index="{{index}}" bindtap="deleteList">
+                <image class="delete-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211222/2fe41b10df81dbfc811d81cefcde2531.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="add-prize flex-box flex-a-center" bindtap="addData">
+        <image class="add-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220223/c938d5a6ae8f2846915b56b9e1f46fb2.png"></image>
+        <view class="base-color font-md">添加虚拟数据</view>
+    </view>
+    <view class="add-btn">
+        <view class="cancle btn font-lg" bindtap="cancle">返回</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">保存</view>
+    </view>
+</view>

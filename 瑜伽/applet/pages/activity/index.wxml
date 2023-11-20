@@ -1,0 +1,42 @@
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+    <scroll-view  scroll-x="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}" class="activity-type" scroll-into-view="a{{activeId}}">
+        <view class="item font-md color-999 {{item.id == activeId ? 'active font-bold' : ''}}" id="a{{index}}" wx:for="{{activityList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">
+            {{item.name}}<image wx:if="{{item.id == activeId}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_switched.png" class="item-checked"></image>
+        </view>
+    </scroll-view>
+    <view wx:if="{{activeId == '-1' && !isLogin}}" class="margin-top-80 login-btn" bindtap="handle_login">立即登录</view>
+    <view class="activity-list margin-top-80" wx:elif="{{list.length}}">
+        <view class="item bg-white" wx:for="{{list}}" wx:key="index" data-aid="{{item.activityId || item.id}}" data-cid="{{item.activity_cat_id}}" data-uid="{{item.user_id}}" data-pid="{{item.id}}" data-storeid="{{item.store_id}}" data-start="{{item.isInActivity}}" data-status="{{item.status}}" data-pstatus="{{item.participant_status}}" bindtap="toActivityPage">
+            <view class="item-head flex-box flex-a-center flex-j-between">
+                <view class="color-333 font-lg font-bold flex-box flex-a-center " style="width:30%;">
+                    <view class="one-line " style="font-weight:600;">{{listText[item.activity_cat_id]}}</view>
+                </view>
+                <view class="flex-box flex-a-center">
+                    <!-- <image wx:if="{{item.isInActivity}}" class="activity-timer-sign" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210807/cut_down_sign.png"></image> -->
+                    <flash-sale wx:if="{{item.is_end ==9 && item.isInActivity}}" startTime="{{item.start_time}}" endTime="{{item.end_time}}" currentTime="{{item.current}}" title="距结束:" type="2" typeStyle="2" bind:updateData="updateProdStatus"></flash-sale>
+                    <view wx:if="{{item.activityIsOver || item.is_end != 9}}" class="activity-over-title color-99">活动已结束</view>
+                </view>
+            </view>
+            <view class="item-content flex-box flex-a-center">
+                <image class="flex-shrink" src="{{item.desc_img}}"></image>
+                <view class="info">
+                    <view class="name font-md font-light one-line {{item.activity_cat_id == 24 ? 'luckyDraw-style' : ''}}">{{item.name}}</view>
+                    <view wx:if="{{item.activity_cat_id != 24}}" class="price font-md color-77 {{ item.activityIsOver || item.is_end !=9 ? 'color-99' : ''}}"><text class="font-sm">{{item.activity_cat_id == 21 ? '最低' : '秒杀价'}}</text ><text class="font-bold font-lg">￥{{item.buying_price}}</text></view>
+                    <view class="btn-price flex-box flex-a-center {{item.activity_cat_id != 24 ? 'flex-j-between' : 'flex-j-end'}}">
+                        <view wx:if="{{item.activity_cat_id != 24}}" class="original-price font-md font-light">原价:<text class="line-through font-sm color-66">￥{{item.original_price}}</text></view>
+                        <view wx:if="{{!item.activityIsOver || item.is_end == 9}}" class="btn color-white font-md {{ item.activityIsOver || item.is_end !=9 ? 'bg-over' : ''}}">{{item.btnName}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="flex-box flex-a-center flex-j-center flex-v-type" wx:elif="{{!list.length && isLoading}}">
+        <no-data-cover cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/5e5a4d3ed806862c4a19d6b3e6be6ccb.png" style="margin-top:200rpx;"></no-data-cover>
+        <view class="font-lg color-99">{{ activeId == -1 ? '暂无参与活动' : '暂无活动'}}</view>
+    </view>
+    <view hidden="{{isLoading}}" class="margin-top-80 loading-style">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>
+<image bindtap="switchTab" data-id="-1" class="myJoinACt" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_act_join.png"></image>

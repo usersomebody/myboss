@@ -1,0 +1,10 @@
+<view class="poster">
+    <!-- 最终生成的图片 -->
+    <view wx:if="{{imgSrc}}" scroll-y="{{true}}" class="poster-image poster-preview-wrap">
+        <image wx:if="{{imgSrc}}" src="{{imgSrc}}" style="width:{{posterWidth}};height:{{posterHeight}}"></image>
+        <button class="save-btn" bindtap="checkSaveStatus">保存二维码</button>
+    </view>
+    <view class="canvas">
+        <canvas type="2d" canvas-id="poster" id="poster" style="width:{{sWidth}}px;height:{{sHeight}}px" />
+    </view>
+</view>

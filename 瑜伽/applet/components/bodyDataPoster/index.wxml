@@ -1,0 +1,12 @@
+<view class="poster">
+    <!-- 最终生成的图片 -->
+    <view scroll-y="{{true}}" class="poster-image poster-preview-wrap">
+        <image wx:if="{{imgSrc}}" src="{{imgSrc}}" style="width:{{posterWidth}};height:{{posterHeight}}"></image>
+        <view class="save" bindtap="checkSaveStatus">生成图片</view>
+        <view class="font-md save-tips">生成图片存储至相册，分享好友或朋友圈</view>
+        <image bindtap="closeBox" class="close-btn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220107/b3d6d65a2c18135a2146a9083288f7c9.png"></image>
+    </view>
+    <view class="canvas">
+        <canvas type="2d" canvas-id="poster" id="poster" style="width:{{sWidth}}px;height:{{sHeight}}px" />
+    </view>
+</view>

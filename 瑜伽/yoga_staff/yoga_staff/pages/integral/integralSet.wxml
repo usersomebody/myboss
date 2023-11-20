@@ -1,0 +1,97 @@
+<view class="container">
+    <view class="integal-title font-lg color-333 font-weight">积分设置</view>
+    <view class="content">
+        <view class="item bg-white">
+            <view class="item-head flex-box flex-a-center flex-j-between">
+                <view class="font-md colo-333">签到</view>
+                <switch bindchange="switchChange" data-key="sign" checked="{{sign == 1 ? true : false}}" color="#9B77F4"></switch>
+            </view>
+            <view class="item-type">
+                <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <view class="flex-box flex-a-center">
+                        <view class="radio-item">
+                            <van-radio name="1" checked-color="#9B77F4">
+                                <view class="font-md color-666 white-space">仅会员自主签到得积分</view>
+                            </van-radio>
+                        </view>
+                        <view class="radio-item">
+                            <van-radio name="2" checked-color="#9B77F4">
+                                <view class="font-md color-666 white-space">签到得积分</view>
+                            </van-radio>
+                        </view>
+                    </view>
+                </van-radio-group>
+                <view class="integral-course-list">
+                    <view class="integral-course-item" wx:for="{{courseList}}" wx:key="index">
+                        <view  class="autonomy flex-box flex-a-center ">
+                            <view class="font-md color-333  course-name">{{item.name}}签到</view>
+                            <view class="right flex-box flex-a-center">
+                                <input class="inputBox" value="{{item.sing_member}}" placeholder="请输入" placeholder-class="font-md color-b3b" data-key="sing_member" data-item="{{item}}" bindinput="getIntergalValue"/>
+                                <view class="symbol font-md color-666">积分/次</view>
+                            </view>
+                        </view>
+                        <view wx:if="{{radio == 2}}" class="replace flex-box flex-a-center ">
+                            <view class="font-md color-333 course-name">{{item.name}}代签</view>
+                            <view class="right flex-box flex-a-center">
+                                <input class="inputBox" value="{{item.sing_venue}}" placeholder="请输入" placeholder-class="font-md color-b3b" data-key="sing_venue" data-item="{{item}}" bindinput="getIntergalValue"/>
+                                <view class="symbol font-md color-666">积分/次</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="integral-limit-box">
+                <view class="flex-box flex-a-center">
+                    <view class="font-md color-333 limit-title">预约得分上限</view>
+                    <van-radio-group value="{{ sign_upper_limit }}" bind:change="onChangeLimit">
+                        <view class="flex-box flex-a-center">
+                            <view class="radio-item">
+                                <van-radio name="0" checked-color="#9B77F4">
+                                    <view class="font-md color-666 white-space">不设置</view>
+                                </van-radio>
+                            </view>
+                            <view class="radio-item">
+                                <van-radio name="1" checked-color="#9B77F4">
+                                    <view class="font-md color-666 white-space">设置</view>
+                                </van-radio>
+                            </view>
+                        </view>
+                    </van-radio-group>
+                </view>
+                <view wx:if="{{sign_upper_limit == 1}}" class="flex-box flex-a-center flex-j-between limit-box">
+                    <view class="limit-period flex-box flex-a-center flex-j-between">
+                        <input class="limit-period-input" value="{{limit_period}}" type="text" data-key="limit_period" bindinput="getTextVal"/>
+                        <view class="font-md color-666">积分</view>
+                    </view>
+                    <view class="status common-relative flex-box flex-a-center flex-j-end">
+                        <view class="status-type flex-box flex-a-center flex-j-around" bindtap="showStatus">
+                            <view class="font-md">{{statusName}}</view>
+                            <image class="{{statusShow ? 'icon-style-active' : ''}} selectIcon" src="../../imgs/arrow-r.png"></image>
+                        </view>
+                        <view wx:if="{{statusShow}}" class="status-type-list">
+                            <view class="status-item font-md color-999 text-center {{sign_upper_limit_period == item.id ? 'active' : ''}}" wx:for="{{statusArr}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="getStatus">{{item.name}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+        <view class="item bg-white">
+            <view class="item-head flex-box flex-a-center flex-j-between">
+                <view class="font-md colo-333">购卡/续卡</view>
+                <switch bindchange="switchChange" data-key="buycard" checked="{{buyCard == 1 ? true : false}}" color="#9B77F4"></switch>
+            </view>
+            <view wx:if="{{buyCard == 1}}" class="item-type font-md color-333 flex-box flex-a-center">
+                <text>每消费</text>
+                <input class="inputBox-one" value="{{consumption}}" placeholder="请输入" placeholder-class="font-md color-b3b" data-key="consumption" bindinput="getTextVal"/>
+                <text>元可获得</text>
+                <!-- <input class="inputBox-one" value="{{integralNum}}" placeholder="请输入" placeholder-class="font-md color-b3b" data-key="integralNum" bindinput="getTextVal"/> -->
+                <text>1积分/次</text>
+            </view>
+        </view>
+    </view>
+    <view class="edit-btn flex-box flex-a-center flex-j-center" >
+        <view class="common-edit-btn edit-back" bindtap="back">返回</view>
+        <view class="common-edit-btn edit-sure" bindtap="updateIntegralConfig">保存</view>
+    </view>
+</view>

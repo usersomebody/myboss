@@ -1,0 +1,127 @@
+.form{
+    background:#fff;
+    padding:0 30rpx;
+    display:block;
+}
+.form .li{
+    padding:36rpx 0;
+    border-bottom:1rpx solid #ececec;
+}
+/* 上传 */
+.upload image{
+    width: 72rpx;
+    height: 72rpx;
+    border-radius:50%;
+  }
+  .right-icon image{
+    width:10rpx;
+    height:18rpx;
+    margin-left:24rpx;
+}
+  .uploadImg{
+    width: 72rpx;
+    height: 72rpx;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1rpx solid rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50%;
+  }
+  .tailoring{
+    position: absolute;
+    width: 100%;
+    bottom: 100rpx;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .tailoring .tailoringSure{
+      width: 200rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      text-align: center;
+      z-index:100;
+      color:#fff;
+      background:#7D49FB;
+      margin-right:20rpx;
+  }
+  .tailoring .tailoringCancle{
+    width: 200rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: rgba(125, 73, 251, 0.1);
+    border: 1px solid #7D49FB;
+    color:#7D49FB;
+    z-index:100;
+  }
+
+  .color-b3b{
+      color:#B3B3B3;
+  }
+
+  .pad-r-34{
+      padding-right:34rpx;
+  }
+
+  .add-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:60rpx;
+}
+
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+.addKeyInput{
+    padding-left:20rpx;
+    width: 380rpx;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    background: #F5F6F7;
+    border-radius: 10rpx;
+    margin:40rpx auto;
+    color:#b3b3b3;
+}
+.add-new-key{
+    padding:36rpx 0;
+    color:#7D49FB;
+}
+.consume{
+    padding:30rpx;
+}
+.color-ff2{
+    color:#FF2020;
+}
+.color-504{
+    color:#504766;
+}
+.delete-icon image{
+    width:28rpx;
+    height:28rpx;
+    margin-left:24rpx;
+}
+.li-item-content{
+    width:70%;
+    justify-content: flex-end;
+}
+.value-placeholder{
+    width:100%;
+    text-align: right;
+}

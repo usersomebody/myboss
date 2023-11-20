@@ -1,0 +1,51 @@
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+    <!-- tab -->
+    <view class="tab-list flex-box flex-a-center flex-j-around">
+        <view class="tab-item" wx:for="{{switchList}}" wx:key="index">
+            <text class="tab-item-title color-666 font-md {{ checkedId == item.id ? 'active' : ''}}" bindtap="switchTab" data-id="{{item.id}}">{{item.name}}</text>
+        </view>
+    </view>
+    <!-- list -->
+    <view class="list">
+        <view class="li" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap="gotoActivity">
+            <view class="content">
+                <view class="title color-333 font-md">
+                    <text>活动名称：</text>
+                    <text class="color-666">{{item.name}}</text>
+                </view>
+                <view class="title color-333 font-sm">
+                    <text>活动会员卡：</text>
+                    <text class="color-666">{{item.card_name}}</text>
+                </view>
+                <view class="title color-333 font-sm">
+                    <text>活动时间：</text>
+                    <text class="color-666">{{item.start_time}} - {{item.end_time}}</text>
+                </view>
+                <view class="title color-fc8 font-sm">
+                    <text>{{activityMap[activityType].priceName}}</text>
+                    <text class="font-lg">￥{{item[activityMap[activityType].key]}}</text>
+                </view>
+                <view class="title color-999 font-sm">
+                    <text>原价：</text>
+                    <text class="color-999 line-through">￥{{item.original_price}}</text>
+                </view>
+            </view>
+            <view wx:if="{{checkedId == 1}}" class="li-btn flex-box flex-a-center flex-j-center">
+                <view class="btn font-md" data-id="{{item.id}}" catchtap="goOrderDetail">订单数据</view>
+                <button class="btn font-md share" open-type="share" data-id="{{item.id}}" data-cover="{{item.desc_img}}" catchtap="share">分享</button>
+            </view>
+        </view>
+        <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/924467b2fc8550871d8b38767163085c.png"></image>
+            <view class="font-sm color-999">暂无活动~</view>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+    <!-- 添加活动 -->
+    <navigator url="{{addActivityIcon[activityType].link}}" class="addIconlink">
+        <image src="{{addActivityIcon[activityType].cover}}" class="addIcon"></image>
+    </navigator> 
+</view>

@@ -1,0 +1,58 @@
+/* 上传 */
+.upload{
+    padding:36rpx 30rpx;
+}
+.upload image{
+    width: 200rpx;
+    height: 120rpx;
+  }
+  .uploadImg{
+    width: 200rpx;
+    height: 120rpx;
+    border: 1rpx dashed rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .del-btn{
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    width:100%;
+    bottom:0;
+    left:0;
+    padding: 2rpx 0;
+    color: #fff;
+}
+.rulers-imgs{
+    flex-wrap: wrap;
+}
+.rule-img{
+    margin-right:10rpx;
+    margin-bottom:10rpx;
+}
+.cover-size{
+    margin-top:160rpx;
+}
+.submitBtn{
+    margin-top:80rpx;
+    padding-bottom:64rpx;
+}
+
+.submitBtn .btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background:#fff;
+    border:2rpx solid #7D49FB;
+    color:#7D49FB;
+    font-size:34rpx;
+    border-radius:8rpx;
+    text-align: center;
+}
+.submitBtn .sure{
+    background:#7D49FB;
+    color:#fff;
+    font-size:34rpx;
+    margin-left:56rpx;
+}

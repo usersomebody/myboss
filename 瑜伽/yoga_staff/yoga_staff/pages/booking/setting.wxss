@@ -1,0 +1,156 @@
+.booking-advance{
+    padding:40rpx 30rpx;
+    background:#fff;
+    margin-bottom:20rpx;
+}
+
+.booking-title{
+    margin-bottom:30rpx;
+}
+
+.radio-item{
+    margin-bottom:30rpx;
+    /* padding-left:20rpx; */
+}
+
+.inputBox{
+    margin-top:20rpx;
+    padding-left:60rpx;
+}
+
+.inputBox .input{
+    width: 240rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    text-align: center;
+    margin-right:10rpx;
+}
+
+.inputBox2 {
+    margin:20rpx 0 30rpx;
+}
+
+.inputBox2 .input{
+    width: 240rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    text-align: center;
+    /* margin-right:10rpx; */
+}
+
+.inputBox3 {
+    margin:20rpx 0 30rpx;
+    /* padding-left:60rpx; */
+}
+
+.inputBox3 .input{
+    width: 160rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    text-align: center;
+    /* margin-right:10rpx; */
+}
+.color-B3B{
+    color:#B3B3B3;
+}
+
+.action-btn .btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    border:1rpx solid #7D49FB;
+    background:#fff;
+    border-radius:16rpx;
+    text-align: center;
+    color:#7D49FB;
+}
+
+.action-btn .save{
+    background:#7D49FB;
+    color:#fff;
+    margin-left:54rpx;
+}
+
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+
+.tip-sign{
+    position: absolute;
+    right:0;
+    top:0;
+    width:30rpx;
+    height:30rpx;
+    line-height: 30rpx;
+    font-size:20rpx;
+    color:#fff;
+    text-align: center;
+    background:rgb(250, 173, 20);
+    border-radius:0 8rpx 0 8rpx;
+  }
+
+  .error-fixed-box{
+      position: fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      z-index:2001;
+  }
+
+  .error-box{
+    width:70%;
+    border-radius:14rpx;
+  }
+
+  .error-box-title{
+      padding:20rpx 0;
+      border-bottom:1rpx solid #E5E5E5;
+  }
+
+  .tips-sign{
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    background: rgb(250, 173, 20);
+    border-radius:4rpx;
+  }
+
+  .error-content{
+      padding:100rpx 30rpx;
+  }
+
+  .tips-cover{
+      margin-top:12rpx;
+  }
+
+  .error-btn{
+      padding:20rpx 0;
+      color:#576B95;
+      border-top:1rpx solid #E5E5E5;
+  }
+  .iphonex{
+      padding-bottom:68rpx;
+  }

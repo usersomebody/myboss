@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "image-cropper": "../../components/image-cropper/image-cropper",
+        "business-poster":"../../components/business-poster/index"
+    },
+    "navigationBarTitleText": "修改名片",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

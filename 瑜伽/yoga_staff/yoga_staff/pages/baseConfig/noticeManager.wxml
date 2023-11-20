@@ -1,0 +1,90 @@
+<view class="container">
+    <view class="form-data bg-white">
+        <!-- 公告标题 -->
+        <view class="need-data">
+            <view class="label font-md color-333 white-space font-weight">公告标题</view>
+            <view class="common-relative">
+                <textarea class="textcontent font-md color-333" placeholder="请输入公告标题" placeholder-class="color-999" maxlength="20" value="{{title}}" data-key="title" bindinput="getTextVal"></textarea>
+                <view class="textNumber font-md color-666"><text class="color-e83">{{title.length}}</text>/20</view>
+            </view>
+        </view>
+        <!-- 公告内容 -->
+        <view class="need-data">
+            <view class="label font-md color-333 white-space font-weight">公告内容</view>
+            <view class="common-relative">
+                <textarea style="height:246rpx;" class="textcontent font-md color-333" placeholder="请输入公告内容" placeholder-class="color-999"  value="{{content}}" data-key="content" bindinput="getTextVal"></textarea>
+                <!-- <view class="textNumber font-md color-666"><text class="color-e83">{{content.length}}</text>/20</view> -->
+            </view>
+        </view>
+        <!-- 生效时间 截止时间 -->
+        <view class="timeList flex-box flex-a-center flex-j-between">
+            <view>
+                <view class="font-md color-333">生效时间</view>
+                <view class="select-date left flex-box flex-a-center">
+                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                    <view>
+                        <picker mode="date" value="{{dateObj.start}}" start="{{currentDate}}"  data-key="start" bindchange="bindDateChange">
+                            <view class="picker font-md color-504">
+                                {{dateObj.start || '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <view class="font-md color-333">截止时间</view>
+                <view class="select-date left flex-box flex-a-center">
+                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                    <view>
+                        <picker mode="date" value="{{dateObj.end}}" start="{{currentDate}}" data-key="end" bindchange="bindDateChange">
+                            <view class="picker font-md color-504">
+                                {{dateObj.end || '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 推送日期 -->
+        <view class="push-date">
+            <view class="push-date-title font-md color-333 font-weight">推送次数</view>
+            <view>
+                <van-radio-group value="{{ radio }}" bind:change="onChange">
+                    <view class="flex-box flex-a-center">
+                        <view class="radio-item">
+                            <van-radio name="2" checked-color="#9B77F4">
+                                <!-- <view class="font-md color-333">即时推送</view> -->
+                                <view class="push-times-input flex-box flex-a-center">
+                                        <input type="text" class="color-504" value="{{times}}" placeholder="请输入" placeholder-class="font-md color-999" data-key="times" bindinput="getTextVal"/>
+                                        <view class="font-md color-333">次/每天</view>
+                                    </view>
+                            </van-radio>
+                        </view>
+                        <view class="radio-item">
+                            <van-radio name="1" checked-color="#9B77F4">
+                                <view class="flex-box flex-a-center">
+                                    <view class="font-md color-333">仅1次</view>
+                                </view>
+                            </van-radio>
+                        </view>
+                    </view>
+                   
+                </van-radio-group>
+            </view>
+        </view>
+        <!-- 推送简介 -->
+        <view class="push-memo">
+            <view class="push-memo-title flex-box" wx:for="{{introList}}" wx:key="index">
+                <view class="push-memo-name color-666 font-sm flex-shrink">{{item.name}}</view>
+                <view class="push-memo-intro color-666 font-sm">{{item.intro}}</view>
+            </view>
+        </view>
+        
+    </view>
+    <view  class="edit-btn flex-box flex-a-center flex-j-center" bindtap="sure">
+        <view class="common-edit-btn edit-back" data-type="1">{{editId ? '删除' : '返回'}}</view>
+        <view wx:if="{{noticeType !=1 }}" class="common-edit-btn edit-sure" data-type="2">保存</view>
+        <view wx:if="{{noticeType ==1 }}" class="common-edit-btn edit-sure" data-type="3">返回</view>
+        
+    </view>
+</view>

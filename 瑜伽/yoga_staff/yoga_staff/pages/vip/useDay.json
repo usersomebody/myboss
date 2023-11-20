@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "van-radio": "@vant/weapp/radio/index",
+      "van-radio-group": "@vant/weapp/radio-group/index"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "使用天数"
+  }

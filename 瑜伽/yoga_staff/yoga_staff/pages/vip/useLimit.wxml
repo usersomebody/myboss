@@ -1,0 +1,97 @@
+<view class="container">
+    <!-- 可用时间 -->
+    <view class="use-time">
+        <view class="font-lg color-333 use-time-title">可用时间</view>
+        <view class="time-limit">
+            <van-radio-group value="{{ radio }}" bind:change="onChange" >
+                <view wx:for="{{radioList}}" wx:key="index" class="radio-item">
+                    <van-radio  name="{{item.id}}" class="font-md color-333" checked-color="#9B77F4">{{item.name}}</van-radio>
+                </view>
+            </van-radio-group>
+            <view class="limit-content" wx:if="{{radio == 2}}">
+                <!-- 限定用卡日期 -->
+                <view class="limit-date">
+                    <view class="limit-date-title font-md color-333 common-relative">限定用卡日期<view class="clear-date-btn font-md base-color" data-type="1" bindtap="clearDateValue">清空</view></view>
+                    <view class="limit-date-select flex-box flex-a-center flex-j-between">
+                        <view class="left flex-box flex-a-center">
+                            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                            <view>
+                                <picker mode="date" value="{{dateObj.use_start_date}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_start_date" bindchange="bindDateChange">
+                                    <view class="picker font-md color-504">
+                                        {{dateObj.use_start_date || '请选择'}}
+                                    </view>
+                                </picker>
+                            </view>
+                        </view>
+                        <view class="line-distance">----</view>
+                        <view class="right flex-box flex-a-center">
+                                <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                <view>
+                                    <picker mode="date" value="{{dateObj.use_end_date}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_end_date" bindchange="bindDateChange">
+                                        <view class="picker font-md color-504">
+                                            {{dateObj.use_end_date || '请选择'}}
+                                        </view>
+                                    </picker>
+                                </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 限定用卡星期 -->
+                <view class="limit-date">
+                    <view class="limit-date-title font-md color-333">限定用卡星期</view>
+                    <view class="week-list flex-box flex-a-center flex-j-between">
+                        <view class="week-item common-relative {{item.checked ? 'active' : ''}}" wx:for="{{weekList}}" wx:key="index" data-id="{{item.id}}"  bindtap="switch">
+                            {{item.name}}
+                            <image wx:if="{{item.checked}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/5966f6bbe1613d899543edd7fd874d28.png" class="select-r-b-icon"></image>
+                        </view>
+                    </view>
+                </view>
+                <!-- 限定用卡时间 -->
+                <view class="limit-date">
+                        <view class="limit-date-title font-md color-333 common-relative">限定用卡时间<view class="clear-date-btn font-md base-color" data-type="2" bindtap="clearDateValue">清空</view></view>
+                        <view class="limit-date-select flex-box flex-a-center flex-j-between">
+                            <view class="left flex-box flex-a-center">
+                                <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                <view>
+                                    <picker mode="time" value="{{dateObj.use_start_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_start_time" bindchange="bindDateChange">
+                                        <view class="picker font-md color-504">
+                                            {{dateObj.use_start_time || '请选择'}}
+                                        </view>
+                                    </picker>
+                                </view>
+                            </view>
+                            <view class="line-distance">----</view>
+                            <view class="right flex-box flex-a-center">
+                                    <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                                    <view>
+                                        <picker mode="time" value="{{dateObj.use_end_time}}" start="1970-01-01" :end="{{currentDate}}" data-key="use_end_time" bindchange="bindDateChange">
+                                            <view class="picker font-md color-504">
+                                                {{dateObj.use_end_time || '请选择'}}
+                                            </view>
+                                        </picker>
+                                    </view>
+                            </view>
+                        </view>
+                    </view>
+            </view>
+        </view>
+    </view>
+    <!-- 预约限制 -->
+    <view class="use-time">
+        <view class="font-lg color-333 use-time-title">预约限制</view>
+        <view class="booking-limit">
+            <van-radio-group value="{{bookingRdio}}" bind:change="bookingChange">
+                <view wx:for="{{bookingRadioList}}" wx:key="index" class="radio-item flex-box flex-a-center flex-j-between">
+                    <van-radio  name="{{item.id}}" class="font-md color-333" checked-color="#9B77F4">{{item.name}}</van-radio>
+                    <view class="input-box"><input value="{{bookingRdio == item.id ? dateObj.limit_num : ''}}" placeholder="选填" data-key="limit_type" disabled="{{bookingRdio == item.id ? false : true}}" bindinput="getNumberValue"/></view>
+                </view>
+            </van-radio-group>
+        </view>
+    </view>
+    <view class="booking-limit-group font-md color-666 flex-box flex-a-center"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/8c750514a17376940c9e3c296d53ca50.png"></image>预约限制针对团课</view>
+    
+    <view class="add-btn flex-box flex-a-center flex-j-center">
+            <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+            <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+        </view>
+</view>

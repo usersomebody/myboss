@@ -1,0 +1,5 @@
+.no-data-cover{
+    width: 424rpx;
+    height:360rpx;
+    margin:0 auto;
+}

@@ -1,0 +1,20 @@
+<view class="container">
+    <view class="actionList bg-white">
+        <view class="limit-type-radio flex-box flex-a-center flex-j-between">
+            <view class="title font-md color-333">长期有效</view>
+            <view class="val">
+                <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+                    <van-radio wx:for="{{radioList}}" wx:key="index" name="{{item.id}}" class="font-md color-333" checked-color="#9B77F4">{{item.name}}</van-radio>
+                </van-radio-group>
+            </view>
+        </view>
+        <view wx:if="{{radio == 2}}" class="limit-type-input flex-box flex-a-center flex-j-between">
+            <view class="title font-md color-333">使用天数</view>
+            <view class="val"><input class="text-right" type="text" value="{{day}}" placeholder="请输入数字" placeholder-class="color-b3b font-md" bindinput="getNumberValue"/></view>
+        </view>
+    </view>
+    <view class="add-btn flex-box flex-a-center flex-j-center">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "body-data-poster":"../../components/bodyDataPoster/index"
+      
+    },
+    "navigationBarTitleText": "体测图片对比",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

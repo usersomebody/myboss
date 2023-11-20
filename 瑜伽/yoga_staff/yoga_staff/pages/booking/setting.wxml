@@ -1,0 +1,95 @@
+<view class="container">
+    <!-- 模板1 -->
+    <view wx:if="{{showData.templateType == 1}}" class="booking-advance">
+        <view class="booking-title font-lg color-333 flex-box flex-a-center flex-j-between">
+            <view class="">{{showData.title}}</view>
+            <switch wx:if="{{showData.isHassSwitch}}" bindchange="switchChange" data-id="{{showData.switchVal}}" checked="{{showData.switchVal ? true : false}}" color="#9B77F4"></switch>
+        </view>
+        <van-radio-group wx:if="{{(actionId != 16 && showData.radioList.length) || (actionId == 16 && showData.radioList.length && showData.switchVal)}}" value="{{ showData.radioVal }}" bind:change="onChange">
+            <view class="radio-item" wx:for="{{showData.radioList}}" wx:key="index">
+                <van-radio name="{{item.id}}" checked-color="#9B77F4" icon-size="16px" class="font-md">{{item.name}}</van-radio>
+                <view wx:if="{{item.isShowInput}}" class="flex-box flex-a-center inputBox"><input class="input" placeholder="请填写" placeholder-class="color-B3B font-md" value="{{showData.inputVal}}" data-key="inputVal" data-type="1" bindinput="getVal"/><view class="font-md color-333">{{showData.inputSymbol}}</view></view>
+            </view>
+          </van-radio-group>
+    </view>
+    <!-- 模板2 -->
+    <view wx:if="{{showData.templateType == 2}}" class="booking-advance">
+        <view class="booking-title font-lg color-333">{{showData.title}}</view>
+        <view wx:if="{{showData.isShowInput}}" class="flex-box flex-a-center inputBox2"><input class="input" placeholder="请填写" placeholder-class="color-B3B font-md" value="{{showData.inputVal}}" data-key="inputVal" data-type="1" bindinput="getVal"/><view class="font-md color-333">{{showData.inputSymbol}}</view></view>
+        <view class="booking-info color-999 font-md">{{showData.info}}</view>        
+    </view>
+    
+    
+    <!-- 模板4 -->
+    <view wx:if="{{showDataList.length}}">
+        <view class="booking-advance" wx:for="{{showDataList}}" wx:key="index">
+            <view class="booking-title font-lg color-333">{{item.title}}</view>
+            <view class="flex-box flex-a-center inputBox2">
+                <view class="common-relative">
+                    <input class="input" placeholder="请填写" placeholder-class="color-B3B font-md" value="{{item.inputVal}}" data-key="{{item.submitKey}}" data-type="2" bindinput="getVal"/>
+                    <view class="tip-sign">{{index + 1}}</view>
+                </view>
+                <view class="font-md color-333" style="margin-left:10rpx;">{{item.inputSymbol}}</view>
+            </view>
+            <view class="booking-info color-999 font-md">{{item.info}}</view>        
+        </view>
+    </view>
+
+
+    <!-- 模板3 -->
+    <view wx:if="{{showData.templateType == 3}}" class="booking-advance">
+        <view class="booking-title font-lg color-333 flex-box flex-a-center flex-j-between">
+            <view class="">{{showData.title}}</view>
+            <!-- <switch bindchange="switchChange" data-id="{{showData.switchVal}}" checked="{{showData.switchVal ? true : false}}" color="#DED1FF"></switch> -->
+        </view>
+        <!-- <van-radio-group wx:if="{{showData.radioList.length}}" value="{{ showData.radioVal }}" bind:change="onChange"> -->
+                <!-- wx:if="{{showData.switchVal}}"  -->
+        <view class="radio-item" wx:for="{{showData.radioList}}" wx:key="index">
+            <!-- <van-radio name="{{item.id}}" checked-color="#9B77F4" icon-size="16px" class="font-md">{{item.name}}</van-radio> -->
+            <view class="font-md">{{item.name}}</view>
+            <view wx:if="{{item.isShowInput}}" class="flex-box flex-a-center flex-j-between inputBox3">
+                <view>
+                    <view class="font-md color-333" style="margin-bottom:18rpx;">课程开始前</view>
+                    <view class="flex-box flex-a-center">
+                        <view class="common-relative">
+                            <input class="input" placeholder="请填写" placeholder-class="color-B3B font-md" value="{{showData.inputVal}}" data-key="inputVal" data-type="1" bindinput="getVal"/>
+                            <view class="tip-sign">{{isCourse ? 4 : 3}}</view>
+                        </view>
+                        <view class="font-md color-333 white-space" style="margin-left:10rpx;">{{showData.inputSymbol}}</view>
+                    </view>
+                </view>
+                <view>
+                    <view class="font-md color-333" style="margin-bottom:18rpx;">课程结束后</view>
+                    <view class="flex-box flex-a-center">
+                        <input class="input" placeholder="请填写" placeholder-class="color-B3B font-md" value="{{showData.inputVal2}}" data-key="inputVal2" data-type="1" bindinput="getVal"/>
+                        <view class="font-md color-333 white-space">{{showData.inputSymbol}}</view>
+                    </view>
+                </view>
+                
+            </view>
+        </view>
+        <!-- </van-radio-group> -->
+    </view>
+    <view class="action-btn flex-box flex-a-center flex-j-center {{ isIphoneX ? 'iphonex' : ''}}">
+        <view class="btn back" bindtap="back">返回</view>
+        <view class="btn save" bindtap="sure">保存</view>
+    </view>
+</view>
+
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<view wx:if="{{showOverlayer}}" class="error-fixed-box flex-box flex-a-center flex-j-center flex-v-type">
+    <view class="error-box bg-white">
+        <!-- <view class="font-lg color-333 text-center error-box-title font-weight">提示</view> -->
+        <view class="error-content">
+            <view class="tips-msg font-md color-333">{{errorData.msg}}</view>
+            <view wx:if="{{errorData.left_num}}" class="tips-cover flex-box flex-a-center ">
+                <view class="tips-sign font-sm color-white">{{errorData.left_num}}</view>
+                <view>{{errorData.op}}</view>
+                <view class="tips-sign font-sm color-white">{{errorData.right_num}}</view>
+            </view>
+        </view>
+        <view class="error-btn font-lg text-center" bindtap="cancleBox">
+           确认
+        </view>
+    </view>
+</view>

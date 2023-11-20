@@ -1,0 +1,141 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/appointment/appointment",
+    "pages/vip/vip",
+    "pages/my/my",
+    "pages/share/share",
+    "pages/login/login",
+    "pages/store/store",
+    "pages/booking/booking",
+    "pages/booking/bookingDetail",
+    "pages/booking/bookingConfig",
+    "pages/booking/setting",
+    "pages/course/scheduleEdit",
+    "pages/course/courseList",
+    "pages/course/schedule",
+    "pages/course/courseEdit",
+    "pages/course/storeList",
+    "pages/course/cardList",
+    "pages/vip/vipDetail",
+    "pages/vip/giveVipCard",
+    "pages/vip/userCardDetail",
+    "pages/vip/addVipCard",
+    "pages/vip/addVip",
+    "pages/vip/vipCardList",
+    "pages/vip/useDay",
+    "pages/vip/leaveLimit",
+    "pages/vip/useLimit",
+    "pages/vip/supportCourse",
+    "pages/vip/selectCourse",
+    "pages/vip/vipUserDetail",
+    "pages/vip/cardAction",
+    "pages/vip/addBodyData",
+    "pages/vip/bodyDataCompare",
+    "pages/vip/compareDetail",
+    "pages/vip/editBodyData",
+    "pages/my/courseCancleRemind",
+    "pages/my/cancleBookingDetail",
+    "pages/my/commonList",
+    "pages/my/vacate",
+    "pages/webViewActivity/index",
+    "pages/activity/list",
+    "pages/activity/orderDetail",
+    "pages/activity/help",
+    "pages/activity/secondsKill",
+    "pages/activity/group",
+    "pages/activity/luckyDraw",
+    "pages/activity/prizeDataSet",
+    "pages/activity/drawList",
+    "pages/activity/fictitiousData",
+    "pages/information/index",
+    "pages/information/detail",
+    "pages/information/edit",
+    "pages/information/editQrcode",
+    "pages/member/list",
+    "pages/member/addMember",
+    "pages/member/roleStoreList",
+    "pages/member/roleList",
+    "pages/member/powerList",
+    "pages/member/resume",
+    "pages/baseConfig/identity",
+    "pages/baseConfig/index",
+    "pages/baseConfig/permissionSet",
+    "pages/baseConfig/venueSetting",
+    "pages/baseConfig/clientSetting",
+    "pages/baseConfig/noticeManagerList",
+    "pages/baseConfig/noticeManager",
+    "pages/baseConfig/bannerSetting",
+    "pages/baseConfig/coach",
+    "pages/baseConfig/classroom",
+    "pages/baseConfig/label",
+    "pages/baseConfig/comment",
+    "pages/withdrawal/detail",
+    "pages/withdrawal/withdrawal",
+    "pages/withdrawal/examine",
+    "pages/integral/index",
+    "pages/integral/integralSet",
+    "pages/comment/index",
+    "pages/comment/detail",
+    "pages/comment/screen",
+    "pages/helpCenter/index",
+    "pages/helpCenter/operationGuide",
+    "pages/helpCenter/problem",
+    "pages/qrSign/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "瑜伽",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {},
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#21DBC3",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/imgs/home.png",
+        "selectedIconPath": "/imgs/home-selected.png"
+      },
+      {
+        "pagePath": "pages/appointment/appointment",
+        "text": "约课",
+        "iconPath": "/imgs/appoint.png",
+        "selectedIconPath": "/imgs/appoint-selected.png"
+      },
+      {
+        "pagePath": "pages/vip/vip",
+        "text": "会员",
+        "iconPath": "/imgs/class.png",
+        "selectedIconPath": "/imgs/class-selected.png"
+      },
+      {
+        "pagePath": "pages/information/index",
+        "text": "操作",
+        "iconPath": "/imgs/appoint.png",
+        "selectedIconPath": "/imgs/appoint.png"
+      },
+      
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/imgs/my.png",
+        "selectedIconPath": "/imgs/my-selected.png"
+      }
+    ]
+  },
+  "permission": {
+    "pages": [
+      "pages/index/index"
+    ],
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

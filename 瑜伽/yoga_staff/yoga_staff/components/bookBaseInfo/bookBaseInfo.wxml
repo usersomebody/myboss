@@ -1,0 +1,21 @@
+<view class="base-info bg-white">
+    <view class="top flex-box flex-j-between">
+        <view class="flex-box">
+            <view class="avatar"><image src="{{teacher.head_img}}"></image></view>
+            <view class="course-info">
+                <view class="course-teacher font-lg color-666"><text class="color-333">教练：</text>{{teacher.coach_staff_name}}</view>
+                <view class="course-name font-md color-333">{{teacher.course_name}}</view>
+                <view class="course-time font-sm color-666">{{teacher.start_time}} - {{teacher.end_time}}</view>
+            </view>
+        </view>
+        <view wx:if="{{type == 1}}" class="course-btn font-sm color-white" bindtap="goBooking">代约</view>
+    </view>
+    <view wx:if="{{courseType !=4 }}" class="middle common-relative">
+        <view class="progress-bg"></view>
+        <view class="progress-fill-bg" style="width:{{width}}"></view>
+        <view class="progress-current-price font-sm color-white">{{width}}</view>
+        
+    </view>
+    <view wx:if="{{courseType !=4 }}" class="bottom text-center color-999 font-sm">{{teacher.status == 2 ? '已签' : '已约'}}<text class="color-num">{{teacher.status == 2 ? teacher.sign_count : teacher.preengage_num}}</text>人/{{teacher.status == 2 ? '已约' : '最多容纳人数'}}<text>{{teacher.status == 2 ? teacher.preengage_num : teacher.max_user}}</text>人</view>
+    <view wx:if="{{courseType == 4}}" class="courseType_4 bottom text-center color-999 font-sm">已签<text class="color-num">{{teacher.sign_count}}</text>人/已约<text>{{teacher.preengage_num}}</text>人</view>
+</view>

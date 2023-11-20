@@ -1,0 +1,32 @@
+<view class="container">
+    <!-- switchTab -->
+    <view class="switch-list bg-white flex-box flex-a-center">
+        <view class="switch-item {{switchId == item.id ? 'active' : ''}}" wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">
+            {{item.name}}
+            <image wx:if="{{switchId == item.id}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_switched.png" class="item-checked"></image>
+        </view>
+    </view>
+    <!-- 资讯列表 -->
+    <view class="info-list">
+        <view class="li-item bg-white flex-box flex-a-center" wx:for="{{infoList}}" wx:key="index" data-id="{{item.id}}" bindtap="goDetail">
+            <view class="cover">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="info-message">
+                <view class="info-name font-md color-333 bold font-weight">{{item.title}}</view>
+                <view class="info-data color-909 font-sm flex-box flex-a-center flex-j-between">
+                    <view class="time flex-box flex-a-center ">
+                        <image class="margin-r-12" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/8a25c34b41ba23ca46ef23447d339589.png"></image>
+                        <view>{{item.update_time}}</view>
+                    </view>
+                    <view class="number flex-box flex-a-center">
+                        <image class="margin-r-12" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/4125c686f951af1cfbb205dd772a6348.png"></image>
+                        <view>{{item.read_num}}看过</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{3}}"></tab-bar>

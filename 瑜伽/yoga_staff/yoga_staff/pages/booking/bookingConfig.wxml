@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="setting-list" wx:for="{{list}}" wx:key="index">
+        <view wx:if="{{false}}" class="setting-title">{{item.title}}</view>
+        <view class="setting bg-white">
+            <view class="setting-item flex-box flex-a-center flex-j-between" wx:for="{{item.settingList}}" wx:for-item="itm" wx:for-index="idx" wx:key="idx" data-id="{{itm.id}}" wx:if="{{(setType == 1 && itm.courseType == 2) || (setType == 2 && itm.courseType == 1)}}" bindtap="goSet">
+                <view class="left">
+                    <view class="info flex-box flex-a-center">
+                        <view class="name font-md color-333">{{itm.name}}</view>
+                        <switch wx:if="{{itm.type == 2}}" class="switch-item" catchtap="switchChange" data-id="{{itm.id}}" checked="{{itm.switchVal ? true : false}}" ></switch>
+                    </view>
+                    <view class="tips font-md color-999">{{itm.info}}<text class="color-ff9">{{itm.val}}</text>{{itm.tips}}</view>
+                </view>
+                <view class="right"><image src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+    </view>
+</view>

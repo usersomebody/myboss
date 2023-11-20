@@ -1,0 +1,296 @@
+.myLucky{
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+    z-index:99;
+}
+.draw-base{
+    position: absolute;
+    width:744rpx;
+    height:845rpx;
+    left: 0;
+    top: -22rpx;
+}
+.draw-lucky-bg{
+    width:720rpx;
+    height:720rpx;
+    margin:0 auto;
+    position: relative;
+    z-index:1;
+}
+.lucky-draw-bg{
+    width:750rpx;
+    height:1508rpx;
+    margin:0 auto;
+}
+.back{
+    width:16rpx;
+    height:28rpx;
+    left:20rpx;
+    z-index:99;
+    padding:20rpx;
+}
+  
+.back image{
+    width:16rpx;
+    height:28rpx;
+}
+
+.lucky-draw-box{
+    position: absolute;
+    top:530rpx;
+    left:10px;
+    
+}
+
+.myVipCardTitle{
+    position: absolute;
+    text-align: center;
+    left:0;
+    right:0;
+    margin:0 auto;
+    z-index:1;
+}
+
+.record-title-img{
+    width:52rpx;
+    height:18rpx;
+    margin:0 34rpx;
+}
+
+.lucky-draw-record{
+    min-height:50vh;
+    background:#632FB5;
+}
+.iPhoneX{
+    padding-bottom:68rpx;
+}
+
+.record-title{
+    margin-bottom:50rpx;
+}
+.record-list-box{
+    margin-bottom:50rpx;
+}
+.list-box-shadow{
+    width: 600rpx;
+    height: 480rpx;
+    padding:20rpx 28rpx;
+    background: #632FB5;
+    /* box-shadow: -5rpx -4rpx 29rpx 0px rgba(255, 221, 239, 0.38), 3rpx 3rpx 15rpx 0px rgba(78, 253, 228, 0.4); */
+    box-shadow:5rpx 3rpx 29rpx 0px rgba(78, 253, 228, 0.4) inset;
+    border-radius: 20rpx;
+    margin:0 auto;
+}
+.record-list-head{
+    width: 600rpx;
+    background: #FFFFFF;
+    border-radius: 15rpx;
+    margin:auto;
+}
+.color-draw-name{
+    color:#632FB5;
+}
+.color-draw-prize{
+    color:#E83926;
+}
+.record-item{
+    padding:24rpx 36rpx;
+}
+.swiper-bg{
+    border-radius:16rpx;
+}
+.draw-rule{
+    padding:0 30rpx 0 32rpx;
+}
+.lucky-draw-times{
+    position: absolute;
+    top:-40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.lucky-draw-times image{
+    width:400rpx;
+    height:60rpx;
+}
+.color-fde{
+    color:#FDE13F;
+}
+.draw-times-nums{
+    width:100%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.win-prize{
+    position: absolute;
+    right:0;
+    z-index:1000;
+}
+.win-prize-cover,.win-prize-kefu{
+    width:140rpx;
+    height:60rpx;
+    margin-bottom:14rpx;
+}
+
+/* 弹窗 */
+.pay-fixed{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index:2001;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pay-box{
+    position: relative;
+    width:80%;
+    background:#ffffff;
+    padding:50rpx 30rpx;
+    border-radius:30rpx;
+}
+
+.pay-box .title{
+    margin-bottom:58rpx;
+}
+
+.pay-box .input-box{
+    padding:26rpx 0;
+    border-bottom:2rpx solid #E9E9E9;
+    margin-bottom:20rpx;
+}
+.pay-box .code{
+    position: relative;
+    flex:1;
+}
+
+.pay-box .phone .label{
+    display:block;
+    width:20rpx;
+    height:26rpx;
+    margin-right:16rpx;
+}
+
+.pay-box .code .label{
+    display:block;
+    width:22rpx;
+    margin-right:16rpx;
+    height:28rpx;
+}
+
+.pay-box .nick-name .label{
+    margin-right:16rpx;
+    display:block;
+    width:22rpx;
+    height:26rpx;
+}
+
+.pay-box .sure-btn{
+    padding:18rpx 0;
+    border-radius:10rpx;
+    margin-top:76rpx;
+    width:58%;
+    background:rgba(145,105,251,.5);
+    border-radius:100rpx;
+    margin:76rpx auto 0;
+}
+
+.authCode{
+    position: absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    width: 130rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    text-align: center;
+    background:rgba(145,105,251,.5);
+    font-size:24rpx;
+    color:#fff;
+    border-radius:8rpx;
+}
+
+.placeStyle{
+    color:#666666;
+    font-size:24rpx;
+}
+
+.closebtn{
+    position: absolute;
+    right:30rpx;
+    top:24rpx;
+    width:30rpx;
+    height:30rpx;
+}
+
+.buying-box{
+    width:706rpx;
+    height:748rpx;
+}
+
+.buying-title{
+    position: absolute;
+    top:204rpx;
+    left:50%;
+    transform: translateX(-50%)
+}
+.buying-btn{
+    position: absolute;
+    top:424rpx;
+    left:50%;
+    transform: translateX(-50%);
+    width:350rpx;
+    height:92rpx;
+    line-height: 92rpx;
+}
+.buying-close{
+    position: absolute;
+    bottom:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:66rpx;
+    height:66rpx;
+}
+.surplus-times{
+    position: absolute;
+    top:530rpx;
+    left:50%;
+    transform: translateX(-50%);
+}
+.color-c16{
+    color:#C16403;
+}
+.color-ff6{
+    color:#FF613A;
+}
+
+.store-info .store-avatar{
+    width:80rpx;
+    height:80rpx;
+    border-radius:50%;
+    border: 2rpx solid #FFFFFF;
+    margin-right:18rpx;
+}
+.store-info{
+    padding:0 40rpx;
+    
+}
+.ruler-imgs{
+    margin-top:20rpx;
+}
+.ruler-imgs-item{
+    margin:0 auto;
+}
+.draw-prize-name{
+    text-align: left;
+    width:38%;
+}

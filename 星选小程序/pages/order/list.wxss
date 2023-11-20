@@ -1,0 +1,113 @@
+.sample-type{
+    padding:20rpx 0;
+}
+.sample-item.item-0{
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-left: 1rpx solid rgba(252,86,57);
+    border-bottom: 1rpx solid rgba(252,86,57);
+    border-top: 1rpx solid rgba(252,86,57);
+    border-radius: 55rpx 0px 0px 55rpx;
+}
+
+.sample-item.item-1{
+    width: 240rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-right: 1rpx solid rgba(252,86,57);
+    border-top: 1rpx solid rgba(252,86,57);
+    border-bottom: 1rpx solid rgba(252,86,57);
+    border-radius: 0 55rpx 55rpx 0;
+}
+
+.sample-item.active{
+    background: linear-gradient(rgba(252,132,57,255) 0%,rgba(252,86,57,255) 100%);
+    color:#fff;
+}
+.order-status{
+    padding:0 26rpx;
+}
+.order-status-item{
+    padding:16rpx 0;
+    /* margin-right:42rpx; */
+}
+.order-status-item:last-child{
+    margin-right:0;
+}
+.order-status-item.active{
+    border-bottom:2rpx solid rgb(252, 86, 57);
+    color:rgb(252, 86, 57);
+}
+.action-btn-item{
+    width: 184rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border: 2rpx solid rgb(204, 204, 204);
+    border-radius: 46rpx;
+    color:rgb(102, 102, 102);
+}
+
+.action-btn-item.btn-style-1{
+    border:none;
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    color:#fff;
+    background: linear-gradient(rgba(252,86,57,255) 0%,rgba(252,132,57,255) 100%);
+    border-radius: 70rpx;
+    margin-left:20rpx;
+}
+.order-list{
+    padding:0 20rpx;
+    margin-top:30rpx;
+}
+.order-item{
+    padding:20rpx 32rpx;
+    border-radius:16rpx;
+    background: #fff;
+    margin-bottom:20rpx;
+}
+.store-img{
+    width:48rpx;
+    height:48rpx;
+    margin-right:16rpx;
+    border-radius:50%;
+}
+.order-detail{
+    margin:34rpx 0 16rpx;
+}
+.order-detail .product-img{
+    width:120rpx;
+    height:120rpx;
+    border-radius:4rpx;
+    margin-right:22rpx;
+}
+.order-total{
+    margin-bottom:30rpx;
+}
+.product-info .product-name{
+    width:47%;
+    margin-bottom:22rpx;
+}
+.logisticsInfo{
+    padding:38rpx 30rpx;
+    border-radius:16rpx 16rpx 0px 0px;
+}
+.logisticsCompany{
+    margin-bottom:60rpx;
+}
+.logisticsCompany .company .company-img{
+    width:64rpx;
+    height:64rpx;
+    border-radius:50%;
+}
+.logisticsCompany .company .company-name{
+    margin-left:20rpx;
+    margin-right:10rpx;
+}

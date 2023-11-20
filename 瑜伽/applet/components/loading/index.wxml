@@ -1,0 +1,7 @@
+<template name="loader">
+  <view class="load-wrap flex-box" style="{{style}}">
+    <view class="common-loading-border loader"></view>
+    <text class="flex-item loader-title font-sm">{{title}}</text>
+  </view>
+</template>
+

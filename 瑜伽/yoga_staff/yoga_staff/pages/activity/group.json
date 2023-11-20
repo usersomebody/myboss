@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "image-cropper": "../../components/image-cropper/image-cropper"
+    },
+    "navigationBarBackgroundColor": "#7D49FB",
+    "navigationBarTitleText": "超值拼团",
+    "navigationBarTextStyle": "white"
+  }

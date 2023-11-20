@@ -1,0 +1,145 @@
+<view class="container">
+    <view wx:if="{{type == 4}}" class="status common-relative flex-box flex-a-center flex-j-end">
+        <view class="status-type flex-box flex-a-center flex-j-center" bindtap="showStatus">
+            <view class="font-md color-white">{{statusName}}</view>
+            <image class="{{statusShow ? 'icon-style-active' : ''}} selectIcon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/d1cd740ecbda5df645ec43c1f2be773b.png"></image>
+        </view>
+        <view wx:if="{{statusShow}}" class="status-type-list">
+            <view class="status-item font-md color-999 text-center {{statusId == item.id ? 'active' : ''}}" wx:for="{{statusArr}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="getStatus">{{item.name}}</view>
+        </view>
+    </view>
+    <view class="cancle-list" wx:if="{{list.length}}">
+        <block wx:if="{{type == 1}}">
+            <view class="cancle-item flex-box" wx:for="{{list}}" wx:key="index">
+                <view class="cancle-avatar"><image src="{{item.head_img || item.wechat_img}}"></image></view>
+                <view class="booking-info">
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">会员名：</view>
+                        <view class="info color-666">{{item.name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">手机号：</view>
+                        <view class="info color-666">{{item.phone}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">日期：</view>
+                        <view class="info color-666">{{item.birthday}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box flex-a-center flex-j-between">
+                        <view class="info color-666">该会员{{item.birth}}</view>
+                        <view class="info color-666 flex-box flex-a-center">
+                            <view class="weChart" data-phone="{{item.phone}}" data-unionid="{{item.unionid}}" data-status="{{item.send_status}}" bindtap="send"><image src="{{sendImg[item.send_status].cover}}"></image></view>
+                            <view class="phone" data-phone="{{item.phone}}" bindtap="callPhone"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211025/863c7527b47291bae3237c4a63fef9e9.png"></image></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:elif="{{type == 2 || type == 3}}">
+            <view class="cancle-item flex-box" wx:for="{{list}}" wx:key="index">
+                <view class="cancle-avatar"><image src="{{item.wechat_img || item.head_img}}"></image></view>
+                <view class="booking-info">
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">会员名：</view>
+                        <view class="info color-666">{{item.name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">卡类型：</view>
+                        <view class="info color-666">{{item.card_type_name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">{{cardType[item.type].name}}</view>
+                        <view class="info color-666">{{item[cardType[item.type].key]}}{{cardType[item.type].symbol}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box flex-a-center flex-j-between">
+                        <view class="flex-box flex-a-center">
+                            <view class="label color-333">有效期：</view> 
+                            <view class="info color-666">{{item.use_end_time}}</view>
+                        </view>
+                        <view class="info color-666 flex-box flex-a-center">
+                            <view class="weChart" data-phone="{{item.phone}}" data-unionid="{{item.unionid}}" data-status="{{item.send_status}}" bindtap="send"><image src="{{sendImg[item.send_status].cover}}"></image></view>
+                            <view class="phone" data-phone="{{item.phone}}" bindtap="callPhone"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211025/863c7527b47291bae3237c4a63fef9e9.png"></image></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:elif="{{type == 4}}">
+            <view class="cancle-item flex-box" wx:for="{{list}}" wx:key="index">
+                <view class="cancle-avatar"><image src="{{item.wechat_img || item.head_img}}"></image></view>
+                <view class="booking-info">
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">会员名：</view>
+                        <view class="info color-666">{{item.name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">最近预约时间：</view>
+                        <view class="info color-666">{{item.last_curriculum_time}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="info color-666">截止至{{item.end_time}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box flex-a-center flex-j-between">
+                        <view class="info color-666">该会员{{item.day == 0 ? '从' : '已经'}}<text class="color-e83">{{item.day == 0 ? '' : item.day}}</text>{{item.day == 0 ? '' : '天'}}未约课</view>
+                        <view class="info color-666 flex-box flex-a-center">
+                            <view class="weChart" data-phone="{{item.phone}}" data-unionid="{{item.unionid}}" data-status="{{item.send_status}}" bindtap="send"><image src="{{sendImg[item.send_status].cover}}"></image></view>
+                            <view class="phone" data-phone="{{item.phone}}" bindtap="callPhone"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211025/863c7527b47291bae3237c4a63fef9e9.png"></image></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:elif="{{type == 5}}">
+            <view class="cancle-item flex-box" wx:for="{{list}}" wx:key="index">
+                <view class="cancle-avatar"><image src="{{item.wechat_img || item.head_img}}"></image></view>
+                <view class="booking-info">
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">会员名：</view>
+                        <view class="info color-666">{{item.name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">卡类型：</view>
+                        <view class="info color-666">{{item.card_type_name}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box">
+                        <view class="label color-333">{{cardType[item.type].name}}</view>
+                        <view class="info color-666">{{item[cardType[item.type].key]}}{{cardType[item.type].symbol}}</view>
+                    </view>
+                    <view class="info-item font-md flex-box flex-a-center flex-j-between">
+                        <view class="flex-box flex-a-center">
+                            <view class="label color-333">有效期：</view> 
+                            <view class="info color-666">{{item.use_end_time}}</view>
+                        </view>
+                        <view class="info color-666 flex-box flex-a-center">
+                            <view class="weChart" data-phone="{{item.phone}}" data-unionid="{{item.unionid}}" data-status="{{item.send_status}}" bindtap="send"><image src="{{sendImg[item.send_status].cover}}"></image></view>
+                            <view class="phone" data-phone="{{item.phone}}" bindtap="callPhone"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211025/863c7527b47291bae3237c4a63fef9e9.png"></image></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+        <image src="{{type == 2 || type == 3 ? noCard : noVip}}"></image>
+        <view class="font-sm color-999">暂无数据</view>
+    </view>
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showSheet ? 'show' : ''}}"></view>
+    <!-- 操作框 -->
+    <view class="action-sheet-box" wx:if="{{showSheet}}">
+        <view class="box-content">
+            <view class="title color-333 font-lg">发送关怀至会员微信</view>
+            <view class="content common-relative">
+                <textarea class="color-999 font-sm" value="{{sendMsg}}" maxlength="200" bindinput="getTextVal"></textarea>
+                <view class="font-number font-base"><text class="color-e83">{{sendMsg.length}}</text>/200</view>
+            </view>
+            <view wx:if="{{type == 1}}" class="next-msg flex-box flex-a-center" bindtap="chanValue">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211025/d9f9c8e8245f9522f9dee4bc83d26a79.png"></image>
+                <view class="next-change font-sm color-666">换一个</view>
+            </view>
+            <view class="action-btn flex-box flex-a-center" bindtap="sendFriend">
+                <view class="cancle btn color-333" data-sub="1">取消</view>
+                <view class="sure btn base-color" data-sub="2">发送</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,109 @@
+<!-- 体测数据 -->
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+
+    <view class="body-data">
+        <view class="body-action-btn flex-box flex-a-center">
+            <view class="body-btn font-md" bindtap="addRecord">新增记录</view>
+            <view class="body-btn font-md" data-type="1" bindtap="showPopupBox">数据变化趋势</view>
+        </view>
+        <view hidden="{{showOverlayer}}" class="lineChart">
+            <view class="echart_panel">
+                <ec-canvas ec="{{ecLine}}" id="columnCanvas" canvas-id="columnCanvas"></ec-canvas>
+            </view>
+        </view>
+        <view class="bodyData-list">
+            <view wx:if="{{list.length}}" class="bodyData-item" wx:for="{{list}}" wx:key="index">
+                <view class="head flex-box flex-a-center flex-j-between">
+                    <view class="left flex-box flex-a-center">
+                        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211227/90b481dc3e836946dcd96daef0112551.png"></image>
+                        <view class="created-time font-sm color-242">{{item.fitness_test_time}}</view>
+                    </view>
+                    <view class="right flex-box flex-a-center" data-id="{{item.id}}" bindtap="checkBodyDetail">
+                        <view class="more-data font-sm">查看更多数据</view>
+                        <view class="right-icons"><image src="../../imgs/arrow-r.png"></image></view>
+                    </view>
+                </view>
+                <view class="content flex-box flex-a-center flex-j-between">
+                    <view class="common-padding weight flex-box flex-a-center">
+                        <image class="content-icon flex-shrink" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/c6757487364f4ef81b50720ffcf7d528.png"></image>
+                        <view>
+                            <view class="color-343 font-md mg-bottom">体重</view>
+                            <view><text class="font-lger color-1a0 font-weight">{{item.weight}}</text><text class="font-sm color-584 pd-left">kg</text></view>
+                        </view>
+                    </view>
+                    <view class="common-padding height flex-box flex-a-center">
+                        <image class="content-icon flex-shrink" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/a64548450f0660a3d165b3d95d111bf0.png"></image>
+                        <view>
+                            <view class="color-343 font-md mg-bottom">身高</view>
+                            <view><text class="font-lger color-1a0 font-weight">{{item.height}}</text><text class="font-sm color-584 pd-left">cm</text></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom flex-box flex-a-center flex-j-between">
+                    <view class="item">
+                        <view class="color-333 text-center"><text class="font-lg">{{item.best_weight || 0}}</text><text class="font-sm">kg</text></view>
+                        <view class="color-99 font-sm text-center">理想体重</view>
+                    </view>
+                    <view class="item">
+                        <view class="color-333 text-center"><text class="font-lg">{{item.body_fat || 0}}</text></view>
+                        <view class="color-99 font-sm text-center">体脂率</view>
+                    </view>
+                    <view class="item">
+                        <view class="color-333 text-center"><text class="font-lg">{{item.bmi || 0}}</text></view>
+                        <view class="color-99 font-sm text-center">BMI</view>
+                    </view>
+                    <view class="item">
+                        <view class="color-333 text-center"><text class="font-lg">{{item.basal_metabolism || 0}}</text></view>
+                        <view class="color-99 font-sm text-center">基础代谢</view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/cae4554857fb1f9bcfdcd5c5063c4ba1.png"></image>
+                <view class="font-sm color-99">暂无体测数据</view>
+            </view>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="toggleBox"></view>
+<view wx:if="{{dataCompareBox}}" class="data-change-box">
+    <view class="shadow-box">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/2245e8455dfcebf647052beb85fa92d0.png" class="head-img"></image>
+        <view class="head-title font-lg color-333">选择对比项目类型</view>
+        <view class="common-btn img color-white" data-type="1" bindtap="next">体测图片对比</view>
+        <view class="common-btn color-white" data-type="2" bindtap="next">身体数据对比</view>
+    </view>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/4d2d1b9295c32994cd5fa3badd75ae63.png" class="close-btn" bindtap="toggleBox"></image>
+</view>
+
+<view wx:if="{{popupBox}}" class="data-change-box">
+    <view class="shadow-box-popup common-relative">
+        <image class="bg-image" src="{{popupData.cover[popupData.type]}}"></image>
+        <view class="popup-content">
+            <view class="alert-title font-22 color-333">{{popupData.name}}</view>
+            <view wx:if="{{popupData.type == 3 && popupData.staff_name}}" class="font-md color-66 tips">{{popupData.staff_name}}{{popupData.tips}}</view>
+            <view class="popup-show-content {{ popupData.type != 3 ? 'big-margin-t' : 'small-margin-t'}}">
+                <view wx:if="{{popupData.type != 3}}" class="content-type-one">
+                    <view class="font-lg color-333 text-center bold">{{popupData.content}}</view>
+                    <view class="font-sm color-66 text-center msg1">{{popupData.msg1}}</view>
+                    <view class="font-sm color-66 text-center">{{popupData.msg2}}</view>
+                </view>
+                <view wx:else class="content-type-two">
+                    <view class="changeData-item flex-box" wx:for="{{popupData.changeData}}" wx:key="index">
+                        <image wx:if="{{item.list.length}}" class="symbol-img flex-shrink" src="{{item.img}}"></image>
+                        <view wx:if="{{item.list.length}}"  class="font-md color-554"><text wx:for="{{item.list}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx"><text>{{itm.text}}</text><text class="font-lger color-ffd">{{itm.value}}</text><text>{{itm.unit}}</text></text></view>
+                    </view>
+                </view>
+            </view>
+            <view class="popup-btn {{popupData.type == 3 ? 'common-absolute' : ''}}">
+                <view wx:if="{{popupData.type != 3}}" class="btn-type-one base-must-bg color-white" bindtap="addRecord">{{popupData.goBtn}}</view>
+                <view class="btn-type-two {{popupData.type == 3 ? 'color-white base-must-bg' : 'base-must-color'}}" bindtap="closePopup">{{popupData.closeBtn}}</view>
+            </view>
+        </view>
+        
+    </view>
+</view>

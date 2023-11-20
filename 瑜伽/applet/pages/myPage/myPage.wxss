@@ -1,0 +1,41 @@
+/* pages/myPage/myPage.wxss */
+.container {
+  padding: 24rpx 24rpx 0;
+}
+
+.form-item {
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  margin-bottom: 2rpx;
+  background: #FFFFFF;
+  padding: 0 24rpx;
+  font-size: 32rpx;
+}
+
+.form-item .right {
+  display: flex;
+  align-items: center;
+}
+
+.head-img {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.arrow_r {
+  width: 16rpx;
+  height: 28rpx;
+  margin-left: 24rpx;
+}
+
+.tip {
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #999999;
+  text-align: center;
+  margin-top: 48rpx;
+}

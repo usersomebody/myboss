@@ -1,0 +1,71 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+  <!-- <view class="header">
+    <view class="circle-b" bindtap="handleRecord">
+      <view class="circle-s">
+        记录
+      </view>
+    </view>
+  </view> -->
+  <view class="calendar">
+    <view class="yearMonth">
+      <!-- <image src="/imgs/calendar-l.png" class="switch-img" bindtap="lastMonth"></image> -->
+      <view class="switch-left left" bindtap="lastMonth"><image src="/imgs/arrow-r.png"></image></view>
+      <view class="con">{{year}}年{{month}}月</view>
+      <view class="switch-left" bindtap="nextMonth"><image src="/imgs/arrow-r.png"></image></view>
+      <!-- <image src="/imgs/calendar-r.png" class="switch-img" bindtap="nextMonth"></image> -->
+    </view>
+    <view class="week">
+      <view class="week-item {{index % 6 == 0 ? 'last' : '' }}" wx:for='{{week}}' wx:key='index'>{{item}}</view>
+    </view>
+    <view class="day">
+      <view class="day-item {{currentChecked == item.isToday ? 'isToday' : '' }} {{( index + 1 ) % 7 == 0 ? 'last' : ''}}"
+        wx:for='{{dateArr}}' wx:key='index' bindtap="checkDay" data-idx="{{index}}">
+        <view class="day-num">{{item.dateNum}}</view>
+        <!-- <view class="day-weigh" wx:if="{{item.weight}}">{{item.weight}}</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="record-list">
+    <view class="title">
+      <view class="font-lg color-333 font-weight">详细数据</view>
+      <view class="record-btn text-center color-white font-md" bindtap="handleRecord">记录</view>
+    </view>
+    <view wx:if="{{nodata}}" class="nodata">
+      <image class="nodata-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_nodata_7.png"></image>
+      <view class="tip">一条记录都没有，不能再低调啦~</view>
+      <view class="tip">快去添加记录吧~</view>
+    </view>
+    <view class="data" wx:else>
+      <view class="data-item" wx:for="{{dayData}}" wx:key='index' wx:for-item="item">
+        <view class="data-l">
+          <!-- <image src="/imgs/data-icon.png" class="data-icon"></image> -->
+          <view class="record-list-time font-md color-333">第{{index + 1}}测量数据</view>
+          <view class="time font-md">{{item.timeline}}</view>
+        </view>
+        <view class="data-r">
+          <view class="info">
+            <view class="info-item font-md">体重<text class="num color-333 font-lg">{{item.weight}}</text>kg </view>
+            <!-- <view class="info-item height">身高<text class="num">{{item.height}}</text>cm</view> -->
+          </view>
+          <!-- <image src="/imgs/arrow-r.png" class="data-arrow"></image> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{showCover}}" class="cover" >
+  <view class="content">
+    <view class="weigh">{{weight}}kg</view>
+    <view class="scale" >
+      <scale min="20" max="100" int="{{false}}" step="1" fiexNum="0" single="10" h="60" active="{{initWeight}}"
+        styles="{{styles}}" bindvalue="bindWeight"></scale>
+    </view>
+    <view class="operate">
+      <view class="btn" bindtap="handleCancel">取消</view>
+      <view class="btn confirm" bindtap="handleConfirm">确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+.color-504{
+    color:#504766;
+}
+.textcontent{
+    width:640rpx;
+    height:160rpx;
+    border-radius:14rpx;
+    text-indent: 4rpx;
+    padding:20rpx;
+    background:#F6F6FA;
+}
+
+.textNumber{
+    position: absolute;
+    right:20rpx;
+    bottom:20rpx;
+}
+.need-data{
+    margin-bottom:40rpx;
+}
+
+.need-data.flex-a-start{
+    align-items: flex-start;
+    margin-top:60rpx;
+}
+.need-data .label{
+    margin-bottom:20rpx;
+}
+.form-data{
+    padding:40rpx 34rpx;
+}
+.push-date{
+    margin-top:40rpx;
+}
+.push-date-title{
+    margin-right:32rpx;
+    margin-bottom:20rpx;
+}
+.select-date{
+    width: 256rpx;
+    padding:20rpx 22rpx;
+    border: 2rpx solid #E6E6E6;
+    border-radius: 10rpx;
+    margin-top:20rpx;
+}
+.date{
+    width:248rpx;
+    padding:24rpx 26rpx;
+    border:1rpx solid #E6E6E6;
+    margin-left:30rpx;
+}
+.date-cover .cover{
+    width:38rpx;
+    height:34rpx;
+    margin-right:38rpx;
+}
+.radio-item:first-child{
+    margin-right:66rpx;
+}
+.push-times-title{
+    margin-bottom:20rpx;
+    
+}
+.push-times-input input{
+    width: 160rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    margin-right:22rpx;
+}
+.push-memo{
+    margin-top:40rpx;
+}
+.push-memo-title{
+    margin-bottom:18rpx;
+}
+.push-memo-name{
+    width:20%;
+}
+.edit-btn{
+    padding-bottom:64rpx;
+}
+.common-edit-btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    border:1rpx solid #7D49FB;
+    border-radius:10rpx;
+    color:#7D49FB;
+    text-align: center;
+    margin-top:80rpx;
+}
+.edit-sure{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background:#7D49FB;
+    border-radius:10rpx;
+    color:#ffffff;
+    margin-left:54rpx;
+}

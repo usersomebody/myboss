@@ -1,0 +1,74 @@
+<import src="../../components/loading/index.wxml" />
+
+<view class="container">
+        <view class="common-relative">
+            <image class="index-nav-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/584dbe17de342f43a6f697f6aaeda79b.png"></image>
+            <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/af0b6d4d5e788ff46ddc3742480aa9e6.png"></image></view>
+            <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">我的积分</view>
+            <!-- 提现金额 -->
+            <view class="integral-info">
+                <view class="font-72 color-white text-center">{{credit_total}}</view>
+                <view class="font-md color-e9e text-center">当前积分</view>
+                <view class="btn-box flex-box flex-a-center flex-j-center">
+                    <view class="btn-bg flex-box flex-a-center" bindtap="showBox" data-type="1">
+                        <image class="add-integral" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/7e4d2e5add88c37e1ac5a4553ddae574.png"></image>
+                        <view class="font-md color-white">增加积分</view>
+                    </view>
+                    <view class="btn-bg flex-box flex-a-center" bindtap="showBox" data-type="2">
+                        <image class="sub-integral" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/b578a1177086cdcc417a003feff49bb5.png"></image>
+                        <view class="font-md color-white">扣减积分</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="withdrawal-info-box">
+            
+            <!-- 提现记录 -->
+            <view class="withdrawal-record">
+                <view class="record-title font-lg color-333 bold">积分明细</view>
+                <view class="record-list">
+                    <view wx:for="{{list}}" wx:key="index" class="record-item flex-box flex-a-center flex-j-between">
+                        <view class="left">
+                            <view class="left-title font-lg color-333">{{item.title}}</view>
+                            <view class="course-title font-md color-999">{{item.source_tip}}</view>
+                            <view wx:if="{{item.source_type == 5}}" class="course-title font-md color-999">{{item.create_staff_name}}</view>
+                            <view class="font-md color-999">{{item.create_time}}</view>
+                            <view class="course-remark font-md color-999">{{item.remark}}</view>
+                        </view>
+                        <view class="right font-lger color-333 flex-box flex-a-center">
+                            <view>{{item.number}}</view>
+                            <image class="money-symbol" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/4525e6db72bba29cf0358f21ced893c0.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/638b66752919384fc59370ad4ab1223f.png"></image>
+                    <view class="font-sm color-999">暂无记录~</view>
+                </view>
+            </view>
+        </view>
+        <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+        <view wx:if="{{showOverlayer}}" class="withdrawal-detail">
+                <view class="detail-box">
+                    <view class="detail-title color-333 font-lger text-center">{{showContent.title}}</view>
+                    <view class="detail-info">
+                        <view class="flex-box flex-a-center">
+                            <view class="action-title font-md color-666">{{showContent.title}}</view>
+                            <input class="common-bg inputbox" value="{{integralVal}}" placeholder="必填" bindinput="getNumberVal"/>
+                        </view>
+                        <view class="info flex-box flex-a-center">
+                            <view class="action-title font-md color-666">备注</view>
+                            <textarea class="memo common-bg" placeholder="必填"  value="{{memoVal}}" bindinput="getMemoVal"/>
+                        </view>
+                    </view>
+                    <view class="detail-btn flex-box flex-a-center">
+                        <view class="btn text-center font-lger" bindtap="cancle">取消</view>
+                        <view class="btn text-center font-lger" bindtap="add">确定</view>
+                    </view>
+                </view>
+            </view>
+            <view hidden="{{isLast}}">
+                <template is="loader" data="{{title:'加载中...'}}"></template>
+            </view> 
+    </view>
+  

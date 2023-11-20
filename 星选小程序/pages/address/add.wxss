@@ -1,0 +1,46 @@
+.edit-input-item{
+    padding:30rpx;
+    border-bottom:1rpx solid rgb(239, 239, 239);
+}
+.edit-input-item .title{
+    width:30%;
+}
+.address-set-default{
+    padding:26rpx 34rpx;
+}
+.free-sample-btn{
+    width:77%;
+    position: fixed;
+    bottom:150rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: linear-gradient(rgba(252,132,57,255) 0%,rgba(252,86,57,255) 100%);
+    border-radius: 70rpx;
+}
+
+.address-action{
+    position: fixed;
+    bottom:150rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.common-btn{
+    width: 320rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;    
+    border-radius: 70rpx;
+}
+.save-btn{
+    background: linear-gradient(rgba(252,132,57,255) 0%,rgba(252,86,57,255) 100%);
+}
+.del-btn{
+    border: 1rpx solid rgb(252, 86, 57);
+    margin-right:18rpx;
+}
+.width-70{
+    width:70%;
+}

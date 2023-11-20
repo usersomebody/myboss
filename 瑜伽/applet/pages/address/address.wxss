@@ -1,0 +1,82 @@
+/* pages/address/address.wxss */
+.vessel {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  padding-bottom: 148rpx;
+}
+
+.province {
+  width: 220rpx;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.city,
+.area {
+  width: 265rpx;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.province .pitem {
+  height: 110rpx;
+  line-height: 110rpx;
+  background: #F5F5F5;
+  font-size: 32rpx;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.province .pchecked {
+  color: #21DBC3;
+  background: #FFFFFF;
+}
+
+.checked {
+  color: #21DBC3;
+}
+
+.citem,
+.aitem {
+  height: 110rpx;
+  line-height: 110rpx;
+  background: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.area {
+  border-left: 1rpx solid #E5E5E5;
+  box-sizing: border-box;
+}
+
+.operation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 148rpx;
+  display: flex;
+  padding: 34rpx 40rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.operation .btn {
+  width: 320rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #F2F2F2;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.operation .confirmDevice {
+  color: #fff;
+  background: #21DBC3;
+}

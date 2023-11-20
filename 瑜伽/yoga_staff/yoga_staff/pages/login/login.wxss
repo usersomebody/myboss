@@ -1,0 +1,95 @@
+.container{
+    background: #fff;
+}
+
+.line-48{
+    line-height: 48rpx;
+}
+.login{
+    padding:104rpx 50rpx 0;
+}
+
+.login .input{
+    margin:30rpx 0;
+}
+
+.login .input input{
+    padding:32rpx 0;
+    border-bottom:1rpx solid #E2E3E8;
+}
+
+.btn{
+    width:85%;
+    height:82rpx;
+    line-height: 82rpx;
+    border-radius:42rpx;
+    text-align: center;
+    margin:60rpx auto 0;
+}
+
+.code{
+    position: absolute;
+    top:32rpx;
+    right:0;
+    width:130rpx;
+    height:46rpx;
+    line-height:46rpx;
+    border-radius:8rpx;
+    z-index:99;
+}
+
+.success-box{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:2001;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.success-box-content{
+    width:62%;
+    border-radius:20rpx;
+    background:#fff;
+    padding:36rpx 0;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.success-title{
+    margin:36rpx 0 26rpx;
+}
+.success-icon{
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    background:#67C23A;
+    margin-top:-80rpx;
+}
+.success-icon image{
+    width:38rpx;
+    height:24rpx;
+}
+.success-btn{
+    margin-top:44rpx;
+    width: 324rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    background: #7D49FB;
+    border-radius: 60rpx;
+}
+
+.password-check{
+    position: absolute;
+    right:0;
+    top:22%;
+    z-index:9;
+    width:44rpx;
+    height:44rpx;
+    padding:10rpx;
+}

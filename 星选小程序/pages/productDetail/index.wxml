@@ -1,0 +1,107 @@
+<scroll-view scroll-y="{{true}}" class="product-container {{ iPhonex ? 'iphonex' : 'pd-un'}}" >
+    <!-- banner -->
+    <view class="products-banner common-relative">
+        <swiper class="swiper">
+            <block wx:for="{{productInfo.head_img_name}}" wx:key="index">
+              <swiper-item class="categories">
+                <image src="{{item}}"></image>
+              </swiper-item>
+            </block>
+        </swiper>
+        <image class="back-icon" style="top:{{statusBarHeight - 6}}px" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220620/b4a40134d0b66b81e6200fced121ac71.png" bindtap="back"></image>
+    </view>
+    <!-- 商品信息 -->
+    <view class="product-info bg-white">
+        <view class="price flex-box flex-a-center flex-j-between">
+            <view class="product-price flex-box flex-a-center">
+                <text class="font-sm base-color">￥</text>
+                <text class="font-lger base-color">{{productInfo.has_coupon == 1 ? productInfo.discount_price_float : productInfo.min_price_float}}</text>
+                <text wx:if="{{productInfo.has_coupon == 1}}" class="line-through font-base color-153">￥{{productInfo.min_price_float}}</text>
+                <view wx:if="{{productInfo.has_coupon == 1}}" class="product-sign sign-color font-sm">券减{{productInfo.dis_sub_price}}</view>
+            </view>
+            <view class="product-num font-sm color-153">销量  {{productInfo.total_sold_num}}</view>
+        </view>
+        <view class="product-name two-line font-lg color-51">
+            {{productInfo.title}}
+        </view>
+    </view>
+    <view class="extend-info bg-white">
+        <view class="head flex-box flex-a-center">
+            <view class="commission font-md flex-box flex-a-center">
+                <text class="font-md color-153">预计佣金</text>
+                <text class="sign-color margin-l-22">￥{{productInfo.commission_value_total}}</text>
+            </view>
+            <view class="commission-scale font-md flex-box flex-a-center">
+                <view class="flex-box flex-a-start" bindtap="toggleRatioShow">
+                    <view class="font-md color-153 ">预计佣金比例</view>
+                    <view class="common-relative">
+                        <image class="ratio-tips-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220617/ac558290e8065a0cd81d2a5bf22017a9.png"></image>
+                        <view wx:if="{{ratioShow}}" class="ratio-tips font-md color-51">
+                            腾讯平台佣金+星选平台佣金
+                        </view>
+                    </view>
+                </view>
+                <view class="sign-color margin-l-22">{{productInfo.is_extra_bonus == 1 ? productInfo.commission_ratio + '+' + productInfo.extra_bonus_rate_float + '%' : productInfo.commission_ratio}}</view>
+            </view>
+        </view>
+        <view class="footer flex-box flex-a-center">
+            <!-- <view class="sample-rule font-md flex-box flex-a-center">
+                <text class="font-md color-153">免费领样</text>
+                <text class="color-51 margin-l-22">{{productInfo.sell_order_num > 0 ? '推客销量≥' + productInfo.sell_order_num + '可免费领样' : '免费领样'}}</text>
+            </view> -->
+            <view class="sample-stock font-md flex-box flex-a-center">
+                <text class="font-md color-153">免费领样库存</text>
+                <text class="color-51 margin-l-22">{{productInfo.free_sample_stock}}</text>
+            </view>
+            <view class="sample-stock font-md flex-box flex-a-center">
+                <text class="font-md color-153">成本购样库存</text>
+                <text class="color-51 margin-l-22">{{productInfo.buy_sample_stock}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 店铺信息 -->
+    <view wx:if="{{productInfo.is_auth == 1}}" class="store-info flex-box flex-a-center flex-j-between bg-white">
+        <view class="store-left flex-box flex-a-center">
+            <image src="{{productInfo.shop_arr.head_img}}" class="store-cover"></image>
+            <view>
+                <view class="store-name">{{productInfo.shop_arr.shop_name}}</view>
+                <view class="store-is-auth font-sm sign-color">{{productInfo.is_auth == 1 ? '已认证' : '未认证'}}</view>
+            </view>
+        </view>
+        <view class="store-btn" bindtap="goStore" data-id="{{productInfo.shop_arr.authorizer_appid}}">进店逛逛</view>
+    </view>
+    <!-- 规格信息 -->
+    <view class="product-sku bg-white">
+        <view class="sku-title">商品规格</view>
+        <view class="sku-item flex-box flex-a-center flex-j-between font-lg" wx:for="{{productSku}}" wx:key="index">
+            <text class="color-102 one-line font-sm" style="width:80%;">{{item.name}}</text>
+            <text class="color-51">￥{{item.price}}</text>
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="product-sku bg-white">
+        <view class="sku-title">商品详情</view>
+        <view class="product-detail-img">
+            <image class="product-detail-img-item" mode="widthFix" wx:for="{{productInfo.detail_img_arr}}" wx:key="index" src="{{item}}"></image>
+        </view>
+    </view>
+    
+</scroll-view>
+<!-- 带货弹层 -->
+<van-action-sheet
+    show="{{ showSheet }}"
+    actions="{{ sheetAction }}"
+    description="请选择小商店或视频号"
+    cancel-text="取消"
+    bind:close="commerceOnToggle"
+    bind:select="commerceOnSelect"
+/>
+<!-- 操作按钮 -->
+<view class="action-btn flex-box flex-a-center bg-white flex-j-end {{iPhonex ? 'pd-68' : ''}}" bindtap="actionBtn">
+    <view class="btn-style1 base-color font-md" data-id="1">带货</view>
+    <view wx:if="{{btnshowStyle == 1 || btnshowStyle == 2}}" class="btn-style2 font-md" data-id="2">{{ btnshowStyle == 1 ? '免费领样' : '成本购样'}}</view>
+    <view wx:if="{{btnshowStyle == 3}}" class="btn-style3 flex-box flex-a-center">
+        <view class="btn-style3-left font-md" data-id="3">成本购样</view>
+        <view class="btn-style3-right font-md" data-id="4">免费领样</view>
+    </view>
+</view>

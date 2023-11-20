@@ -1,0 +1,46 @@
+.form{
+    background:#fff;
+    padding:0 30rpx;
+    display:block;
+}
+.form .li{
+    padding:36rpx 0;
+    border-bottom:1rpx solid #ececec;
+}
+.color-b3b{
+    color:#B3B3B3;
+}
+
+.pad-r-34{
+    padding-right:34rpx;
+}
+
+.add-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:60rpx;
+}
+.right-icon image{
+    width:10rpx;
+    height:18rpx;
+    margin-left:24rpx;
+}
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+
+.color-504{
+    color:#504766;
+}

@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="login">
+        <view class="title font-lger color-333 line-48">您好,</view>
+        <view class="intro font-lger color-333 line-48">欢迎来到去约参谋!</view>
+        <view class="input">
+            <view wx:for="{{submitList}}" wx:key="index" class="common-relative" wx:if="{{item.show}}">
+                <input type="{{item.type}}" placeholder="{{item.place}}" placeholder-class="font-sm color-999" data-name="{{item.name}}" maxlength="{{item.max ? item.max : ''}}" value="{{item.value}}" bindinput="inputVal"/>
+                <view wx:if="{{item.name == 'code'}}" class="code base-bg font-sm color-white  text-center"><text wx:if="{{!codeDisable}}" bindtap="getCode">获取验证码</text><text wx:else>{{seconds}}</text></view>
+                <image wx:if="{{item.name == 'password'}}" class="password-check" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/7320e7f07cb2f9827b8d57b16ffd74a3.png" bindtap="checkPassword"></image>
+            </view>
+        </view>
+        <view class="flex-box flex-a-center flex-j-between">
+            <view wx:if="{{loginType != 3}}" class="color-666 font-sm" data-type="3" bindtap="changeType">注册</view>
+            <view wx:if="{{loginType != 2}}" class="base-color-50 font-sm" data-type="2" bindtap="changeType">验证码登录</view>
+            <view wx:if="{{loginType != 1}}" class="color-666 font-sm" data-type="1" bindtap="changeType">密码登录</view>
+        </view>
+        <view class="btn base-deep-bg color-white font-lg" bindtap="apply">{{submitText}}</view>
+        <view></view>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<!-- 资料提交成功弹窗 -->
+<view class="success-box" wx:if="{{showSucces}}">
+    <view class="success-box-content">
+        <view class="success-icon flex-box flex-a-center flex-j-center"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/correct-icon.png"></image></view>
+        <view class="success-title color-333 font-lg">资料提交成功</view>
+        <view class="success-info color-999 font-base">注册资料已收到</view>
+        <view class="success-intro color-999 font-base">我司会安排人员与您对接，请保持通话畅通</view>
+        <view class="success-btn color-white font-lg" bindtap="close">我知道了</view>
+    </view>
+</view>

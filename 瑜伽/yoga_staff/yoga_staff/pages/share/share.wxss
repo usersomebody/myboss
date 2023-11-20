@@ -1,0 +1,31 @@
+.line-white{
+    width: 60rpx;
+    height: 4rpx;
+    background: #FFFFFF;
+}
+.share-list{
+    position: fixed;
+    width:100%;
+    top:150rpx;
+    z-index:2001;
+}
+.action-title{
+    padding:0 54rpx;
+}
+.action-list{
+    margin-top:190rpx;
+    padding:0 54rpx;
+}
+.action-list .item:nth-child(2){
+    margin:102rpx 0;
+}
+.action-list .item .item-img image{
+    width:122rpx;
+    height:122rpx;
+    margin-right:26rpx;
+}
+.action-close image{
+    width:118rpx;
+    height:118rpx;
+    margin-top:100rpx;
+}

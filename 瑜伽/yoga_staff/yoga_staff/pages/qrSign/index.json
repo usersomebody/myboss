@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "sign-code":"/components/signCode/index"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "扫码签到"
+  }

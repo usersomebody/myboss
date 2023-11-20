@@ -1,0 +1,108 @@
+.date-cover .cover{
+    width:38rpx;
+    height:34rpx;
+    margin-right:10rpx;
+}
+
+.screen-time{
+    padding:34rpx 30rpx;
+    background:#fff;
+}
+
+.comment-list-box{
+    padding:26rpx 30rpx;
+}
+
+.screen-item-delete{
+    position: absolute;
+    right:0;
+    top:0;
+    width:24rpx;
+    height:24rpx;
+}
+
+.screen-list{
+    flex-wrap: wrap;
+}
+
+.screen-item{
+    padding:24rpx 32rpx;
+    border-radius:8rpx;
+    background:#fff;
+    margin-right:18rpx;
+    margin-bottom:20rpx;
+}
+
+.comment-list-title{
+    margin:30rpx 0 20rpx;
+}
+
+.comment-list-item{
+    padding:30rpx 24rpx;
+    background:#fff;
+    border-radius:16rpx;
+    margin-bottom:20rpx;
+}
+
+.avatar{
+    width:88rpx;
+    height:88rpx;
+    border-radius:50%;
+    margin-right:20rpx;
+}
+
+.comment-start{
+    margin-bottom:24rpx;
+}
+
+.comment-start .name{
+    margin-right:20rpx;
+}
+
+.satisfied-icon{
+    width:32rpx;
+    height:32rpx;
+    margin-left:20rpx;
+}
+.comment-list-item .content{
+    margin:20rpx 0;
+}
+.comment-list-item .label{
+    flex-wrap: wrap;
+    margin-bottom:20rpx;
+}
+.comment-list-item .label .label-item{
+    padding:16rpx 26rpx;
+    background:#EFE9FF;
+    color:#9169FB;
+    border-radius:10rpx;
+    margin-right:16rpx;
+    margin-bottom:20rpx;
+}
+.comment-list-item .staff-info{
+    margin:16rpx 0 30rpx;
+}
+
+.action .left .is-show{
+    padding-right:20rpx;
+    border-right:1rpx solid #EDEDED;
+}
+
+.action .left .is-top{
+    padding-left:20rpx;
+}
+.comment-img{
+    width:32rpx;
+    height:26rpx;
+    margin-right:14rpx;
+}
+
+.fabulous-img{
+    width:32rpx;
+    height:32rpx;
+    margin-right:14rpx;
+}
+
+.item-action-left{
+    margin-right:48rpx;
+}

@@ -1,0 +1,59 @@
+<view class="container">
+    <view class="li flex-box flex-a-center flex-j-between {{ index == showList.length - 1 ? 'border-none' : ''}}" wx:for="{{showList}}" wx:key="index">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="item-value flex-box flex-a-center" data-item="{{item}}"  >
+            <view wx:if="{{item.inputBox}}" class="value-placeholder font-sm color-999 "><input always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-999'}}" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+            <view wx:elif="{{item.key == 'cover_img'}}" class="upload">
+                <view wx:if="{{!item.value}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                    <view class="font-lg">+</view>
+                    <view>上传图片</view>
+                </view>
+                <image wx:else src="{{item.value}}" bindtap="getImg"></image>
+                <view class="tailoring" wx:if="{{imgSrc}}">
+                    <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                    
+                    <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                    <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                </view>
+            </view>
+            <view wx:elif="{{item.key == 'rule_imgs'}}" class="upload flex-box flex-a-center">
+                <view class="flex-box flex-a-center rulers-imgs">
+                    <view class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                        <image src="{{itm}}"></image>
+                        <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                    </view>
+                    <view class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                </view>
+                
+            </view>
+            <view wx:elif="{{item.key != 'resume'}}" class="value-placeholder font-sm {{item.value ? 'color-504' : 'color-999'}}" data-key="{{item.key}}"  bindtap="toggelePopup">{{item.value ? item.value : item.placeholder}}</view>
+            <view wx:else class="value-placeholder font-sm color-999"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="resume" bindinput="getMemoValue"></textarea></view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view class="add-btn">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="saveData"></view>
+    <view wx:if="{{popupShow}}" class="popup-box">
+        <view class="popup-content bg-white">
+            <view class="name font-md color-333">擅长方向</view>
+            <view class="spceing">
+                <view class="list flex-box flex-a-center">
+                    <view class="common-relative li-item color-333 text-center font-md {{item.checked ? 'active' : ''}}" wx:for="{{skillList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" bindtap="multipleChoose">
+                        {{item.name}}
+                        <image wx:if="{{item.type == 1}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/8048618098e41520e006558b972adf9d.png" class="delete-icon" data-id="{{item.id}}" catchtap="deleteSkill"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="saveBtn color-white font-lg flex-box flex-a-center flex-j-around" >
+                <view class="left" bindtap="addSkill">添加标签</view>
+                <view class="right" bindtap="saveData">保存</view>
+            </view>
+        </view>
+    </view>
+</view>

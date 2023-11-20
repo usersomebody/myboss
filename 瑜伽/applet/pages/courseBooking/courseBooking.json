@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "evaluate-content":"/components/evaluate/index"
+  },
+  "navigationBarTitleText": "课程预约",
+  "navigationBarBackgroundColor": "#A37FFC",
+  "navigationBarTextStyle": "white"
+}

@@ -1,0 +1,220 @@
+<view class="container">
+    <!-- 活动内容 -->
+    <scroll-view class="scroll-height {{ isIphoneX ? 'iPhoneX' : ''}}" scroll-y="{{true}}">
+        <view class="activity-content">
+            <!-- 参加活动的卡 -->
+            <view class="card-content bg-white common-radius flex-box flex-a-center">
+                <view class="card-cover flex-shrink"><image src="{{card_img}}"></image></view>
+                <view class="card-info">
+                    <view class="card-name color-10 font-regular one-line">{{activity_name}}</view>
+                    <view class="card-time color-99 font-sm">活动时间：{{showTime.start}}-{{showTime.end}}</view>
+                    <view class="card-price flex-box flex-j-between">
+                        <view class="minimum-price flex-box flex-a-center">
+                            <text class="font-sm">最低</text>
+                            <text class="font-lg font-bold font-weight">￥{{buying_price}}</text>
+                        </view>
+                        <view class="origal-price line-through color-99 font-sm">原价￥{{original_price}}</view>
+                    </view>
+                </view>
+            </view>
+            <!-- 助力感谢 -->
+            <view wx:if="{{!isSamePeople && userId}}" class="thanks-help common-radius flex-box flex-a-center margin-b-24">
+                <image class="flex-shrink" src="{{joinUserInfo.avatar}}"></image>
+                <view class="help-text font-sm color-66">我是{{joinUserInfo.nickname}}，正在参加{{joinUserInfo.card_name}}的助力活动，最低<text class="color-power">{{buying_price}}</text>元就能拿到商品！感谢您帮我助力！</view>
+            </view>
+            <!-- 冲顶倒计时 -->
+            <view class="activity-times bg-white common-radius margin-b-24">
+                <!-- 倒计时 -->
+                <view class="timers-box" wx:if="{{!isSamePeople && isActivityTime && cutDown.end_time && cutDown.start_time}}" >
+                    <count-down startTime="{{cutDown.start_time}}" endTime="{{cutDown.end_time}}" currentTime="{{cutDown.now_time}}" title="距结束:" type="2"  activityTime="{{isActivityTime}}" bind:updateData="updateProdStatus"></count-down>
+                </view>
+                <!-- 进度条 -->
+                <view class="progress-box {{ !isActivityTime ? 'margin-t-24' : ''}}">
+                    <view class="font-md color-33 text-center">已冲顶<text class="color-power font-lger">{{progress.now_price}}</text>元,还剩<text class="color-power font-lger">{{progress.remaining_price}}</text>元</view>
+                    <!-- <progress-bar wx:if="{{progress.end_price}}" initialPrice="{{progress.initial_price}}" endPrice="{{progress.end_price}}" currentPrice="{{progress.now_price}}"  bind:updateData="updateActivityStatus"></progress-bar> -->
+                </view>
+                <button wx:if="{{isSamePeople && buy_status == 1}}" class="right font-lg color-white base-rgb-bg btn-space flex-box flex-a-center flex-j-center invite-power" data-type="1" open-type="share">邀请助力</button>
+                
+                <!-- 转发 -->
+                <view wx:if="{{!isSamePeople && userId}}" class="share-btn flex-box flex-a-center flex-j-around">
+                    <button wx:if="{{isActivityTime}}" class="share font-md color-white share-button text-center bg-fec" open-type="share" data-type="2">帮他转发</button>
+                    <view wx:if="{{!isActivityTime}}" class="share font-md color-white share-button text-center bg-fec">帮他转发</view>
+                    <view wx:if="{{!isShowBtn && isActivityTime}}" class="join font-md color-white share-button text-center bg-fec" bindtap="joinActivity">我也想要</view>
+                </view>
+                <!-- 倒计时 -->
+                <view class="timers-box" wx:if="{{isSamePeople && isActivityTime && cutDown.end_time && cutDown.start_time}}" >
+                    <count-down startTime="{{cutDown.start_time}}" endTime="{{cutDown.end_time}}" currentTime="{{cutDown.now_time}}" title="距结束:" type="2"  activityTime="{{isActivityTime}}" bind:updateData="updateProdStatus"></count-down>
+                </view>
+            </view>
+            <!-- 冲顶记录 -->
+            <view class="header-record bg-white common-radius margin-b-24" wx:if="{{list.length}}">
+                <view class="color-333 font-lg font-weight">冲顶记录</view>
+                <view class="record-list" wx:if="{{list.length}}">
+                    <!-- <view class="record-list-head flex-box flex-a-center  margin-b-34">
+                        <view class="item font-md color-10 {{ index == 2 ? 'text-center' : index == 3 ? 'text-right' : ''}}" wx:for="{{listHead}}" wx:key="index">{{item}}</view>
+                    </view> -->
+                    <swiper wx:if="{{list.length > 4}}" vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='4'>
+                        <view class="record-list-head ">
+                            <block wx:for="{{list}}" wx:key="index">
+                                <swiper-item>
+                                    <view class="items font-md color-10 flex-box flex-a-center flex-j-between" >
+                                        <view class="flex-box flex-a-center">
+                                            <view class="avatar"><image src="{{item.head_img}}"></image></view>
+                                            <view class="user-list-info">
+                                                <view class="name one-line color-black font-md ">{{item.nickname}}</view>
+                                                <view class="time color-66 font-sm text-right">{{item.create_time}}</view>
+                                            </view>
+                                        </view>
+                                        <view class="num color-66 font-md text-center">{{item.help_money}}</view>
+                                    </view>
+                                </swiper-item>
+                            </block>
+                        </view>
+                    </swiper>
+                    <view wx:else class="record-list-head ">
+                        <view class="items font-md color-10 flex-box flex-a-center flex-j-between" wx:for="{{list}}" wx:key="index">
+                            <view class="flex-box flex-a-center">
+                                <view class="avatar"><image src="{{item.head_img}}"></image></view>
+                                <view class="user-list-info">
+                                    <view class="name one-line color-black font-md ">{{item.nickname}}</view>
+                                    <view class="time color-66 font-sm text-right">{{item.create_time}}</view>
+                                </view>
+                            </view>
+                            <view class="num color-66 font-md text-center flex-box flex-a-center">
+                                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_power_record.png"></image>
+                                <view>助力{{item.help_money}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 活动说明 -->
+            <view class="activity-ruler bg-white common-radius margin-b-24" wx:if="{{ruler_imgs.length}}">
+                <view class="color-333 font-lg font-weight">活动说明</view>
+                <!-- 规则列表 -->
+                <view class="ruler-list">
+                    <view class="li-item color-66 font-md" wx:for="{{ruler_imgs}}" wx:key="index"><image src="{{item}}"></image></view>
+                </view>
+            </view>
+            <!-- 活动规则 -->
+            <view class="activity-ruler bg-white common-radius margin-b-24">
+                <view class="color-333 font-lg font-weight">活动规则</view>
+                <!-- 规则列表 -->
+                <view class="ruler-list">
+                    <view class="li color-66 font-md" wx:for="{{ruler}}" wx:key="index">{{item}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 底部按钮 -->
+    <!-- wx:if="{{isActivityTime}}"  -->
+    <view wx:if="{{isActivityTime && isSamePeople && is_end == 9}}" class="footer flex-box flex-a-center {{ isIphoneX ? 'iPhoneX' : ''}}">
+        <view class="left font-20 color-black bg-white btn-space flex-box flex-a-center flex-j-center"><text class="color-e83">￥</text>{{payTotal < 0 ? 0 : payTotal}}</view>
+        <!-- <button wx:if="{{buy_status == 1}}" class="right font-18 color-white base-rgb-bg btn-space flex-box flex-a-center flex-j-center invite-power" data-type="1" open-type="share">邀请助力</button> -->
+        <view class="right font-18 color-white btn-space flex-box flex-a-center flex-j-center {{ buy_status == 2 ? 'bg-ffd' : ''}}" bindtap="createOrder">{{ buy_status == 2 ? '已抢购' : '立即抢购'}}</view>
+    </view>
+
+    <!-- 添加客服 -->
+    <view wx:if="{{qr_img}}" class="kefu flex-box flex-a-center flex-j-center" bindtap="toKeFu">
+        <!-- <view class="round"></view> -->
+        <view class="font-md color-white">添加客服</view>
+    </view>
+    <!-- 遮挡层 -->
+    <!-- showOverlayer -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}"></view>
+    <!-- 好友助力 -->
+    <view wx:if="{{userId && showFriendBox}}" class="invite-friend">
+        <view class="shadow-box"></view>
+        <view class="common-fixed pay-fixed">
+            <view class="frieds-help">
+                <image class="close" src="./imgs/icon_close_one.png" bindtap="closeFriendHelp"></image>
+                <view class="avatar"><image src="{{joinUserInfo.avatar}}"></image></view>
+                <view class="text font-lg color-10 font-bold">帮我助力低价购</view>
+                <view class="pay-price middle">
+                    <view class="font-sm color-66 margin-b-14">到手价</view>
+                    <view class="font-md color-66">￥<text class="font-24 color-power">{{buying_price}}</text></view>
+                </view>
+                <view class="help-btn font-lger color-white" bindtap="friendHelp">帮他助力</view>
+            </view>
+        </view>
+    </view>
+    <!-- 好友助力成功 -->
+    <!-- powerSuccess -->
+    <view wx:if="{{powerSuccess}}" class="invite-friend">
+        <view class="common-fixed pay-fixed">
+            <view class="frieds-help">
+                <image class="close" src="./imgs/icon_close_one.png" bindtap="closePowerSuccess"></image>
+                <view class="avatar"><image src="{{joinUserInfo.avatar}}"></image></view>
+                <!-- <view class="text font-lg color-10 font-bold">谢谢你帮我助力{{list[list.length - 1].help_money}}</view> -->
+                <view class="text font-lg color-10 font-bold">{{isShowBtn ? '助力成功' : '你也可以低价抢购,快去抢购吧!'}}</view>
+                <view class="pay-price middle" wx:if="{{!isShowBtn}}">
+                    <view class="font-sm color-66 margin-b-14">到手价</view>
+                    <view class="font-md color-66">￥<text class="font-24 color-power">{{buying_price}}</text></view>
+                </view>
+                <view  wx:if="{{!isShowBtn}}" class="help-btn font-lger color-white" bindtap="toIndex">立即抢购</view>
+            </view>
+        </view>
+    </view>
+    <!-- <view wx:if="{{powerSuccess}}"  class="common-fixed pay-fixed">
+        <view class="power-success common-relative">
+            <image class="bg-success" src="./imgs/bg-one.png"></image>
+            <view class="title absolute font-30">助力成功</view>
+            <view class="give-content absolute">
+                <image class="avatar" src="{{joinUserInfo.avatar}}"></image>
+                <view class="text font-bold font-lg color-10">送你一份特殊好礼！</view>
+                <view class="give-card flex-box flex-a-center ">
+                    <image src="{{card_img}}" class="flex-shrink"></image>
+                    <view class="give-card-info">
+                        <view class="color-ffa font-sm">{{card_name}}</view>
+                    </view>
+                </view>
+                <view class="power-btn">
+                    <view wx:if="{{!isShowBtn}}" class="receive btn font-md color-white base-bg  text-center" bindtap="toIndex">助力领取</view>
+                    <button class="share btn font-md base-color text-center {{ isShowBtn ? 'margin-l-0' : ''}}" data-type="2" open-type="share">帮ta转发</button>
+                </view>
+            </view>
+            <image class="close-box" src="./imgs/close-one.png" bindtap="closePowerSuccess"></image>
+        </view>
+    </view> -->
+    <!-- 用户自身助力完成 -->
+    <view wx:if="{{powerOver && isSamePeople}}"  class="common-fixed pay-fixed">
+        <view class="over-box">
+            <image src="./imgs/help-final.png"></image>
+            <view class="over-box-content bg-white">
+                <view class="font-md color-66">已经到低价了，快去抢购吧！</view>
+                <view class="goBtn font-lg color-white text-center" data-type='1' bindtap="closePowerOver">去抢购</view>
+            </view>
+        </view>
+        <image class="close-over-box" src="./imgs/close-one.png" data-type='2' bindtap="closePowerOver"></image>
+    </view>
+    <!-- 用户购买成功 -->
+    <!-- <view wx:if="{{getSuccess}}"  class="common-fixed pay-fixed " style="background:rgba(0,0,0,.5);">
+        <view class="get-success-box common-relative">
+            <image class="success-img" src="./imgs/power_final.png"></image>
+            <view class="success-box-content bg-white absolute">
+                <view class="font-lger color-10">恭喜获得</view>
+                <view class="color-10 font-bold font-24 card_name one-line text-center">{{card_name}}</view>
+                <view class="color-10  font-md">限时使用</view>
+            </view>
+            <view class="success-box-footer absolute">
+                <view class="footer-btn flex-box flex-a-center font-md base-color">
+                    <button class="share-friend-btn btn text-center base-color font-md" open-type="share" data-type="3">分享好友</button>
+                    <view class="use-btn color-white btn base-bg text-center" bindtap="toBooking">立即使用</view>
+                </view>
+                <view class="base-color">在“我的会员卡”中查看</view>
+            </view>
+        </view>
+        <image class="close-icon-img" src="./imgs/close-one.png" bindtap="closeBox"></image>
+    </view> -->
+    <!-- 用户购买成功 -->
+    <view wx:if="{{getSuccess}}"  class="common-fixed pay-fixed " style="background:rgba(0,0,0,.5);">
+        <view class="get-success-box common-relative">
+            <image class="kill-head-img" src="./imgs/kill-head.png"></image>
+            <view class="color-10 font-bold font-20 card_name one-line text-center font-bold">{{card_name}}</view>
+            <view class="marginTop color-10 font-bold font-lg card_name one-line text-center">限时可用</view>
+            <view class="use-btn color-white btn base-bg text-center" bindtap="toBooking">立即使用</view>
+            <view class="color-333 font-md text-center" style="margin-top:36rpx;">在"我的会员卡"中查看</view>
+        </view>
+        <image class="close-icon-img" src="./imgs/close-one.png" bindtap="closeBox"></image>
+    </view>
+</view>

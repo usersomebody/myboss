@@ -1,0 +1,298 @@
+.container{
+    height:100vh;
+}
+.pd-x{
+    padding-bottom:168rpx;
+  }
+  .pd-un{
+    padding-bottom:100rpx;
+  }
+.index-nav-bg{
+    width:100%;
+    height:398rpx;
+}
+
+.myVipCardTitle{
+    position: absolute;
+    text-align: center;
+    left:0;
+    right:0;
+    margin:0 auto;
+}
+
+.categories image{
+    width:100%;
+    height:260rpx;
+    border-radius:20rpx;
+}
+
+.swiper{
+    height:260rpx;
+    margin:-220rpx auto 0;
+    width:92%;
+}
+
+/* 指示点样式 */
+.swiper .wx-swiper-dot{ 
+    height: 12rpx;
+    width: 12rpx;
+    margin-top:-40rpx;
+}
+
+.swiper .wx-swiper-dot-active{
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 6rpx;
+    margin-top:-40rpx;
+}
+
+.section{
+    padding:0 30rpx;
+}
+
+.nav-tab{
+    margin:30rpx 0;
+    border-radius:20rpx;
+    background:#fff;
+    padding:30rpx 20rpx 0;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+} 
+
+.nav{
+    width:25%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:30rpx;
+}
+
+.nav .nav-cover{
+    width:90rpx;
+    height:90rpx;
+    margin-bottom:20rpx;
+}
+
+.course-today{
+    padding:20rpx 20rpx 32rpx 20rpx;
+    background:#fff;
+    border-radius:20rpx;
+    margin-bottom:20rpx;
+}
+
+.course-booking-detail .item{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 128rpx;
+    height: 102rpx;
+    padding-left:22rpx;
+    border-radius:6rpx;
+    color:#fff;
+    margin:20rpx 0 26rpx;
+    overflow: hidden;
+}
+
+.course-booking-detail .item .course-name{
+    margin-bottom:10rpx;
+}
+
+.left-top{
+    width:70rpx;
+    height:70rpx;
+    border-radius:50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    left:-35rpx;
+    top:-35rpx;
+}
+
+.right-bottom{
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.49) 0%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    right:-50rpx;
+    bottom:-50rpx;
+}
+
+.bg-0{
+    background: linear-gradient(134deg, #FFAC73 0%, #FFAE78 100%);
+}
+
+.bg-1{
+    background: linear-gradient(134deg, #33B2FB 0%, #3A84FF 100%);
+}
+
+.bg-2{
+    background: linear-gradient(134deg, #FF8D8D 0%, #FF8E8E 100%);
+}
+
+.bg-3{
+    background: linear-gradient(134deg, #B48CFD 0%, #B48BFD 100%);
+}
+
+.course-arrang-booking .item{
+    width: 140rpx;
+    height: 118rpx;
+    background: #F5F4F9;
+    border-radius: 10rpx;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrang-num{
+    margin-bottom:18rpx;
+}
+
+.arrang-num .num{
+    width:36rpx;
+    height:36rpx;
+    border-radius:50%;
+    text-align: center;
+    background:#562CE3;
+    margin-right:6rpx;
+}
+
+.matters-do{
+    padding:26rpx 18rpx;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius:20rpx;
+    background:#fff;
+    margin:20rpx 0;
+}
+
+.matters-left{
+    padding-right:30rpx;
+    border-right:1rpx solid #707070;
+}
+
+.matters-right{
+    padding-left:34rpx;
+    flex:1;
+}
+
+.matters-right .title{
+    margin-bottom:18rpx;
+}
+
+.matters-right .info .label-info{
+    width:360rpx;
+}
+
+.matters-right .info .label{
+    width: 70rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    background: #303030;
+    border-radius: 6rpx;
+    margin-right:6rpx;
+}
+
+.matters-go image{
+    width:42rpx;
+    height:42rpx;
+}
+
+.operating-data{
+    padding:20rpx;
+    background:#fff;
+    border-radius:20rpx;
+}
+
+.operating-data .charts{
+    margin-top:20rpx;
+}
+
+.charts-item{
+    width:196rpx;
+    height:236rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.07);
+}
+.charts-item-img image{
+    width: 196rpx;
+    height:80rpx;
+    margin-bottom:-10rpx;
+}
+.spacing{
+    margin:20rpx 0;
+}
+.color-FE6{
+    color:#FE6157;
+}
+
+.color-7D4{
+    color:#7D49FB;
+}
+.container-bg {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+   
+  } 
+  .container-bg .title {
+    font-size:36px;
+    text-align: left;
+    margin-bottom: 10px;
+  
+  }
+  .container-bg .info {
+    font-size: 14px;
+    line-height: 18px;
+    color: grey;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .container-bg .image-wrapper image {
+    width: 100%;
+  }
+  .add-mini-program{
+    position: fixed;
+    top:0;
+    left:0;
+    right:44rpx;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .close-cover{
+    width: 32rpx;
+    height: 32rpx;
+    margin-left:30rpx;
+  }
+  .gesture {
+    position: absolute;
+    right:100rpx;
+    top:0;
+    width: 60rpx;
+    height: 70rpx;
+}
+.tips-bg{
+    width:520rpx;
+    height:88rpx;
+}
+.tips-text{
+    width:520rpx;
+    position: absolute;
+    top:36%;
+    text-align: center; 
+}
+.more-icon{
+    width:28rpx;
+    height:10rpx;
+    margin:0 14rpx;
+}

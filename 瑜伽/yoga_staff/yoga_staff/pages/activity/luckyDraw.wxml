@@ -1,0 +1,257 @@
+<view class="container {{isIphoneX ? 'iphonex-style' : ''}}">
+    <view class="base-title color-999 font-md">基本设置</view>
+    <!-- 活动设置基本信息 -->
+    <view class="show-list-lis">
+        <view class="li {{item.styleType == 2 ? '' : 'flex-box'}} flex-a-center flex-j-between {{ index == showlist.length - 1 ? 'border-none' : ''}}" wx:for="{{showlist}}" wx:key="index">
+            <view class="item-label font-md color-333 bold">{{item.name}}</view>
+            <view class="{{item.styleType == 2 ? 'style-type-two' : 'item-value flex-box'}}  flex-a-center" data-item="{{item}}" bindtap="toggelePopup">
+                <view wx:if="{{item.inputBox}}" class="value-placeholder font-sm color-999 "><input placeholder-class="color-b3b font-md" always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-b3b'}}" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+                <view wx:elif="{{item.key == 'desc_img'}}" class="upload">
+                    <view wx:if="{{!item.value}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <image wx:else src="{{item.value}}" bindtap="getImg"></image>
+                    <view class="tailoring" wx:if="{{imgSrc}}">
+                        <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                        
+                        <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                        <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                    </view>
+                </view>
+                <view wx:elif="{{item.key == 'rule_imgs'}}" class="upload flex-box flex-a-center">
+                    
+                    <!-- <view wx:if="{{filePath.length < 5}}" class="choose-img flex-wrap img-item pull-left" bindtap="getImg">
+                        <image src="../../image/icon_camera.png" class="icon icon-camera"></image>
+                    </view> -->
+                    <view class="flex-box flex-a-center rulers-imgs">
+                        <view class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                            <image src="{{itm}}"></image>
+                            <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                        </view>
+                        <view class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                            <view class="font-lg">+</view>
+                            <view>上传图片</view>
+                        </view>
+                    </view>
+                    
+                </view>
+                <view wx:elif="{{item.key != 'rule'}}" class="value-placeholder font-md {{item.value ? 'color-504' : 'color-b3b'}}">{{item.value ? item.value : item.placeholder}}</view>
+                <view wx:else class="value-placeholder font-md color-b3b"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-b3b'}}" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="rule" bindinput="getMemoValue"></textarea></view>
+                <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+    </view>
+    <!-- 奖品设置 -->
+    <view class="flex-box flex-a-center flex-j-between set-prize-data" bindtap="goSetPrize">
+        <view class="font-md color-333 bold">奖品设置</view>
+        <view class="flex-box flex-a-center">
+            <view class="value-placeholder font-md {{prizeData.length ? 'color-504' : 'color-b3b'}}">{{prizeData.length ? prizeData.length : '未设置'}}</view>
+            <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <!-- 虚拟设置 -->
+    <view class="flex-box flex-a-center flex-j-between set-prize-data">
+        <view class="font-md color-333 bold">实时展示中奖客户记录</view>
+        <switch bindchange="switchChange" data-id="{{is_open_winning_info}}" checked="{{is_open_winning_info == 1 ? true : false}}" color="#9B77F4"></switch>
+    </view>
+    <view wx:if="{{is_open_winning_info == 1}}" class="flex-box flex-a-center flex-j-between set-fictitious-data" bindtap="goSetFictitious">
+        <view class="font-md color-333 bold">虚拟中奖数据</view>
+        <view class="flex-box flex-a-center">
+            <view class="value-placeholder font-md {{fictitious.length ? 'color-504' : 'color-b3b'}}">{{fictitious.length ? fictitious.length : '未设置'}}</view>
+            <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <!-- 兑奖设置 -->
+    <view class="base-title color-999 font-md">兑奖设置（请上传客服二维码，以便联系兑换）</view>
+    <view class="set-win-prize">
+        <van-radio-group value="{{ qr_code_info.qr_type }}" bind:change="onChange" direction="horizontal">
+            <van-radio class="font-md color-333" name="3" checked-color="#9B77F4">个人微信</van-radio>
+            <van-radio class="font-md color-333" name="1" checked-color="#9B77F4">企业微信</van-radio>
+        </van-radio-group>
+        <view class="win-prize-info">
+            <view class="win-prize-name">
+                <view class="win-prize-name-box flex-box flex-a-center">
+                    <view class="font-md color-333 width-25">账号名称</view>
+                    <input class="win-prize-input color-504" type="text" value="{{qr_code_info.other_name}}" placeholder="请输入账号名称" placeholder-class="font-md color-b3b" data-type="other_name" bindinput="getQrVal"/>
+                </view>
+                <view class="flex-box flex-a-center">
+                    <view class="font-md color-333 width-25">引导语</view>
+                    <input class="win-prize-input color-504" type="text" value="{{qr_code_info.guide}}" placeholder="长按识别二维码，添加好友" placeholder-class="font-md color-b3b" data-type="guide" bindinput="getQrVal"/>
+                </view>
+            </view>
+            <!-- 图片上传 -->
+            <view class="win-prize-upload ">
+                <view class="upload-qrcode flex-box flex-a-center">
+                    <view class="font-md color-333 m-t-30 width-25">上传头像</view>                        
+                    <view wx:if="{{!qr_code_info.other_head_img}}" class="uploadQRcodeImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" data-type="other_head_img" bindtap="getQRcodeImg">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <image wx:else src="{{qr_code_info.other_head_img}}" data-type="other_head_img" bindtap="getQRcodeImg"></image>
+                </view>
+                <view class="upload-qrcode flex-box flex-a-center" >
+                    <view class="font-md color-333 m-t-30 width-25">上传二维码</view>
+                    <view wx:if="{{!qr_code_info.qr_img}}" class="uploadQRcodeImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" data-type="qr_img" bindtap="getQRcodeImg">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <image wx:else src="{{qr_code_info.qr_img}}" data-type="qr_img" bindtap="getQRcodeImg"></image>
+                </view>
+            </view>
+            <view class="win-prize-time flex-box flex-a-center">
+                <view class="font-md color-333 width-25">兑奖期限</view>
+                <view class="limit-date">
+                    <view class="limit-date-select flex-box flex-a-center flex-j-between">
+                        <view class="left flex-box flex-a-center">
+                            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                            <view>
+                                <picker mode="date" value="{{qr_code_info.redeem_start_time}}" start="{{toDayDate}}"  data-key="redeem_start_time" bindchange="bindDateChange">
+                                    <view class="picker font-md color-504 white-space">
+                                        {{qr_code_info.redeem_start_time || '请选择'}}
+                                    </view>
+                                </picker>
+                            </view>
+                        </view>
+                        <view class="line-distance">-</view>
+                        <view class="right flex-box flex-a-center">
+                            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                            <view>
+                                <picker mode="date" value="{{qr_code_info.redeem_end_time}}" start="{{toDayDate}}"  data-key="redeem_end_time" bindchange="bindDateChange">
+                                    <view class="picker font-md color-504 white-space">
+                                        {{qr_code_info.redeem_end_time || '请选择'}}
+                                    </view>
+                                </picker>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 兑奖设置 -->
+    <view class="base-title color-999 font-md">抽奖限制设置</view>
+    <view class="luck-draw-limit">
+        <view class="draw-limit-item">
+            <view class="flex-box flex-a-center">
+                <view class="limit-item-title font-md color-333 font-bold">总抽奖机会</view>
+                <van-radio-group value="{{ draw_limit.lotto_total_limit }}" data-type="lotto_total_limit" bind:change="lottoLimit" direction="horizontal">
+                    <van-radio class="font-md color-666" name="0" checked-color="#9B77F4">不限</van-radio>
+                    <van-radio class="font-md color-666" name="1" checked-color="#9B77F4">限制</van-radio>
+                </van-radio-group>
+            </view>
+            <view wx:if="{{draw_limit.lotto_total_limit == 1}}" class="limit-item-box flex-box flex-a-center color-666 font-md">
+                <view class="width-50 text-right">每人最多有</view>
+                <input class="limit-box color-504" placeholder-class="color-b3b font-md" type="text" value="{{draw_limit.lotto_total_limit_number}}" data-type="lotto_total_limit_number" bindinput="getLimitTmes"/>
+                <view class="width-20 text-left">次抽奖机会</view>
+            </view>
+        </view>
+        <view class="draw-limit-item">
+            <view class="flex-box flex-a-center">
+                <view class="limit-item-title font-md color-333 font-bold">每日抽奖机会</view>
+
+            </view>
+            <view class="limit-item-box flex-box flex-a-center color-666 font-md">
+                <view class="width-50 text-right">每人每天有</view>
+                <input class="limit-box color-504" placeholder-class="color-b3b font-md" type="text" value="{{draw_limit.lotto_day_limit}}" data-type="lotto_day_limit" bindinput="getLimitTmes"/>
+                <view class="width-20 text-left">次抽奖机会</view>
+            </view>
+        </view>
+        <view class="draw-limit-item">
+            <view class="flex-box flex-a-center">
+                <view class="limit-item-title font-md color-333 font-bold">每人总中奖次数</view>
+
+            </view>
+            <view class="limit-item-box flex-box flex-a-center color-666 font-md">
+                <view class="width-50 text-right">每人最多中奖</view>
+                <input class="limit-box color-504" placeholder-class="color-b3b font-md" type="text" value="{{draw_limit.winning_total_limit}}" data-type="winning_total_limit" bindinput="getLimitTmes"/>
+                <view class="width-20 text-left">次</view>
+            </view>
+        </view>
+        <view class="draw-limit-item">
+            <view class="flex-box flex-a-center">
+                <view class="limit-item-title font-md color-333 font-bold">每人每天中奖次数</view>
+                <van-radio-group value="{{ draw_limit.winning_day_limit }}" data-type="winning_day_limit" bind:change="lottoLimit" direction="horizontal">
+                    <van-radio class="font-md color-666" name="0" checked-color="#9B77F4">不限</van-radio>
+                    <van-radio class="font-md color-666" name="1" checked-color="#9B77F4">限制</van-radio>
+                </van-radio-group>
+            </view>
+            <view wx:if="{{draw_limit.winning_day_limit == 1}}" class="limit-item-box flex-box flex-a-center color-666 font-md">
+                <view class="width-50 text-right">每人每天最多中奖</view>
+                <input class="limit-box color-504" placeholder-class="color-b3b font-md" type="text" value="{{draw_limit.winning_day_limit_number}}" data-type="winning_day_limit_number" bindinput="getLimitTmes"/>
+                <view class="width-20 text-left">次</view>
+            </view>
+        </view>
+    </view>
+    <view class="add-btn" wx:if="{{isAction == 2}}">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+    <!-- 时间遮挡层 -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{popupShow ? 'show' : ''}}" bindtap="close"></view>
+    <view wx:if="{{popupShow}}" class="popup-box">
+        <view class="popup-content bg-white">
+            <view class="name font-md color-333">{{popupData.name}}</view>
+            <view class="dateTime" wx:if="{{popupData.key == 'start_time' || popupData.key == 'end_time'}}">
+                <!-- 选择日期 -->
+                <view class="date">
+                    <view class="selectTime font-sm flex-box flex-a-center" ><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-date-icon.png"></image><text>{{currentChecked ? currentChecked : '选择时间'}}</text></view>
+                    <view wx:if="{{dateShow}}" class="date-self-box common-relative flex-box">
+                        <view class="triggle"></view>
+                        <view class="calendar common-relative">
+                            <view class="flex-box flex-a-center flex-j-center">
+                            <view class="yearMonth">
+                                <view class="yearMonth">
+                                    <view class="switch-left left" data-type="3" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                                    <view class="switch-left left" style="margin-left:26rpx;" data-type="1" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>
+                                    <view class="con">{{year}}年{{month}}月</view>
+                                    <view class="switch-left" style="margin-right:26rpx;" data-type="2" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>     
+                                    <view class="switch-left" data-type="4" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                                </view>
+                            </view>
+                            </view>
+                            <view class="week">
+                                <view class="week-item {{index % 6 == 0 ? 'last' : '' }}" wx:for='{{week}}' wx:key='index'>{{item}}</view>
+                            </view>
+                            <view class="day">
+                                <view class="day-item {{( index + 1 ) % 7 == 0 ? 'last' : ''}} {{currentChecked == item.date ? 'isToday' : '' }}"
+                                    wx:for='{{dateArr}}' wx:key='index' bindtap="checkDay" data-date="{{item.date}}">
+                                    <view class="day-num">{{item.day}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="select-time-style">
+                            <view class="select-time-title text-center font-base color-333">选择时间</view>
+                            <view wx:if="{{showDate}}" class="date-time-picker common-relative">
+                                <view class="date-time-list left">
+                                    <swiper wx:if="{{hoursList.length}}" vertical="{{true}}" data-type="1" current="{{swiperHoursIdx}}" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}"> 
+                                        <block wx:for="{{hoursList}}" wx:key="index">
+                                        <swiper-item>
+                                            <view class="swiper-item font-base {{swiperHoursIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                                        </swiper-item>
+                                        </block>
+                                    </swiper>
+                                </view>
+                                <view class="date-time-list right" >
+                                    <swiper wx:if="{{minutesList.length}}" vertical="{{true}}" current="{{swiperMinutesIdx}}" data-type="2" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}">
+                                        <block wx:for="{{minutesList}}" wx:key="index">
+                                        <swiper-item>
+                                            <view class="swiper-item font-base {{swiperMinutesIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                                        </swiper-item>
+                                        </block>
+                                    </swiper>
+                                </view>
+                                <!-- 两根线 -->
+                                <view class="time-line top"></view>
+                                <view class="time-line bottom"></view>
+                            </view>   
+                        </view>
+                        
+                    </view>
+                </view>
+                
+            </view>
+            <view class="saveBtn color-white font-lg" bindtap="saveData">保存</view>
+        </view>
+    </view>
+</view>

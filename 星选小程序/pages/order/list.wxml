@@ -1,0 +1,67 @@
+<import src="../../components/loading/index.wxml" />
+<scroll-view scroll-y="{{true}}" class="container" bindscrolltolower="onReachBottom">
+    <view class="">
+        <!-- 顶部类型切换 -->
+        <view class="sample-type flex-box flex-a-center flex-j-center">
+            <view wx:for="{{sampleTypeList}}" wx:key="index" class="base-color sample-item item-{{index}} {{item.id == sampleType ? 'active' : ''}}" data-id="{{item.id}}" bindtap="switchSample">{{item.name}}</view>
+        </view>
+        <!-- 订单状态类型切换 -->
+        <view class="order-status flex-box flex-a-center flex-j-between">
+            <view class="order-status-item font-md color-102 {{item.id == statusId ? 'active' : ''}}" wx:for="{{statusList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchOrderStatus">{{item.name}}</view>
+        </view>
+    </view>
+    
+    <!-- 订单列表 -->
+    <view class="order-list">
+        <view wx:if="{{orderList.length}}" wx:for="{{orderList}}" wx:key="index" class="order-item" data-id="{{item.id}}" data-ordersn="{{item.ordersn}}" bindtap="godetail">
+            <view class="order-top flex-box flex-a-center flex-j-between">
+                <view class="order-store flex-box flex-a-center">
+                    <image class="store-img" src="{{item.head_img}}"></image>
+                    <view class="store-name color-51 font-md">{{item.shop_name}}</view>
+                </view>
+                <view class="order-status sign-color font-md">{{statusMap[item.status].name}}</view>
+            </view>
+            <view class="order-detail flex-box flex-a-center">
+                <image class="product-img flex-shrink" src="{{item.product_info.head_img}}"></image>
+                <view class="product-info">
+                    <view class="product-name one-line font-md color-51">{{item.product_info.title}}</view>
+                    <view class="product-price font-md color-51">￥{{item.product_info.min_price_float}}</view>
+                </view>
+            </view>
+            <view class="order-total flex-box flex-a-center flex-j-end font-lg color-51" wx:if="{{sampleType == 2}}">
+                <text class="font-md color-51">{{item.status == 1 ? '应付款：' : '实付款：'}}</text>￥{{item.price}}
+            </view>
+            <view class="action-btn flex-box flex-a-center flex-j-end" wx:if="{{statusMap[item.status].action.length}}">
+                <view class="action-btn-item font-md {{itm.hasBg == 1 ? 'btn-style-1' : ''}}" wx:for="{{statusMap[item.status].action}}" wx:for-item="itm" wx:for-index="idx" wx:key="idx" data-id="{{itm.id}}" data-orderid="{{item.ordersn}}" data-expresscode="{{item.express_code}}" data-expresssn="{{item.expresssn}}" catchtap="actionOrder">
+                    {{itm.name}}
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{!orderList.length && isLast}}" class="text-center font-sm shallow-color no-data">
+            <no-data text="您还没有相关订单~" cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220621/30f70a9a2df0175ebf3a1f425724e09e.png"></no-data>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</scroll-view>
+<van-action-sheet show="{{ logisticsShow }}" description="" bind:close="toggleLogisticsSheet">
+    <view class="logisticsInfo">
+        <view class="logisticsCompany flex-box flex-a-center flex-j-between">
+            <view class="company flex-box flex-a-center">
+                <image class="company-img" src="{{expressInfo.logo}}"></image>
+                <view class="company-name font-md color-51">{{expressInfo.expresscom}}</view>
+                <view class="company-num font-md color-51">{{expressInfo.expresssn}}</view>
+            </view>
+            <view class="clipboardBtn font-md color-153" data-text="{{expressInfo.expresssn}}" bindtap="clipboardText">复制</view>
+        </view>
+        <view>
+            <van-steps
+            steps="{{ steps }}"
+            active="{{ stepActive }}"
+            direction="vertical"
+            active-color="rgb(0, 128, 255)"
+          />
+        </view>
+    </view>
+</van-action-sheet>

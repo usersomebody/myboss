@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "no-data-cover":"/components/no-data/index"
+  },
+  "navigationBarTitleText": "老师简介",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black"
+}

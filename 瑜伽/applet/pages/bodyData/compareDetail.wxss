@@ -1,0 +1,97 @@
+.container{
+    padding:50rpx 30rpx;
+    background: #fff;
+}
+.time-list{
+    background: #fff;
+}
+.time-item-cover{
+    width:38rpx;
+    height:34rpx;
+    margin-right:16rpx;
+}
+.time-item-title{
+    padding:30rpx;
+}
+.swiper{
+    height:564rpx;
+    width:100%;
+}
+
+/* 指示点样式 */
+.swiper .wx-swiper-dot{ 
+    height: 12rpx;
+    width: 12rpx;
+    margin-top:-40rpx;
+}
+
+.swiper .wx-swiper-dot-active{
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 6rpx;
+    margin-top:-40rpx;
+}
+.categories image{
+    width:100%;
+    height:564rpx;
+}
+.color-205{
+    color:#252033;
+}
+.compare-data-title{
+    background:#E7DDFF;
+}
+.data-title-item{
+    border-right:1rpx solid #ffffff;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+.data-title-item:first-child{
+    width:180rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+.data-title-item:last-child{
+    width:96rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border:none;
+}
+.compare-data-list{
+    border-right:1rpx solid #E6E6E6;
+    border-left:1rpx solid #E6E6E6;
+}
+.compare-data-list-item{
+    border-bottom: 1rpx solid #E9EAEB;
+    box-sizing: border-box;
+}
+.data-list-item{
+    border-right:1rpx solid #E9EAEB;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+.data-list-item:first-child{
+    width:180rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+.data-list-item:last-child{
+    width:96rpx;
+    height:88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border:none;
+}
+.data-list-item image{
+    width:28rpx;
+    height:22rpx;
+}
+.change-1 image{
+    width:24rpx;
+    height:4rpx;
+}

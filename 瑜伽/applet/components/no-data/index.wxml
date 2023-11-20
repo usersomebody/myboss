@@ -1,0 +1,3 @@
+<view class="" style="margin-top:{{top}}">
+    <image src="{{cover}}" class="no-data-cover"></image>
+</view>

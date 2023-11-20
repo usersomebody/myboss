@@ -1,0 +1,71 @@
+/* pages/initWeight/initWeight.wxss */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+.vessel {
+  padding: 48rpx 24rpx;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.title {
+  height: 58rpx;
+  font-size: 42rpx;
+  line-height: 58rpx;
+  color: #333333;
+}
+.height{
+  margin-top: 96rpx;
+}
+.num {
+  font-size: 42rpx;
+  color: #21DBC3;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.unit {
+  font-size: 32rpx;
+}
+
+.weigh {
+  margin-top: 112rpx;
+}
+
+.reset {
+  width: 702rpx;
+  height: 96rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 96rpx;
+  background: #21DBC3;
+  border-radius: 48rpx;
+  margin-top: 96rpx;
+}
+.cover{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.loading{
+  position: fixed;
+  top: 390rpx;
+  left: 50%;
+  z-index: 199;
+  transform: translateX(-50%);
+}
+.loading-gif{
+  width: 88rpx;
+  height: 88rpx;
+}
+.loading-txt{
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #fff;
+}

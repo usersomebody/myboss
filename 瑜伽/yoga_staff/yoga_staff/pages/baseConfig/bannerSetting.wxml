@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="upload bg-white">
+        <view class="flex-box flex-a-center rulers-imgs">
+            <view class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                <image src="{{itm}}" mode="aspectFill" data-idx="{{idx}}" bindtap="handlePreview"></image>
+                <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+            </view>
+            <view class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                <view class="font-lg">+</view>
+                <view>上传图片</view>
+            </view>
+        </view>
+        <view class='cover-size font-sm color-666'>建议上传尺寸：690x260 px</view>
+    </view>
+    <view class="submitBtn flex-box flex-a-center flex-j-center">
+        <view class="btn back" bindtap="back">返回</view>
+        <view class="btn sure" bindtap="submit">确定</view>
+    </view>
+</view>

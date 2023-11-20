@@ -1,0 +1,42 @@
+.container{
+  background:#ececec;
+}
+.color-4b4{
+  color:#4B4B4B;
+}
+.pd-x{
+  padding-bottom:168rpx;
+}
+.pd-un{
+  padding-bottom:100rpx;
+}
+.nav-list{
+  padding-top:20rpx;
+}
+.nav-list .nav-item{
+  padding:30rpx;
+}
+.nav-list .nav-item:nth-child(2){
+  margin:20rpx 0;
+}
+.nav-sub{
+  flex-wrap:wrap;
+  
+}
+.nav-sub-item{
+  width:25%;
+  flex-direction:column;
+  margin:40rpx 0 10rpx;
+}
+.nav-sub-item image{
+  margin-bottom:18rpx;
+}
+.switch-store{
+  margin-top:20rpx;
+  padding:30rpx;
+  background:#fff;
+}
+.switch-icon{
+  width:36rpx;
+  height:32rpx;
+}

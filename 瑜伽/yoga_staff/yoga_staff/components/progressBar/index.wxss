@@ -1,0 +1,33 @@
+@import "../../common.wxss";
+
+.progress .current{
+    width:72.3%;
+}
+
+.progress .current .progress-bg{
+    width:100%;
+    background: linear-gradient(-55deg, rgba(122, 238, 223, 0.15), rgba(48, 237, 213, 0.15));
+    border-radius: 20px;
+    height:40rpx;
+}
+
+.progress .current .progress-fill-bg{
+    position: absolute;
+    left:0;
+    top:0;
+    height:40rpx;
+    border-radius: 20px;
+    background:#21DBC3;
+    z-index:1;
+}
+
+.progress-current-price{
+    position: absolute;
+    left:0;
+    right:0;
+    top:2rpx;
+    bottom:0;
+    margin:auto;
+    z-index:9;
+    text-align: center;
+}

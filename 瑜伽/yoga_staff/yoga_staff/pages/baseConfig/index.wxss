@@ -1,0 +1,24 @@
+.container{
+    padding-top:20rpx;
+}
+.config-item{
+    padding:34rpx 30rpx;
+    background:#fff;
+    border-bottom:1rpx solid #EEEEEE;
+}
+.right-icon{
+    width:10rpx;
+    height:18rpx;
+    margin-left:24rpx;
+}
+.config-icon{
+    width:34rpx;
+    height:34rpx;
+    margin-right:18rpx;
+}
+.color-4b4{
+    color:#4B4B4B;
+}
+.margin-b-20{
+    margin-bottom:20rpx;
+}

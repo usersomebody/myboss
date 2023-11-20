@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "超值拼团",
+    "usingComponents": {
+      "count-down":"/components/countDown/index"
+    },
+    "navigationBarTextStyle": "black"
+  }

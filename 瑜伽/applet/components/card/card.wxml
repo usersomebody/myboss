@@ -1,0 +1,33 @@
+<!--components/card/card.wxml-->
+<view class="container">
+  <scroll-view class="categories  " scroll-x="true">
+    <view class="date-item " wx:for="{{cardarrList}}" wx:for-item="item" wx:key='index' data-idx="{{index}}">
+      <view class="date_item_list ">
+        <view class="name bg{{item.type}}">{{item.name}}</view>
+        <view class="surplus_day bg{{item.type}}">
+        <text  wx:if="{{item.type==1}}">剩余天数:</text>
+        <text wx:if="{{item.type==2}}">剩余次数:</text>
+        <text wx:if="{{item.type==3}}">剩余金额:</text>
+        <text wx:if="{{item.type==4}}">剩余时间:</text>
+        {{item.surplus_day}}
+        <text wx:if="{{item.type==1}}">天</text>
+        <text wx:if="{{item.type==2}}">元</text>
+        <text wx:if="{{item.type==3}}">次</text>
+        <text wx:if="{{item.type==4}}">分</text>
+        </view>
+        <view class="indate bg{{item.type}}">有效期：{{item.indate}}</view>
+      </view>
+      <image wx:if="{{item.type==1}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/db428ccf4089f765a75cb9d2f2a80a4.png"></image>
+      <image wx:if="{{item.type==2}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/0ea6dee7f64221797feabcd3912ec81.png"></image>
+      <image wx:if="{{item.type==3}}" src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/5de1e0fb1b800fbdbb0f2f3fa98c05e.png"></image>
+      <image wx:if="{{item.type==4}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/da0f1e3fd02e4d01dde80e0705e0bb9.png"></image>
+      <view class="absolute_status bgcolor{{item.type}}">
+      <text wx:if="{{item.status==1}}">正常</text>
+      <text wx:if="{{item.status==2}}">禁用</text>
+      <text wx:if="{{item.status==3}}">停卡</text>
+      <text wx:if="{{item.status==4}}">已失效</text>
+      <text wx:if="{{item.status==5}}">未开卡</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

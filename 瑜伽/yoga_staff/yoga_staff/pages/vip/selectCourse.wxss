@@ -1,0 +1,32 @@
+.container{
+    padding-bottom:68rpx;
+}
+.course-list{
+    padding:66rpx 30rpx;
+    background:#fff;
+    flex-wrap: wrap;
+}
+
+.course-item{
+    padding:24rpx 28rpx;
+    background:#F2F2F2;
+    border-radius:8rpx;
+    margin:0 16rpx 20rpx 0;
+}
+
+.course-item.active{
+    background:#F2EEFF;
+    border:1rpx solid #9B77F4;
+    color:#9169FB;
+}
+
+.btn{
+    width: 520rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #7D49FB;
+    color:#fff;
+    border-radius: 10rpx;
+    margin:80rpx auto 0;
+    text-align: center;
+}

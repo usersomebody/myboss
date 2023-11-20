@@ -1,0 +1,18 @@
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showLayer? 'show' : ''}}" bindtap="close"></view>
+<view class="share-list">
+    <view class="action-title">
+        <view class="font-lg color-white">嗨，欢迎来到这里</view>
+        <view class="font-lg color-white">在这里等你哦</view>
+        <view class="font-lg color-white line-white"></view>
+    </view>
+    <view class="action-list flex-box flex-a-center flex-j-center flex-v-type ">
+        <view class="item flex-box flex-a-center" wx:for="{{list}}" wx:key="index" data-link="{{item.link}}" data-type="{{item.type}}" bindtap="gotoPage">
+            <view class="item-img"><image src="{{item.cover}}"></image></view>
+            <view class="info">
+                <view class="title font-lg color-white">{{item.name}}</view>
+                <view class="intro font-md color-white">{{item.info}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="action-close flex-box flex-a-center flex-j-center" bindtap="close"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/share-clsoe-icon.png"></image></view>
+</view>

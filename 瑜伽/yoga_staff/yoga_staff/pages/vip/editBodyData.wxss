@@ -1,0 +1,448 @@
+.container{
+    padding-bottom:68rpx;
+}
+.switch-list{
+    background:#fff;
+    margin-bottom:20rpx;
+}
+.switch-item{
+    padding:30rpx 0;
+}
+.switch-item.active{
+    border-bottom:4rpx solid #7D49FB;
+    color:#7D49FB;
+    font-weight:600;
+}
+.update-data{
+    padding-left:20rpx;
+    padding-right:20rpx;
+    width: 200rpx;
+    height: 72rpx;
+    line-height:72rpx;
+    border: 1rpx solid #E6E6E6;
+    border-radius: 8rpx;
+    color:#b3b3b3;
+    font-size:28rpx;
+    margin-bottom:10rpx;
+}
+.update-data.active{
+    border: 1rpx solid #7D49FB;
+    color:#7D49FB;
+}
+.edit-content{
+    position: relative;
+    padding-bottom:38rpx;
+    background:#fff;
+}
+.data-picture-content .left{
+    position: relative;
+}
+.data-picture-content .left image{
+    width:188rpx;
+    height:762rpx;
+}
+.body-data-picture{
+    padding:32rpx;
+}
+.data-picture-content{
+    padding-left:48rpx;
+}
+.action-title{
+    margin-bottom:36rpx;
+}
+.editBtn{
+    position: absolute;
+    right:10rpx;
+    padding:10rpx;
+    width:16rpx;
+    height:16rpx;
+}
+.editBtn-h-w{
+    position: absolute;
+    top:20rpx;
+    right:20rpx;
+}
+.addKeyInput{
+    padding-left:20rpx;
+    width: 380rpx;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    background: #F5F6F7;
+    border-radius: 10rpx;
+    margin:40rpx auto;
+    color:#b3b3b3;
+}
+.dialog-index--van-dialog{
+    width: 70% !important;
+}
+.body-data-list{
+    padding:0 30rpx;
+}
+.bodyData-item{
+    margin-bottom:20rpx;
+    padding:34rpx 20rpx;
+    background:#fff;
+    border-radius:10rpx;
+    box-shadow: 0px 3rpx 7rpx 0px rgba(219, 219, 219, 0.72);
+}
+.bodyData-item .head .left image{
+    width:28rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+.color-343{
+    color:#343434;
+}
+.color-1a0{
+    color:#1A0F37;
+}
+.color-584{
+    color:#584E66;
+}
+.content-icon{
+    width:72rpx;
+    height:72rpx;
+    border-radius:50%;
+    margin-right:40rpx;
+}
+.common-padding{
+    padding:34rpx 40rpx;
+    border-radius:10rpx;
+    background:#FFF7E9;
+    
+}
+.more-data{
+    margin-right:16rpx;
+    color:#9169FB;
+}
+.content{
+    margin:30rpx 0 40rpx;
+}
+.content .height{
+    background:#E5FBFB;
+    width:236rpx;
+    
+}
+.content .weight{
+    background:#FFF7E9;
+    width:236rpx;
+}
+
+/* 上传 */
+
+.upload-cover{
+    padding:32rpx;
+    margin:20rpx 0 20rpx;
+}
+.upload{
+    flex-wrap: wrap;
+    margin-top:30rpx;
+}
+.upload .body-data-cover{
+    width: 100%;
+    height: 216rpx;
+}
+
+.rule-img{
+    width:30%;
+    margin-right:5%;
+    margin-bottom:20rpx;
+}
+.rule-img:nth-child(3n){
+    margin-right:0;
+}
+.uploadImg{
+    width: 200rpx;
+    height: 200rpx;
+    /* background: rgba(0, 0, 0, 0.04); */
+    border: 1rpx dashed rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-cover-img{
+    width:300rpx;
+    height:250rpx;
+    margin:0 auto;
+}
+.no-cover-title{
+    color:#b3b3b3;
+    margin:20rpx 0 60rpx;
+    text-align: center;
+}
+.no-cover-btn{
+    width: 360rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border: 2rpx solid #7D49FB;
+    border-radius: 44rpx;
+}
+.no-data-content{
+    margin:0 auto;
+}
+.del-btn{
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    width:100%;
+    bottom:0;
+    left:0;
+    padding: 2rpx 0;
+    color: #fff;
+}
+.select-icon{
+    position: absolute;
+    left:10rpx;
+    top:10rpx;
+    width:32rpx;
+    height:32rpx;
+}
+.wrap{
+    position: absolute;
+    top:170rpx;
+    left:44rpx;
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+    transform: skewY(0) rotateZ(88deg) rotateX(8deg) rotateY(-79deg);
+}
+.circle{
+    height: 100%;
+    box-sizing: border-box;
+    border: 8rpx solid #7D49FB;
+    border-radius: 50%;
+}
+.circle:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    top: 50%;
+    left: 0;
+    border: 8rpx solid #7D49FB;
+    border-top: transparent;
+    border-radius:  0 0 50% 50%/ 0 0 100% 100%;
+    z-index: 2;
+}
+.top-circle, .bottom-circle{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    /* background:(255,255,255,0); */
+    background:rgba(255,255,255,.2);
+    
+}
+.top-circle{
+    top: 0;
+    z-index: 1;
+    transform-origin: center bottom;
+    animation: 1s back-half linear 1s;
+    animation-fill-mode: forwards;
+}
+.bottom-circle{
+    z-index: 3;
+    top: 50%;
+    transform-origin: center top;
+    animation: 1s front-half linear;
+    animation-fill-mode: forwards;
+}
+@keyframes front-half{
+    0%{
+        transform: rotate( 0 );
+    }
+    99%{
+        transform: rotate( 180deg );
+        opacity: 1;
+    }
+    100%{
+        transform: rotate( 180deg );
+        opacity: 0;
+    }
+}
+@keyframes back-half{
+    0%{
+        transform: rotate( 0 );
+    }
+    99%{
+        transform: rotate( 180deg );
+        opacity: 1;
+    }
+    100%{
+        transform: rotate( 180deg );
+        opacity: 0;
+    }
+}
+
+/* .companydiV{
+    position: absolute;
+    top: -130rpx;
+    transform: skewY(0) rotateZ(88deg) rotateX(8deg) rotateY(-79deg);
+  }
+@keyframes rollImg {
+    0% {
+      transform :rotateZ(5deg);
+    }
+    100% {
+      transform :rotateZ(1000deg);
+    }
+  }
+  .imgcompany{
+    animation:2s rollImg linear infinite normal;
+    transform: skewX(-45deg);
+  } */
+.show-data-box{
+    position: absolute;
+    top:200rpx;
+    left:250rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    color:#7D49FB;
+    font-size:42rpx;
+}
+.show-data-box image{
+    width:140rpx;
+    height:80rpx;
+}
+.boxText{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.color-504{
+    color:#504766;
+}
+.value-placeholder{
+    padding:32rpx;
+}
+.memo{
+    width:644rpx;
+    height:176rpx;
+    padding:10rpx 20rpx;
+    border:1rpx solid #E6E6E6;
+    border-radius:4rpx;
+    margin-top:30rpx;
+}
+.saveBtn{
+    width: 560rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color:#fff;
+    text-align: center;
+    background: #7D49FB;
+    border-radius: 8rpx;
+    margin:68rpx auto 0;
+}
+
+
+
+.edit-type-two{
+    padding:0 30rpx;
+    background:#fff;
+    padding-bottom:40rpx;
+    padding-bottom:env(safe-area-inset-bottom);
+}
+
+.li{
+    padding:28rpx 0 30rpx;
+    border-bottom:2rpx solid #E2E3E8;
+}
+
+.border-none{
+    border-bottom:none!important;
+}
+.li .item-value{
+    width:55%;
+    justify-content: flex-end;
+}
+.li:last-child{
+    border:none;
+}
+.right-icon image{
+    width:10rpx;
+    height:18rpx;
+}
+
+.upload-type-two{
+    flex-wrap: wrap;
+    
+}
+.upload-type-two image{
+    width: 128rpx;
+    height: 128rpx;
+}
+.uploadTypeImg{
+    width: 128rpx;
+    height: 128rpx;
+    /* background: rgba(0, 0, 0, 0.04); */
+    border: 1rpx dashed rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.body-img{
+    margin-right: 10rpx;
+    margin-bottom: 20rpx;
+}
+.margin-t-20{
+    margin-top:20rpx;
+}
+
+
+.edit-btn{
+    margin-top:80rpx;
+}
+.common-edit-btn{
+  width: 238rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  border:1rpx solid #7D49FB;
+  border-radius:10rpx;
+  color:#7D49FB;
+  text-align: center;
+}
+.edit-sure{
+  width: 238rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  background:#7D49FB;
+  border-radius:10rpx;
+  color:#ffffff;
+  margin-left:54rpx;
+}
+.clearInput{
+    position: absolute;
+    right:78rpx;
+    top:34rpx;
+    width:32rpx;
+    height:32rpx;
+    z-index:999;
+}
+
+@keyframes fade-in {  
+    0% {
+        left: 0;
+        opacity:0;
+    }/*初始状态 透明度为0*/  
+    40% {
+        left: 125rpx;
+        opacity:0;
+    }/*过渡状态 透明度为0*/  
+    100% {
+        left: 250rpx;
+        opacity:1;
+    }/*结束状态 透明度为1*/  
+}  
+
+.show-data-box {    
+    animation: fade-in;/*动画名称*/  
+    animation-duration: 1.5s;/*动画持续时间*/  
+    -webkit-animation:fade-in 1.5s;/*针对webkit内核*/  
+}  

@@ -1,0 +1,13 @@
+<!--pages/store/store.wxml-->
+<view class="container">
+  <view class="store-item" wx:for="{{list}}" wx:for-item="item" wx:key='index' wx:if="{{index < renderIndex}}">
+    <image src="{{item.brand_logo}}" class="store-img"></image>
+    <view class="info">
+      <view class="store-name">店名：{{item.name}}</view>
+      <view class="store-distance color-66" wx:if="{{item.distance}}">距离：{{item.distance}}KM</view>
+      <view class="store-distance" wx:else></view>
+      <view class="store-address color-99">地点：{{item.address}}</view>
+    </view>
+    <view class="btn" bindtap="enterStore" data-id="{{item.id}}" data-show="{{item.config.is_show_course_to_member}}" data-name="{{item.name}}">进入</view>
+  </view>
+</view>

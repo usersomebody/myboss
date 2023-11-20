@@ -1,0 +1,21 @@
+/* pages/point/point.wxss */
+.container {
+  background-color: #fff;
+}
+
+.notOpen {
+  width: 314rpx;
+  height: 310rpx;
+  margin: 270rpx auto 0;
+}
+
+.tips {
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 44rpx;
+  color: #999999;
+  margin-top: 50rpx;
+  text-align: center;
+}

@@ -1,0 +1,142 @@
+ // const isFromYunTong = /^https:\/\/www.americanexpress.com.cn/.test(document.referrer);
+    // if (isFromYunTong) {
+    //   this.initData();
+    //   return;
+    // }
+微官账号
+feekr.123
+
+H5 第三方对接保留代码
+
+pds-t.putike.cn 账号 tst  dingxiaozhuai@163.com  15353589151  
+pes-t.putike.cn 账号 tst  umberto@feekr.com feekr123 online  mwb  15353589151
+
+
+小程序发布账号  
+Feekr商城： feekr0006@163.com    Aa0000000 
+Putike商城：putike0006@163.com  Aa000000
+
+微官网 商家小程序 发布账号
+
+开放平台：  feekr.1129  dev@feekr.com
+
+
+
+svn权限账号 用户名 umberto 密码 em235lRYiumo
+
+
+gitlab账号    umberto@feekr.com  Mwb15353589151  三站代码 和 微官网 gitlab 
+code.feekr.com 账密  mawenbo feekr.123
+github 377418480@qq.com lovewo......LOve
+https://tst-mp.feekr.com/dashboard
+dick@feekr.com
+feekr.123
+
+ https://doc.feekr.com/65  umberto@feekr.com 15353589151
+
+ teambition账号 umberto@feekr.com  Feekr123
+
+三站测试服 支付成功测试接口 http://pds-t.putike.cn/9.php?order=200702001880017
+三站测试服 订单完成测试接口 http://pds-t.putike.cn/9.php?order=190614004760042&status=9
+三站开发票跑脚本 http://pds-t.putike.cn/auto.php
+svn://svn.putike.cn/shop.feekr 三站打包后的地址
+浙里好玩代码
+mawenbo feekr.123
+护照号码
+G28233515
+s28233515
+141234567
+港澳台
+W18467389
+测试身份证号 33078119850907693
+
+小程序拦截入参
+https://twapi.feekr.com/shop/order/hotel_room?auth_access_token=3da192c097b737769e9248b92b0cecf92lBVuM1KgsTpyTYMrX15723169872&orderId=1910280025400217&ticketId=243507&hotel=1&shopid=mpf0kj2wjn&mode=1
+H5拦截入参
+https://twapi.feekr.com/shop/order/hotel_room?orderId=1910280025400217&ticketId=243507&hotel=1&mode=1&shopid=FK
+
+
+数字旅游专线 线上 appid  wx89c9ff532b7683cf
+shop_id Y5FmZQ
+
+
+
+//微官网 规格
+  formatArrData(){
+    let data = [{skuId:12,skuName:'口味',sku:[{id:888,name:'抹茶'},{id:897,name:'巧克力'},{id:900,name:'纯奶'}]},{skuId:456,skuName:'规格',sku:[{id:530,name:'500ml'},{id:531,name:'600ml'},{id:532,name:'1000ml'}]}]
+    for(let i=0;i<data.length - 1;i+=1){
+      for(let j=0;j<data[i].sku.length;j+=1){
+        for(let k=0;k<data[i+1].sku.length;k+=1){
+          console.log(`${data[i].sku[j].name} - ${data[i+1].sku[k].name}`)
+        }
+      }
+    }
+    // let datas = [1,2,3,4,5,6,7,8,9]
+    // for(let i=0;i<datas.length;i+=1){
+    //   for(let j=i+1;j<=datas.length - 1;j+=1){
+    //     console.log(`打印结果${datas[i]}-${datas[j]}`)
+    //   }
+    // }
+  }
+
+
+//数据格式
+const restList = [];
+        for (let i = 0; i < 5; i += 1) {
+          restList.push({
+            status: 1,
+            cover: 'https://p-product-pic.feekr.com/2018/1125/09bd0cb5.jpg',
+            title: '三亚海棠湾万达希尔顿逸林度假酒店',
+            recom: 'da',
+            currentPrice: 6949,
+            originalPrice: 0,
+            productId: 29256,
+            unit: '晚',
+            night: 1,
+            tag: ''
+          });
+        }
+        (list[0] || {}).subList[0].productList = restList;
+
+
+fkr6543120  feekr wifi
+
+invoice_copy 代码未push
+
+大伟 192.168.0.12 tst-api-shop.feekr.com
+
+,
+        "plugins" : {
+            "live-player-plugin" : {
+                "version" : "1.0.8",
+                "provider" : "wx2b03c6e691cd7370"
+            }
+        }
+
+
+
+
+
+
+
+去约瑜伽
+15353589151
+
+a377418480
+
+
+
+ 盈科万勤
+码云----微信授权
+
+google邮箱地址
+dingxiaozhuai@gmail.com
+mx377418480
+
+pubg全球账号 377418480@qq.com 密码 mx377418480_
+亚马逊 ciforkeibundpf@web.de---  密码：LKi9tvKZAR
+clash for window vpn
+377418480@qq.com
+mx377418480
+
+Shutdown -s -t 3600

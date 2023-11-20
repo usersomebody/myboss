@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+      "count-down":"/components/countDown/index"
+    },
+    "navigationBarTitleText": "助力登顶",
+    "navigationBarTextStyle": "black"
+  }

@@ -1,0 +1,42 @@
+@import "../../common.wxss";
+
+.time-item{
+    color:#FB5E69;
+    font-size:12px;
+}
+.margin-10{
+    margin-right:20rpx;
+}
+/* 横向 */
+.inline{
+    display:inline-block;
+}
+.margin-t{
+    margin-top:16rpx;
+}
+.margin-b{
+    margin-bottom:5rpx;
+}
+.time-item-start{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    margin:0;
+    position: relative;
+    top:-3px;
+}
+.time-title{
+    text-align:right;
+    /* margin-right:12rpx; */
+}
+.activity-start-color{
+    color:#FC6254;
+}
+.preheatTime-start-color{
+    font-size:28rpx;
+    padding:4rpx;
+    color:#ffffff;
+}
+.white-space{
+    white-space: nowrap;
+}

@@ -1,0 +1,32 @@
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+    <book-base-info type="1" courseId="{{courseId}}" courseType="{{courseType}}" cid="{{cid}}" courseDate="{{courseBookingDate}}" changeNumber="{{changeNumber}}"></book-base-info>
+    <view class="booking-list">
+        <view wx:for="{{list}}" wx:key="index" class="booking-item common-relative">
+            <view class="booking-info flex-box">
+                <view class="booking-avatar">
+                    <image src="{{item.head_img}}"></image>
+                    <view class="font-sm color-666 avatar-timing"  wx:if="{{item.spacing}}">{{item.spacing}}</view>
+                </view>
+                <view class="info">
+                    <view class="item font-lg color-333">会员名：{{item.name}}</view>
+                    <view class="item font-md color-666"><text class="color-666">卡类型：</text><text class="color-999">{{item.card_type_name}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">余额：</text><text class="color-999">{{item.remain}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">备注：</text><text class="color-999">{{item.memo}}</text></view>
+                </view>
+            </view>
+            <view class="booking-btn flex-box flex-a-center flex-j-end" wx:if="{{item.status == 1}}">
+                <view class="common-btn font-sm cancle" data-id="{{item.id}}" bindtap="cancle">取消</view>
+                <view class="common-btn font-sm sign" data-id="{{item.id}}" bindtap="sign">签到</view>
+            </view>
+            <view class="booking-btn flex-box flex-a-center flex-j-end" wx:else>
+                <view wx:if="{{item.status == 6}}" class="common-btn font-sm cancle" data-id="{{item.id}}" bindtap="cncleLine">取消排队</view>
+                <!-- <view class="common-btn font-sm sign">{{statusMap[item.status]}}</view> -->
+            </view>
+            <view class="booking-status"><image class="booking-img" src="{{status[item.status]}}"></image></view>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>

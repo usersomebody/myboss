@@ -1,0 +1,135 @@
+.container{
+    height:100vh;
+    background:#632FB5;
+}
+.custom-top{
+    position: absolute;
+}
+.back{
+    width:16rpx;
+    height:28rpx;
+    left:20rpx;
+    z-index:99;
+    padding:20rpx;
+}
+  
+.back image{
+    width:16rpx;
+    height:28rpx;
+}
+
+.myVipCardTitle{
+    position: fixed;
+    text-align: center;
+    left:0;
+    right:0;
+    margin:0 auto;
+    z-index:1;
+}
+.record-list-bg{
+    width:100%;
+    height:1334rpx;
+}
+.record-list-box{
+    position: absolute;
+    top:338rpx;
+    left:50%;
+    transform: translateX(-50%);
+    width:678rpx;
+    height:900rpx;
+    background:url('https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/17f4f6e4273e53e778bbc28ee4962893.png') no-repeat;
+    background-size:cover;
+    padding-top:30rpx;
+}
+.record-list{
+    height:850rpx;
+    overflow-y: scroll;
+}
+.record-scroll{
+    width: 640rpx;
+    height: 892rpx;
+    margin:0 auto;
+    overflow-y: scroll;
+}
+.record-item{
+    padding:28rpx 30rpx;
+    border-bottom:1rpx solid #EDEDED;
+}
+.record-item:last-child{
+    border-bottom:none;
+}
+.prize-name{
+    margin-bottom:16rpx;
+}
+.backg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/de068b1c70a9636e3bf24ecbc7de3326.png') no-repeat #000;
+    background-size:cover;
+    z-index:-1;
+}
+.prize-btn{
+    padding:10rpx 22rpx;
+    background: #9169FB;
+    border-radius: 48rpx;
+}
+.prize-label{
+    width:100rpx;
+    height:100rpx;
+    top:0;
+    right:0;
+}
+
+.prize-list-title{
+    position: absolute;
+    top:204rpx;
+    left:50%;
+    transform: translateX(-50%);
+    width:374rpx;
+    height:52rpx;
+}
+
+/* 弹窗 */
+.pay-fixed{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index:2001;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.prize-number-bg{
+    width:450rpx;
+    height:420rpx;
+}
+.color-916{
+    color:#9169FB;
+}
+.prize-number{
+    position: absolute;
+    left:50%;
+    top:220rpx;
+    transform: translateX(-50%);
+    z-index:2003;
+}
+.closeBtn{
+    margin-top:66rpx;
+    width:66rpx;
+    height:66rpx;
+}
+.no-data{
+    width:464rpx;
+    height:360rpx;
+    margin:166rpx auto 0 ;
+}
+.no-data-text{
+    margin-top:40rpx;
+}

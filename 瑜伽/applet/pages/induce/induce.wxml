@@ -1,0 +1,4 @@
+<!--pages/induce/induce.wxml-->
+<view class="container">
+<image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/2be675c93d8d78f001a734c9abb056a.png?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=5223220256&Signature=wj3rMP%2BbwVk%2FXaiZA%2FMywbBgQF0%3D" class="induce" mode="scaleToFill"></image>
+</view>

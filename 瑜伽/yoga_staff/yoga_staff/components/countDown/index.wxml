@@ -1,0 +1,10 @@
+<view class="time-item {{ isActivityTime ? 'time-item-start' : ''}}" wx:if="{{isActivityTime && timerSecond}}">
+    <view class="margin-b time-title font-md color-10">{{title}}</view>
+    <view class="margin-t font-md color-10 white-space {{styleType == 2 ? 'color-must-white' : ''}}">
+        <text class="{{ styleType == 2 ? 'preheatTime-start-2-color' : 'time_show preheatTime-start-color'}}">{{countDownDay}}</text>天
+        <text class="{{ styleType == 2 ? 'preheatTime-start-2-color' : 'time_show preheatTime-start-color'}}">{{countDownHour}}</text>时
+        <text class="{{ styleType == 2 ? 'preheatTime-start-2-color' : 'time_show preheatTime-start-color'}}">{{countDownMinute}}</text>分
+        <text class="{{ styleType == 2 ? 'preheatTime-start-2-color' : 'time_show preheatTime-start-color'}}">{{countDownSecond}}</text>秒
+    </view>
+    
+</view>

@@ -1,0 +1,382 @@
+/* pages/classAppointment/classAppointment.wxss */
+page{
+    background:#FBFBFB;
+  }
+  .container{
+  }
+  .pd-x{
+    padding-bottom:168rpx;
+  }
+  .pd-un{
+    padding-bottom:100rpx;
+  }
+  .categories {
+    width: 750rpx;
+    height: 160rpx;
+    white-space: nowrap;
+    display: flex;
+    padding: 16rpx 20rpx 0;
+    box-sizing: border-box;
+  }
+  
+  .date-item {
+    width:90rpx;
+    display: inline-block;
+    text-align: center;
+    padding:20rpx 6rpx;
+  }
+  
+  .date-item .week {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 14rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+  }
+  
+  .date-item .week-checked {
+    color: #21DBC3;
+  }
+  .date-item.checked-date{
+    border-radius:16rpx;
+    color:#C7A9FF!important;
+  }
+  .base-must-color{
+    color:#C7A9FF!important;
+    
+  }
+  .base-must-bg{
+    background: rgba(199, 169, 255, 0.19);
+    border-radius:16rpx;
+    
+  }
+  .date-item .date {
+    font-size: 28rpx;
+    font-family: SF Pro Display;
+    color: #999999;
+    width:90rpx;
+    height:46rpx;
+    line-height: 46rpx;
+    border-radius:60rpx;
+  }
+  
+  .date-item .date-checked {
+    background: #21DBC3;
+    border-radius: 50%;
+    color: #fff;
+  }
+  .nav-padding{
+    padding:32rpx 30rpx 12rpx;
+  }
+  
+  .nav {
+    display: flex;
+    padding: 18rpx 4rpx;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border-radius:40rpx;
+  }
+  
+  .nav-item {
+    white-space: nowrap;
+    padding:0 46rpx;
+    border-right: 2rpx solid #E8E8E8;
+    display:flex;
+    align-items: center;
+  }
+  
+  .nav-item:last-child{
+    border-right:none;
+  }
+  
+  .nav-checked {
+    color:#8F33FF!important;
+    font-size:36rpx;
+  }
+  
+  /* 团课 */
+  .lesson-item {
+    position: relative;
+    padding:20rpx 20rpx 16rpx 56rpx;
+    background:#fff;
+    margin-bottom:20rpx;
+  }
+  .lesson-content {
+    box-sizing: border-box;
+  }
+  .teacher-base-info .teacher-name{
+      margin-bottom:8rpx;
+  }
+  .teacher {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+  }
+  
+  .head-img {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+  }
+  
+  .lesson-name {
+    margin-bottom:12rpx;
+  }
+  
+  .lesson-time {
+    margin-top: 8rpx;
+    line-height: 40rpx;
+    height: 40rpx;
+  }
+  
+  .lesson-address {
+    margin-top: 8rpx;
+  }
+  
+  .lesson-status {
+    width: 106rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    background: #9169FB;
+    border-radius: 10rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index:1;
+  }
+  
+  .margin-space{
+      margin:0 56rpx;
+  }
+  .group-lesson{
+      margin-top:20rpx;
+  }
+  /* 私教 */
+  .personal-item {
+    width: 702rpx;
+    height: 136rpx;
+    background: #FFFFFF;
+    margin: 0 auto 24rpx;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    padding: 24rpx;
+    box-sizing: border-box;
+  }
+  
+  .personal-teacher {
+    margin-bottom: 0;
+  }
+  
+  .personal-lesson .lesson-time {
+    margin-top: 24rpx;
+  }
+  
+  /* 暂无排课 */
+  .nodata {
+    margin-top: 28rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nodata .no-lesson {
+    width: 624rpx;
+    height: 262rpx;
+  }
+  
+  .nodata .tip1 {
+    margin-top: 62rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #000000;
+  }
+  
+  .nodata .tip2 {
+    margin-top: 18rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #999999;
+  }
+  
+  .nodata .experience {
+    width: 420rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #fff;
+    background: #21DBC3;
+    margin-top: 70rpx;
+    border-radius: 48rpx;
+    text-align: center;
+  }
+  
+
+  
+  .hide {
+    display: none;
+  }
+  
+  
+  .close {
+    width: 48rpx;
+    height: 48rpx;
+    margin:  30rpx auto;
+  }
+  .noclass{
+    width:424rpx;
+    height:360rpx;
+    margin: 110px auto 20px;
+  }
+  .nocourse{
+    color: #999;
+    text-align: center;
+  }
+  
+  .typeActive{
+    color:#333;
+    font-size:32rpx;
+  }
+  .img-active{
+    transform:rotate(180deg);
+  }
+  .type-content{
+    padding:0 30rpx 60rpx;
+  }
+  .switchTab .type:first-child{
+    padding-right:40rpx;
+  }
+  .box-fixed{
+    top:0;
+    z-index:99;
+    background:#fff;
+  }
+  .color-999{
+    color:#999;
+  }
+  .color-666{
+    color:#666;
+    
+  }
+  
+  .bg-shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.68) 100%);
+    border-radius:16rpx;
+  }
+  .trainer-item{
+    /* background: url(https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210906/8b0c20a4ccab302097eb03efc990ef85.png) no-repeat; */
+    /* background-size: cover; */
+    background:#fff;
+    margin-bottom:32rpx;
+    padding:30rpx 30rpx 24rpx 56rpx;
+    border-bottom:2rpx solid #F3F3F3;
+  }
+  .trainer-item:last-child{
+    margin-bottom:0;
+  }
+
+  .teacher-info .avatar{
+    width:102rpx;
+    height:102rpx;
+    border-radius:50%;
+    margin-right:58rpx;
+  }
+  .teach-course{
+    position: absolute;
+    right:0;
+    width: 150rpx;
+    height: 62rpx;
+    line-height: 62rpx;
+    text-align: center;
+    background: #FF9D00;
+    border-radius: 40rpx;
+  }
+  .trainer-list{
+    border-top:4rpx dashed rgba(255,255,255,.3);
+  }
+  .trainer-list-item:first-child{
+      margin-top:34rpx;
+  }
+  .trainer-list-item{
+    margin-bottom:34rpx;
+  }
+  .trainer-list-item:last-child{
+    margin-bottom:0;
+  }
+  .course-name{
+      width:40%;
+      margin-right:30rpx;
+  }
+  .course-book{
+    position: absolute;
+    right:0;
+    width: 80rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    background: #9169FB;
+    text-align: center;
+    border-radius: 6rpx;
+    z-index:1;
+  }
+  
+  .trainer-shadow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+    pointer-events: none;
+    border-radius: 20rpx;
+  }
+  .overdue_style{
+    background:#999;
+  }
+  .course-store-dingwei{
+    width:22rpx;
+    height:26rpx;
+    margin-right:10rpx;
+  }
+  .describe_r .booking-personal{
+    margin-left:0;
+  }
+
+  .course-table{
+      position: fixed;
+      right:14rpx;
+      bottom:40%;
+      width:218rpx;
+      height:156rpx;
+      z-index:1;
+  }
+  .course-table.show-course-icon{
+    transform: translateX(-165rpx);
+    transition: transform 0.35s;
+  }
+  .course-status-img{
+    width: 96rpx;
+    height: 88rpx;
+    position: absolute;
+    right: 60rpx;
+    bottom: 60rpx;
+  }
+  .course-status-img image{
+    width: 96rpx;
+    height: 88rpx;
+  }
+
+  .swiper-container{
+    height:140rpx;
+  }
+  .swiper-container .swiper-item{
+    background:#fff;
+  }

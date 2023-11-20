@@ -1,0 +1,204 @@
+/* pages/courses/courses.wxss */
+.container {
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  width: 750rpx;
+  height: 88rpx;
+  background: #FFFFFF;
+}
+
+.nav-item {
+  position: relative;
+  padding: 22rpx 0 0;
+  box-sizing: border-box;
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.nav-checked {
+  color: #333333;
+  font-size:32rpx;
+}
+.item-checked{
+  position: absolute;
+  bottom:6rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width:40rpx;
+  height:12rpx;
+}
+.content {
+  margin-top: 24rpx;
+}
+
+/* 团课 */
+.lesson-item {
+  margin: 0 30rpx 24rpx;
+  background:#fff;
+  border-radius:10rpx;
+}
+.lesson-item-top{
+  padding:22rpx 20rpx;
+}
+.lesson-item-top .lesson-bg {
+  width: 254rpx;
+  height: 204rpx;
+  border-radius:10rpx;
+}
+
+.lesson-content {
+  color: #333333;
+  margin-left:66rpx;
+}
+
+.teacher {
+  display: flex;
+  align-items: center;
+}
+
+.head-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.lesson-name {
+  margin:16rpx 0;
+}
+
+.lesson-time {
+  margin-top: 14rpx;
+}
+
+.lesson-address {
+  margin-top: 8rpx;
+}
+
+.lesson-status {
+  width: 156rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  background: #21DBC3;
+  opacity: 1;
+  border-radius: 32rpx 0px 0px 32rpx;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 30rpx;
+  right: 0;
+}
+
+.full {
+  background: #FF9387;
+  z-index: 99;
+}
+
+.nervous {
+  background: #FFD178;
+}
+
+.operate {
+  padding:22rpx 40rpx 22rpx 50rpx;
+  border-top:1rpx solid #F3F3F3;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.operate .order-num {
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #666666;
+}
+
+.operate .order-r {
+  display: flex;
+}
+
+.operate .btn {
+  width:134rpx;
+  padding:4rpx 0;
+  border: 2rpx solid #9169FB;
+  border-radius: 30rpx;
+  text-align: center;
+  color: #9169FB;
+  background:#F5EFFF;
+}
+
+.operate .sign {
+  border: 0;
+  background: #9169FB;
+  color: #fff;
+  margin-left: 24rpx;
+}
+
+.noclass {
+  width: 350rpx;
+  height: 325rpx;
+  margin: 110px auto 20px;
+}
+
+.nocourse {
+  color: #999;
+  text-align: center;
+}
+
+.nologin {
+  width: 436rpx;
+  height: 336rpx;
+  margin: 0 auto;
+}
+
+
+.authorize {
+  color: #fff;
+  background: #21DBC3;
+  margin: 72rpx auto 24rpx;
+}
+
+.login-tip {
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #999999;
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.loginBtn {
+  width: 484rpx;
+  height: 82rpx;
+  background: #9169FB;
+  line-height: 82rpx;
+  text-align: center;
+  background: #FAFAFA;
+  border-radius: 44rpx;
+  font-size: 36rpx;
+  color: #333333;
+  margin: 0 auto;
+  background:#9169FB;
+  color:#fff;
+  margin-top:30rpx;
+}
+
+.pd-x{
+  padding-bottom:168rpx;
+}
+.pd-un{
+  padding-bottom:100rpx;
+}
+.operate .btn-disabled{
+  background: #cccccc;
+  border:1rpx solid #cccccc;
+  color: #fff;
+}

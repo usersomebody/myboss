@@ -1,0 +1,272 @@
+<!--pages/courseBooking/courseBooking.wxml-->
+<!--pages/sign/sign.wxml-->
+<view class="container">
+  <view class="header">
+    <image src="{{courseInfo.course_detail.cover_img}}" class="lesson-img"></image>
+  </view>
+  <!-- 课程预约 课程介绍 -->
+  <view class="course-type flex-box flex-a-center flex-j-around">
+      <view wx:for="{{typeData}}" wx:key="index" data-id="{{item.id}}" class="item color-999 font-md" bindtap="switchTab">
+        <view class="course-type-item {{item.id == courseTypeId ? 'typeActive' : ''}}">{{item.name}}</view>
+        <view wx:if="{{item.id == courseTypeId}}" class="type-bottom-line"></view>
+      </view>
+    </view>
+  
+  
+  <view class="course-booking-list" wx:if="{{courseTypeId == 1}}">
+    <view wx:if="{{bookingCourseType == 4}}" class="course-info flex-box flex-a-center flex-j-between bg-white">
+        <view class="teacher-name color-333 font-lg font-bold">{{courseInfo.course_detail.name}}</view>
+        <view wx:if="{{courseInfo.course_detail.coach_staff.name}}" class="font-md color-333">教练:{{courseInfo.course_detail.coach_staff.name}}</view>
+      </view>
+    <scroll-view class="categories" scroll-x="true" wx:if="{{bookingCourseType == 4}}">
+      <view class="date-item-check {{ checkedDate==item.date ? 'checked-date' : ''}}" wx:for="{{dateArr}}" wx:for-item="item" wx:key='index' bindtap="chooseDate"
+        data-idx="{{index}}">
+        <view class="week {{ checkedDate == item.date ? 'base-must-color' : ''}}">{{ item.date == currentDayData ? '今天' : item.week}}</view>
+        <view class="date {{ checkedDate == item.date ? 'base-must-bg base-must-color' : ''}}">{{item.month}}.{{item.day}}</view>
+      </view>
+    </scroll-view>
+    <!-- 时间段 -->
+    <view wx:if="{{bookingCourseType == 4}}" class="booking-intro font-sm color-99"><text class="color-ff">注：</text>课程时长{{bookingTimeObj.interval}}分钟（请选择起始时间）</view>
+    <view class="time-list" wx:if="{{bookingCourseType == 4}}">
+      <view class="booking-list flex-box flex-a-center">
+        <view wx:if="{{timeArr.length}}" class="font-md color-333 booking-item {{item.select && !item.userBooked ? 'active' : ''}}" wx:for="{{timeArr}}" wx:key="index" data-isbeyondend="{{item.isBeyondEnd}}" data-isbeyond="{{item.isBeyond}}" data-timefrom="{{item.timeFrom}}" data-timeto="{{item.timeTo}}" data-index="{{index}}" data-isbooked="{{item.isBooked}}" data-isover="{{item.isOver}}" data-group="{{item.group}}" data-resttime="{{item.restTime}}" data-userbooked="{{item.userBooked}}" bindtap="checkTime">
+          <view wx:if="{{item.isBeyond || item.isBooked || item.group || item.restTime || item.select }}" class="item-sign font-sm">
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="item-time font-md">{{item.timeFrom}}</view>
+        </view>
+        <view wx:if="{{!timeArr.length}}" class="text-center color-99 font-md personalTimeData">今日暂无排课</view>
+      </view>
+    </view>
+    <!-- 课程预约 -->
+    <view class="subscribeone">
+      <view wx:if="{{bookingCourseType !=4 }}" class="course-info flex-box flex-a-center flex-j-between bg-white">
+        <view class="teacher-name color-333 font-lg font-bold">{{courseInfo.course_detail.name}}</view>
+        <view wx:if="{{courseInfo.course_detail.coach_staff.name}}" class="font-md color-333">教练:{{courseInfo.course_detail.coach_staff.name}}</view>
+      </view>
+     
+      <view class="num flex-box flex-a-center common-space common-relative {{bookingCourseType != 4 ? 'margin-bottom-0' : ''}}" wx:if="{{bookingCourseType !=4 && (show_preengage_member=='2'||(show_preengage_member=='1'&&user_type=='1'))}}">
+        <!-- <view class="num_round"></view> -->
+        <view class="num_text font-md">已预约<text class="base-must-color">{{courseInfo.preengage_num}}</text>/{{courseInfo.max_user}}</view>
+        <view class="imgList" wx:if="{{buyPerson.length}}">
+          <image wx:for="{{buyPerson}}" wx:key="index" class="buying-people" src="{{item.user_detail.head_img}}"></image>
+        </view>
+        <view class="describe flex-box flex-a-center flex-j-between common-space" wx:if="{{bookingCourseType !=4 && (show_preengage_member=='2'||(show_preengage_member=='1'&&user_type=='1'))}}">
+          <view class="describe_r font-sm" wx:if="{{courseInfo.preengage_status=='2' && courseInfo.is_open_queue=='1'}}">已约满，当前<text class="color-ff">{{courseInfo.queue_num}}</text>人排队 </view>
+        </view>
+      </view>
+      <view wx:if="{{bookingCourseType !=4 }}" class="lesson common-relative">
+          <view wx:if="{{hasBookingTime.start && hasBookingTime.end}}" class="lesson-info lesson-time color-333">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210918/e0ebd1c6a137c5d90aa1eaf29e539004.png" class="icon"></image>
+            {{hasBookingTime.start}}-{{hasBookingTime.end}} 周{{week}}
+          </view>
+          <view wx:else class="lesson-info lesson-time color-333">
+              <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210918/e0ebd1c6a137c5d90aa1eaf29e539004.png" class="icon"></image>
+              {{date}} {{courseInfo.start_time}}-{{courseInfo.end_time}} 周{{week}}
+            </view>
+          <view class="lesson-info lesson-intro" wx:if="{{courseInfo.class_room && bookingCourseType != 4}}">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210918/d5ddbf2a8c1ace3968c33ac8bcf8a5ae.png" class="icon coordinates-address"></image>
+            {{courseInfo.class_room}}
+          </view>
+      </view>
+      <view class="login-info"  bindtap="toLogin" wx:if="{{!isLogin}}">
+          <view wx:if="{{bookingCourseType == 4}}" class="color-333 font-md nologin-title font-weight">可用会员卡</view>
+          <image wx:if="{{bookingCourseType == 4}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220407/b77be9708baf74b10bad5ca4b1ab1440.png" class="icon nologin-img"></image>
+          <view class="login-btn font-md">立即登录</view>
+          <view class="login-intro font-sm color-66">登录后才可以预约课程哦</view>
+      </view> 
+      <!-- <view wx:if="{{bookingCourseType != 4 && !cardarrList.length}}" class="img_icon {{bookingCourseType == 4 ? 'margin-top-28' : ''}} common-space" >
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210807/no_card_data.png" class="icon"></image>
+      </view> -->
+      
+      <view wx:if="{{isLogin}}">
+          <view class="imgone common-space {{bookingCourseType == 4 ? 'margin-top-28' : ''}}" wx:if="{{cardarrList.length!==0}}">
+            <view class="can-use-card font-lg color-33">可用会员卡</view>
+            <scroll-view class="categoriesone" scroll-x="true">
+              <view class="date-item " wx:for="{{cardarrList}}" wx:for-item="item" wx:key='index' data-idx="{{index}}"
+                bindtap="checkDate">
+                <view class="date_item_list ">
+                  <view class="name bg{{item.type}}"><text>{{item.card_type_name}}</text></view>
+                  <view class="surplus_day bg{{item.type}}">
+                    <text>{{cardTypeInfo[item.type].name}} </text>
+                    <text>{{item.type == 1 && item.is_unlimited == 1 ? '长期有效' : item[cardTypeInfo[item.type].key]}}{{item.type == 1 && item.is_unlimited == 1 ? '' : cardTypeInfo[item.type].symbol}} </text>
+                  </view>
+                  <view wx:if="{{item.status == 5}}" class="indate bg{{item.type}}">有效期：0000-00-00 ~ 0000-00-00</view>
+                  <view wx:elif="{{item.is_unlimited == 1}}"  class="indate bg{{item.type}}">有效期：长期有效</view>
+                  <view wx:else class="indate bg{{item.type}}">有效期:{{item.use_start_time}}~{{item.use_end_time}}</view>
+                </view>
+                <image src="{{cardType[item.type]}}"></image>
+                <view class="absolute_status bgcolor{{item.type}}" wx:if="{{cardList_status==index}}"></view>
+              </view>
+            </scroll-view>
+          </view>
+          <view class="img_icon {{bookingCourseType == 4 ? 'margin-top-28' : ''}} common-space"  style="border-radius: 24rpx;" wx:if="{{!cardarrList.length && cardCanarrList.length}}">
+            <!-- <view class="can-use-card font-lg color-33">可用会员卡</view> -->
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220407/b77be9708baf74b10bad5ca4b1ab1440.png" style="margin:-2rpx auto;" class="icon"></image>
+            <text class="font-sm color-66">暂无可预约本节课的会员卡</text>
+          </view> 
+      </view>
+      
+    </view>
+  </view>
+  <view class="course-intro" wx:else>{{courseInfo.course_detail.synopsis}} </view>
+  <!-- 会员卡 -->
+  <!-- 已绑定会员 -->
+  <block >
+    <view class="member" wx:if="{{cardarrList.length==0 && cardCanarrList.length}}"  style="border-radius: 24rpx;">
+      <view class=" member_tit font-lg color-333">可预约会员卡</view>
+      <view class="line lineclear"></view>
+
+      <view class="subscribe" >
+        <view class="imgone ">
+          <scroll-view class="categoriestwo" scroll-x="true">
+            <view class="date-item date-item-height" wx:for="{{cardCanarrList}}" wx:for-item="item" wx:key='index'
+              data-idx="{{index}}">
+              <view class="date_item_list ">
+                <view class="name bg{{item.type}}">
+                  <text>{{item.name}}</text>
+                </view>
+
+              </view>
+              <image wx:if="{{item.type==1}}" src="{{timeCard}}"></image>
+              <image wx:if="{{item.type==2}}" src="{{numCard}}"></image>
+              <image wx:if="{{item.type==3}}" src="{{valueCard}}"></image>
+              <image wx:if="{{item.type==4}}" src="{{clockCard}}"></image>
+              <view class="card_name one-line">
+                <text>{{item.name}}</text>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+    <view class="img_icon img_icon_topclear" wx:if="{{(cardCanarrList.length==0 && !isLogin && bookingCourseType != 4) || (cardCanarrList.length==0 && isLogin)}}">
+      <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220407/b77be9708baf74b10bad5ca4b1ab1440.png" class="icon"></image>
+      <text class="font-sm color-66">该课程不支持任何会员卡预约</text>
+    </view> 
+
+  </block>
+  <view class="warning">
+    <view class="title font-md">温馨提示：<text wx:if="{{bookingCourseType != 4 && courseInfo.is_auto_stop_course > 0}}" class="font-sm color-99">上课前{{courseInfo.is_auto_stop_course/60}}分钟，报名人数达到{{courseInfo.min_user}}人及以上开课~</text><text wx:if="{{bookingCourseType != 4}}" class="font-sm color-99">请允许我们给你推送开课消息，以免错过上课时间~</text><text class="font-sm color-99" wx:if="{{bookingCourseType == 4}}">约课待教练确认后会微信通知到会员，请关注。</text></view>
+  </view>
+  <!-- 关于按钮状态这里调整  后来的同胞们 不是我不想重写 或者重构这里的代码 实在是牵扯的东西太多不敢乱动害怕改一个bug出100个bug 
+    虽然这里的这部分代码我已经处理过一次了 有log可以看一下 21年7月之前的代码-->
+
+  <!-- 课程预约状态 6 排队 -->
+  <view class="sign" wx:if="{{courseInfo.subscribe == 6}}">已排队，{{courseInfo.queue || 0}}/{{courseInfo.queue_num}}</view>
+  <!-- 已签到 courseInfo.status 排课状态 状态 1正常 2开课成功 3开课失败 4 已完课 9删除-->
+  <view class="sign {{editCheck == '-1' ? 'btn-disabled' : ''}}" bindtap="sign" wx:elif="{{bindid && courseInfo.status != 3 && (currentChecked == 1 ||  currentChecked==2)}}">签到</view>
+  <view class="sign base-new-bg" wx:elif="{{(bookingCourseType != 4 && courseInfo.subscribe=='1') || (bookingCourseType == 4 && !isCanBooking)}}">已预约</view>
+  <!-- 预约状态  isAppoint 私教 bindid记录id currentChecked 选择的类型已预约或者待上课 ps不知道为啥没有状态值 离谱-->
+  <view class="sign" wx:elif="{{isInstartOpen && status == 3 && courseInfo.status == 2}}">已签到</view>
+  <!-- isInRealstartOpen 需要更改放出 -->
+  <view class="sign base-new-bg" wx:elif="{{bookingCourseType != 4 && courseInfo.status == 2 && isInstartOpen}}">待上课</view>
+  <view class="sign base-new-bg" wx:elif="{{bookingCourseType != 4 && courseInfo.status == 2 && isInRealstartOpen}}">上课中</view>
+  <!-- 参与评价  isCanEvaluate 对于私教是否存在已经签到的记录 对于普通课程存在已经签到的记录 isOpenComment 全局是否开启了评价功能-->
+  <view class="sign"  wx:elif="{{bindid && status == 3 && currentChecked == 3 && isCanEvaluate && isOpenComment && evaluate == 2}}" data-type="1" bindtap="showEvaluate">参与评价</view>
+
+
+  <block wx:elif="{{!currentChecked}}">
+    <!-- 已签到 bookingCourseType 4 私教课程 isOverdue[courseInfo.status] 检验课程状态操作-->
+    <view class="sign overdue" wx:if="{{(bookingCourseType != 4 && isOverdue[courseInfo.status]) || (bookingCourseType == 4 && isThanNow)}}">已过期</view>
+    <view class="sign overdue" wx:elif="{{bookingCourseType != 4 && courseInfo.status == 4}}">已完成</view>
+    <block wx:else>
+      <view class="sign" bindtap="appoint">
+        <!-- 已签到 bookingCourseType 4 isCanBooking 预约记录里面是否存在预约 私教课程 -->
+        <!-- courseInfo.subscribe 1成功 2取消 3完成(表示正常上课) 4未上课 5开课失败 6 排队中 7 排队失败  -->
+        <!-- <text wx:if="{{(bookingCourseType != 4 && courseInfo.subscribe=='1') || (bookingCourseType == 4 && !isCanBooking)}}">已预约</text> -->
+        <text wx:if="{{ bookingCourseType != 4 && courseInfo.subscribe=='2'}}">已取消</text>
+        <text wx:elif="{{bookingCourseType != 4 && courseInfo.preengage_status=='2'}}">{{courseInfo.is_open_queue == 1 ? '已约满，预约排队' : '已约满'}}</text>
+        <text wx:else>确认预约</text>     
+      </view>
+    </block>
+  </block>
+
+</view>
+<!-- 预约成功 -->
+<view class="cover" wx:if="{{is_success}}">
+  <view class="content">
+    <image src="{{courseInfo.course_detail.cover_img}}" class="cover-bg"></image>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/4989f8345c7b521f64a73c70c99cf7d.png" class="status"></image>
+    <view wx:if="{{bookingCourseType != 4}}" class="title">{{date}} {{courseInfo.start_time}}-{{courseInfo.end_time}}({{week}})</view>
+    <view wx:else class="title">{{showBookingTime.start}}-{{showBookingTime.end}}({{showBookingTime.week}})</view>
+    <view class="tip">本节课程相关情况会以订阅消息方式推送，
+    </view>
+    <view class="tip">
+      请开启消息通知
+    </view>
+    <view class="tip">
+      (是否按时开课，课前提醒等内容)
+    </view>
+    <view class="open" bindtap="get_auth">
+      马上开启
+    </view>
+  </view>
+  <image class="close" src="/imgs/close.png" bindtap="closeCover" data-flag="1"></image>
+</view>
+<!-- 预约失败 -->
+<view class="cover" wx:if="{{is_fail}}">
+  <view class="content">
+    <image src="/imgs/demo.jpg" class="cover-bg"></image>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/1e03567dc23f2ff0710133028bf07d2.png" class="status"></image>
+    <view class="title">预约成功：2020-12-18 18:00~19:00(周五)</view>
+    <view class="tip">本节课程相关情况会以订阅消息方式推送，
+    </view>
+    <view class="tip">
+      您所持的卡片不支持预约该课程，
+    </view>
+    <view class="tip">
+      你可复制下方微信添加场馆人员
+    </view>
+    <view class="operate">
+      <view class="btn" bindtap="handleCopy">
+        复制微信
+      </view>
+      <view class="btn call" bindtap="handleCall">
+        直接拨打电话
+      </view>
+    </view>
+
+  </view>
+  <image class="close" src="/imgs/close.png" bindtap="closeCover" data-flag="2"></image>
+</view>
+<view class="cover" wx:if="{{copy_success}}">
+  <view class="copy">
+    <view class="tit">复制成功</view>
+    <view class="tip">请到微信页面添加场馆人员</view>
+    <view class="agree" bindtap="closeCover" data-flag="3">好的</view>
+  </view>
+</view>
+
+<!-- 评价 -->
+<evaluate-content wx:if="{{isShowEvaluate}}" showEvaluateList="{{showEvaluateList}}" isSign="{{isCanEvaluate}}" islogin="{{isLogin}}" bindid="{{bindid}}" caid="{{id}}" cseid="{{courseId || courseInfo.course_id}}" evaluate="{{evaluate}}" canevaluate="{{canevaluate}}" teachername="{{courseInfo.course_detail.coach_staff.name}}" teacherimg="{{courseInfo.course_detail.coach_staff.head_img}}" bind:updateShowStatus="updateShowEvaluateStatus"></evaluate-content>
+<view wx:if="{{showEvaluateImg && isOpenComment}}" class="evaluate-img-box" data-type="1" bindtap="showEvaluate"><image class="evaluate-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220212/81ffc5590f7cd6279457381494b63621.png"></image></view>
+<!-- 提示去评价 -->
+<view style="background:rgba(0,0,0,.7);" class="overlayer {{ showShadowlayer ? 'show' : ''}}"></view>
+<!-- wx:if="{{showCommentModel}}"  -->
+<view wx:if="{{showCommentModel}}" class="comment-model-box flex-box flex-v-type flex-a-center flex-j-center">
+    <view class="comment-model">
+        <view class="comment-main flex-box flex-v-type flex-a-center flex-j-center">
+            <image class="comment-model-user-img" src="{{commentModel.avatar}}"></image>
+            <view class="font-md color-333 font-weight">{{commentModel.name}}</view>
+            <view class="font-md color-333 comment-inquiry">{{successEvaluate == 2 ? '课程已结束,您对本节课还满意吗？' : '感谢您的用心评价,我们已经收到啦~'}}</view>
+            <view wx:if="{{successEvaluate == 2}}" class="comment-main-info common-relative">
+                <view class="common-relative">
+                  <image class="comment-main-bg" src="{{commentModel.course.cover}}"></image>
+                  <view style="background:rgba(0,0,0,.4);" class="image-shadow"></view>
+                </view>
+                <view class="main-info">
+                  <view class="main-teacher-info flex-box flex-a-center">
+                    <image src="{{commentModel.course.avatar}}" class="flex-shrink"></image>
+                    <view class="font-md color-white font-weight">{{commentModel.course.name}}</view>
+                  </view>
+                  <view class="main-course-name font-sm color-white">{{commentModel.course.courseName}}</view>
+                  <view class="main-course-time font-sm color-white">{{commentModel.course.cuorseTime}} ({{commentModel.course.week}})</view>
+                </view>
+            </view>
+            <view wx:if="{{successEvaluate == 2}}" class="main-comment-btn color-white comment-like font-md" data-type="2" bindtap="showEvaluate">满意,我要去鼓励下</view>
+            <view wx:if="{{successEvaluate == 2}}" class="main-comment-btn comment-not-like font-md base-must-color" data-type="2" bindtap="showEvaluate">不满意,我要吐槽</view>
+        </view>
+    </view>
+    <image class="comment-model-closeBtn" bindtap="toggleClose" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220215/7e767ff791085daa547a9c9679600c8e.png"></image>
+</view>

@@ -1,0 +1,57 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view wx:if="{{isshow=='0'}}">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/57b1689ef90fd2cb5fee3a3af295960.png" class="applet-icon"></image>
+    <view class="applet-name">{{store_name}}</view>
+    <view class="applet-tip">申请获取你的公开信息(昵称、头像等)</view>
+    <button class="btn authorize" open-type='getUserProfile' bindtap="getUserInfo">微信授权</button>
+    <view class="btn" bindtap="handleCancel">
+      取消
+    </view>
+  </view>
+
+  <view class="container" wx:if="{{isshow=='1'}}">
+  <!-- <view class="container" > -->
+    <image class="record_image" src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/cacd9426ee43c764b89b68babf44f19.jpg?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=1983220330&Signature=KZECtHqtZTWAVOEQeGL4FSNHalk%3D"></image>
+    <view class="content">
+      <view class="cont">
+        <image class="icon_one" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210906/1c66fa31b8ed2c4db6558c59f14f1ab1.png"></image>
+        <input type="number" class="phone_input" placeholder="请输入手机号" maxlength="11" bindinput='lovePhone' />
+        <!-- <button class="acquire" bindtap="yanLoveBtn">{{getText2}}</button> -->
+      </view>
+      <view class="line"></view>
+      <!-- <view class="cont cont_two">
+        <image class="icon_one" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/97ffeaa7ef3037e5b9d6581ebba3be2.png"></image>
+        <input type="number" class="phone_input" placeholder="请输入验证码" maxlength='10' bindinput="yanLoveInput"/>
+      </view> -->
+      <!-- <view class="line"></view> -->
+      <view class="reminder" wx:if="{{status=='0'}}">
+        <text class="reminder_l">请输入您办理会员时预留的手机号码</text>
+        <text class="reminder_r" bindtap="handle_register">注册</text>
+      </view>
+      <!-- <view class="reminder_two" wx:if="{{status=='1'}}">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/39a9915bc62ff486239fa963c6e0485.png"></image>
+        <text>验证码已发送，可能会有延后，请耐心等待</text>
+      </view> -->
+      <button class="footer" bindtap="getUserInfo">登录</button>
+    </view>
+  </view>
+
+
+<!-- 绑定手机号 -->
+<!-- <view class='content'>
+  <form bindsubmit="formSubmit">
+    <view class='phone-box'>
+      <text class='phone'>手机号</text>
+      <input name="phone" type='number' placeholder="请输入手机号" maxlength='11' name="phone" class='number' bindinput='lovePhone' />
+    </view>
+    <view class='phone-box'>
+      <text class='phone'>验证码</text>
+      <input name="phoneCode" placeholder="请输入验证码" class='number' placeholder-style='color:#bbb' bindinput="yanLoveInput" />
+      <view bindtap='yanLoveBtn' class='getNum'>{{getText2}}</view>
+    </view>
+    <button formType="submit" class='submit'>绑定</button>
+  </form>
+</view>
+   -->
+</view>

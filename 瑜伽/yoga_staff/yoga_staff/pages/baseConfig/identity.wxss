@@ -1,0 +1,66 @@
+.container{
+    
+    }
+    
+    .store-item{
+        padding:34rpx 0;
+        background:#fff;
+        border-bottom:1rpx solid #E6E6E6;
+    }
+    
+    .store-item:last-child{
+        border:none;
+    }
+    
+    .value-class{
+        color:#3A3A3A;
+        font-size: 32rpx;
+    }
+    
+    .item-padding{
+        padding:0 30rpx 30rpx;
+        background:#fff;
+    }
+    
+    .submitBtn{
+        margin-top:80rpx;
+    }
+    
+    .submitBtn .btn{
+        width: 238rpx;
+        height: 82rpx;
+        line-height: 82rpx;
+        background:#fff;
+        border:2rpx solid #7D49FB;
+        color:#7D49FB;
+        font-size:34rpx;
+        border-radius:8rpx;
+        text-align: center;
+    }
+    
+    .submitBtn .sure{
+        background:#7D49FB;
+        color:#fff;
+        font-size:34rpx;
+        margin-left:56rpx;
+    }
+
+    .user-roles{
+        padding:34rpx 22rpx;
+        background:#FCFBFF;
+        border-radius:10rpx;
+        margin-top:28rpx;
+    }
+
+    .right-icon image{
+        width:10rpx;
+        height:18rpx;
+        margin-left:24rpx;
+    }
+    .add-cover{
+        position: fixed;
+        right:30rpx;
+        bottom:200rpx;
+        width:100rpx;
+        height:100rpx;
+    }

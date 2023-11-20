@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="cancle-title font-sm">预约时扣除的次数、金额、时间都已退回至会员账户</view>
+    <view class="cancle-list">
+        <view class="cancle-item flex-box" wx:for="{{showList}}" wx:key="index">
+            <view class="cancle-avatar"><image src="{{item.head_img}}"></image></view>
+            <view class="booking-info">
+                <view class="info-item font-md flex-box">
+                    <view class="label color-333">会员名：</view>
+                    <view class="info color-666">{{item.name}}</view>
+                </view>
+                <view class="info-item font-md flex-box">
+                    <view class="label color-333">卡类型：</view>
+                    <view class="info color-666">{{item.card_type_name}}</view>
+                </view>
+                <view class="info-item font-md flex-box">
+                    <view class="label color-333">余额：</view>
+                    <view class="info color-666">{{item.remain}}</view>
+                </view>
+                <view class="info-item font-md flex-box">
+                    <view class="label color-333">备注：</view>
+                    <view class="info color-666">{{item.memo}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

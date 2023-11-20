@@ -1,0 +1,115 @@
+<view class="container">
+    <!-- 拼团状态 -->
+    <view class="group-status flex-box flex-a-center flex-j-center flex-v-type">
+        <view wx:if="{{groupStatus != 5}}" class="group-time common-relative">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211103/0e3c7981aece23c124e5c993b6a5df2a.png"></image>
+            <view class="absolute-time">
+                <count-down wx:if="{{joinGroupInfo.isInActivityTime}}" startTime="" endTime="{{joinGroupInfo.end_time}}" currentTime="{{joinGroupInfo.now_time}}" fontSize="font-sm" color="color-white" title="" type="2"  styleType="1" activityTime="{{joinGroupInfo.isInActivityTime}}" bind:updateData="updateGroupStatus"></count-down>
+                <view wx:else class="text-center color-white">00:00:00</view>
+            </view>
+        </view>
+        <view class="status font-20 color-333">{{groupingStatus[groupStatus].title}}</view>
+        <view class="info font-md color-333">{{groupingStatus[groupStatus].intro}}</view>
+        <view wx:if="{{groupStatus != 5}}" class="member-list flex-box flex-a-center" bindtap="showUserAvatarList">
+            <view wx:if="{{index < 4}}" class="avatar common-relative" wx:for="{{joinGroupInfo.joinMember}}" wx:key="index">
+                <image src="{{item.head_img}}"></image>
+                <view wx:if="{{index == 0}}" class="sign font-base">拼主</view>
+            </view>
+            <view wx:if="{{activity_status != 1 }}"  class="avatar default common-relative">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211104/13c6140ff0b8dcbcddc5eea910d1313d.png"></image>
+            </view>
+            <view wx:elif="{{joinGroupInfo.joinMember.length > 4}}" class="avatar default common-relative">
+                <image src="{{groupingStatus[groupStatus].defaultAvatar}}"></image>
+            </view>
+        </view>
+        <view wx:if="{{(groupStatus == 1 && isMember) || (groupingStatus[groupStatus].btnType == 'ordinary' && groupStatus != 1)}}" class="status-btn font-lg color-white" data-link="{{groupingStatus[groupStatus].btnLink}}" data-type="1" bindtap="gotoPage">{{groupingStatus[groupStatus].btnText}}</view>
+        <button wx:if="{{groupingStatus[groupStatus].btnType == 'button'}}" class="status-btn font-lg color-white" open-type="share">{{groupingStatus[groupStatus].btnText}}</button>
+        <view wx:if="{{groupingStatus[groupStatus].toOtherPage}}" class="status-btn go-index-btn font-lg color-white" data-link="{{groupingStatus[groupStatus].otherPageLink}}" data-type="2" bindtap="gotoPage">{{groupingStatus[groupStatus].toOtherPage}}</view>
+    </view>
+    <!-- 活动产品信息 -->
+    <view>
+        <activity-info activityInfo="{{activityInfo}}" url="{{navigateLink}}"></activity-info>
+    </view>
+    <!-- 订单详情 -->
+    <view class="order-detail bg-white">
+        <view class="font-lg color-333 font-weight title">订单详情</view>
+        <view class="color-66 font-sm margin-b-12">拼团价：<text class="font-weight color-e83">￥</text><text class="font-weight color-e83 font-lg">{{orderInfo.buy_price}}</text></view>
+        <view class="color-66 font-sm margin-b-12">订单号：{{orderInfo.order_sn}}</view>
+        <view class="color-66 font-sm margin-b-12">支付方式：微信支付</view>
+        <view class="color-66 font-sm">下单时间：{{orderInfo.create_time}}</view>
+    </view>
+    <!-- 其他活动 -->
+    <view wx:if="{{activityList.length}}" class="act-list bg-white">
+        <view class="title font-weight color-333 font-lg">其他活动</view>
+        <view class="list">
+            <view class="item flex-box flex-a-center" wx:for="{{activityList}}" wx:key="index" data-item="{{item}}" bindtap="goOtherAct">
+                <view class="left flex-shrink"><image src="{{item.desc_img}}"></image></view>
+                <view class="right">
+                    <view class="act-name one-line font-md color-333">{{item.name}}</view>
+                    <view class="act-price font-lg color-ff9"><text class="font-sm ">￥</text>{{item.prodPrice}}</view>
+                    <view class="act-time color-99 font-sm white-space-nowrap">活动时间：{{item.sTime}} - {{item.eTime}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 遮挡层 -->
+    <!-- showOverlayer -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}"></view>
+    <!-- 参与拼团 -->
+    <view wx:if="{{groupBox}}" class="join-group-box" class="common-fixed pay-fixed">
+        <view class="pay-box group-box">
+            <image class="closebtn" src="./imgs/icon-close-1.png" bindtap="closeBox"></image>
+            <view class="title font-lg text-center">{{groupStatus == 1 ? '拼团成功' : '已支付'}}</view>
+            <view class="info flex-box flex-a-center flex-j-center" wx:if="{{joinGroupInfo.number}}" >
+                <view class="places font-md">仅剩<text class="color-ea2">{{joinGroupInfo.number}}</text>个名额，</view>
+                <count-down wx:if="{{joinGroupInfo.isInActivityTime}}" startTime="" endTime="{{joinGroupInfo.end_time}}" currentTime="{{joinGroupInfo.now_time}}" fontSize="font-md" color="color-333" title="" type="2"  styleType="1" activityTime="{{joinGroupInfo.isInActivityTime}}" bind:updateData="updateGroupStatus"></count-down>
+            </view>
+            <view class="member flex-box flex-a-center {{joinGroupInfo.joinMember.length < 5 ? 'flex-j-center' : ''}}" style="flex-wrap:wrap;">
+                <view class="avatar common-relative" wx:for="{{joinGroupInfo.joinMember}}" wx:key="index" >
+                    <image src="{{item.head_img}}"></image>
+                    <view wx:if="{{index == 0}}" class="sign font-base">拼主</view>
+                </view>
+                <view wx:if="{{groupStatus != 1}}" class="avatar default common-relative">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211104/13c6140ff0b8dcbcddc5eea910d1313d.png"></image>
+                </view>
+            </view>
+            <view wx:if="{{groupStatus == 1}}" class="joinBtn" data-type="2" bindtap="gotoPage">前往约课</view>
+            <button wx:else class="joinBtn font-lg" open-type="share">邀请好友</button>
+        </view>
+    </view>
+    <!-- 拼团用户头像列表 -->
+    <view wx:if="{{userAvatarBox}}" class="group-avatar-list pay-fixed">
+        <view class="user-avatar-list common-relative" >
+            <image class="closebtn" src="./imgs/icon-close-1.png" bindtap="closeBox"></image>
+            <view class="group-master">
+                <view class="master-avatar common-relative">
+                    <image src="{{groupMasterInfo.head_img}}"></image>
+                    <view class="sign font-base color-666">拼主</view>
+                </view>
+                <view class="master-name font-md color-333 text-center">{{groupMasterInfo.user_name}}</view>
+                <view class="master-time font-sm color-99 text-center">{{groupMasterInfo.join_time}}</view>
+            </view>
+            <scroll-view class="user-list" scroll-y="true">
+                <view class="user-item flex-box flex-a-center flex-j-between " wx:for="{{groupUserList}}" wx:key="index" wx:if="{{item.status != 1}}">
+                    <view class="user-info flex-box flex-a-center">
+                        <image src="{{item.head_img}}"></image>
+                        <view class="name font-md color-333">{{item.user_name}}</view>
+                    </view>
+                    <view class="user-time font-sm color-99">{{item.join_time}}拼单</view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- 抢购弹窗 -->
+    <view wx:if="{{payBoxShow}}" class="common-fixed pay-fixed">
+        <view class="pay-box">
+            <image class="closebtn" src="./imgs/icon-close-1.png" bindtap="closeBox"></image>
+            <view class="title font-bold font-lg text-center">绑定会员信息</view>
+            <view class="phone input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-phone.png"></image><input type="number" maxlength="11" placeholder="请输入手机号" placeholder-class="placeStyle" data-key="phone" bindinput="getVal"/></view>
+            <view class="code input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-authcode.png"></image><input type="text" placeholder="请输入验证码" placeholder-class="placeStyle" data-key="code" bindinput="getVal"/><text wx:if="{{!codeDisable}}" class="code-width color-929 authCode" bindtap="getCode">获取验证码</text><text class="authCode {{codeDisable ? 'bg-deep' : ''}}" wx:if="{{codeDisable}}">{{seconds}}</text></view>
+            <view class="nick-name input-box flex-box flex-a-center"><image class="label" src="./imgs/icon-nickname.png"></image><input type="text" placeholder="请填写昵称" placeholder-class="placeStyle"  value="{{nickName}}" data-key="name" bindinput="getVal"/></view>
+            <view class="sure-btn base-bg color-white font-lg text-center {{hasData ? 'bg-deep' : ''}}" bindtap="joinPowerActivity">确定</view>
+        </view>
+        <!-- <image class="close" src="./imgs/close-one.png" bindtap="closeBox"></image> -->
+    </view>
+</view>

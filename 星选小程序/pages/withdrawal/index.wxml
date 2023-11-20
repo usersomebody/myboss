@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="withdrawal-account bg-white flex-box flex-a-center flex-j-between">
+        <view class="font-lg color-51">提现账户</view>
+        <view class="font-lg color-51 flex-box flex-a-end"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220617/ddfe3f5b150ec8703e3c9d5a0e3353d1.png" class="withdraw-icon"></image>{{userInfo.wehcat_nick_name}}</view>
+    </view>
+    <view class="withdrawal-content bg-white">
+        <view class="withdrawal-title color-51 font-lg">提现金额</view>
+        <view class="withdrawal-input flex-box flex-a-center flex-j-between">
+            <view class="flex-box flex-a-end" style="width:90%;">
+                <view class="symbol font-sm color-51">￥</view>
+                <input type="text" class="withdrawal-money font-20 color-51" value="{{withdrawalMoney}}" placeholder="" placeholder-class="font-md color-102" bindinput="getVal"/>
+            </view>
+            <image wx:if="{{withdrawalMoney}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/9cd7227a89389f99e9ab0f81194101ab.png" class="clear-icon" bindtap="clearInput"></image>
+        </view>
+        <view class="all-money flex-box flex-a-center font-md">
+            <text class="color-102">可提现金额{{allMoney}}元</text>
+            <text class="color-82 withdrawal-all-btn" bindtap="withdrawalAllMoney">全部提现</text>
+        </view>
+    </view>
+    <view class="free-sample-btn font-lg color-white" bindtap="withdrawalMoney">提现</view>
+    
+</view>
+<pre-auth wx:if="{{show_pre_auth_pannel}}" />

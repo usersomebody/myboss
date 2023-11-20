@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="title font-lg color-333">{{answer.title}}</view>
+    <view class="content font-md color-666" wx:for="{{contentList}}" wx:key="index">{{item}}</view>
+    <view class="img-list">
+        <image wx:for="{{answer.content_imgs}}" wx:key="index" mode="widthFix" src="{{item}}" data-link="{{item}}" bindtap="previewImg"></image>
+    </view>
+</view>

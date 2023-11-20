@@ -1,0 +1,70 @@
+<view class="container">
+    <view class="li flex-box flex-a-center flex-j-between {{ index == showlist.length - 1 ? 'border-none' : ''}}" wx:for="{{showlist}}" wx:key="index" wx:if="{{!item.isShow}}">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="item-value flex-box flex-a-center" data-item="{{item}}" bindtap="toggelePopup">
+            <view wx:if="{{item.inputBox}}" class="value-placeholder font-md color-999 "><input always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-999'}}" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+            <view wx:elif="{{item.key != 'memo'}}" class="value-placeholder font-md {{item.value ? 'color-504' : 'color-999'}}">{{item.value ? item.value : item.placeholder}}</view>
+            <view wx:else class="value-placeholder font-md color-999"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="text" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="memo" bindinput="getMemoValue"></textarea></view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view class="add-btn">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+    <!-- 遮挡层 -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{popupShow ? 'show' : ''}}" bindtap="close"></view>
+    <view wx:if="{{popupShow}}" class="popup-box">
+        <view class="popup-content bg-white">
+            <view class="name font-md color-333">{{popupData.name}}</view>
+            <view class="spceing">
+                <!-- 搜索框 -->
+                <view wx:if="{{popupData.key == 'card_id'}}" class="input-box flex-box flex-a-center common-relative"><image class="search-image-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-icon.png"></image><input class="font-md" type="text" value="{{searchWord}}" bindinput="searchCourseResult" placeholder="请输入卡名称" placeholder-class="search-place-style"/><view class="searc-btn color-333 font-lg" bindtap="getVipCardList">搜索</view></view>
+                <!-- 选择框的公共样式 -->
+                <scroll-view scroll-y="{{true}}" style="max-height:400rpx;">
+                    <view class="list flex-box flex-a-center" >
+                        <view wx:if="{{showData.length}}" class="li-item color-333 text-center font-md one-line {{item.id == checkedId  ? 'active' : ''}}" wx:for="{{showData}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" data-key="{{showKey}}" bindtap="switchTab">{{item.name}}</view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view wx:if="{{popupData.key == 'day'}}" class="use-end-time flex-box flex-a-center flex-j-between ">
+                <view class="use-time-input font-md color-333 flex-box flex-a-center {{isChecked ? 'disable' : ''}}"><input placeholder="请输入有效天数" placeholder-class="use-time-place font-md" type="number" value="{{popupData.value}}" data-key="{{popupData.key}}" disabled="{{isChecked ? true : showlist[4].selectId == 1 ? false : true}}" bindinput="getMemoValue"/></view>
+                <view class="page-section page-section-gap">
+                    <checkbox-group bindchange="checkboxChange">
+                        <label class="checkbox">
+                            <checkbox value="{{isSelect}}" checked="{{isChecked}}" />长期有效
+                        </label>
+                    </checkbox-group>
+                </view>
+            </view>
+            <!-- 限定用卡日期 -->
+            <view wx:if="{{showKey == 'use_type' && checkedId != '1'}}" class="limit-date">
+                <view class="limit-date-title font-md color-333">限定用卡时间</view>
+                <view class="limit-date-select flex-box flex-a-center flex-j-between">
+                    <view class="left flex-box flex-a-center">
+                        <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                        <view>
+                            <picker mode="date" value="{{dateObj.start}}" start="1970-01-01" :end="{{currentDate}}" data-key="start" disabled="{{checkedId == 0 ? true : false}}" bindchange="bindDateChange">
+                                <view class="picker font-md color-504">
+                                    {{dateObj.start || '请选择'}}
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="line-distance">----</view>
+                    <view class="right flex-box flex-a-center">
+                            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+                            <view>
+                                <picker mode="date" value="{{dateObj.end}}" start="1970-01-01" :end="{{currentDate}}" data-key="end" bindchange="bindDateChange">
+                                    <view class="picker font-md color-504">
+                                        {{dateObj.end || '请选择'}}
+                                    </view>
+                                </picker>
+                            </view>
+                    </view>
+                </view>
+            </view>
+            <view class="saveBtn color-white font-lg" bindtap="saveData">保存</view>
+        </view>
+    </view>
+</view>

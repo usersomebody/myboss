@@ -1,0 +1,144 @@
+.container{
+    padding:40rpx 30rpx;
+}
+.integal-title{
+    margin-bottom:20rpx;
+}
+.item{
+    border-radius:10rpx;
+}
+.item-head{
+    padding:40rpx 30rpx;
+    border-bottom:1rpx solid #E9E8ED;
+}
+.item-type{
+    padding:30rpx 34rpx;
+}
+.radio-item{
+    margin-right:66rpx;
+}
+.inputBox{
+    width:180rpx;
+    padding:30rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+}
+.course-name{
+    width:30%;
+}
+.autonomy{
+    margin-bottom:20rpx;
+}
+.integral-course-list{
+    margin-top:40rpx;
+}
+.integral-course-item{
+    margin-bottom:40rpx;
+}
+.symbol{
+    margin-left:10rpx;
+}
+.content .item{
+    margin-bottom:20rpx;
+}
+.inputBox-one{
+    width:80rpx;
+    padding:30rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    margin:0 10rpx;
+}
+.common-edit-btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    border:1rpx solid #7D49FB;
+    border-radius:10rpx;
+    color:#7D49FB;
+    text-align: center;
+    margin-top:80rpx;
+}
+.edit-sure{
+    width: 238rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background:#7D49FB;
+    border-radius:10rpx;
+    color:#ffffff;
+    margin-left:54rpx;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+
+
+.status{
+    padding:0 30rpx;
+}
+
+.status-type{
+    width: 240rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    color:#504766;
+}
+.status-item{
+    padding:30rpx 146rpx 30rpx 40rpx;
+    border-bottom:1rpx solid #F5F5F5;
+}
+.status-item.active{
+    color:#9B77F4!important;
+}
+.status-type-list{
+    position: absolute;
+    top:80rpx;
+    right:30rpx;
+    z-index:99;
+    background:#fff;
+    border-radius:4rpx;
+    box-shadow: 0px 3px 7px 0px rgba(154, 154, 154, 0.35)
+}
+.icon-style-active{
+    transform:rotate(270deg)!important;
+}
+.selectIcon{
+    transform:rotate(90deg);
+    width: 14rpx;
+    height: 26rpx;
+}
+.limit-period .limit-period-input{
+    width: 240rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    margin-right:10rpx;
+    color:#504766;
+}
+.limit-box{
+    padding-top:46rpx;
+}
+.integral-limit-box{
+    padding:0 30rpx 46rpx;
+}
+.limit-title{
+    margin-right:60rpx;
+}

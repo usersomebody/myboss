@@ -1,0 +1,68 @@
+.container{
+    padding-bottom:68rpx;
+}
+.comment-content{
+    padding:36rpx 30rpx;
+    background:#fff;
+}
+.limit-date-select{
+    padding:24rpx 26rpx;
+    border:1rpx solid #E6E6E6;
+    border-radius:10rpx;
+}
+.color-504{
+    color:#504766;
+}
+.limit-date-title{
+    margin-bottom:24rpx;
+}
+.limit-date{
+    margin-bottom:30rpx;
+}
+.line-distance{
+    margin:0 36rpx;
+}
+
+.date-cover .cover{
+    width:38rpx;
+    height:34rpx;
+    margin-right:10rpx;
+}
+.filter-date{
+    margin-top:20rpx;
+}
+.filter-date-item{
+    padding:22rpx 40rpx;
+    border: 2rpx solid #E6E6E6;
+    border-radius: 10rpx;
+    margin-right:18rpx;
+}
+.filter-date-item.active{
+    background:#F3EEFF;
+    border:1rpx solid #9B77F4;
+    color:#9B77F4;
+}
+.edit-btn{
+    margin-top:80rpx;
+}
+.common-edit-btn{
+  width: 238rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  border:1rpx solid #7D49FB;
+  border-radius:10rpx;
+  color:#7D49FB;
+  text-align: center;
+}
+.edit-sure{
+  width: 238rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  background:#7D49FB;
+  border-radius:10rpx;
+  color:#ffffff;
+  margin-left:54rpx;
+}
+.edit-back{
+    background:#fff;
+}

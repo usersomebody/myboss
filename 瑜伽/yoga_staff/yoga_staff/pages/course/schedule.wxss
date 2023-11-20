@@ -1,0 +1,243 @@
+.container{
+    display:flex;
+    background:#fff;
+    overflow-y: scroll;
+}
+.pd-x{
+    padding-bottom:168rpx;
+}
+.pd-un{
+    padding-bottom:100rpx;
+}
+
+.left{
+    width:10%;
+    height:100%;
+}
+
+.arrang-image{
+    height:106rpx;
+    /* border-bottom:1rpx solid #D4D4D4; */
+    border-bottom:1rpx solid rgb(212,212,212);
+    box-sizing: border-box;    
+}
+.arrang-image image{
+    width:38rpx;
+    height:34rpx;
+}
+.left .arrang{
+    min-height:188rpx;
+    /* border-bottom:1rpx solid #D4D4D4;
+    border-right:1rpx solid #D4D4D4; */
+    border-bottom:1rpx solid rgb(212,212,212);
+    border-right:1rpx solid rgb(212,212,212);
+    box-sizing: border-box;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right{
+    width:90%;
+    min-height:100vh;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+
+.right .weeks{
+    height:104rpx;
+}
+
+.right .weeks .items.week{
+    display:inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width:146rpx;
+    height:104rpx;
+    box-sizing: border-box;
+    /* line-height:104rpx; */
+    text-align: center;
+    justify-content: center;
+    
+}
+.right .schedule{
+    /* border-top:1rpx solid #D4D4D4;
+    border-right:1rpx solid #D4D4D4; */
+    border-top:1rpx solid rgb(212,212,212);
+    border-right:1rpx solid rgb(212,212,212);
+    box-sizing: border-box;
+    width:2064rpx;
+}
+.right .schedule .schedule-item{
+    display:inline-flex;
+    width:100%;
+    /* border-right:1rpx solid #D4D4D4; */
+    /* flex-wrap: wrap; */
+    box-sizing: border-box;
+}
+
+.schedule .schedule-item .schedule-time{
+    /* width:146rpx; */
+    min-height:189rpx;
+    /* border-right:1rpx solid #D4D4D4; */
+    border-right:1rpx solid rgb(212,212,212);
+    box-sizing: border-box;
+}
+
+.schedule-course{
+    /* border-radius:6rpx; */
+    padding:2rpx;
+    height:188rpx;
+    /* border-bottom:1rpx solid #D4D4D4; */
+    border-bottom:1rpx solid rgb(212,212,212);
+    box-sizing: border-box;
+    width:146rpx;
+}
+
+.add-course image{
+    width:100rpx;
+    height:100rpx;
+    position: fixed;
+    right:30rpx;
+    bottom:60rpx;
+}
+
+.week-active{
+    color:#C7A9FF;
+}
+
+.date-active{
+    background:rgba(199, 169, 255, 0.2);
+    color:#C7A9FF;
+    width:70rpx;
+    height:32rpx;
+    line-height: 32rpx;
+    /* border-radius:24rpx; */
+}
+.course-switch{
+    border-radius:8rpx;
+    width:480rpx;
+    height:72rpx;
+    box-sizing: border-box;
+    margin:24rpx auto;
+
+}
+
+.switch-item{
+    width:240rpx;
+    height:72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    background:#fff; 
+    border:1rpx solid #9B77F4;
+    color:#9B77F4;
+}
+
+.switch-item.active{
+    background:#9B77F4;
+    color:#fff;
+}
+
+
+
+.container-bg {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+   
+  } 
+  .container-bg .title {
+    font-size:36px;
+    text-align: left;
+    margin-bottom: 10px;
+  
+  }
+  .container-bg .info {
+    font-size: 14px;
+    line-height: 18px;
+    color: grey;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .container-bg .image-wrapper image {
+    width: 100%;
+  }
+
+  .fixed-img{
+      position: fixed;
+      top:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.5);
+  }
+  .fixed-img image{
+      width:100%;
+      height:1334rpx;
+  }
+
+  .share-popup{
+      position: fixed;
+      width:100%;
+      left:0;
+      bottom:0;
+      height:312rpx;
+      z-index:2001;
+      padding:120rpx 0 30rpx;
+      background:#fff;
+  }
+ 
+  .share-popup .img-icon image{
+      width:100rpx;
+      height:100rpx;
+      margin-bottom:30rpx;
+      margin: 0 auto 30rpx;
+  }
+  .close-share-popup{
+      width:34rpx;
+      height:34rpx;
+      margin:60rpx auto 0;
+  }
+  .share-schedule-content{
+      position: fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index:2001;
+  }
+  .schedule-content-box{
+      width:80%;
+      padding:64rpx 0 78rpx;
+      background:#fff;
+      border-radius:16rpx;
+  }
+  .share-schedule-img{
+      width:230rpx;
+      height:200rpx;
+      margin:0 auto 78rpx;
+  }
+  .share-schedule-btn{
+      width:400rpx;
+      padding:24rpx 0;
+      background:#fff;
+      border-radius:8rpx;
+      color:#9169FB;
+      border: 2rpx solid #9169FB;
+      margin:0 auto 20rpx;
+  }
+  .share-schedule-btn.next{
+      color:#fff;
+      background:#9169FB;
+  }
+  .closeBtn{
+      width:66rpx;
+      height:66rpx;
+      margin:78rpx auto 0;
+  }

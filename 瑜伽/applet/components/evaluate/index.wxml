@@ -1,0 +1,124 @@
+<view wx:if="{{isLoaded}}" style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}"></view>
+<scroll-view wx:if="{{isLoaded}}" scroll-y="true" class="evaluate-box">
+    <!-- 顶部 -->
+    <view class="evaluate-head flex-box flex-a-center flex-j-between">
+        <view class="font-lg color-1a">评价</view>
+        <image bindtap="closeEvaluate" class="close-btn" src="../../imgs/icon-close-1.png"></image>
+    </view>
+    <!-- 评价内容 -->
+    <view wx:if="{{showEvaluateList}}" class="">
+        <!-- 课程评价内容 -->
+        <view class="evaluate-course-content flex-box flex-a-center">
+            <view class="content-score flex-box flex-v-type flex-a-center flex-j-center">
+                <view class="score flex-box flex-a-baseline"><text class="color-4d font-24 font-weight">{{evaluateInfo.score}}</text><text class="color-b3 font-lg split-line">/</text><text class="color-99 font-md">5.0</text></view>
+                <view class="stars">
+                    <van-rate readonly="{{true}}" value="{{ evaluateInfo.starts }}" count="{{ 5 }}" size="{{14}}" gutter="{{2}}" color="#FFA64C" bind:change="onChange" />
+                </view>
+                <view class="total font-sm color-b3">共{{evaluateInfo.count}}条评论</view>
+            </view>
+            <view class="content-proportion" wx:if="{{progressList.length}}">
+                <view class="proportion flex-box flex-a-center" wx:for="{{progressList}}" wx:key="index">
+                    <view class="color-66 font-sm progress-name">{{item.name}}</view>
+                    <view class="proportion-progress">
+                        <van-progress percentage="{{item.percentage}}" color="#FFA64C" stroke-width="6" show-pivot="{{false}}"/>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{isSign}}" class="content-action flex-box flex-v-type flex-a-center flex-j-center" bindtap="goComment">
+                <image class="evaluate-action-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220216/1bc5558d87369707b804b55b7e00735c.png"></image>
+                <view class="font-md color-66" >我要评价</view>
+            </view>
+        </view>
+        <!-- 评价内容列表 -->
+        <view class="evaluate-list">
+            <view wx:if="{{list.length}}" class="evaluate-item" wx:for="{{list}}" wx:key="index">
+                <view class="item-head flex-box flex-a-center flex-j-between">
+                    <view class="head-user-info flex-box flex-a-center">
+                        <image class="avatar" src="{{item.head_img}}"></image>
+                        <view class="user-info">
+                            <view class="user-name font-md color-1a font-weight">{{item.nickname}}</view>
+                            <view class="date font-sm color-99">{{item.create_time}}</view>
+                        </view>
+                    </view>
+                    <view class="head-score-info">
+                        <view class="score flex-box flex-a-baseline flex-j-end"><text class="color-4d font-lger font-weight">{{item.star}}</text><text class="color-b3 font-lg split-line">/</text><text class="color-99 font-md">5.0</text></view>
+                        <view class="stars">
+                            <van-rate readonly="{{true}}" value="{{ item.star }}" count="{{ 5 }}" size="{{14}}" gutter="{{2}}" color="#FFA64C" data-id="{{item.id}}"/>
+                        </view>
+                    </view>
+                </view>
+                <!-- 评价内容 -->
+                <view class="item-content color-333 font-md">
+                    {{item.content}}
+                </view>
+                <!-- 评价标签 -->
+                <view class="item-label flex-box flex-a-center">
+                    <view wx:for="{{item.label_content}}" wx:for-item="itm" wx:for-index="idx" wx:key="idx" class="label-item font-md">{{itm}}</view>
+                </view>
+                <!-- 操作 -->
+                <view class="item-action flex-box flex-a-center flex-j-end">
+                    <view wx:if="{{user_id == item.user_id}}" class="flex-box common-relative">
+                        <view class="reply-delete-icon flex-box flex-a-center" data-id="{{item.id}}" bindtap="showDeleteIcon">
+                            <view class="delete-icon bg-dbd"></view>
+                            <view class="delete-icon bg-666"></view>
+                            <view class="delete-icon bg-dbd"></view>
+                        </view>
+                        <view wx:if="{{item.deleteShow}}" class="font-md color-66 delete-box">
+                            <view class="triggle"></view>
+                            <view class="delete-reply-title" data-id="{{item.id}}" bindtap="deleteReply">删除评价</view>
+                        </view>
+                    </view>
+                    <view class="flex-box flex-a-center item-action-left" data-id="{{item.id}}" bindtap="goCommentDetail">
+                        <image class="comment-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220216/efc92b0fec02fa7ebe967a9dad629540.png" data-id="{{item.id}}" ></image>
+                        <view class="font-md color-66" data-id="{{item.id}}" >{{item.sons}}</view>
+                    </view>
+                    <view class="flex-box flex-a-center" data-id="{{item.id}}" data-islike="{{item.is_like}}" bindtap="isLike">
+                        <image class="fabulous-img" data-id="{{item.id}}" data-islike="{{item.is_like}}"src="{{fabulousType[item.is_like]}}"></image>
+                        <view class="font-md color-66" data-id="{{item.id}}" data-islike="{{item.is_like}}">{{item.like_num}}</view>
+                    </view>
+                </view>
+            </view>
+            <no-data-cover wx:if="{{!list.length}}" cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220225/3d72d44492e66785cec185cedc96f8af.png"></no-data-cover>
+        </view>
+    </view>
+    <!-- 前往评价 -->
+    <view wx:else class="evaluatling">
+        <!-- 老师的评分 -->
+        <view class="evaluatling-head flex-box flex-a-center flex-j-between">
+            <view class="flex-box flex-a-center">
+                <image class="avatar" src="{{teacherimg}}"></image>
+                <view class="color-1a">{{teachername}}</view>
+            </view>
+            <view class="stars">
+                <van-rate value="{{ submitData.star }}" count="{{ 5 }}" size="{{16}}" gutter="{{4}}" color="#FFA64C" bind:change="onItemChange" />
+            </view>
+        </view>
+        <!-- 满意度 -->
+        <view class="evaluatling-satisfied">
+            <view class="flex-box flex-a-center flex-j-center" >
+                <view class="satisfied {{submitData.is_satisfy == 1 ? 'active' : ''}}" data-id="1" bindtap="switchSatisfied">
+                    <image class="satisfied-icon" src="{{submitData.is_satisfy == 1 ? satisfiedType[1] : satisfiedType[2]}}" data-id="1"></image>
+                    <view class="font-lg" data-id="1">满意</view>
+                </view>
+                <view class="dissatisfied {{submitData.is_satisfy == 2 ? 'active' : ''}}" data-id="2" bindtap="switchSatisfied">
+                    <image class="satisfied-icon" src="{{submitData.is_satisfy == 2 ? satisfiedType[1] : satisfiedType[2]}}" data-id="2"></image>
+                    <view class="font-lg" data-id="2">不满意</view>
+                </view>
+            </view>
+            <view class="satisfied-label flex-box flex-a-center">
+                <view wx:for="{{satisfiedLabelList}}" wx:key="index" class="label-list-item {{item.checked ? 'checked' : ''}}" data-id="{{item.id}}" bindtap="labelChecked">{{item.name}}</view>
+            </view>
+        </view>
+        <!-- 意见输入框 -->
+        <view class="evaluatling-textarea common-relative">
+            <view class="limit-fonts font-sm">{{submitData.content.length}}/100</view>
+            <textarea class="textarea-box" value="{{submitData.content}}" maxlength="100" placeholder="在这里可以输入你想说的~" placeholder-class="textarea-class font-md" bindinput="getTextVal"></textarea>
+        </view>
+        <!-- 匿名提交 -->
+        <view>
+            <van-checkbox value="{{ submitData.is_anonymity }}" shape="square" bind:change="isAnonymous" checked-color="#9169FB">匿名提交</van-checkbox>
+        </view>
+        <!-- 提交按钮 -->
+        <view class="submit-btn color-ec font-lg" bindtap="togoComment">提交</view>
+    </view>
+</scroll-view>

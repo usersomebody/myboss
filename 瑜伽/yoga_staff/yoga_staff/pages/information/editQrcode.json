@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "image-cropper": "../../components/image-cropper/image-cropper",
+        "code-poster":"../../components/code-poster/index"
+    },
+    "navigationBarTitleText": "插入二维码",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

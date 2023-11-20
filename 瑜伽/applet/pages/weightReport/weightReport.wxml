@@ -1,0 +1,180 @@
+<!--pages/weightReport/weightReport.wxml-->
+<view class="container"  bindtap="closeGuide">
+  <view class="header">
+    <view class="edit" bindtap="editInfo">
+      <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/c05f2d9b0de862c968ec060fa4bb04b4.png"></image>
+      <view class="font-md color-333">编辑</view>
+    </view>
+    <view class="content">
+      <view class="flex-box flex-a-center">
+        <image src="{{head_url}}" class="head-img"></image>
+        <view>{{nick_name}}</view>
+      </view>
+      <view class="info">
+        <view class="info-item height">
+          <view class="font-md">身高</view>
+          <view class="info-b font-md"><text class="font-22">{{report.height}}</text>cm</view>
+          <view class="info-item-img"></view>
+        </view>
+        <view class="info-item weight">
+          <view class="font-md">体重</view>
+          <view class="info-b font-md"><text class="font-22">{{report.weight}}</text>kg</view>
+          <view class="info-item-img"></view>
+        </view>
+        <view class="info-item age">
+          <view class="font-md">年龄</view>
+          <view class="info-b font-md"><text class="font-22">{{report.age}}</text>岁</view>
+          <view class="info-item-img"></view>
+        </view>
+        
+        
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="title">
+    <view class="line"></view>
+    <view class="con">各项指标</view>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/56d97d245355468ab474f497d6c43d3.png" class="tips-icon" bindtap="lookIntroduction"></image>
+  </view> -->
+  <view class="indicator">
+    <view class="name font-weight">BMI：</view>
+    <!-- 刻度尺 -->
+    <view class="calibration-ruler flex-box common-relative">
+        <!-- {{lineArr[index] ? 'calibration-big-line' : ''}} -->
+      <view wx:for="{{lineList}}" wx:key="index" class="calibration-line {{item.color}}"></view>
+      <view class="calibration-line-show {{ IS_AND ? '' : 'IOS_TOP'}}" style="left:{{bmiLeft}}rpx" >
+        <view class="num font-sm {{bmiColor}}">{{report.bmi}}</view>
+        <view class="line-show {{bmiColor}}"></view>
+      </view>
+    </view>
+    <view class="progress">
+      <!-- <view class="progress-line"></view>
+      <view class="fat">
+        <view class="fat-item"></view>
+        <view class="fat-item"></view>
+        <view class="fat-item"></view>
+        <view class="fat-item"></view>
+      </view> -->
+      <view class="fat fat-intro">
+        <view class="fat-explain {{lineColor[9]}}">偏瘦</view>
+        <view class="fat-explain {{lineColor[19]}}">标准</view>
+        <view class="fat-explain {{lineColor[29]}}">偏胖</view>
+        <view class="fat-explain {{lineColor[39]}}">肥胖</view>
+      </view>
+      <!-- <view class="indicate" style="left:{{bmiLeft}}rpx">
+        <view class="num">{{report.bmi}}</view>
+        <image src="/imgs/indicate-icon.png" class="indicate-icon"></image>
+      </view> -->
+    </view>
+  </view>
+  <view class="indicator">
+      <view class="name font-weight">体脂率：</view>
+      <!-- 刻度尺 -->
+      <view class="calibration-ruler flex-box common-relative">
+          <!-- {{lineArr[index] ? 'calibration-big-line' : ''}} -->
+          <view wx:for="{{lineList}}" wx:key="index" class="calibration-line {{item.color}}"></view>
+          <view class="calibration-line-show {{ IS_AND ? '' : 'IOS_TOP'}}" style="left:{{bfpLeft}}rpx">
+            <view class="num font-sm {{bfpColor}}">{{report.body_fat}}</view>
+            <view class="line-show {{bfpColor}}"></view>
+          </view>
+        </view>
+      <view class="progress">
+        <!-- <view class="progress-line"></view>
+        <view class="fat">
+          <view class="fat-item"></view>
+          <view class="fat-item"></view>
+          <view class="fat-item"></view>
+          <view class="fat-item"></view>
+        </view> -->
+        <view class="fat fat-intro">
+          <view class="fat-explain {{lineColor[9]}}">偏瘦</view>
+          <view class="fat-explain {{lineColor[19]}}">标准</view>
+          <view class="fat-explain {{lineColor[29]}}">偏胖</view>
+          <view class="fat-explain {{lineColor[39]}}">肥胖</view>
+        </view>
+        <!-- <view class="indicate" style="left:{{bfpLeft}}rpx">
+          <view class="num">{{report.body_fat}}</view>
+          <image src="/imgs/indicate-icon.png" class="indicate-icon"></image>
+        </view> -->
+      </view>
+  </view>
+  <view class="source">（*算法来自于人民健康网）</view>
+  <view class="metabolism">
+    <view class="flex-box flex-a-center flex-j-between bg-white metabolism-item-box">
+        <view class="metabolism-item">
+            <view class="name">
+              <view>理想体重</view>
+            </view>
+            <view class="number">{{report.best_weight}}<text class="unit">kg</text></view>
+        </view>
+        <image class="best-weight" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_nodata_4.png"></image>
+    </view>
+    
+    <view class="flex-box flex-a-center flex-j-between bg-white metabolism-item-box">
+        <view class="metabolism-item">
+            <view class="name">
+              <view>基础代谢</view>
+            </view>
+            <view class="number">{{report.basal_metabolism}}<text class="unit">kcal</text></view>
+        </view>
+        <image class="best-height" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210918/e91fe45a5cdc06ed1925da2ce670bc39.png"></image>
+        
+    </view>
+  </view>
+  
+  <view class="analysis">
+    <view class="title">
+      <view class="name">
+        <view class="txt font-weight">体重分析</view>
+      </view>
+    </view>
+    <!-- <view class="content" wx:for="{{analysis_content}}" wx:for-item="analysis" wx:key='index'>
+      {{analysis}}
+    </view> -->
+    <view class="lineChart">
+      <view class="echart_panel">
+        <ec-canvas ec="{{ecLine}}" id="columnCanvas" canvas-id="columnCanvas"></ec-canvas>
+      </view>
+    </view>
+    <view class="weight-record flex-box flex-a-center">
+      <view class="item font-base color-333"><text>当前体重：</text><text class="color-yellow font-weight">{{report.weight}}</text>kg</view>
+      <view class="item font-base color-333"><text>最轻体重：</text><text class="color-green font-weight">{{MINWEIGHT.weight}}</text>kg</view>
+      <view class="item font-base color-333"><text>最重体重：</text><text class="color-red font-weight">{{MAXWEIGHT.weight}}</text>kg</view>
+      <view class="item font-base color-333"><text>距理想体重就差</text><text class="color-red font-weight">{{differNum}}</text>kg继续加油吧！</view>
+    </view>
+  </view>
+  <!-- <view class="notify">
+    <view class="notify-tips">
+      <view class="tips-t">开启通知</view>
+      <view class="tips-b">每日准点推送体重变化</view>
+    </view>
+    <view class="notify-btn">开启通知</view>
+  </view> -->
+  <!-- <view class="analysis">
+    <view class="title">
+      <view class="name">
+        <view class="txt font-weight">运动建议</view>
+      </view>
+    </view>
+    <view class="content">
+      {{suggest_content}}
+    </view>
+  </view> -->
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}" bindtap="closeGuide"></view>
+<view wx:if="{{showTips}}" class="guide-language" bindtap="closeGuide">
+  <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210922/f1927dfcb4f17cd4ef2e0ff67ea389dd.png"></image>
+  <view class="content font-md">数据不准确，可以点击进入编辑哦~</view>
+</view>
+<!-- 距离理想体重提示 -->
+<view wx:if="{{showOverlayer}}" class="best-weight-box">
+  <view class="best-box">
+      <view class="weight-top">
+        <image class="weight-top-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_nodata_7.png"></image>
+        <view class="font-lg text-center" style="margin:50rpx 0;width:80%;">距离理想体重就差<text class="color-red font-weight font-20">{{differNum}}</text>kg继续加油吧！</view>
+        <view class="weight-btn" bindtap="btnClose">我知道了</view>
+      </view>
+      <image src='https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210922/5892aa49592b4ba87fb8c444b5de791e.png' class="close-btn" bindtap="btnClose"></image>
+  </view>
+</view>

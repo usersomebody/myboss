@@ -1,0 +1,72 @@
+<import src="../../components/loading/index.wxml" />
+<scroll-view scroll-y="true" class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}" bindscrolltolower="onReachBottom">
+    <view class="search-container flex-box flex-a-center flex-j-between">
+        <view class="search-box flex-box flex-a-center">
+            <view class="search-title flex-box flex-a-center common-relative">
+                <view class="flex-box flex-a-center" bindtap="toggleShowTitleSelect">
+                    <view class="title-name color-51 font-md" >{{searchData.searchTitle}}</view>
+                    <image class="select-icon" src="../../imgs/down-select.png"></image>
+                </view>
+                <view wx:if="{{showTitleSelect}}" class="common-absolute search-title-box">
+                    <view class="font-md color-102 {{item.id == searchData.title_type ? 'color-51-must' : ''}} search-title-item" wx:for="{{searchTitle}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="selectSearchTitle">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="search-line"></view>
+            <view class="search-input flex-box flex-a-center">
+                <image class="search-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/6ea8b786b2c88c95c219e3916e7eb6d3.png"></image>
+                <input placeholder="搜索商品和店铺" value="{{searchData.title}}" type="text" placeholder-class="placeStyle" bindblur="getVal"/>
+            </view>
+        </view>
+        <view class="cancle-btn font-md color-82">取消</view>
+    </view>
+    <!-- 产品列表 -->
+    <view class="product-container">
+        <!-- 筛选条件 -->
+        <view class="filter-container flex-box flex-a-center flex-j-between">
+            <view class="filter-left flex-box flex-a-center">
+                <view class="filter-item flex-box flex-a-center font-md shallow-color {{item.id == filterId ? 'font-weight color-51' : ''}}" wx:for="{{filterList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchFilterItem">
+                    <view>{{item.name}}</view>
+                    <image class="price-sort" wx:if="{{item.id == 4}}" src="{{priceSort ? priceSort == 1 ? item.top : item.bottom : item.normal}}"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 产品列表 -->
+        <view wx:if="{{productList.length}}" class="product-list">
+            <view class="product-item bg-white flex-box flex-a-center" wx:for="{{productList}}" wx:key="index" data-id="{{item.id}}" bindtap="goDetail">
+                <image src="" class="product-img flex-shrink" src="{{item.head_img_name[0] + '?imageMogr2/thumbnail/400x400'}}"></image>
+                <view class="product-info">
+                    <view class="product-tittle flex-box flex-a-center">
+                        <!-- <view wx:if="{{item.is_auth == 1}}" class="product-sign sign-color font-sm flex-shrink inline-block">{{item.is_auth == 1 ? '已认证' : '未认证'}}</view> -->
+                        <view class="product-name two-line color-51 font-md">
+                            <view wx:if="{{item.is_auth == 1}}" class="product-sign sign-color font-sm flex-shrink inline-block">{{item.is_auth == 1 ? '已认证' : '未认证'}}</view>{{item.title}}</view>
+                    </view>
+                    <view class="product-price color-102 font-sm flex-box flex-a-center flex-j-between">
+                        <view class="price color-102 font-sm">
+                            <text>￥{{item.has_coupon == 1 ? item.discount_price_float : item.min_price_float}}</text>
+                            <text wx:if="{{item.has_coupon == 1}}" class="line-through font-base color-153">￥{{item.min_price_float}}</text>
+                        </view>
+                        <view wx:if="{{item.has_coupon == 1}}" class="product-sign sign-color font-sm">券减{{item.dis_sub_price}}</view>
+                    </view>
+                    <view class="product-sale flex-box flex-a-center flex-j-between">
+                        <view class="product-intro font-sm color-153 one-line">{{item.shop_name}}</view>
+                        <view class="product-sale-num font-sm color-153">销量   {{item.total_sold_num}}</view>
+                    </view>
+                    <view class="product-action flex-box flex-a-center flex-j-between">
+                        <view class="product-commission base-color font-lg font-weight"><text class="symbol font-sm">赚</text>￥{{item.commission_value_total}}</view>
+                        <view class="product-btn color-white" bindtap="commerceOnToggle">带货</view>
+                    </view>
+                    <view wx:if="{{item.is_sample_free == 1}}" class="product-commission-rule flex-box flex-a-center">
+                        <view class="sign-color font-sm">{{item.sell_order_num > 0 ? '推客销量≥' + item.sell_order_num + '可免费领样' : '免费领样'}}</view>
+                        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/a1fcf9ccccdb4e5f09d3fd49bc363de2.png" class="product_rule_img"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{!productList.length && isLast}}" class="text-center font-sm shallow-color no-data">
+            <no-data text="暂无数据~" cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220621/2475527f5c59a3afdb619229c73b84d9.png"></no-data>
+        </view>
+        <view hidden="{{isLast}}">
+            <template is="loader" data="{{title:'加载中...'}}"></template>
+        </view>
+    </view>
+</scroll-view>

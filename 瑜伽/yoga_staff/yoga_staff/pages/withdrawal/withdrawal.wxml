@@ -1,0 +1,48 @@
+
+<view class="container">
+    <view class="withdrawal-account common-padding flex-box flex-a-center flex-j-between">
+        <view class="font-md color-666">提现账户</view>
+        <view class="font-md color-333 flex-box flex-a-center">
+            <image class="head-img" src="{{withdrawInfo.head_img}}"></image>
+            <view class="font-md color-333">{{withdrawInfo.nickname}}</view>
+        </view>
+    </view>
+    <view class="withdrawal-balance bg-white">
+        <view class="head flex-box flex-a-center flex-j-between">
+            <view class="font-md color-666">提现金额</view>
+            <view class="font-sm color-999">提现金额不能低于100元,单笔最高5000元</view>
+        </view>
+        <view class="content">
+            <view class="withdrawal-input flex-box flex-a-center flex-j-between">
+                <view class="symbol">￥</view>
+                <input class="font-30 color-333" type="text" value="{{withdrawalBalance}}" bindblur="getBalance"/>
+                <image class="eliminate" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211216/0c6509a020a31e6b40e4a3d3f6f8e753.png" bindtap="eliminateVal"></image>
+            </view>
+        </view>
+        <view class="footer flex-box flex-a-center flex-j-between">
+            <view class="font-sm color-999">可提现金额{{withdrawInfo.balance}}元</view>
+            <view class="font-md base-color" bindtap="withdrawalAll">全部提现</view>
+        </view>
+    </view>
+    <view class="bg-white" style="padding:0 30rpx;">
+        <view class="withdrawal-account common-padding-top flex-box flex-a-center flex-j-between">
+            <view class="font-md color-666">本周可提现次数</view>
+            <view class="font-md color-333">
+                {{withdrawInfo.week_withdraw_times}}
+            </view>
+        </view>
+        <view class="withdrawal-account common-padding-top flex-box flex-a-center flex-j-between">
+            <view class="font-md color-666">费率</view>
+            <view class="font-md color-333">
+                0.{{withdrawInfo.service_charge_rate}}%
+            </view>
+        </view>
+        <view class="withdrawal-account common-padding-top flex-box flex-a-center flex-j-between">
+            <view class="font-md color-666">实际到账金额</view>
+            <view class="font-md color-333">
+                {{withdrawInfo.actualAmount}}
+            </view>
+        </view>
+    </view>
+    <view class="withdrawal-btn color-white" bindtap="withdrawal">提现</view>
+</view>

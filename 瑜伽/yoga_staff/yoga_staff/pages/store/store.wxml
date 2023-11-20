@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="list common-relative" wx:for="{{store_list}}" wx:key="index" data-sid="{{item.store_id}}" data-staid="{{item.sta_id}}" data-phone="{{item.phone}}" bindtap="toIndex">
+        <image wx:if="{{item.cover}}" class="store-cover" src="{{item.cover}}"></image>
+        <image wx:else class="store-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211020/6d79f5302194f45462470a7cec7403a5.png"></image>
+        <view class="store-shadow">
+            <view class="name font-sm color-white flex-box flex-a-center"><image class="icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/62fbbdf6b35974599d5292197a2798e8.png"></image><text>{{item.sto_name}}</text></view>
+            <view class="address font-base color-white flex-box flex-a-center"><image class="icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/87820cbe7567408348764d4eb10a3535.png"></image><text>{{item.address}}</text></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+@import "../../common.wxss";
+.single-title{
+    margin-bottom:20rpx;
+}
+.single-switch-item{
+    width:23%;
+    margin-right:1%;
+    margin-bottom:20rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    background: #FFFFFF;
+    border: 2rpx solid #E6E6E6;
+    border-radius: 10rpx;
+}
+.single-switch-item.active{
+    background: #F3EEFF;
+    border: 2rpx solid #9B77F4;
+}
+.single-switch-item:nth-child(4n){
+    margin-right:0;
+}
+.switch-list{
+    flex-wrap:wrap;
+}

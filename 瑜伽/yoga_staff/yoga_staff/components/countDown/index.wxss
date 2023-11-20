@@ -1,0 +1,69 @@
+@import "../../common.wxss";
+
+.time-item{
+    color:#FB5E69;
+    font-size:12px;
+}
+.time_show{
+    display:inline-block;
+    width:40rpx;
+    height:40rpx;
+    line-height:40rpx;
+    border:1px solid #fff;
+    padding:0 2rpx;
+    background:#fff;
+    border-radius:2px;
+    color:#FB5E69;
+    font-size:14px;
+}
+.margin-10{
+    margin-right:20rpx;
+}
+/* 横向 */
+.inline{
+    display:inline-block;
+}
+.margin-t{
+    margin-top:16rpx;
+}
+.margin-b{
+    margin-bottom:5rpx;
+}
+.time-item-start{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    margin:0;
+    position: relative;
+    top:-3px;
+}
+.time-title{
+    text-align:right;
+    /* margin-right:12rpx; */
+}
+.activity-start-color{
+    color:#FC6254;
+}
+.preheatTime-start-color{
+    padding:4rpx;
+    color:#ffffff;
+    background: linear-gradient(-55deg, #FFBC0B, #FF9D00);
+    border-radius:6rpx;
+    text-align: center;
+}
+.white-space{
+    white-space: nowrap;
+}
+
+.preheatTime-start-2-color{
+    padding:4rpx;
+    color:#ffffff;
+    background: #FF9D00;
+    border-radius:6rpx;
+    text-align: center;
+    width:40rpx;
+    height:40rpx;
+    line-height:40rpx;
+    font-size:12px;
+    margin-right:4rpx;
+}

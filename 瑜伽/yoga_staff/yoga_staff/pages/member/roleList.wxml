@@ -1,0 +1,20 @@
+<!-- 权限店铺列表 -->
+<view class="container">
+    <view class="root-btn-box flex-box flex-j-end">
+        <view wx:if="{{!checkData.isRoot}}" class="root-btn back font-md" bindtap="checkRolePower">查看权限</view>
+    </view>
+        <!-- <view wx:if="{{checkData.isTeacher}}" class="btn sure" bindtap="privateConfig">私教课程设置</view> -->
+    <view wx:if="{{selectStoreRoleList.length}}" class="item-padding">
+        <van-checkbox-group value="{{ checkedIds }}" bind:change="onChange">
+            <view class="store-item flex-box flex-a-center flex-j-between" wx:for="{{selectStoreRoleList}}" wx:key="index" >
+                <van-checkbox name="{{item.id}}" checked-color="#9B77F4" value-class="value-class">{{item.name}}</van-checkbox>
+                <view wx:if="{{checkData.isTeacher && item.name == '老师/教练'}}" class="font-md base-color" bindtap="privateConfig">私教课程设置</view>
+            </view>
+        </van-checkbox-group>
+    </view>
+    <view wx:else class="text-center font-md color-666" style="padding-top:60rpx;">暂无数据</view>
+    <view class="submitBtn flex-box flex-a-center flex-j-center">
+        <view class="btn back" bindtap="back">返回</view>
+        <view class="btn sure" bindtap="sure">确定</view>
+    </view>
+</view>

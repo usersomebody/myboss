@@ -1,0 +1,11 @@
+{
+    "component": true,
+    "usingComponents": {
+      "van-checkbox": "@vant/weapp/checkbox/index",
+      "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+      "van-action-sheet": "@vant/weapp/action-sheet/index",
+      "no-data": "/components/no-data/index"
+    },
+    "navigationBarTitleText": "店铺首页",
+    "navigationBarTextStyle": "black"
+  }

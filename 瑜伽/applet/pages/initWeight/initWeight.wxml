@@ -1,0 +1,23 @@
+<!--pages/initWeight/initWeight.wxml-->
+<view class="vessel container">
+  <view class="title">身高体重</view>
+  <view class="height scale">
+    <view class="num">{{height}}<text class="unit">cm</text></view>
+    <scale min="120" max="200" int="{{false}}" step="1" fiexNum="80" single="10" h="60" active="{{initHeight}}"
+      styles="{{heightStyles}}" bindvalue="bindHeight"></scale>
+  </view>
+  <view class="weigh">
+    <view class="num">{{weight}}<text class="unit">kg</text></view>
+    <scale min="20" max="100" int="{{false}}" step="1" fiexNum="80" single="10" h="60" active="{{initWeight}}"
+      styles="{{weightStyles}}" bindvalue="bindWeight"></scale>
+  </view>
+  <view class="reset" bindtap="reset">
+    重新设置
+  </view>
+</view>
+<view class="cover" wx:if="{{showCover}}">
+  <view class="loading">
+    <image src="/imgs/loading.gif" class="loading-gif"></image>
+    <view class="loading-txt">加载中~</view>
+  </view>
+</view>

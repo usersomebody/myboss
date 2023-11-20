@@ -1,0 +1,56 @@
+/* pages/store/store.wxss */
+.container {
+  padding: 20rpx 24rpx;
+}
+
+.store-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  padding: 24rpx 18rpx;
+}
+
+.store-img {
+  width: 132rpx;
+  height: 132rpx;
+}
+
+.info {
+  margin: 0 20rpx 0 24rpx;
+  width: 342rpx;
+}
+
+.store-name {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  line-height: 50rpx;
+  color: #333333;
+}
+
+.store-distance {
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #666666;
+  margin: 18rpx 0 8rpx;
+}
+
+.store-address {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.btn {
+  width: 136rpx;
+  height: 52rpx;
+  background: #A38FFF;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  line-height: 52rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 40rpx;
+}

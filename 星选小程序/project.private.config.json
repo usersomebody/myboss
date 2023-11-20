@@ -1,0 +1,1698 @@
+{
+  "setting": {
+    "urlCheck": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/store/store",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/booking",
+          "pathName": "pages/booking/booking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/schedule",
+          "pathName": "pages/course/schedule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=3964",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=3964&courseType=1&courseDate=",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=3314&courseType=4&courseDate=2021-10-15",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vip",
+          "pathName": "pages/vip/vip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/courseCancleRemind",
+          "pathName": "pages/my/courseCancleRemind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/cancleBookingDetail",
+          "pathName": "pages/my/cancleBookingDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/courseCancleRemind",
+          "pathName": "pages/my/courseCancleRemind",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/appointment/appointment",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "scheduleId=4287",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "scheduleId=4395",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=2022",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=1989",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2069",
+          "scene": null
+        },
+        {
+          "name": "pages/my/commonList",
+          "pathName": "pages/my/commonList",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/my/vacate",
+          "pathName": "pages/my/vacate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/vacate",
+          "pathName": "pages/my/vacate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/list",
+          "pathName": "pages/activity/list",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/list",
+          "pathName": "pages/activity/list",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/orderDetail",
+          "pathName": "pages/activity/orderDetail",
+          "query": "id=144&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/schedule",
+          "pathName": "pages/course/schedule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "id=177&type=1&isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "id=183&type=1&isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "id=184&type=2&isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "id=182&type=2&isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "id=187&type=1&isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/my/vacate",
+          "pathName": "pages/my/vacate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "sid=1",
+          "scene": null
+        },
+        {
+          "name": "pages/information/edit",
+          "pathName": "pages/information/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/schedule",
+          "pathName": "pages/course/schedule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=14",
+          "scene": null
+        },
+        {
+          "name": "pages/information/edit",
+          "pathName": "pages/information/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/information/editQrcode",
+          "pathName": "pages/information/editQrcode",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=18",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=19",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=23",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=23&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseList",
+          "pathName": "pages/course/courseList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/cardList",
+          "pathName": "pages/course/cardList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/cardList",
+          "pathName": "pages/course/cardList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingConfig",
+          "pathName": "pages/booking/bookingConfig",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/setting",
+          "pathName": "pages/booking/setting",
+          "query": "id=15",
+          "scene": null
+        },
+        {
+          "name": "pages/course/schedule",
+          "pathName": "pages/course/schedule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "close=1&type=4",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=4933&courseType=4&courseDate=2021-12-04&cid=164",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=4939&courseType=4&courseDate=2021-12-04&cid=204",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=4942&courseType=4&courseDate=2021-12-04&cid=324",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "close=1&type=4",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVip",
+          "pathName": "pages/vip/addVip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "close=1&type=4",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/bookingDetail",
+          "pathName": "pages/booking/bookingDetail",
+          "query": "courseId=5212&courseType=4&courseDate=2021-12-08&cid=343",
+          "scene": null
+        },
+        {
+          "name": "pages/booking/setting",
+          "pathName": "pages/booking/setting",
+          "query": "id=13",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=1845",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "id=2301&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=undefined",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2186&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipCardList",
+          "pathName": "pages/vip/vipCardList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/useLimit",
+          "pathName": "pages/vip/useLimit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2322&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2469&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2186&type=3",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2469&type=6",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVip",
+          "pathName": "pages/vip/addVip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=448",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=448&sid=113",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=585&vipType=2",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "id=451&sid=113",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=2501&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "id=463&sid=117",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "id=446&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "id=463",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2509&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/supportCourse",
+          "pathName": "pages/vip/supportCourse",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "id=1785&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=508&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipUserDetail",
+          "pathName": "pages/vip/vipUserDetail",
+          "query": "id=2509&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2186&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "scheduleId=5437&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/help",
+          "pathName": "pages/activity/help",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "addvip=1",
+          "scene": null
+        },
+        {
+          "name": "pages/course/courseEdit",
+          "pathName": "pages/course/courseEdit",
+          "query": "id=470&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2186&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2573&type=4",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2573&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2573&type=9",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=512&sid=122",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=2186&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/cardAction",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=2186&type=8",
+          "scene": null
+        },
+        {
+          "name": "pages/course/cardList",
+          "pathName": "pages/course/cardList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=9412&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/list",
+          "pathName": "pages/member/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleStoreList",
+          "pathName": "pages/member/roleStoreList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleList",
+          "pathName": "pages/member/roleList",
+          "query": "sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=2",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=103",
+          "scene": null
+        },
+        {
+          "name": "pages/member/resume",
+          "pathName": "pages/member/resume",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/baseConfig/identity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/identity",
+          "pathName": "pages/baseConfig/identity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/index",
+          "pathName": "pages/baseConfig/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/venueSetting",
+          "pathName": "pages/baseConfig/venueSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawal/detail",
+          "pathName": "pages/withdrawal/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawal/examine",
+          "pathName": "pages/withdrawal/examine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/noticeManagerList",
+          "pathName": "pages/baseConfig/noticeManagerList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/noticeManager",
+          "pathName": "pages/baseConfig/noticeManager",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/venueSetting",
+          "pathName": "pages/baseConfig/clientSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/bannerSetting",
+          "pathName": "pages/baseConfig/bannerSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleStoreList",
+          "pathName": "pages/member/roleStoreList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=314",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/coach",
+          "pathName": "pages/baseConfig/coach",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/bannerSetting",
+          "pathName": "pages/baseConfig/bannerSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/venueSetting",
+          "pathName": "pages/baseConfig/venueSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawal/withdrawal",
+          "pathName": "pages/withdrawal/withdrawal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/addBodyData",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=186&action=2",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawal/detail",
+          "pathName": "pages/withdrawal/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addVipCard",
+          "pathName": "pages/vip/addVipCard",
+          "query": "id=254&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=2186&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addBodyData",
+          "pathName": "pages/vip/addBodyData",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleStoreList",
+          "pathName": "pages/member/roleStoreList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=319&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=320&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleList",
+          "pathName": "pages/member/roleList",
+          "query": "sid=27&sname=%E6%B5%8B%E8%AF%95%E7%9B%88%E7%A7%91%E4%B8%87%E5%8B%A4",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/permissionSet",
+          "pathName": "pages/baseConfig/permissionSet",
+          "query": "id=142",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleStoreList",
+          "pathName": "pages/member/roleStoreList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/roleList",
+          "pathName": "pages/member/roleList",
+          "query": "sid=27&sname=%E6%B5%8B%E8%AF%95%E7%9B%88%E7%A7%91%E4%B8%87%E5%8B%A4",
+          "scene": null
+        },
+        {
+          "name": "pages/withdrawal/withdrawal",
+          "pathName": "pages/withdrawal/withdrawal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=88&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=2",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=123&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addBodyData",
+          "pathName": "pages/vip/addBodyData",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/resume",
+          "pathName": "pages/member/resume",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addBodyData",
+          "pathName": "pages/vip/addBodyData",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/bodyDataCompare",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=2186&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=123&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=2",
+          "scene": null
+        },
+        {
+          "name": "pages/member/powerList",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=2",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/bodyDataCompare",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=2186&type=1&ctype=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/compareDetail",
+          "pathName": "pages/vip/compareDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=123&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/permissionSet",
+          "pathName": "pages/baseConfig/permissionSet",
+          "query": "id=147&issystem=1",
+          "scene": null
+        },
+        {
+          "name": "pages/baseConfig/venueSetting",
+          "pathName": "pages/baseConfig/venueSetting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/bodyDataCompare",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=2186&type=1&ctype=1",
+          "scene": null
+        },
+        {
+          "name": "pages/member/addMember",
+          "pathName": "pages/member/addMember",
+          "query": "id=298&action=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/bodyDataCompare",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=2186&type=1&ctype=2",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/compareDetail",
+          "pathName": "pages/vip/compareDetail",
+          "query": "id=2186&type=1&ctype=2",
+          "scene": null
+        },
+        {
+          "name": "pages/course/scheduleEdit",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "close=1&type=4",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/compareDetail",
+          "pathName": "pages/vip/editBodyData",
+          "query": "id=2186&type=1&ctype=2",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/editBodyData",
+          "pathName": "pages/vip/editBodyData",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addBodyData",
+          "pathName": "pages/vip/addBodyData",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/vipDetail",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=1845&type=1",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/editBodyData",
+          "pathName": "pages/vip/editBodyData",
+          "query": "rid=38&type=1&phone=15353589151&sex=1&age=0",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/addBodyData",
+          "pathName": "pages/vip/addBodyData",
+          "query": "id=1845&type=1&phone=15353589151&name=马文博",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/editBodyData",
+          "pathName": "pages/vip/editBodyData",
+          "query": "rid=56&type=1&phone=15353589151&sex=2&age=0&name=嘛嗯",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/bodyDataCompare",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=1845&type=1&ctype=2&phone=15353589151",
+          "scene": null
+        },
+        {
+          "name": "pages/vip/giveVipCard",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=9412&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/my/commonList",
+          "pathName": "pages/my/commonList",
+          "query": "type=4",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=2186&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/editBodyData",
+          "query": "rid=62&type=1&phone=15353589151&name=%E9%A9%AC%E6%96%87%E5%8D%9A",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/cardAction",
+          "query": "id=1845&type=8",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=1845&type=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/vipDetail",
+          "query": "id=1845&type=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/giveVipCard",
+          "query": "id=1845&vipType=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/baseConfig/noticeManagerList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=1845&type=1&ctype=1&phone=15353589151&name=%E9%A9%AC%E6%96%87%E5%8D%9A",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/bodyDataCompare",
+          "query": "id=1845&type=1&ctype=1&phone=15353589151&name=%E9%A9%AC%E6%96%87%E5%8D%9A",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/integralSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/integralSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/integralSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/integralSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/integralSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/course/scheduleEdit",
+          "query": "close=1&type=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/vip/useLimit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/baseConfig/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/screen",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/drawList",
+          "query": "type=3",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/drawList",
+          "query": "type=4",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyDraw",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/prizeDataSet",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyDraw",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/fictitiousData",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyDraw",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/orderDetail",
+          "query": "id=356&type=4",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/detail",
+          "query": "caid=39",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/list",
+          "query": "type=3",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/group",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyDraw",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyDraw",
+          "query": "isAction=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/orderDetail",
+          "query": "id=376&type=4",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/comment/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/course/schedule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/bookingConfig",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/addMember",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/helpCenter/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/roleStoreList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/qrSign/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/helpCenter/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/information/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/booking",
+          "query": "courseId=6256&type=1&checkDate=2022-03-15&cid=547",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/information/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/information/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/booking",
+          "query": "courseId=6256&type=1&checkDate=2022-03-15&cid=547",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/addMember",
+          "query": "id=123&action=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/baseConfig/permissionSet",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/baseConfig/permissionSet",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/bookingConfig",
+          "query": "type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/setting",
+          "query": "id=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/bookingConfig",
+          "query": "type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/member/powerList",
+          "query": "switchid=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/booking/setting",
+          "query": "id=2",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/information/detail",
+          "query": "id=27",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/store/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/productDetail/index",
+          "query": "id=undefined",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/detail",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pushCustomers/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/withdrawal/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/add",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/sample/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/add",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/customerService/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/detail",
+          "query": "id=YKXX20220609160206519302",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/detail",
+          "query": "id=YKXX20220609161217935769",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/productDetail/index",
+          "query": "id=44976332",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/withdrawal/index",
+          "query": "scene=appid%253Dwx991b6a524eea6ff5",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.20.2"
+}

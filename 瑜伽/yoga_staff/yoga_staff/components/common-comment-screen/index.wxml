@@ -1,0 +1,8 @@
+<view class="common-multiple-single">
+    <view class="single-title font-md color-333 font-weight">{{name}}</view>
+    <view class="switch-list flex-box flex-a-center" >
+        <view wx:for="{{showList}}" wx:key="index" class="single-switch-item {{item.checked ? 'active base-must-color' : ''}} font-md color-525 one-line text-center" bindtap="switchSingle" data-id="{{item.id}}">
+            {{item.name}}
+        </view>
+    </view>
+</view>

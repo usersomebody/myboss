@@ -1,0 +1,115 @@
+<!--pages/editInfo/editInfo.wxml-->
+<view class="container">
+  <view class="user-info-set">
+    <view class="title color-333 font-lger">请选择您的性别、年龄、身高、体重</view>
+    <view class="tips color-66 font-sm">您选择的性别和年龄将作为数据测量的重要依据，请认真选择哦~</view>
+  </view>
+  <view class="sex-tip">您的性别是？</view>
+  <view class="sex">
+    <view class="sex-item">
+      <view class="sex-img {{sex==1?'checked':''}}" bindtap="checkSex" data-sex='1'>
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210903/d4896a4f469edb8a9bdfd65cffd51190.png" class="sex-icon male {{sex==1?'img-1-checked':''}}"></image>
+      </view>
+    </view>
+    <view class="sex-item">
+      <view class="sex-img {{sex==2?'checked':''}}" bindtap="checkSex" data-sex='2'>
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210903/d976c7025e085d36079d8f5844953926.png" class="sex-icon female {{sex==2?'img-2-checked':''}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="form">
+    <view class="form-item" bindtap="showDate">
+      <view class="tips">生日</view>
+      <view class="right font-sm color-66">
+        {{currentChecked}}
+        <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+      </view>
+    </view>
+    <view class="form-item" data-type="1" bindtap="toggleScale">
+      <view class="tips">体重</view>
+      <view class="right font-sm color-66">
+          {{submitData.weight}}
+        <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+      </view>
+    </view>
+    <view class="form-item" data-type="2" bindtap="toggleScale">
+        <view class="tips">身高</view>
+        <view class="right font-sm color-66">
+            {{submitData.height}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+    </view>
+    <!-- <picker bindchange="bindAgeChange" value="{{ageIdx}}" range="{{age}}">
+      <view class="form-item">
+        <view class="tips">年龄</view>
+        <view class="right font-sm color-66">
+          {{age[ageIdx]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker> -->
+    <!-- <picker mode="multiSelector" bindcolumnchange="bindWeighcolumnchange" bindchange="bindWeighChange"
+      value="{{weightIdx}}" range="{{weight}}">
+      <view class="form-item">
+        <view class="tips">体重</view>
+        <view class="right font-sm color-66">
+          {{weight[0][weightIdx[0]]}}{{weight[1][weightIdx[1]]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker>
+    <picker mode="multiSelector" bindcolumnchange="bindHeightcolumnchange" bindchange="bindHeightChange"
+      value="{{heightIdx}}" range="{{height}}">
+      <view class="form-item">
+        <view class="tips">身高</view>
+        <view class="right font-sm color-66">
+          {{height[0][heightIdx[0]]}}{{height[1][heightIdx[1]]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker> -->
+    <view class="confirm" bindtap="submit">确认</view>
+  </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}"></view>
+<view wx:if="{{dateShow}}" class="common-fixed bottom">
+    <view class="calendar">
+      <view class="flex-box flex-a-center flex-j-between">
+        <view class="yearMonth">
+            <view class="yearMonth margin-r-60">
+                <view class="switch-left left" data-type="3" bindtap="toggleDate"><image src="/imgs/arrow-r.png"></image></view>
+                <view class="con">{{year}}年</view>
+                <view class="switch-left" data-type="4" bindtap="toggleDate"><image src="/imgs/arrow-r.png"></image></view>
+            </view>
+            <view class="yearMonth">
+                <view class="switch-left left" data-type="1" bindtap="toggleDate"><image src="/imgs/arrow-r.png"></image></view>
+                <view class="con">{{month}}月</view>
+                <view class="switch-left" data-type="2" bindtap="toggleDate"><image src="/imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+        <view class="font-lg color-69" bindtap="checkBirth">确定</view>
+      </view>
+      <view class="week">
+        <view class="week-item {{index % 6 == 0 ? 'last' : '' }}" wx:for='{{week}}' wx:key='index'>{{item}}</view>
+      </view>
+      <view class="day">
+        <view class="day-item {{( index + 1 ) % 7 == 0 ? 'last' : ''}} {{currentChecked == item.date ? 'isToday' : '' }}"
+          wx:for='{{dateArr}}' wx:key='index' bindtap="checkDay" data-date="{{item.date}}">
+          <view class="day-num">{{item.day}}</view>
+        </view>
+      </view>
+    </view>
+</view>
+<view wx:if="{{scaleShow}}" class="cover" >
+  <view class="content">
+    <view class="flex-box flex-a-center flex-j-between title">
+      <view class="font-md color-6B">{{showType == 1 ? '选择体重' : '选择身高'}}</view>
+      <view class="font-lg color-69" bindtap="hideScale">确定</view>
+    </view>
+    <view class="weigh">{{showType == 1 ? submitData.weight : submitData.height}}</view>
+    <view class="scale">
+      <scale min="20" max="300" int="{{false}}" step="1" fiexNum="0" single="10" h="60" active="{{initWeight}}"
+        styles="{{styles}}" bindvalue="bindWeight"></scale>
+    </view>
+  </view>
+</view>

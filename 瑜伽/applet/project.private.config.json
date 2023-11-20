@@ -1,0 +1,639 @@
+{
+  "setting": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/courses/courses",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weighRecord/weighRecord",
+          "pathName": "pages/weighRecord/weighRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/leave/leave",
+          "pathName": "pages/leave/leave",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/index",
+          "pathName": "pages/activity/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/index",
+          "pathName": "pages/activity/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "sid=9&aid=36&cid=22",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "sid=27&aid=112&cid=22",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/index",
+          "pathName": "pages/invit/index",
+          "query": "sid=27&aid=176&cid=21&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/start",
+          "pathName": "pages/invit/start",
+          "query": "sid=27&aid=111&cid=21&uid=97&pid=209",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/kefu",
+          "pathName": "pages/invit/kefu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/kefu",
+          "pathName": "pages/invit/kefu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/start",
+          "pathName": "pages/invit/start",
+          "query": "sid=9&aid=37&cid=21",
+          "scene": null
+        },
+        {
+          "name": "pages/weighRecord/weighRecord",
+          "pathName": "pages/weighRecord/weighRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/record/record",
+          "pathName": "pages/record/record",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weightReport/weightReport",
+          "pathName": "pages/weightReport/weightReport",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/editInfo/editInfo",
+          "pathName": "pages/editInfo/editInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=3542&date=2021-09-04&week=%E5%85%AD&checkType=4&teacherId=144&courseId=222&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=3802&date=2021-09-05&week=%E6%97%A5&checkType=1",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/start",
+          "pathName": "pages/invit/start",
+          "query": "sid=27&aid=111&cid=21",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/start",
+          "pathName": "pages/invit/start",
+          "query": "sid=72&aid=121&cid=21&uid=87&pid=233&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/editInfo/editInfo",
+          "pathName": "pages/editInfo/editInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weightReport/weightReport",
+          "pathName": "pages/weightReport/weightReport",
+          "query": "toIndex=1",
+          "scene": null
+        },
+        {
+          "name": "pages/editInfo/editInfo",
+          "pathName": "pages/editInfo/editInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/editInfo/editInfo",
+          "pathName": "pages/editInfo/editInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/videoList/videoList",
+          "pathName": "pages/videoList/videoList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/videoList/videoList",
+          "pathName": "pages/videoList/videoList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/leave/leave",
+          "pathName": "pages/leave/leave",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycard/mycard",
+          "pathName": "pages/mycard/mycard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rank/rank",
+          "pathName": "pages/rank/rank",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weightReport/weightReport",
+          "pathName": "pages/weightReport/weightReport",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weighRecord/weighRecord",
+          "pathName": "pages/weighRecord/weighRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycard/mycard",
+          "pathName": "pages/mycard/mycard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mycard/mycard",
+          "pathName": "pages/mycard/mycard",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/weightReport/weightReport",
+          "pathName": "pages/weightReport/weightReport",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/secondsKill",
+          "pathName": "pages/activity/secondsKill",
+          "query": "sid=73&aid=162&cid=22&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "sid=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/group",
+          "pathName": "pages/activity/group",
+          "query": "sid=27&aid=207&cid=22",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "store_id=27&activity_cat=22&activity_id=207",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "store_id=27&activity_cat=22&activity_id=207",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "sid=27&cid=22&aid=207",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "store_id=18",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/group",
+          "pathName": "pages/activity/group",
+          "query": "sid=27&aid=214&cid=23",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "sid=27&cid=23&aid=214&uid=97&pid=339&groupBuy=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "sid=27&cid=23&aid=223&uid=101&pid=352&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/groupDetail",
+          "pathName": "pages/activity/groupDetail",
+          "query": "sid=43&cid=23&aid=261&uid=108&pid=519&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/group",
+          "pathName": "pages/activity/group",
+          "query": "sid=27&aid=234&cid=23",
+          "scene": null
+        },
+        {
+          "name": "pages/invit/start",
+          "pathName": "pages/invit/start",
+          "query": "aid=258&sid=27&uid=101&pid=490&cid=21&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/information/index",
+          "pathName": "pages/information/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=21&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=4899&date=2021-12-07&week=%E4%BA%8C&checkType=4&teacherId=88&courseId=324&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=4937&date=2021-12-04&week=%E5%85%AD&checkType=4&teacherId=88&courseId=187&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5065&date=2021-12-06&week=%E4%B8%80&checkType=4&teacherId=88&courseId=316&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5151&date=2021-12-07&week=%E4%BA%8C&checkType=4&teacherId=266&courseId=364&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5211&date=2021-12-08&week=%E4%B8%89&checkType=4&teacherId=272&courseId=342&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "store_id=32",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=25&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=35&sid=9",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5421&date=2021-12-15&week=%E4%B8%89&checkType=4&teacherId=88&courseId=316&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5421&bindid=3104&date=2021-12-15&week=%E4%B8%89&checkType=4&currentChecked=1&teacherId=88&courseId=316&store_id=27",
+          "scene": null
+        },
+        {
+          "name": "pages/information/detail",
+          "pathName": "pages/information/detail",
+          "query": "id=23&sid=27",
+          "scene": null
+        },
+        {
+          "name": "pages/courseBooking/courseBooking",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5480&bindid=3130&date=2021-12-17&week=%E4%BA%94&checkType=4&currentChecked=1&teacherId=301&courseId=474&store_id=122",
+          "scene": null
+        },
+        {
+          "name": "pages/bodyData/bodyDataList",
+          "pathName": "pages/bodyData/bodyDataList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/bodyData/bodyDataCompare",
+          "query": "type=1&ctype=2&phone=15353589151&name=前人栽树后人乘凉",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/bodyData/bodyDataList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/announce/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/announce/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/integral/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=16155&date=2022-02-11&week=%E4%BA%94&checkType=4&teacherId=360&courseId=856&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6703&bindid=11023&date=2021-10-22&week=%E4%BA%94&checkType=1&currentChecked=3&teacherId=157&courseId=488&store_id=9",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5859&bindid=3299&date=2022-01-26&week=%E4%B8%89&checkType=1&currentChecked=3&teacherId=320&courseId=478&store_id=27",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/evaluate/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5859&bindid=3299&date=2022-01-26&week=%E4%B8%89&checkType=1&currentChecked=3&teacherId=320&courseId=478&store_id=27&evaluate=2",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courses/courses",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5480&bindid=3131&date=2021-12-17&week=%E4%BA%94&checkType=4&currentChecked=1&teacherId=301&courseId=474&store_id=122&evaluate=",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5480&bindid=3131&date=2021-12-17&week=%E4%BA%94&checkType=4&currentChecked=1&teacherId=301&courseId=474&store_id=122&evaluate=",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/evaluate/index",
+          "query": "store_id=&caid=3",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/lucky",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/lucky",
+          "query": "sid=130&aid=382&cid=24&share_id=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyList",
+          "query": "aid=318&cid=24&sid=27",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/luckyList",
+          "query": "aid=349&cid=24&sid=27&start=2022-02-24&end=2022-02-25",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5859&bindid=3299&date=2022-01-26&week=%E4%B8%89&checkType=1&currentChecked=3&teacherId=320&courseId=478&store_id=27&evaluate=",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=5859&bindid=3299&date=2022-01-26&week=%E4%B8%89&checkType=1&currentChecked=3&teacherId=320&courseId=478&store_id=27&evaluate=",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6012&date=2022-02-25&week=%E4%BA%94&checkType=1&canevaluate=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/lucky",
+          "query": "sid=130&aid=363&cid=24",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6055&bindid=3501&date=2022-03-01&week=%E4%BA%8C&checkType=1&currentChecked=3&teacherId=338&courseId=550&store_id=130&evaluate=",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/teacher/teacher",
+          "query": "staff_id=295",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/information/detail",
+          "query": "id=26",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6271&date=2022-03-15&week=%E4%BA%8C&checkType=4&teacherId=231&courseId=548&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6271&date=2022-03-15&week=%E4%BA%8C&checkType=4&teacherId=231&courseId=548&appoint=1",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/courseBooking/courseBooking",
+          "query": "id=6311&date=2022-03-16&week=%E4%B8%89&checkType=4&teacherId=370&courseId=528&appoint=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/classAppointment/classAppointment",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/classAppointment/classAppointment",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mycard/mycard",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mycard/mycard",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+}

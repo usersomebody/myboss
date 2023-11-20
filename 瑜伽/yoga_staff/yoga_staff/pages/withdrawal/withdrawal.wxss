@@ -1,0 +1,50 @@
+.font-30{
+    font-size:60rpx;
+}
+.eliminate{
+    padding:10rpx;
+    width: 32rpx;
+    height: 32rpx;
+}
+.common-padding{
+    padding:34rpx 30rpx;
+    background:#fff;
+    border-bottom:1rpx solid #EDEDED;
+}
+.common-padding-top{
+    padding:34rpx 0;
+    background:#fff;
+    border-bottom:1rpx solid #EDEDED;
+}
+.withdrawal-balance{
+    margin:20rpx 0;
+}
+.head-img{
+    width:32rpx;
+    height:32rpx;
+    border-radius:50%;
+    margin-right:8rpx;
+}
+.withdrawal-balance{
+    padding:30rpx;
+}
+.content{
+    margin:62rpx 0 32rpx;
+}
+.withdrawal-input{
+    padding-bottom:20rpx;
+    border-bottom:1rpx solid #EDEDED;
+}
+.withdrawal-input input{
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.withdrawal-btn{
+    width: 452rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #7D49FB;
+    border-radius: 10rpx;
+    margin:80rpx auto 0;
+}

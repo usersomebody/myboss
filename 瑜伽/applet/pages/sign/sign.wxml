@@ -1,0 +1,121 @@
+<!--pages/sign/sign.wxml-->
+<view class="container">
+  <view class="header">
+    <image src="{{courseInfo.course_detail.cover_img}}" class="lesson-img"></image>
+  </view>
+  <view class="lesson common-relative">
+    <view class="lesson-title">
+      {{courseInfo.course_detail.name}}
+    </view>
+    <!-- <view class="lesson-info lesson-person">
+      <image src="/imgs/course-icon1.png" class="icon"></image>
+      预约人数{{courseInfo.course_arrangee.preengage_num}}/{{courseInfo.course.max_user}}
+    </view> -->
+    <view class="lesson-info lesson-time">
+      <image src="/imgs/course-icon2.png" class="icon"></image>
+      {{date}} {{courseInfo.start_time}}-{{courseInfo.end_time}}
+    </view>
+    <view class="lesson-info lesson-intro">
+      <image src="/imgs/course-icon3.png" class="icon"></image>
+      课程介绍
+    </view>
+    <view class="intro-item">
+      {{courseInfo.course_detail.synopsis}}
+    </view>
+    <image src="{{courseInfo.course_detail.coach_staff.head_img}}" class="head-img"></image>
+    
+  </view>
+  <view class="member">
+    <!-- <view class="member-title">
+      会员卡信息
+    </view> -->
+    <view class="line"></view>
+    <view class="describe" wx:if="{{courseInfo.show_preengage_member=='2'||(courseInfo.show_preengage_member=='1'&&user_type=='1')}}">
+        <view class="describe_l" >TA们都在约</view>
+        <view class="describe_r" wx:if="{{courseInfo.preengage_status=='2'&&courseInfo.is_open_queue=='1'}}">已约满，当前{{courseInfo.queue_num}}人排队 </view>
+      </view>
+      <view class="num" wx:if="{{courseInfo.show_preengage_member=='2'||(courseInfo.show_preengage_member=='1'&&user_type=='1')}}">
+        <view class="num_round"></view>
+        <text class="num_text">已预约{{courseInfo.preengage_num}}/{{courseInfo.max_user}}</text>
+      </view>
+      <view class="imgone" wx:if="{{cardarrList.length!==0}}">
+        <scroll-view class="categoriesone" scroll-x="true">
+          <view class="date-item " wx:for="{{cardarrList}}" wx:for-item="item" wx:key='index' data-idx="{{index}}"
+            bindtap="checkDate">
+            <view class="date_item_list ">
+              <view class="name bg{{item.type}}">
+              <text>{{item.card_type_name}}</text>
+                <!-- <text wx:if="{{item.type==1}}">期限卡</text>
+                <text wx:if="{{item.type==2}}">次数卡</text>
+                <text wx:if="{{item.type==3}}">储值卡</text>
+                <text wx:if="{{item.type==4}}">计时卡</text> -->
+              </view>
+              <view class="surplus_day bg{{item.type}}">
+                <text wx:if="{{item.type==1}}">剩余天数:</text>
+                <text wx:if="{{item.type==2}}">剩余次数:</text>
+                <text wx:if="{{item.type==3}}">剩余金额:</text>
+                <text wx:if="{{item.type==4}}">剩余时间:</text>
+                <text wx:if="{{item.type==1}}">{{item.remain_days}}天</text>
+                <text wx:if="{{item.type==2}}">{{item.assets_num}}次</text>
+                <text wx:if="{{item.type==3}}">{{item.assets_money}}元</text>
+                <text wx:if="{{item.type==4}}">{{item.assets_time}}分钟</text>
+              </view>
+              <view class="indate bg{{item.type}}">有效期：{{item.use_start_time}} ~ {{item.use_end_time}}</view>
+            </view>
+            <image wx:if="{{item.type==1}}" src="{{timeCard}}"></image>
+            <image wx:if="{{item.type==2}}" src="{{numCard}}"></image>
+            <image wx:if="{{item.type==3}}" src="{{valueCard}}"></image>
+            <image wx:if="{{item.type==4}}" src="{{clockCard}}"></image>
+            <view class="absolute_status bgcolor{{item.type}}" wx:if="{{cardList_status==index}}">
+              <!-- <text>√</text> -->
+              <!-- <image src="/imgs/角标2@2x.png"></image> -->
+            </view>
+          </view>
+        </scroll-view>
+  
+      </view>
+      <view class="img_icon" wx:else>
+        <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/6324685417f8e250e8048e1df5ecb99.png" class="icon"></image>
+        <text>暂无可预约本节课的会员卡</text>
+      </view> 
+    <!-- <view class="member-info">
+      <view class="member-name">{{cardInfo.card_type_name}}</view>
+      <view class="member-number">{{cardInfo.card_number}}</view>
+    </view> -->
+  </view>
+  <view class="warning">
+    <view class="title">温馨提示</view>
+    <!-- <view class="con">上课前一小时，报名人数达到{{courseInfo.course_arrangee.min_user}}人及以上开课~</view> -->
+    <view wx:if="{{tid != 4}}" class="con">上课前{{courseInfo.is_auto_stop_course/60}}分钟，报名人数达到{{courseInfo.min_user}}人及以上开课~</view>
+    <view wx:if="{{tid != 4}}" class="con">请允许我们给你推送开课消息，以免错过上课时间~</view>
+    <view wx:if="{{tid == 4}}" class="font-sm color-99" wx:if="{{bookingCourseType == 4}}">约课待教练确认后会微信通知到会员，请关注。</view>
+  </view>
+  <view wx:if="{{courseInfo.subscribe==3||courseInfo.subscribe==2||courseInfo.subscribe==0}}">
+  </view>
+  
+  <view class="sign sign_red" wx:elif="{{courseInfo.subscribe==6}}">
+    排队中，{{courseInfo.queue}}/{{courseInfo.queue_num}}
+  </view>
+  <view class="sign sign_red" wx:elif="{{status==3}}">
+    已签到
+  </view>
+  <view class="sign" bindtap="sign" wx:else>
+    签到
+  </view>
+</view>
+<view class="cover" wx:if="{{showCover}}">
+  <view class="content">
+    <image src="{{courseInfo.course.cover_img}}" class="cover-bg"></image>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/4989f8345c7b521f64a73c70c99cf7d.png" class="status"></image>
+    <view class="title">签到成功</view>
+    <view class="tip">请开启消息通知
+    </view>
+    <view class="tip">
+      第一时间获取课程信息，迅速抢占名额~
+    </view>
+    <view class="open" bindtap="get_auth">
+      马上开启
+    </view>
+  </view>
+  <image class="close" src="/imgs/close.png" bindtap="closeCover"></image>
+</view>

@@ -1,0 +1,11 @@
+{
+    "component": true,
+    "usingComponents": {
+      "pre-auth": "/components/preAuth/index",
+      "van-icon": "@vant/weapp/icon/index",
+      "tab-bar": "/components/tab-bar/tabbar"
+    },
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  }

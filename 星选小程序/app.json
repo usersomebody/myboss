@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/index",
+    "pages/index/search",
+    "pages/theme/index",
+    "pages/store/index",
+    "pages/productDetail/index",
+    "pages/sample/index",
+    "pages/address/list",
+    "pages/address/add",
+    "pages/order/list",
+    "pages/order/detail",
+    "pages/pushCustomers/index",
+    "pages/withdrawal/index",
+    "pages/customerService/index",
+    "pages/webViewAuth/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "瑜伽",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {},
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#FC5639",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/imgs/home.png",
+        "selectedIconPath": "/imgs/home-selected.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/imgs/my.png",
+        "selectedIconPath": "/imgs/my-selected.png"
+      }
+    ]
+  },
+  "permission": {
+    "pages": [
+      "pages/index/index"
+    ],
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

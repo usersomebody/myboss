@@ -1,0 +1,224 @@
+.index-nav-bg{
+    width:100%;
+    height:460rpx;
+}
+
+.myVipCardTitle{
+    position: absolute;
+    text-align: center;
+    left:0;
+    right:0;
+    margin:0 auto;
+}
+.withdrawal-info-box{
+    /* position: relative; */
+    padding:0 30rpx;
+    /* margin-top:-220rpx; */
+    z-index:1;
+}
+.withdrawal-info{
+    padding:50rpx 32rpx;
+    border-radius:16rpx;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.money-title{
+    margin-bottom:30rpx;
+}
+.money-detail{
+    margin:60rpx 0 56rpx;
+    width:100%;
+}
+.money-item{
+    width:33%;
+    text-align: center;
+}
+.money-item-title{
+    margin-bottom:20rpx;
+}
+.money-item:nth-child(2n){
+    border-right:1rpx solid #ECECEC;
+    border-left:1rpx solid #ECECEC;
+}
+.color-949{
+    color:#949199;
+}
+.color-575{
+    color:#575757;
+}
+.font-36{
+    font-size:72rpx;
+}
+.withdrawal-btn{
+    width: 452rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #7D49FB;
+    border-radius: 10rpx;
+}
+
+.withdrawal-record{
+    margin:50rpx 0 0;
+}
+.record-title{
+    margin-bottom:30rpx;
+    font-weight:600;
+}
+.record-item{
+    padding:30rpx 20rpx;
+    background:#fff;
+    margin-bottom:20rpx;
+    border-radius:16rpx;
+}
+.record-item .left .course-title{
+    margin:20rpx 0;
+}
+.course-remark{
+    margin-top:16rpx;
+}
+.record-item .right{
+    color:#333;
+}
+.record-item .right.active{
+    color:#FF4E36;
+}
+.no-data{
+    flex-direction:column;
+}
+.no-data-img{
+    width:422rpx;
+    height:344rpx;
+    margin-bottom:52rpx;
+}
+.withdrawal-detail{
+    width:100%;
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    margin: auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    z-index:2001;
+    border-radius:20rpx;
+}
+.detail-box{
+    background:#fff;
+    padding:60rpx 0 0;
+    border-radius:16rpx;
+}
+.detail-title{
+    margin-bottom:46rpx;
+}
+.detail-info{
+    padding:0 60rpx;
+    margin:36rpx auto 74rpx;
+}
+.detail-info-item{
+    margin-bottom:30rpx;
+}
+.corporate-Information{
+    padding:20rpx 30rpx;
+    background: #F3F0FA;
+}
+.margin-b-20{
+    margin-bottom:20rpx;
+}
+.close-image{
+    width:42rpx;
+    height:42rpx;
+    margin-bottom:26rpx;
+}
+.no-list-data{
+    padding-top:50rpx;
+    margin:0 auto;
+}
+.no-list-data image{
+    width:424rpx;
+    height:360rpx;
+    margin-bottom:20rpx;
+}
+.back{
+    width:16rpx;
+    height:28rpx;
+    left:20rpx;
+    z-index:99;
+    padding:20rpx;
+  }
+  
+  .back image{
+    width:16rpx;
+    height:28rpx;
+  }
+  .integral-info{
+    position: absolute;
+    top: 200rpx;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .add-integral,.sub-integral{
+    width:28rpx;
+    height:28rpx;
+    margin-right:10rpx;
+  }
+  .btn-box{
+      margin:20rpx 0 34rpx;
+  }
+  .btn-bg{
+      background:rgba(255,255,255,.3);
+      padding:18rpx 22rpx 18rpx 28rpx;
+      border-radius:40rpx;
+      margin:0 30rpx;
+  }
+  .color-e9e{
+      color:#e9e0fd;
+  }
+  .font-72{
+      font-size:72rpx;
+  }
+  .money-symbol{
+      width:32rpx;
+      height:32rpx;
+  }
+  .detail-btn .btn{
+      padding:36rpx 0;
+      width:50%;
+      color:#333;
+      border-top:1rpx solid #DFE0E6;
+  }
+  .inputbox{
+    padding:30rpx 20rpx;
+    width:360rpx;
+    border-radius:10rpx;
+  }
+  .memo{
+      padding:30rpx 20rpx;
+      width:360rpx;
+      height:100rpx;
+      border-radius:10rpx;
+    }
+  .common-bg{
+      background:#F6F6FA;
+  }
+  .info{
+      margin-top:20rpx;
+  }
+  .action-title{
+      width:130rpx;
+      margin-right:30rpx;
+
+  }
+  .detail-btn .btn:last-child{
+      color:#576B95;
+      border-left:1rpx solid #DFE0E6;
+  }
+  .money-symbol{
+      margin-left:10rpx;
+  }

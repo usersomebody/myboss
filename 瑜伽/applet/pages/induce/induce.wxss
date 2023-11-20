@@ -1,0 +1,8 @@
+/* pages/induce/induce.wxss */
+.container{
+  height: 100vh;
+}
+.induce {
+  width: auto;
+  height: 100%;
+}

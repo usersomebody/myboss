@@ -1,0 +1,204 @@
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+    <view class="vip-info">
+        <view class="info-content flex-box common-relative" catchtap="userDetail">
+            <view class="avatar flex-shrink"><image src="{{userInfo.head_img}}"></image></view>
+            <view class="info">
+                <view class="item font-md flex-box flex-a-center">
+                    <text class="title color-333 width-30">会员名：</text>
+                    <text class="title color-666">{{userInfo.name}}</text>
+                </view>
+                <view class="item font-md flex-box flex-a-center">
+                    <text class="title color-333 width-30">微信昵称：</text>
+                    <text class="title color-666">{{userInfo.nickname}}</text>
+                </view>
+                <view class="item font-md flex-box flex-a-center">
+                    <text class="title color-333 width-30">手机号：</text>
+                    <text class="title color-666">{{userInfo.phone}}</text>
+                </view>
+                <view class="item font-md flex-box flex-a-center">
+                    <text class="title color-333 width-30">时间：</text>
+                    <text class="title color-666">{{userInfo.create_time}}</text>
+                </view>
+            </view>
+            <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+            <!-- <image src="../../imgs/arrow-r.png" class="right-image"></image> -->
+        </view>
+        <view class="star-btn flex-box flex-a-center flex-j-between" >
+            <view class="star-btn-info flex-box flex-a-center">
+                <view class="integral font-md color-333 flex-box flex-a-center" bindtap="goIntegral">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211210/0688078142346a1702ff604df06487f4.png"></image>
+                    积分
+                </view>
+                <view class="integral font-md color-333 flex-box flex-a-center" >
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211210/2576cd0d62b238269808cb49d68cc2e5.png"></image>
+                    跟进
+                </view>
+            </view>
+            <view class="set-btn color-white font-md" bindtap="settingUserStar">{{userInfo.is_star && userInfo.is_star == 1 ? '取消星标会员' : '设为星标会员'}}</view>
+        </view>
+    </view>
+    <view class="vipCard-course">
+        <view class="switchTab flex-box flex-a-center flex-j-between bg-white">
+            <view class="switch-item font-sm color-666 {{switchId == item.id ? 'active' : ''}}" wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+        </view>
+        <view class="tab-list" style="min-height:67vh;">
+            <!-- 会员卡列表 -->
+            <view wx:if="{{switchId == 1}}" class="card-list">
+                <view class="send-card-btn font-md" bindtap="addCard">发卡</view>
+                <view class="card-item common-relative bg-white" wx:for="{{cardList}}" wx:key="index" data-item="{{item}}" bindtap="checkCardInfo">
+                    <view class="flex-box flex-a-center common-relative">
+                        <view class="card-image flex-shrink">
+                            <image class="card-img" src="{{item.card_image}}"></image>
+                            <view class="cardType-name font-sm" style="color:{{cardType[item.type].color}}">{{cardType[item.type].type}}</view>
+                            <!-- <image class="card-status" src=""></image> -->
+                            <view class="card-status font-base text-center color-white" style="background:{{statusMap[item.status].color}}">{{item.status == 3 && item.is_leave ? '请假中' : statusMap[item.status].name}}</view>
+                        </view>
+                        <view class="card-info">
+                            <view class="item font-md flex-box flex-a-center">
+                                <text class="color-333">卡名称：</text>
+                                <text class="color-666">{{item.card_type_name}}</text>
+                            </view>
+                            <view class="item second font-md flex-box flex-a-center">
+                                <text class="color-333">剩余：</text>
+                                <text class="color-666">{{item[cardType[item.type].key]}}{{cardType[item.type].symbol}}</text>
+                            </view>
+                            <view class="item font-md flex-box flex-a-center">
+                                <text class="color-333">有效期至：</text>
+                                <text class="color-666 font-sm">{{item.use_end_time}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="card-action-list font-md color-666 flex-box flex-a-center flex-j-end">
+                        <view wx:if="{{item.status == 3 && !item.is_leave}}" class="card-action flex-box flex-a-center un-bind-card font-md color-666" data-id="{{item.id}}" catchtap="relieve"><image class="relieve" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/1bcab1f13a2225d93a4b28446b56a877.png"></image>解除停卡</view>
+                        <view wx:if="{{item.is_leave}}" class="card-action flex-box flex-a-center end-leave font-md color-666" data-id="{{item.id}}" catchtap="leaveOver"><image class="leaveOver" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/6a4399c560f842616cdad76a12d34a57.png"></image>结束请假</view>
+                        <view class="card-action flex-box flex-a-center del-card font-md color-666" data-id="{{item.id}}" catchtap="delCard"><image class="delCard" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/5ba1329e3dda65ed06784131a250a4e5.png"></image>删除</view>
+                    </view>
+                    <!-- <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view> -->
+                </view>
+                <view wx:if="{{!cardList.length && switchId == 1 && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/cf26c677ddd15ece873e7513ec2a85e0.png"></image>
+                    <view class="font-sm color-999">暂无数据</view>
+                </view>
+            </view>
+            <!-- 预约课程 -->
+            <view wx:elif="{{switchId == 2}}" class="booking-list">
+                <view wx:if="{{bookingList.length}}" class="booking-item common-relative" wx:for="{{bookingList}}" wx:key="index">
+                    <view class="booking-info">
+                        <view class="item font-md flex-box">
+                            <text class="color-333 width-25">课程名称：</text>
+                            <text class="color-666 width-60">{{item.name}}</text>
+                        </view>
+                        <view class="item font-md flex-box">
+                            <text class="color-333 width-25%">老师：</text>
+                            <text class="color-666 width-60%">{{item.coach_staff_name}}</text>
+                        </view>
+                        <view class="item font-md flex-box">
+                            <text class="color-333 width-25%">卡名称：</text>
+                            <text class="color-666 width-60%">{{item.card_type_name}}</text>
+                        </view>
+                        <view wx:if="{{item.type != 1}}" class="item font-md flex-box">
+                            <text class="color-333 width-25%">消耗：</text>
+                            <text class="color-666 width-60%">本次消耗{{item[cardType[item.type].sale]}}{{cardType[item.type].symbol}},剩余{{item[cardType[item.type].key]}}{{cardType[item.type].symbol}}</text>
+                        </view>
+                        <view class="item font-md flex-box">
+                            <text class="color-333 width-25%">预约时间：</text>
+                            <text class="color-666 width-60%">{{item.create_time}}</text>
+                        </view>
+                        <view class="item font-md flex-box">
+                            <text class="color-333 width-25%">上课时间：</text>
+                            <text class="color-666 width-60%">{{item.start_time}}</text>
+                        </view>
+                    </view>
+                    <view class="course-sign font-sm color-white">{{item.course_type_name}}</view>
+                    <view class="booking-status"><image class="booking-img" src="{{status[item.status]}}"></image></view>
+                </view>
+
+                <view wx:if="{{!bookingList.length && switchId == 2 && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/d06d78bcc91d10c39105fece512894fe.png"></image>
+                    <view class="font-sm color-999">暂无约课数据</view>
+                </view>
+            </view>
+            <!-- 卡管理 -->
+            <view wx:elif="{{switchId == 3}}" class="card-operation flex-box flex-a-center ">
+                <view class="card-operation-item flex-box flex-v-type flex-a-center flex-j-center" wx:for="{{operationList}}" wx:key="index" data-type="{{item.id}}" bindtap="cardOperation">
+                    <image class="operation-cover" src="{{item.cover}}"></image>
+                    <view class="font-md color-333 operation-name">{{item.name}}</view>
+                </view>
+            </view>
+            <!-- 体测数据 -->
+            <view wx:elif="{{switchId == 4}}" class="body-data">
+                <view class="body-action-btn flex-box flex-a-center">
+                    <view class="body-btn font-md" bindtap="addRecord">新增记录</view>
+                    <view class="body-btn font-md" bindtap="toggleBox">数据变化趋势</view>
+                </view>
+                <view class="bodyData-list">
+                    <view class="bodyData-item" wx:for="{{bodyDataList}}" wx:key="index">
+                        <view class="head flex-box flex-a-center flex-j-between">
+                            <view class="left flex-box flex-a-center">
+                                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211227/90b481dc3e836946dcd96daef0112551.png"></image>
+                                <view class="created-time font-sm color-242">{{item.fitness_test_time}}</view>
+                            </view>
+                            <view class="right flex-box flex-a-center" data-id="{{item.id}}" bindtap="checkBodyDetail">
+                                <view class="more-data font-sm">查看更多数据</view>
+                                <view class="right-icons"><image src="../../imgs/arrow-r.png"></image></view>
+                            </view>
+                        </view>
+                        <view class="content flex-box flex-a-center flex-j-between">
+                            <view class="common-padding weight flex-box flex-a-center">
+                                <image class="content-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/c6757487364f4ef81b50720ffcf7d528.png"></image>
+                                <view>
+                                    <view class="color-343 font-md mg-bottom">体重</view>
+                                    <view><text class="font-lger color-1a0 font-weight">{{item.weight}}</text><text class="font-sm color-584 pd-left">kg</text></view>
+                                </view>
+                            </view>
+                            <view class="common-padding height flex-box flex-a-center">
+                                <image class="content-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/a64548450f0660a3d165b3d95d111bf0.png"></image>
+                                <view>
+                                    <view class="color-343 font-md mg-bottom">身高</view>
+                                    <view><text class="font-lger color-1a0 font-weight">{{item.height}}</text><text class="font-sm color-584 pd-left">cm</text></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="bottom flex-box flex-a-center flex-j-between">
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{item.best_weight}}</text><text class="font-sm">kg</text></view>
+                                <view class="color-999 font-sm text-center">理想体重</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{item.body_fat}}</text></view>
+                                <view class="color-999 font-sm text-center">体脂率</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{item.bmi}}</text></view>
+                                <view class="color-999 font-sm text-center">BMI</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{item.basal_metabolism}}</text></view>
+                                <view class="color-999 font-sm text-center">基础代谢</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:if="{{!bodyDataList.length && switchId == 4}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/cae4554857fb1f9bcfdcd5c5063c4ba1.png"></image>
+                        <view class="font-sm color-999">暂无体测数据</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{switchId == 2}}" hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="toggleBox"></view>
+<view wx:if="{{showOverlayer}}" class="data-change-box">
+    <view class="shadow-box">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/2245e8455dfcebf647052beb85fa92d0.png" class="head-img"></image>
+        <view class="head-title font-lg color-333">选择对比项目类型</view>
+        <view class="common-btn img color-white" data-type="1" bindtap="next">体测图片对比</view>
+        <view class="common-btn color-white" data-type="2" bindtap="next">身体数据对比</view>
+    </view>
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/4d2d1b9295c32994cd5fa3badd75ae63.png" class="close-btn" bindtap="toggleBox"></image>
+</view>
+<!-- <view bindtap="addCard" class="add-card"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/c0b4e3d8211f5e74a1f4abbb7fbd50e4.png"></image></view> -->

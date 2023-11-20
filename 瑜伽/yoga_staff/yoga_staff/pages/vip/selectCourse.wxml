@@ -1,0 +1,6 @@
+<view class="container" wx:if="{{isLoad}}">
+    <view class="course-list bg-white flex-box flex-a-center">
+        <view wx:for="{{course}}" wx:key="index" class="course-item font-md color-666  {{item.checked ? 'active' : ''}}" data-id="{{item.id}}" bindtap="switch">{{item.name}}</view>
+    </view>
+    <view class="btn" bindtap="save">保存</view>
+</view>

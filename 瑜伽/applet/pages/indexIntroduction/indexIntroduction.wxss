@@ -1,0 +1,35 @@
+/* pages/indexIntroduction/indexIntroduction.wxss */
+.container {
+  background: #EFFCFA;
+  padding: 26rpx 24rpx 118rpx;
+}
+
+.index-item {
+  margin-bottom: 26rpx;
+  padding: 98rpx 24rpx 24rpx;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 10rpx;
+  background: #FFFFFF;
+}
+
+.index-item .index-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 272rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  padding-left: 24rpx;
+  box-sizing: border-box;
+  background: #E8FFFC;
+  border-radius: 10px 0px 76px 0px;
+  color: #21DBC3;
+  font-size: 32rpx;
+}
+
+.index-item .index-content {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #666666;
+}

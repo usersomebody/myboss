@@ -1,0 +1,124 @@
+<view class="container {{isIphoneX ? 'iphonex-style' : ''}}">
+    <view class="li flex-box flex-a-center flex-j-between {{ index == showlist.length - 1 ? 'border-none' : ''}}" wx:for="{{showlist}}" wx:key="index">
+        <view class="item-label font-md color-333 bold">{{item.name}}</view>
+        <view class="item-value flex-box flex-a-center" data-item="{{item}}" bindtap="toggelePopup">
+            <view wx:if="{{item.inputBox}}" class="value-placeholder font-sm color-999 "><input always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-999'}}" type="text"  style="width:{{item.key == 'buying_price' ? '400rpx' : ''}}" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+            <view wx:elif="{{item.key == 'desc_img'}}" class="upload">
+                <view wx:if="{{!item.value}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                    <view class="font-lg">+</view>
+                    <view>上传图片</view>
+                </view>
+                <image wx:else src="{{item.value}}" bindtap="getImg"></image>
+                <view class="tailoring" wx:if="{{imgSrc}}">
+                    <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                    
+                    <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                    <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                </view>
+            </view>
+            <view wx:elif="{{item.key == 'rule_imgs'}}" class="upload flex-box flex-a-center">
+                
+                <!-- <view wx:if="{{filePath.length < 5}}" class="choose-img flex-wrap img-item pull-left" bindtap="getImg">
+                    <image src="../../image/icon_camera.png" class="icon icon-camera"></image>
+                </view> -->
+                <view class="flex-box flex-a-center rulers-imgs">
+                    <view class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                        <image src="{{itm}}"></image>
+                        <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                    </view>
+                    <view class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                </view>
+                
+            </view>
+            <view wx:elif="{{item.key != 'rule'}}" class="value-placeholder font-sm {{item.value ? 'color-504' : 'color-999'}}">{{item.value ? item.value : item.placeholder}}</view>
+            <view wx:else class="value-placeholder font-sm color-999"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="rule" bindinput="getMemoValue"></textarea></view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view class="font-base color-999"><text class="color-e83">注：</text>每次助力的数值为最少和最大助力值之间的随机数，系统将自动计算每次助力的数值</view>
+    <view class="add-btn" wx:if="{{isAction == 2}}">
+        <view class="cancle btn font-lg" bindtap="cancle">取消</view>
+        <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+    </view>
+    <!-- 遮挡层 -->
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{popupShow ? 'show' : ''}}" bindtap="close"></view>
+    <view wx:if="{{popupShow}}" class="popup-box">
+        <view class="popup-content bg-white">
+            <view class="name font-md color-333">{{popupData.name}}</view>
+            <view class="spceing" wx:if="{{popupData.key == 'card_id' || popupData.key == 'card_use_type'}}">
+                <!-- 搜索框 -->
+                <view wx:if="{{popupData.key == 'card_id'}}" class="input-box flex-box flex-a-center common-relative"><image class="search-image-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-icon.png"></image><input class="font-md" type="text" value="{{searchWord}}" bindinput="searchCourseResult" placeholder="请输入卡名称" placeholder-class="search-place-style"/><view class="searc-btn color-333 font-lg" bindtap="getVipCardList">搜索</view></view>
+                <!-- 选择框的公共样式 -->
+                <scroll-view scroll-y="{{true}}" style="max-height:400rpx;">
+                    <view class="list flex-box flex-a-center" >
+                        <view wx:if="{{showData.length}}" class="li-item color-333 text-center font-md one-line {{item.id == checkedId  ? 'active' : ''}}" wx:for="{{showData}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" data-key="{{showKey}}" bindtap="switchTab">{{item.name}}</view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="dateTime" wx:if="{{popupData.key == 'start_time' || popupData.key == 'end_time'}}">
+                <!-- 选择日期 -->
+                <view class="date">
+                    <view class="selectTime font-sm flex-box flex-a-center" ><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-date-icon.png"></image><text>{{currentChecked ? currentChecked : '选择时间'}}</text></view>
+                    <view wx:if="{{dateShow}}" class="date-self-box common-relative flex-box">
+                        <view class="triggle"></view>
+                        <view class="calendar common-relative">
+                            <view class="flex-box flex-a-center flex-j-center">
+                            <view class="yearMonth">
+                                <view class="yearMonth">
+                                    <view class="switch-left left" data-type="3" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                                    <view class="switch-left left" style="margin-left:26rpx;" data-type="1" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>
+                                    <view class="con">{{year}}年{{month}}月</view>
+                                    <view class="switch-left" style="margin-right:26rpx;" data-type="2" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>     
+                                    <view class="switch-left" data-type="4" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                                </view>
+                            </view>
+                            <!-- <view class="font-lg color-69" bindtap="checkBirth">确定</view> -->
+                            </view>
+                            <view class="week">
+                                <view class="week-item {{index % 6 == 0 ? 'last' : '' }}" wx:for='{{week}}' wx:key='index'>{{item}}</view>
+                            </view>
+                            <view class="day">
+                                <view class="day-item {{( index + 1 ) % 7 == 0 ? 'last' : ''}} {{currentChecked == item.date ? 'isToday' : '' }}"
+                                    wx:for='{{dateArr}}' wx:key='index' bindtap="checkDay" data-date="{{item.date}}">
+                                    <view class="day-num">{{item.day}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="select-time-style">
+                            <view class="select-time-title text-center font-base color-333">选择时间</view>
+                            <view wx:if="{{showDate}}" class="date-time-picker common-relative">
+                                <view class="date-time-list left">
+                                    <swiper wx:if="{{hoursList.length}}" vertical="{{true}}" data-type="1" current="{{swiperHoursIdx}}" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}"> 
+                                        <block wx:for="{{hoursList}}" wx:key="index">
+                                        <swiper-item>
+                                            <view class="swiper-item font-base {{swiperHoursIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                                        </swiper-item>
+                                        </block>
+                                    </swiper>
+                                </view>
+                                <view class="date-time-list right" >
+                                    <swiper wx:if="{{minutesList.length}}" vertical="{{true}}" current="{{swiperMinutesIdx}}" data-type="2" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}">
+                                        <block wx:for="{{minutesList}}" wx:key="index">
+                                        <swiper-item>
+                                            <view class="swiper-item font-base {{swiperMinutesIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                                        </swiper-item>
+                                        </block>
+                                    </swiper>
+                                </view>
+                                <!-- 两根线 -->
+                                <view class="time-line top"></view>
+                                <view class="time-line bottom"></view>
+                            </view>   
+                        </view>
+                        
+                    </view>
+                </view>
+                
+            </view>
+            <view class="saveBtn color-white font-lg" bindtap="saveData">保存</view>
+        </view>
+    </view>
+</view>

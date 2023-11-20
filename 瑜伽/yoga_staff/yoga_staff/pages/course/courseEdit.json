@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "common-popup": "/components/common-popup/index",
+        "image-cropper": "../../components/image-cropper/image-cropper",
+        "van-rate": "@vant/weapp/rate/index"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "新增课程"
+  }

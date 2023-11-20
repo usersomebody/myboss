@@ -1,0 +1,57 @@
+<view class="container bg-white">
+    <view class="info-title font-lger color-333">{{detail.title}}</view>
+    <view class="store-info flex-box flex-a-center flex-j-between">
+        <view class="left flex-box flex-a-center">
+            <view class="logo"><image src="{{current_store_info.brand_logo || 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211208/8df6efd87fbb544fa545013b5337460f.png'}}"></image></view>
+            <view class="store-name font-md color-333">{{current_store_info.name}}</view>
+        </view>
+        <view class="call-btn font-sm color-white" data-phone="{{current_store_info.phone}}" bindtap="callPhone">联系TA</view>
+    </view>
+    <view class="store-qrcode">
+        <!-- <template is="wxParse" data="{{wxParseData:content.nodes}}" /> -->
+        <!-- //老版本 -->
+        <rich-text nodes="{{detail.detail}}" space="emsp"></rich-text>
+    </view>
+    <view class="en-qr-code">
+        <image wx:if="{{detail.diy_info.qr_merge_img}}" show-menu-by-longpress="true" src="{{detail.diy_info.qr_merge_img}}"></image>
+    </view>
+    <view class="read-num font-md color-99">阅读{{detail.read_num}}</view>
+    <!-- 点赞分享 -->
+    <view class="action flex-box flex-a-center">
+        <view class="share flex-box flex-a-center">
+            <button open-type="share" class="font-md base-must-color">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211108/70bd494628e1e32e3ceccbea54f08298.png"></image>
+                分享
+            </button>
+        </view>
+        <view class="praise flex-box flex-a-center" bindtap="handlePraise">
+            <image src="{{like[detail.like]}}"></image>
+            <view class="font-md base-must-color">点赞{{detail.like_all_num}}</view>
+        </view>
+    </view>
+    <view class="font-md color-66" style="margin-bottom:62rpx;">{{detail.share_desc}}</view>
+    <view wx:if="{{detail.diy_info.card_merge_img}}" class="business-card common-relative">
+        <image src="{{detail.diy_info.card_merge_img}}"></image>
+        <view class="call-phone" data-phone="{{detail.diy_info.phone}}" bindtap="callPhone"></view>
+    </view>
+    <!-- 默认店铺信息图 -->
+    <view wx:if="{{!detail.diy_info.card_merge_img}}" class="store-info-picture common-relative">
+        <image class="bg-picture" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/6acbfa60188d166d393d04e8cc8ef1be.png"></image>
+        <view class="call-phone" data-phone="{{detail.diy_info.phone}}" bindtap="callPhone"></view>
+        <view class="detail">
+            <view class="head-logo flex-box flex-a-center">
+                <image class="logo" src="{{detail.diy_info.brand_logo || current_store_info.brand_logo || 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211208/8df6efd87fbb544fa545013b5337460f.png'}}"></image>
+                <view class="detail-name font-lg color-333 font-weight">{{detail.diy_info.name}}</view>
+            </view>
+            <view class="content-city">
+                <view class="content-phone font-md color-66">{{detail.diy_info.phone}}</view>
+                <view class="content-address font-md color-66">{{detail.diy_info.address}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<article-poster wx:if="{{showPoster}}" redirectUrl="{{redirectUrl}}" articleCover="{{detail.thumb}}" title="{{detail.title}}" shareDesc="{{detail.share_desc}}" posterContent="{{posterContent}}" infoId="{{infoId}}" sid="{{sid}}" bind:drawPoster="toggleCanvas"></article-poster>
+<!-- 分享按钮 -->
+<view class="share-icon">
+    <image bindtap="toggleCanvas" class="share-icon-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220315/f38d8a2f0ec4eabda3e57929f7407745.png"></image>
+</view>

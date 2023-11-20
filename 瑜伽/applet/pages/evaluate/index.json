@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-rate": "@vant/weapp/rate/index",
+        "van-progress": "@vant/weapp/progress/index"
+    },
+    "navigationBarTitleText": "评价详情",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

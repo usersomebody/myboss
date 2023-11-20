@@ -1,0 +1,6 @@
+<view class="container">
+    <view class="content font-md color-666">{{guideInfo.content}}</view>
+    <view class="img-list">
+        <image wx:for="{{guideInfo.content_imgs}}" mode="widthFix" src="{{item}}" data-link="{{item}}" bindtap="previewImg"></image>
+    </view>
+</view>

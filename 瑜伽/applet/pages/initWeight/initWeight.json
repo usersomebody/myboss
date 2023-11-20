@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scale":"/components/wx-scale/wx-scale"
+  },
+  "navigationBarTitleText": "初始体重"
+}

@@ -1,0 +1,93 @@
+<view class="popup-box">
+    <view class="popup-content bg-white">
+        <view class="name font-md color-333">{{name}}</view>
+        <view class="spceing">
+            <!-- 搜索框 -->
+            <view wx:if="{{key == 2}}" class="input-box flex-box flex-a-center common-relative"><image class="search-image-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-icon.png"></image><input class="font-md" type="text" value="{{searchWord}}" bindinput="searchCourseResult" placeholder="请输入课程名称" placeholder-class="search-place-style"/><view class="searc-btn color-333 font-lg" bindtap="search">搜索</view></view>
+            <!-- 选择框的公共样式 -->
+            <view class="list flex-box flex-a-center">
+                <block wx:if="{{showList && key == 2 && courseType == 4}}">
+                    <view class="li-item color-333 text-center font-md one-line {{item.checked ? 'active' : ''}}" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" bindtap="switchTab">
+                        {{item.name}}
+                    </view>
+                </block>
+                <block wx:elif="{{showList}}">
+                    <view class="li-item color-333 text-center font-md one-line {{item.id == checkedId && key != 10 ? 'active' : ''}}" style="background:{{key == 10 ? item : ''}}" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" data-item="{{item}}" bindtap="switchTab">
+                        <view wx:if="{{key == 10 && item == checkedId }}" class="sign-symbol font-base color-white"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/correct-icon.png"></image></view>
+                        {{key == 10 ? '' : item.name}}
+                    </view>
+                </block>
+            </view>
+            <!-- 选择日期 -->
+            <view wx:if="{{key == 5}}" class="date padding-l-56">
+                <view class="selectTime font-sm flex-box flex-a-center" bindtap='toggleDatePickr'><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-date-icon.png"></image><text>{{currentChecked ? currentChecked : '选择时间'}}</text></view>
+                <view wx:if="{{dateShow}}" class="date-self-box common-relative">
+                    <view class="triggle"></view>
+                    <view class="calendar common-relative">
+                        <view class="flex-box flex-a-center flex-j-center">
+                        <view class="yearMonth">
+                            <view class="yearMonth">
+                                <view class="switch-left left" data-type="3" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                                <view class="switch-left left" style="margin-left:26rpx;" data-type="1" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>
+                                <view class="con">{{year}}年{{month}}月</view>
+                                <view class="switch-left" style="margin-right:26rpx;" data-type="2" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image></view>     
+                                <view class="switch-left" data-type="4" bindtap="toggleDate"><image src="../../imgs/arrow-r.png"></image><image src="../../imgs/arrow-r.png"></image></view>
+                            </view>
+                        </view>
+                        <!-- <view class="font-lg color-69" bindtap="checkBirth">确定</view> -->
+                        </view>
+                        <view class="week">
+                            <view class="week-item {{index % 6 == 0 ? 'last' : '' }}" wx:for='{{week}}' wx:key='index'>{{item}}</view>
+                        </view>
+                        <view class="day">
+                            <view class="day-item {{( index + 1 ) % 7 == 0 ? 'last' : ''}} {{currentChecked == item.date ? 'isToday' : '' }}"
+                                wx:for='{{dateArr}}' wx:key='index' bindtap="checkDay" data-date="{{item.date}}">
+                                <view class="day-num">{{item.day}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 开始时间 -->
+            <view wx:if="{{key == 6 || key == 7}}" class="time padding-l-56">
+                <view class="selectTime font-sm flex-box flex-a-center" bindtap='toggleDatePickr'>
+                    <image class="time-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/search-time-icon.png"></image>
+                    <view>{{currentDate ? currentDate : '选择时间'}}</view>
+                </view>
+                <!-- 时间控件 -->
+                <view wx:if="{{showDate}}" class="date-time-picker common-relative">
+                    <view class="date-time-list left">
+                        <swiper wx:if="{{hoursList.length}}" vertical="{{true}}" data-type="1" current="{{swiperHoursIdx}}" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}"> 
+                            <block wx:for="{{hoursList}}" wx:key="index">
+                            <swiper-item>
+                                <view class="swiper-item font-lg {{swiperHoursIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                            </swiper-item>
+                            </block>
+                        </swiper>
+                    </view>
+                    <view class="date-time-list right" >
+                        <swiper wx:if="{{minutesList.length}}" vertical="{{true}}" current="{{swiperMinutesIdx}}" data-type="2" bindchange="getTimeValue" display-multiple-items="5"  previous-margin="50" circular="{{true}}">
+                            <block wx:for="{{minutesList}}" wx:key="index">
+                            <swiper-item>
+                                <view class="swiper-item font-lg {{swiperMinutesIdx == index ? 'color-333 font-weight' : 'color-ccc'}}">{{item}}</view>
+                            </swiper-item>
+                            </block>
+                        </swiper>
+                    </view>
+                    <!-- 两根线 -->
+                    <view class="time-line top"></view>
+                    <view class="time-line bottom"></view>
+                </view>
+            </view>
+            <!-- 最大最小值 -->
+            <view wx:if="{{key == 8 || key == 9}}" class="max-min">
+                <view class="personal-numer flex-box flex-a-center flex-j-center">
+                    <!-- <view class="label font-md color-666">{{key == 8 ? '最小人数：' : '最大人数：'}}</view> -->
+                    <view class="number-input flex-box flex-a-center"><input type="number" value="{{numberValue}}" bindinput="getNumberValue" placeholder="{{key == 8 ? '请输入最小人数' : '请输入最大人数'}}" placeholder-class="max-min-style font-sm"/><view class="font-md color" bindtap="delete"><image class="delete" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211020/6ce5e48eea0f3e22caf5b54e3266c91a.png"></image></view></view>
+                </view>
+            </view>
+        </view>
+
+        <view class="saveBtn color-white font-lg" bindtap="saveData">保存</view>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="progress flex-box flex-a-center flex-j-between">
+    <view class="initial font-md color-black">￥{{initialPrice}}</view>
+    <view class="current common-relative">
+        <view class="progress-bg"></view>
+        <view class="progress-fill-bg" style="width:{{width}}"></view>
+        <view class="progress-current-price font-sm">已冲顶{{currentPrice}}元</view>
+    </view>
+    <view class="end">￥{{endPrice}}</view>
+</view>

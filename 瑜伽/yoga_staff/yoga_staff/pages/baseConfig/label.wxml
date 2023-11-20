@@ -1,0 +1,18 @@
+<view class="container">
+        <view class="classroom-list">
+            <view wx:for="{{list}}" wx:key="index">
+                <view class="label-title flex-box flex-a-center flex-j-between">
+                    <view class="font-lg color-333">{{item.name}}</view>
+                    <view class="add-btn font-md" data-type="{{item.type}}" bindtap="addModal">+ 新增</view>
+                </view>
+                <view class="classroom-item flex-box flex-a-center flex-j-between bg-white" wx:for="{{item.arr}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                    <view class="left flex-box flex-a-center">
+                        <view class="font-lg color-333">{{itm.name}}</view>
+                        <image class="edit-btn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211228/2ed856734fe9434b22786ebe8f223e9d.png" data-id="{{itm.id}}" data-item="{{itm}}" data-type="{{item.type}}" bindtap="showModal"></image>
+                        <image class="del-icon font-size color-red" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211222/2fe41b10df81dbfc811d81cefcde2531.png" data-item="{{itm}}" data-id="{{itm.id}}" data-type="{{item.type}}" bindtap="delClassroom"></image>
+                    </view>
+                    <switch bindchange="switchChange" data-id="{{itm.id}}" data-item="{{itm}}" data-type="{{item.type}}" checked="{{itm.status == 1 ? true : false}}" color="#9B77F4"></switch>
+                </view>
+            </view>
+        </view>
+    </view>

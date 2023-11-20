@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="base-config-list">
+        <view class="config-item flex-box flex-a-center flex-j-between {{item.isHasMargin ? 'margin-b-20' : ''}}" wx:for="{{configList}}" wx:key="index" data-link="{{item.link}}" bindtap="nextDetail">
+            <view class="left flex-box flex-a-center">
+                <image class="config-icon" style="width:{{item.width}};height:{{item.height}}" src="{{item.cover}}"></image>
+                <view class="color-4b4 font-lg">{{item.name}}</view>
+            </view>
+            <image class="right-icon" src="../../imgs/arrow-r.png"></image>
+        </view>
+    </view>
+</view>

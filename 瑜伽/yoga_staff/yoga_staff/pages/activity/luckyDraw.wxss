@@ -1,0 +1,599 @@
+/* pages/activity/help.wxss */
+.container{
+    padding-bottom:40rpx;
+    
+}
+.show-list-lis{
+    padding:0 30rpx;
+    background:#fff;
+}
+.base-title{
+    padding:20rpx 30rpx;
+}
+.li{
+    padding:28rpx 0 30rpx;
+    border-bottom:2rpx solid #E2E3E8;
+}
+
+.border-none{
+    border-bottom:none;
+}
+.li .item-value{
+    width:70%;
+    justify-content: flex-end;
+}
+.li .style-type-two{
+    margin-top:20rpx;
+}
+.value-placeholder{
+    margin-right:16rpx;
+}
+
+.right-icon image{
+    width:10rpx;
+    height:18rpx;
+}
+
+.color-block{
+    width:60rpx;
+    height:30rpx;
+}
+
+.color-e83{
+    color:#E83926!important;
+}
+
+.memo{
+    width:500rpx;
+    height:176rpx;
+    padding:10rpx 20rpx;
+    border:1rpx solid #C5C5C5;
+    border-radius:4rpx;
+}
+
+.color-d2d{
+    color:#D2D2D2;
+}
+
+.popup-box{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:2001;
+}
+
+.popup-content{
+    padding:24rpx 30rpx;
+    border-radius:0 0 20rpx 20rpx;
+}
+
+.spceing{
+    margin-top:16rpx;
+    
+}
+
+.input-box{
+    margin:20rpx 0 34rpx;
+}
+
+.input-box input{
+    padding-left:13%;
+    width: 70%;
+    height:60rpx;
+    line-height: 60rpx;
+    text-indent: 10rpx;
+    background:#F2F2F2;
+    color:#333;
+    border-radius:40rpx;
+}
+
+.searc-btn{
+    margin-left:32rpx;
+}
+
+.list{
+    flex-wrap: wrap;
+}
+
+.list .li-item{
+    position: relative;
+    width: 154rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    border-radius:6rpx;
+    background:#F2F2F2;
+    margin-right:22rpx;
+    margin-bottom:26rpx;
+    box-sizing: border-box;
+}
+
+.list .li-item:nth-child(4n){
+    margin-right:0;
+}
+
+.list .li-item.active{
+    background:#F2EEFF;
+    border:2rpx solid #9169FB;
+    color:#9169FB;
+}
+
+.saveBtn{
+    position: relative;
+    z-index:99;
+    width: 550rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background: #7D49FB;
+    text-align: center;
+    border-radius: 10rpx;
+    margin:18rpx auto 0;
+}
+
+.sign-symbol{
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+.sign-symbol image{
+    width:20rpx;
+    height:15rpx;
+}
+
+.search-place-style{
+    color:#D2D2D2;
+    padding-left:70rpx;
+}
+
+.add-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:60rpx;
+}
+
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+.search-image-icon{
+    position: absolute;
+    left:40rpx;
+    width:26rpx;
+    height:26rpx;
+    margin-right:20rpx;
+}
+
+.use-time-input{
+    width:65%;
+    padding-left:5%;
+    height: 70rpx;
+    line-height: 70rpx;
+    border:1rpx solid #DCDFE6;
+    border-radius:4rpx;
+}
+.use-time-place{
+    color:#D2D2D2;
+}
+.disable{
+    background:#999;
+}
+
+.del-btn{
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    width:100%;
+    bottom:0;
+    left:0;
+    padding: 2rpx 0;
+    color: #fff;
+}
+.rulers-imgs{
+    flex-wrap: wrap;
+}
+.rule-img{
+    margin-right:10rpx;
+    margin-bottom:10rpx;
+}
+
+
+
+
+
+
+
+
+
+
+/* 日期 */
+.selectTime{
+    width: 378rpx;
+    height: 70rpx;
+    line-height:70rpx;
+    background: #FFFFFF;
+    border: 2rpx solid #DCDFE6;
+    border-radius: 4rpx;
+    color:#C0C4CC;
+    padding-left:20rpx;
+}
+.selectTime image{
+    width:20rpx;
+    height:20rpx;
+    margin-right:16rpx;
+}
+.selectTime .time-icon{
+    width:22rpx;
+    height:22rpx;
+    margin-right:16rpx;
+}
+.padding-l-56{
+    padding-left:56rpx;
+}
+.date{
+    position: relative;
+    margin-bottom:54rpx;
+}
+.date-self-box{
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+    margin-top:20rpx;
+  }
+  
+  .calendar {
+    width:505rpx;
+    min-height: 414rpx;
+    background: #FFFFFF;
+    padding: 48rpx 24rpx;
+    box-sizing: border-box;
+  }
+  
+  .yearMonth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .yearMonth .switch-left{
+    /* width:44rpx;
+    height:44rpx; */
+    border-radius:10rpx;
+    /* background: #F7F8FC; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:10rpx;
+  }
+  
+  .yearMonth .switch-left image{
+    width:8rpx;
+    height:12rpx;
+  }
+  
+  .yearMonth .switch-left.left{
+    transform: rotate(180deg)
+  }
+  
+  .yearMonth .switch-img {
+    width: 24rpx;
+    height: 28rpx;
+  }
+  
+  .yearMonth .con {
+    margin: 0 32rpx;
+    height: 50rpx;
+    font-size: 20rpx;
+    line-height: 50rpx;
+    color: #6B7897;
+  }
+  
+  .week {
+    display: flex;
+    margin: 18rpx 0 14rpx;
+    text-align: center;
+  }
+  
+  .week-item {
+    width: 84rpx;
+    height: 48rpx;
+    margin-right: 10rpx;
+    font-size: 20rpx;
+    line-height: 44rpx;
+    color:#34485E;
+    flex: 1;
+  }
+  
+  .day {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  
+  .day .day-item {
+    width: 12.3%;
+    height: 56rpx;
+    margin: 10rpx 10rpx 0 0;
+    border-radius:50%;
+    color: #7C86A2;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .day .day-num {
+    height: 44rpx;
+    font-size: 20rpx;
+    line-height: 44rpx;
+  }
+  
+  .day .day-weigh {
+    height: 34rpx;
+    font-size: 24rpx;
+    line-height: 34rpx;
+  }
+  
+  .last {
+    margin-right: 0 !important;
+  }
+  
+  .day .isToday {
+    background: rgba(120, 164, 250, 0.6);
+    color:#fff;
+  }
+
+  /* 时间 */
+.select-time-style{
+    padding-top:48rpx;
+    padding-left:20rpx;
+    border-left: 1rpx solid #E2E3E8;
+    flex:1;
+}
+.select-time-title{
+    margin-bottom:20rpx;
+}
+.date-time-picker{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.date-time-list{
+    margin-right:10rpx;
+}
+.date-time-list swiper{
+    width:50rpx;
+    height:560rpx;
+}
+
+.date-time-list swiper-item{
+    height:50%;
+}
+.time-line{
+    position: absolute;
+    top:80rpx;
+    width:100%;
+    height:1rpx;
+    background:#f6f6f6;
+}
+.time-line.bottom{
+    top:160rpx;
+    width:100%;
+    height:1rpx;
+    background:#f6f6f6;
+}
+.color-ccc{
+    color:#ccc;
+}
+.triggle{
+    position: absolute;
+    left: 36rpx;
+    top: -14rpx;
+    transform: rotate(135deg);
+    width: 0;
+    height: 0;
+    border-top: 14rpx solid #fff;
+    border-right: 14rpx solid #fff;
+    border-bottom: 14rpx solid #fff;
+    border-left: 14rpx solid #fff;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .2));
+  }
+  .swiper-item{
+      text-align: center;
+  }
+  /* 上传 */
+  .upload image{
+    width: 200rpx;
+    height: 200rpx;
+  }
+  .uploadImg{
+    width: 200rpx;
+    height: 200rpx;
+    border: 2rpx dashed #E0E0E0;
+    /* background: rgba(0, 0, 0, 0.04); */
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tailoring{
+    position: absolute;
+    width: 100%;
+    bottom: 100rpx;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .tailoring .tailoringSure{
+      width: 200rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      text-align: center;
+      z-index:100;
+      color:#fff;
+      background:#7D49FB;
+      margin-right:20rpx;
+  }
+  .tailoring .tailoringCancle{
+    width: 200rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: rgba(125, 73, 251, 0.1);
+    border: 1px solid #7D49FB;
+    color:#7D49FB;
+    z-index:100;
+  }
+
+
+  /* 设置奖品 */
+  .win-prize-info{
+      margin-top:30rpx;
+  }
+  .win-prize-name-box{
+      margin-bottom:20rpx;
+  }
+  .win-prize-name{
+      margin-bottom:20rpx;
+  }
+  .win-prize-name .win-prize-input{
+    padding-left:20rpx;
+    width: 466rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #F5F5F5;
+    border-radius: 10rpx;
+    /* margin-left:20rpx; */
+  }
+  .set-win-prize{
+      padding:30rpx 60rpx;
+      background:#fff;
+  }
+  .set-prize-data{
+      padding:36rpx 28rpx;
+      background: #fff;
+      margin-top:20rpx;
+  }
+  .set-fictitious-data{
+    padding:36rpx 28rpx;
+    background: #fff;
+    border-top:1rpx solid #F5F5F5;
+  }
+  /* 兑奖时间 */
+  .limit-date-select{
+    padding:24rpx 26rpx;
+    border:1rpx solid #E6E6E6;
+  }
+    .color-504{
+        color:#504766;
+    }
+    .limit-date-title{
+        margin-bottom:24rpx;
+    }
+    .limit-date{
+        margin-top:12rpx;
+        margin-bottom:30rpx;
+        flex:1;
+    }
+    .date-cover .cover{
+        width:38rpx;
+        height:34rpx;
+        margin-right:10rpx;
+    }
+    .limit-content{
+        padding:30rpx 32rpx;
+        background:#FCFBFF;
+        border-radius:10rpx;
+    }
+    .width-20{
+        width:20%;
+    }
+
+    /* //二维码 */
+    .upload-qrcode{
+        margin-bottom:20rpx;
+    }
+    .upload-qrcode image{
+        width: 140rpx;
+        height: 140rpx;
+        margin-bottom:20rpx;
+    }
+    .uploadQRcodeImg{
+        width: 140rpx;
+        height: 140rpx;
+        border: 2rpx dashed #E0E0E0;
+        border-radius: 2rpx;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-right:46rpx;
+    }
+
+    /* 抽奖限制 */
+    .luck-draw-limit{
+        padding:30rpx 58rpx;
+        background:#fff;
+    }
+    .draw-limit-item{
+        padding:30rpx 0;
+        border-bottom:1rpx solid #F5F5F5;
+    }
+    .draw-limit-item:last-child{
+        border:none;
+    }
+    .draw-limit-item .limit-item-title{
+        margin-right:30rpx;
+    }
+    .draw-limit-item .limit-item-box{
+        margin-top:24rpx;
+    }
+    .draw-limit-item .limit-item-box .limit-box{
+        width: 160rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        text-align: center;
+        background: #F5F5F5;
+        border-radius: 8rpx;
+        margin:0 16rpx;
+    }
+
+    .m-t-30{
+        margin-top:30rpx;
+    }
+
+    .width-50{
+        width:30%;
+    }
+    .width-20{
+        width:30%;
+    }
+    /*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+.width-25{
+    width:25%;
+}

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tab-bar": "/components/tab-bar/tabbar"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "black"
+}

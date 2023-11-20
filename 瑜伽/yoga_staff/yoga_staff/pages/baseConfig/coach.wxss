@@ -1,0 +1,36 @@
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+.coach-list{
+    padding:20rpx 30rpx;
+}
+.coach-avatar{
+    width:80rpx;
+    height:80rpx;
+    border-radius:16rpx;
+    margin-right:20rpx;
+}
+.coach-item{
+    padding:32rpx 20rpx;
+    background: #fff;
+    margin-bottom:20rpx;
+    border-radius:16rpx;
+}
+.coach-name{
+    margin-bottom:18rpx;
+}

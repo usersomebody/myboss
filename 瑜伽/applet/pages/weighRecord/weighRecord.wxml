@@ -1,0 +1,96 @@
+<!--pages/weighRecord/weighRecord.wxml-->
+<view class="container">
+  <view class="header flex-box flex-a-center flex-j-between">
+    <view class="info">
+      <image class="head-img" src="{{head_url}}"></image>
+      <view>
+        <view class="nickname">{{nickname}}</view>
+        <view class="tips" wx:if="{{!currentWeightInfo.current_weight}}">今天还没有记录体重哦~</view>
+      </view>
+    </view>
+    <view class="look-report" bindtap="lookReport">查看体重报告</view>
+  </view>
+  <view class="report">
+    <view class="content">
+      <view class="weight-bg common-relative" bindtap="toRecord">
+        <image src="{{suggest_cover}}"></image>
+        <view class="weight-info">
+          <view class="font-sm color-99 text-center">体重</view>
+          <view class="font-20 color-333 weight-info-value text-center">{{currentWeightInfo.current_weight}}<text class="unit">kg</text></view>
+          <view class="font-sm color-81 text-center">{{suggest_content}}</view>
+        </view>
+        <view class="color-99 font-base weight-info-tips text-center">上称测量，得到更多身体数据</view>
+      </view>
+      <!-- <view class="circle-b" bindtap="toRecord">
+        <view class="circle-s">
+          <view class="number">{{currentWeightInfo.current_weight}}<text class="unit">kg</text> </view>
+          <view class="to-record">去记录</view>
+        </view>
+      </view>
+      <view class="data">
+        <view class="data-item">
+          <view class="data-t">{{currentWeightInfo.best_weight}}<text class="unit">kg</text></view>
+          <view class="data-b">最佳体重</view>
+        </view>
+        <view class="data-item">
+          <block wx:if="{{currentWeightInfo.contrast_best}}">
+            <view class="data-t" wx:if='{{currentWeightInfo.contrast_best>=0}}'>↑{{currentWeightInfo.contrast_best}}kg
+          </view>
+          <view class="data-t" wx:else>↓{{currentWeightInfo.contrast_best*-1}}kg</view>
+          </block>
+          
+          <view class="data-t" wx:else>--
+          </view>
+          <view class="data-b">对比最佳</view>
+        </view>
+        <view class="data-item">
+          <block wx:if="{{currentWeightInfo.contrast_last}}">
+           <view class="data-t" wx:if="{{currentWeightInfo.contrast_last>=0}}">↑{{currentWeightInfo.contrast_last}}kg</view>
+          <view class="data-t" wx:else>↓{{currentWeightInfo.contrast_last*-1}}kg</view> 
+          </block>
+          <view class="data-t" wx:else>--</view> 
+          <view class="data-b">对比上次</view>
+        </view>
+        <view class="data-item">
+          <view class="data-t">{{currentWeightInfo.max_weight}}<text class="unit">kg</text></view>
+          <view class="data-b">最大体重</view>
+        </view>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="history">
+    <view class="flex-box flex-a-center flex-j-between">
+      <view class="title font-weight color-333 font-lg">历史数据</view>
+      <view class="tips font-md color-66" bindtap="toRecord">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20210904/4a2af913316126f789de17a50b3d3593.png" class="go-record-icon"></image>
+        <view>去记录</view>
+      </view>
+    </view>
+    <view class="data">
+      <view class="data-item {{item.weight ? 'active color-white' : ''}}" wx:for="{{history}}" wx:for-item="item" wx:key='index' wx:if="{{item.idx < 7 }}">
+        <view class="week {{index}} {{item.weight ? 'color-white' : 'color-333'}}">
+            <text class="margin-r-38 font-base">{{weekDay[item.idx]}}</text>
+            <text class="font-base">{{item.day}}</text>
+        </view>
+        <view class="weigh active" wx:if="{{item.weight}}"><text class="font-lg">{{item.weight}}kg</text></view>
+        <view class="weigh addendum" wx:else>
+          <text wx:if="{{index==today}}" class="color-333 font-lg base-must-color" bindtap="toRecord">去记录</text>
+          <text class="font-lg" wx:else>未记录</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="lineChart">
+    <view class="echart_panel">
+      <ec-canvas ec="{{ecLine}}" id="columnCanvas" canvas-id="columnCanvas"></ec-canvas>
+    </view>
+  </view>
+  <view class="weight-record flex-box flex-a-center">
+    <view class="item font-base color-333"><text>当前体重：</text><text class="color-yellow font-weight">{{report.weight}}</text>kg</view>
+    <view class="item font-base color-333"><text>最轻体重：</text><text class="color-green font-weight">{{MINWEIGHT.weight}}</text>kg</view>
+    <view class="item font-base color-333"><text>最重体重：</text><text class="color-red font-weight">{{MAXWEIGHT.weight}}</text>kg</view>
+    <view class="item font-base color-333"><text>距理想体重就差</text><text class="color-red font-weight">{{differNum}}</text>kg继续加油吧！</view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<view class="container">
+    <view wx:if="{{ctype == 1}}" class="time-list">
+        <view class="time-item" wx:for="{{recordList}}" wx:key="index">
+            <view class="time-item-title flex-box flex-a-center">
+                <image class="time-item-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image>
+                <view class="font-md color-333">{{item.fitness_test_time}}</view>
+            </view>
+            <swiper indicator-dots="{{swiper.indicatorDots}}" circular="true" indicator-color="{{swiper.indicatorColor}}" indicator-active-color="{{swiper.indicatorActiveColor}}" class="swiper">
+                <block wx:for="{{item.imgs}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                    <swiper-item class="categories">
+                        <image src="{{itm.url}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+    </view>
+    <view wx:else class="compare-data">
+        <view class="compare-data-title flex-box flex-a-center">
+            <view class="data-title-item font-md color-205">项目</view>
+            <view class="data-title-item flex-1 font-sm" wx:for="{{recordList}}" wx:index="key">
+                {{item.fitness_test_time}}
+            </view>
+            <view class="data-title-item font-md color-205">变化</view>
+        </view>
+        <view class="compare-data-list">
+            <view wx:for="{{showData}}" wx:key="index" class="compare-data-list-item flex-box flex-a-center">
+                <view class="data-list-item font-md color-666">{{item.name}}</view>
+                <view class="data-list-item flex-1" wx:for="{{item.value}}" wx:index="idx" wx:for-item="itm" wx:for-index="idx">
+                    {{itm}}
+                </view>
+                <view class="data-list-item font-md color-666 flex-box flex-a-center flex-j-center change-{{item.type}}"><image class="" src="{{changeImage[item.type]}}"></image></view>
+            </view>
+            
+        </view>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<body-data-poster wx:if="{{showOverlayer && timeArr.length && posterList.length}}" time="{{timeArr}}" poster="{{posterList}}" name="{{name}}" bind:drawCard="getCover"></body-data-poster>

@@ -1,0 +1,16 @@
+<view class="goods-info flex-box flex-a-center" bindtap="navigatePage">
+    <view class="goods-img">
+        <image src="{{activityInfo.desc_img}}"></image>
+    </view>
+    <view class="good-info">
+        <view class="name font-md color-333 one-line font-weight">{{activityInfo.name}}</view>
+        <view class="card-name font-md color-e83">{{activityInfo.card_name}}</view>
+        <view class="card-info flex-box flex-a-center flex-j-between">
+            <view class="card-price flex-box flex-a-center">
+                <view class="buy_price font-lg color-e83">￥{{activityInfo.seckill_price}}</view>
+                <view class="original_price font-sm color-66 line-through">￥{{activityInfo.original_price}}</view>
+            </view>
+            <view class="card-num font-md color-66">x1</view>
+        </view>
+    </view>
+</view>

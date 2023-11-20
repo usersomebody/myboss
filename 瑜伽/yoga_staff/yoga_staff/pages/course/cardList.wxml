@@ -1,0 +1,27 @@
+<view class="container" wx:if="{{isLoad}}">
+    <view class="switchTab flex-box flex-a-center flex-j-between">
+        <view wx:for="{{cardList}}" wx:key="index" class="switch-item font-md color-666 {{switchId == item.course_type_id ? 'active' : ''}}" data-type="{{item.course_type_id}}" bindtap="switch">{{courseType[item.course_type_id]}}</view>
+    </view>
+    <view class="item-padding">
+        <view class="card-list" wx:for="{{checkedCardList}}" wx:for-index="i" wx:for-item="itm" wx:key="i" >
+            <view class="card-type-title flex-box flex-a-center flex-j-between">
+                <view class="title font-lg color-333 font-weight">{{itm.name}}</view>
+                <switch class="switch-item" checked="{{itm.checked}}" data-type="{{itm.type}}" bindchange="switchChange" color="#DED1FF"></switch>
+            </view>
+            <van-checkbox-group wx:if="{{itm.checked}}"  value="{{ checkedIds }}" data-type="{{switchId}}" bind:change="onChange">
+                <view class="store-item" wx:for="{{itm.ids}}"  wx:for-index="idx" wx:for-item="itemName" wx:key="idx" >
+                    <van-checkbox name="{{itemName.id}}" checked-color="#9B77F4" value-class="value-class font-md color-333">{{itemName.name}}</van-checkbox>
+                    <view wx:if="{{itm.type != 1}}" class="flex-box flex-a-center consume-box">
+                        <view class="font-md color-666">每节课扣除</view>
+                        <input type="number" placeholder="请填写" class="consume-input font-md color-666 " value="{{itemName.property}}" data-type="{{itm.type}}" data-id="{{itemName.id}}" bindinput="getVal"/>
+                        <view class="times font-md color-666">{{cardType[itm.type].symbol}}</view>
+                    </view>
+                </view>
+            </van-checkbox-group>
+        </view>
+    </view>
+    <view class="submitBtn flex-box flex-a-center flex-j-center">
+        <view class="btn back" bindtap="back">返回</view>
+        <view class="btn sure" bindtap="sure">确定</view>
+    </view>
+</view>

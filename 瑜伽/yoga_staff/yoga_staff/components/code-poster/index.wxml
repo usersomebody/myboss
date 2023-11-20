@@ -1,0 +1,11 @@
+<view class="poster">
+    <!-- 最终生成的图片 -->
+    <view scroll-y="{{true}}" class="poster-image poster-preview-wrap">
+        <view class="business-title font-md color-333">预览图</view>
+        <image class="previewImg" wx:if="{{imgSrc}}" src="{{imgSrc}}" style="width:{{posterWidth}};height:{{posterHeight}}"></image>
+        <!-- <view class="save" bindtap="checkSaveStatus">保存图片</view> -->
+    </view>
+    <view class="canvas">
+        <canvas type="2d" canvas-id="poster" id="poster" style="width:{{sWidth}}px;height:{{sHeight}}px" />
+    </view>
+</view>

@@ -1,0 +1,34 @@
+@import "../../common.wxss";
+.share-popup{
+    position: fixed;
+    width:100%;
+    left:0;
+    bottom:0;
+    height:312rpx;
+    z-index:2001;
+    padding:120rpx 0 30rpx;
+    background:#fff;
+}
+.share-popup .img-icon:first-child{
+  margin-right:230rpx;
+  
+}
+.share-popup .img-icon image{
+    width:100rpx;
+    height:100rpx;
+    margin-bottom:30rpx;
+    margin: 0 auto 30rpx;
+}
+.close-share-popup{
+    width:34rpx;
+    height:34rpx;
+    margin:60rpx auto 0;
+}
+
+.add-course image{
+    width:100rpx;
+    height:100rpx;
+    position: fixed;
+    right:30rpx;
+    bottom:60rpx;
+}

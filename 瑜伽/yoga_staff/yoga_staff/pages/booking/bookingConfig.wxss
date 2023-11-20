@@ -1,0 +1,42 @@
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #9B77F4 !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}
+
+.setting-list .setting-title{
+    padding:40rpx 30rpx 30rpx;
+}
+
+.setting-list .setting .setting-item{
+    padding:32rpx 30rpx;
+    background:#fff;
+    border-bottom:1rpx solid #EDEDED;
+}
+.left .tips{
+    margin-top:20rpx;
+}
+
+.info .name{
+    margin-right:20rpx;
+}
+.color-ff9{
+    color:#FF9D00;
+}
+.right image{
+    width:10rpx;
+    height:18rpx;
+}

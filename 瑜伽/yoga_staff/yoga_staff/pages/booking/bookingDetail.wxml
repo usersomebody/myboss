@@ -1,0 +1,70 @@
+<view class="container">
+    <book-base-info courseId="{{courseId}}" courseType="{{isPersonal}}" cid="{{cid}}" courseDate="{{courseBookingDate}}"></book-base-info>
+    <view class="booking bg-white">
+        <view class="booking-title font-lg color-333 font-weight">今日课程情况</view>
+        <view class="need-data">
+            <view class="label font-md color-666 white-space">会员姓名：</view>
+            <view class="common-relative">
+                <input class="nickname-input font-sm color-666" type="text" value="{{searchWord}}" bindinput="inputValue" placeholder="请输入会员姓名或手机号" placeholder-class="placeholderSyle font-sm"/>
+                <scroll-view scroll-y="{{true}}" class="search-result" wx:if="{{showSearchList}}">
+                    <view wx:for="{{searchList}}" wx:key="index" class="search-item font-sm color-666" data-id="{{item.id}}" data-name="{{item.name}}" data-value="{{item.value}}" bindtap="checkResult">{{item.value}}</view>
+                </scroll-view>                
+            </view>
+        </view>
+        <view class="need-data">
+            <view class="label font-md color-666 white-space">预约人数：</view>
+            <view class="num-add-sub">
+                <view class="add add-action text-center color-198" data-type="2" bindtap='getCount'>-</view>
+                <view class="number text-center color-606 font-sm">{{countNum}}</view>
+                <view class="sub add-action text-center color-198" data-type="1" bindtap='getCount'>+</view>
+            </view>
+        </view>
+        <view class="need-data flex-a-start">
+            <view class="label font-md color-666 white-space" style="width:30%;text-align:left;">预约会员卡：</view>
+            <view wx:if="{{vipList.length}}" class="page-section">
+                <view class="weui-cells weui-cells_after-title">
+                    <radio-group bindchange="radioChange">
+                        <label class="weui-cell weui-check__label" wx:for="{{vipList}}" wx:key="index">
+                            <view class="flex-box flex-a-center">
+                                <view class="weui-cell__hd">
+                                    <radio value="{{item.id}}" checked="true"/>
+                                </view>
+                                <view class="weui-cell__bd font-md color-606">{{item.card_type_name}}</view>
+                                <view class="cardType font-md color-606">{{cardType[item.type].type}}</view>
+                            </view>
+                            <view class="font-base color-606 time-remain">{{item.use_start_time}}-{{item.use_end_time}} <text wx:if="{{(item.is_unlimited == 1 && item.type !=1) || (item.is_unlimited != 1)}}">剩余:</text><text wx:if="{{(item.is_unlimited == 1 && item.type !=1) || (item.is_unlimited != 1)}}" class="color-e83">{{item[cardType[item.type].key]}}</text><text wx:if="{{(item.is_unlimited == 1 && item.type !=1) || (item.is_unlimited != 1)}}">{{cardType[item.type].symbol}}</text></view>
+                        </label>
+                    </radio-group>
+                </view>
+            </view>
+            <view wx:else class="font-md color-999">暂无会员卡</view>
+        </view>
+        <view class="need-data">
+            <view class="label font-md color-666 white-space">本次消耗：</view>
+            <view class="font-md color-999 costStyle">{{cardCost}}{{cardType[vipCardType].symbol}}</view>
+        </view>
+        <view class="need-data" wx:if="{{isPersonal == 4}}">
+            <view class="label font-md color-666 white-space">预约时间：</view>
+            <view style="width:90%;">
+                <view class="booking-time-list">
+                    <view class="item-time font-base {{item.selected ? 'select' : ''}}" wx:for="{{timeList}}" wx:key="index" data-date="{{item.date}}" data-valid="{{item.valid}}" data-tip="{{item.tip}}" data-msg="{{item.msg}}" style="background:{{tipsImg[item.tip]}}" bindtap="switchTab">{{item.date}}</view>
+                </view>
+                <view class="select-tips flex-box flex-a-center">
+                    <view wx:for="{{tipsImgList}}" wx:key="index" class="flex-box flex-a-center select-tips-item">
+                        <view style="background:{{item.color}}" class="cril"></view>
+                        <view class="font-sm color-666 white-space">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+        <view class="need-data">
+            <view class="label font-md color-666 white-space">预约备注：</view>
+            <view class="common-relative">
+                <textarea class="textcontent font-base color-333" placeholder="" placeholder-class="color-999 font-base" maxlength="50" value="{{content}}" bindinput="getTextVal"></textarea>
+                <view class="textNumber font-base color-666"><text class="color-e83">{{content.length}}</text>/50</view>
+            </view>
+        </view>
+        <view class="booking-btn color-white" bindtap="booking">确认预约</view>
+    </view>
+</view>

@@ -1,0 +1,70 @@
+<!--pages/my/my.wxml-->
+<view class="container {{ iPhonex ? 'pd-x' : 'pd-un'}}" >
+  <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">我的</view>
+  <view class="head" >
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210902/icon_my_bg.png" class="my-head-bg"></image>
+    <view class="info">
+      <image src="{{head_url}}" class="head-img" bindtap="look_myPage"></image>
+      <view class="name text-center" wx:if="{{isLogin}}" bindtap="look_myPage">
+        <view class="nickname color-333">{{nickname}}</view>
+        <view class="tips color-66">今天是我们相遇的第{{days}}天~</view>
+      </view>
+      <view class="login" wx:else bindtap="handle_login">
+        立即登录
+      </view>
+    </view>
+    <!-- 会员卡 -->
+    <view class="card">
+        <view class="card-info">
+          <view class="info-item">
+            <view class="top">{{days}}天</view>
+            <view class="bottom">加入天数</view>
+          </view>
+          <view class="line"></view>
+          <view class="info-item">
+            <view class="top">{{subscribe_times}}次</view>
+            <view class="bottom">预约次数</view>
+          </view>
+        </view>
+      </view>
+  </view>
+  
+  <!-- 活动专区 -->
+  <view class="activity-zone">
+    <view class="color-333 font-lger flex-box flex-a-center flex-j-between font-bold" data-type="0">
+      <view class="line-h-48 font-weight">活动专区</view>
+      <image class="activity-right" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/20210807/activity_right.png" data-type='0' bindtap="toActivity"></image>
+    </view>
+    <view class="activity-list flex-box flex-a-center flex-j-between">
+      <view class="item flex-box flex-a-center flex-j-center flex-v-type" wx:for="{{activityList}}" wx:key="index" data-type="{{item.id}}" bindtap="toActivity">
+        <image class="item-img" src="{{item.activity_img}}"></image>
+        <view class="item-name color-333 font-md line-h-40">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="nav">
+    <view class="title color-333 font-lger font-weight">个人中心</view>
+    <block wx:for="{{myList}}" wx:key="index" >
+      <view wx:if="{{item.type == 1}}" class="nav-item" data-url="{{item.url}}" data-valid="{{item.valida}}" bindtap="toJump">
+        <view class="nav-item-box {{index == 5 ? 'border-top-1' : ''}}">
+            <view class="nav-name">
+                <image class="nav-icon" src="{{item.icon}}"></image>
+                {{item.name}}
+            </view>
+            <image class="look-nav" src="/imgs/arrow-r.png"></image>
+        </view>
+      </view>
+      <button wx:else class="nav-item contact" open-type="{{item.openType}}">
+        <view class="nav-item-box" style="width:100%;" >
+          <view class="nav-name">
+            <image class="nav-icon" src="{{item.icon}}"></image>
+            {{item.name}}
+          </view>
+          <image class="look-nav" src="/imgs/arrow-r.png"></image>
+        </view>
+      </button>
+    </block>
+  </view>
+</view>
+<!-- 公共tabbar -->
+<tab-bar selected="{{3}}"></tab-bar>

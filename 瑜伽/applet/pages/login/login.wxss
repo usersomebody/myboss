@@ -1,0 +1,167 @@
+/* pages/login/login.wxss */
+.applet-icon {
+  margin: 200rpx auto 0;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.applet-name {
+  margin-top: 48rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #333333;
+  text-align: center;
+}
+
+.applet-tip {
+  margin-top: 10rpx;
+  text-align: center;
+  height: 36rpx;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #999999;
+}
+
+.btn {
+  width: 558rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #FAFAFA;
+  border-radius: 44rpx;
+  font-size: 36rpx;
+  color: #333333;
+  margin: 0 auto;
+}
+
+.authorize {
+  min-width: 558rpx;
+  color: #fff;
+  background: #9169FB;
+  margin: 72rpx auto 24rpx;
+}
+
+/* pages/register/register.wxss */
+.container{
+  width: 750rpx;
+  background:#fff;
+  overflow-y: hidden;
+}
+.record_image{
+  width: 750rpx;
+height: 360rpx;
+opacity: 1;
+}
+.content{
+  padding: 0 60rpx 0 54rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+}
+.cont{
+  display: flex;
+  margin-top:70rpx ;
+}
+.icon_one{
+  width: 32rpx;
+height: 42rpx;
+opacity: 1;
+margin-right: 24rpx;
+}
+.phone_input{
+  width: 212px;
+height: 44rpx;
+font-size: 32rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 44px;
+color: #333333;
+opacity: 1;
+}
+.acquire{
+  width: 180rpx;
+height: 56rpx;
+background: #21DBC3;
+opacity: 1;
+border-radius: 36px;
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 56px;
+text-align: center;
+color: #FFFFFF;
+opacity: 1;
+}
+.line{
+  width: 630rpx;
+height: 2rpx;
+background: #E5E5E5;
+opacity: 1;
+margin-top: 24rpx;
+}
+.cont_two{
+  margin-top: 42rpx;
+}
+.reminder{
+margin-top: 16rpx;
+width: 100%;
+overflow: hidden;
+}
+.reminder_l{
+  width: 384rpx;
+height: 34rpx;
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 34rpx;
+color: #FF2C2C;
+opacity: 1;
+float: left;
+}
+.reminder_r{
+  width: 48rpx;
+height: 34rpx;
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 34rpx;
+color: #9169FB;
+opacity: 1;
+float: right;
+}
+.footer{
+  width: 630rpx;
+  height: 96rpx;
+  background: #9169FB;
+  opacity: 1;
+  border-radius: 48rpx;
+font-size: 36rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 96rpx;
+color: #FFFFFF;
+margin-top: 64rpx;
+}
+.reminder_two{
+  margin-top: 16rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.reminder_two image{
+  width: 28rpx;
+height: 28rpx;
+opacity: 1;
+float: left;
+margin-right: 8rpx;
+}
+.reminder_two text{
+  width: 600rpx;
+height: 34rpx;
+font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: 400;
+line-height: 34rpx;
+color: #666666;
+opacity: 1;
+float: left;
+}

@@ -1,0 +1,135 @@
+.container{
+    padding:32rpx 30rpx;
+    overflow-x:hidden; 
+}
+.color-4e4{
+    color:#4e4e4e;
+}
+
+.store-info{
+    padding:12rpx 20rpx;
+    border-radius:10rpx;
+    background:#f2edff;
+    margin:32rpx 0 40rpx;
+}
+
+.store-info .call-btn{
+    width: 120rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    background: #a37ffc;
+    border-radius: 28rpx;
+}
+
+.store-info .left .logo{
+    margin-right:16rpx;
+}
+
+.store-info .left .logo image{
+    width:72rpx;
+    height:72rpx;
+    border-radius:50%;
+}
+
+.store-qrcode image{
+    width:100%;
+    height:280rpx;
+    border-radius:8rpx;
+    margin:40rpx 0 80rpx;
+}
+
+.read-num{
+    margin:40rpx 0 32rpx;
+}
+.action{
+    margin-bottom:32rpx;
+}
+
+.action .share image{
+    width:32rpx;
+    height:32rpx;
+    margin-right:16rpx;
+}
+.action .praise{
+    margin-left:60rpx;
+}
+
+.action .praise image{
+    width:32rpx;
+    height:32rpx;
+    margin-right:16rpx;
+}
+
+.edit-business-card{
+    margin:58rpx 0 20rpx;
+    justify-content: flex-end;
+}
+
+.edit-business-card image{
+    width:28rpx;
+    height:28rpx;
+    margin-right:16rpx;
+}
+
+.business-card image{
+    width:100%;
+    height:358rpx;
+}
+.call-phone{
+    position: absolute;
+    width:56rpx;
+    height:56rpx;
+    border-radius: 50%;
+    top:74rpx;
+    right:60rpx;
+    z-index:9;
+}
+.en-qr-code{
+    margin-top:40rpx;
+}
+.en-qr-code image{
+    width:100%;
+    height:280rpx;
+}
+.add-qr-code{
+    width:100%;
+    height:280rpx;
+    line-height:280rpx;
+    text-align: center;
+    background: #EDE5FE;
+    border-radius:8rpx;
+    color:#7D49FB;
+}
+
+
+.store-info-picture image{
+    width:690rpx;
+    height:360rpx;
+}
+
+.detail{
+    position: absolute;
+    left:0;
+    top:0;
+    padding:66rpx 62rpx;
+}
+
+.detail .head-logo .logo{
+    width:88rpx;
+    height:88rpx;
+    border-radius:50%;
+    margin-right:18rpx;
+} 
+
+.content-city{
+    padding-left:48rpx;
+    margin-top:30rpx;
+}
+.share-icon-img{
+    position: fixed;
+    right: 30rpx;
+    bottom: 200rpx;
+    width: 100rpx;
+    height: 100rpx;
+}

@@ -1,0 +1,57 @@
+page{
+    background:#ffffff;
+}
+
+.container{
+    background:#ffffff;
+    
+}
+
+.banner image{
+    width:100%;
+    height:400rpx;
+    display:block;
+}
+
+.qrcode{
+    padding:70rpx 100rpx;
+}
+
+.qrcode-content{
+    padding:70rpx 40rpx;
+    border-radius:20rpx;
+    margin-bottom:62rpx;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(239, 230, 255, 0.64);
+}
+
+.qrcode-content .text{
+    margin:44rpx 0 50rpx;
+}
+
+.kefu-info .kefu-name{
+    margin-left:20rpx;
+}
+
+.kefu-info .user-name{
+    margin-bottom:14rpx;
+}
+
+.kefu-info .avatar image{
+    width:100rpx;
+    height:100rpx;
+}
+
+.qrcode-content .qrcode-img image{
+    width:324rpx;
+    height:324rpx;
+    border:2rpx solid #EFE6FF;
+    box-sizing: border-box;
+}
+
+.public{
+    background:#F5CC6A;
+    margin-left:24rpx;
+    padding:4rpx 30rpx;
+    border-radius:10rpx;
+}

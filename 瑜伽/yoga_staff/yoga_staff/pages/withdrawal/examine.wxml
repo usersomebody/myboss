@@ -1,0 +1,5 @@
+<view class="container">
+    <image class="examine-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/b4b79ab43bf6de5ac21e957cafacaa5d.png"></image>
+    <view class="font-lg color-333 examine-title">提现申请已提交，等待人工审核</view>
+    <view class="examine-btn color-white" bindtap="back">知道了</view>
+</view>

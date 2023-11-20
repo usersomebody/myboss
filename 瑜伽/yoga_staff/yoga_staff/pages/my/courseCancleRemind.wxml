@@ -1,0 +1,34 @@
+<view class="container">
+    <view class="course-list">
+        <view class="course-item common-relative" wx:for="{{list}}" wx:key="index">
+            <view class="course-info">
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label color-333">课程名称：</view>
+                    <view class="course-value color-666">{{item.course_name}}</view>
+                </view>
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label font-md color-333">上课老师：</view>
+                    <view class="course-value color-666">{{item.coach_staff_name}}</view>
+                </view>
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label font-md color-333">开课时间：</view>
+                    <view class="course-value color-666">{{item.start_time}}</view>
+                </view>
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label font-md color-333">开课人数：</view>
+                    <view class="course-value color-666">{{item.min_user}}</view>
+                </view>
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label font-md color-333">课程状态：</view>
+                    <view class="course-value color-e83">{{item.status}}</view>
+                </view>
+                <view class="course-title font-md flex-box flex-a-center">
+                    <view class="course-label font-md color-333">取消原因：</view>
+                    <view class="course-value color-666">{{item.reason}}</view>
+                </view>
+            </view>
+            <view class="course-btn color-white font-base" data-id="{{item.id}}" bindtap="toDetail">查看预约信息</view>
+            <view class="course-img"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211015/9d97d1e220a75ff4a0ace43d1ec49047.png"></image></view>
+        </view>
+    </view>
+</view>

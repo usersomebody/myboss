@@ -1,0 +1,347 @@
+export default class LastMayday {
+  palette(params) {
+    return ({
+      "width": "750rpx",
+      "height": "1334rpx",
+      "background": "#f8f8f8",
+      "views": [{
+          "type": "image",
+          "url": "/palette/img/poster-bg1.jpg",
+          "css": {
+            "width": "750rpx",
+            "height": "1334rpx",
+            "top": "0rpx",
+            "left": "0rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "mode": "scaleToFill"
+          }
+        },
+        {
+          "type": "image",
+          "url": "/palette/img/btn.png",
+          "css": {
+            "width": "300rpx",
+            "height": "56rpx",
+            "top": "75rpx",
+            "left": "410rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "mode": "scaleToFill"
+          }
+        },
+        {
+          "type": "text",
+          "text": params.day,
+          "css": {
+            "color": "#ffffff",
+            "background": "rgba(0,0,0,0)",
+            "width": "78rpx",
+            "height": "216rpx",
+            "top": "75rpx",
+            "left": "39rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "36px",
+            "fontWeight": "500",
+            "maxLines": "1",
+            "lineHeight": "36px",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "text",
+          "text": params.month,
+          "css": {
+            "color": "#ffffff",
+            "background": "rgba(0,0,0,0)",
+            "width": "42rpx",
+            "height": "1491.12rpx",
+            "top": "159rpx",
+            "left": "39rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "24rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "1651.6800000000003rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "text",
+          "text": params.year,
+          "css": {
+            "color": "#ffffff",
+            "background": "rgba(0,0,0,0)",
+            "width": "54rpx",
+            "height": "1491.12rpx",
+            "top": "159rpx",
+            "left": "100rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "24rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "1651.6800000000003rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },{
+          "type": "text",
+          "text":'瑜伽给予你的美好，一半是坚持，一般感悟。',
+          "css": {
+            "color": "#ffffff",
+            "background": "rgba(0,0,0,0)",
+            "width": "500rpx",
+            "height": "1491.12rpx",
+            "top": "200rpx",
+            "left": "40rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "30rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "1651.6800000000003rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "image",
+          "url": "/palette/img/poster-bg2.png",
+          "css": {
+            "width": "670rpx",
+            "height": "671rpx",
+            "top": "572rpx",
+            "left": "40rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "mode": "scaleToFill"
+          }
+        },
+        {
+          "type": "image",
+          "url": params.head_img,
+          "css": {
+            "width": "150rpx",
+            "height": "150rpx",
+            "top": "495rpx",
+            "left": "300rpx",
+            "rotate": "0",
+            "borderRadius": "50%",
+            "borderWidth": "10rpx",
+            "borderColor": "#fff",
+            "shadow": "",
+            "mode": "scaleToFill"
+          }
+        },
+        {
+          "type": "text",
+          "text": params.nickname,
+          "css": {
+            "color": "#000000",
+            "background": "rgba(0,0,0,0)",
+            "width": "750rpx",
+            "height": "2236.68rpx",
+            "top": "667rpx",
+            "left": "0rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "36rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "2477.5200000000004rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "center"
+          }
+        },
+        {
+          "type": "text",
+          "text": "在[去约瑜伽]坚持瑜伽练习",
+          "css": {
+            "color": "#999",
+            "background": "rgba(0,0,0,0)",
+            "width": "750rpx",
+            "height": "1863.9rpx",
+            "top": "720rpx",
+            "left": "0rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "30rpx",
+            "fontWeight": "normal",
+            "maxLines": "1",
+            "lineHeight": "2064.6000000000004rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "center"
+          }
+        },
+        {
+          "type": "text",
+          "text": "No."+params.rank,
+          "css": {
+            "color": "#000333",
+            "background": "rgba(0,0,0,0)",
+            "width": "161rpx",
+            "height": "20px",
+            "top": "853rpx",
+            "left": "152rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0",
+            "fontSize": "72rpx",
+            "fontWeight": "normal",
+            "maxLines": "1",
+            "lineHeight": "20px",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "text",
+          "text": 20,
+          "css": {
+            "color": "#000333",
+            "background": "rgba(0,0,0,0)",
+            "width": "78rpx",
+            "top": "842rpx",
+            "left": "455rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "36px",
+            "fontWeight": "normal",
+            "maxLines": "1",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "text",
+          "text": "次",
+          "css": {
+            "color": "#000333",
+            "background": "rgba(0,0,0,0)",
+            "width": "746rpx",
+            "height": "44rpx",
+            "top": "880rpx",
+            "left": "560rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "24rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "44rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "text",
+          "text": "本月打卡次数",
+          "css": {
+            "color": "#999",
+            "background": "rgba(0,0,0,0)",
+            "width": "144rpx",
+            "height": "48rpx",
+            "top": "936rpx",
+            "left": "455rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "padding": "0rpx",
+            "fontSize": "24rpx",
+            "fontWeight": "normal",
+            "maxLines": "2",
+            "lineHeight": "48rpx",
+            "textStyle": "fill",
+            "textDecoration": "none",
+            "fontFamily": "PingFang SC",
+            "textAlign": "left"
+          }
+        },
+        {
+          "type": "image",
+          "url": "/palette/img/poster-bg3.png",
+          "css": {
+            "width": "630rpx",
+            "height": "205rpx",
+            "top": "1018rpx",
+            "left": "60rpx",
+            "rotate": "0",
+            "borderRadius": "",
+            "borderWidth": "",
+            "borderColor": "#000000",
+            "shadow": "",
+            "mode": "scaleToFill"
+          }
+        }
+      ]
+    });
+  }
+}

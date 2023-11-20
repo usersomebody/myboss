@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "flash-sale":"/components/flashSale/index",
+    "no-data-cover":"/components/no-data/index"
+  },  
+  "navigationBarTitleText": "活动专区",
+  "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

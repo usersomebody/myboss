@@ -1,0 +1,77 @@
+/* pages/appointmentCard/appointmentCard.wxss */
+.container {
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.card-item {
+  margin-bottom: 24rpx;
+  color: #986424;
+  position: relative;
+}
+
+
+.card-item .card-bg {
+  width: 702rpx;
+  height: 160rpx;
+}
+
+.card-item .card-content {
+  width: 702rpx;
+  height: 160rpx;
+  position: absolute;
+  top: 0;
+  padding: 30rpx 44rpx 30rpx 24rpx;
+  box-sizing: border-box;
+  color: #986424;
+}
+
+.card-item .card-title {
+  display: flex;
+  justify-content: space-between;
+  height: 50rpx;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+
+.card-item .cardname {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 400;
+}
+
+.card-item .card-type {
+  width: 104rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #FF9387;
+  color: #fff;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.card-item .balance {
+  font-size: 42rpx;
+  color: #fff;
+}
+
+.card-item .unit {
+  font-size: 24rpx;
+}
+
+.card-item .card-validate {
+  display: flex;
+  justify-content: space-between;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-top: 20rpx;
+  color: #fff;
+}
+
+.use_day {
+  color: #986424;
+  font-size: 24rpx;
+}

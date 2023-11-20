@@ -1,0 +1,63 @@
+<import src="../../components/loading/index.wxml" />
+<view class="container">
+    <view class="switch-tab flex-box flex-a-center">
+        <view class="switch-list " wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">
+            <text class="switch-item font-md {{checkId == item.id ? 'active' : ''}}">{{item.name}}</text>
+        </view>
+    </view>
+    <view wx:if="{{list.length}}" class="booking-list">
+        <view wx:for="{{list}}" wx:key="index" class="booking-item">
+            <view class="booking-info flex-box">
+                <view class="booking-avatar">
+                    <image src="{{item.head_img}}"></image>
+                </view>
+                <view class="info">
+                    <view class="item font-lg color-333">{{item.name}}提交的请假</view>
+                    <view class="item font-md color-666"><text class="color-666">卡类型：</text><text class="color-999">{{item.card_name}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">剩余请假次数：</text><text class="color-999">{{item.leave_num}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">开始时间：</text><text class="color-999">{{item.leave_start_time}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">结束时间：</text><text class="color-999">{{item.leave_end_time}}</text></view>
+                    <view class="item font-sm color-666"><text class="color-666">请假原因：</text><text class="color-999">{{item.leave_cause}}</text></view>
+                </view>
+            </view>
+            <view class="booking-btn flex-box flex-a-center flex-j-end" wx:if="{{checkId == 1}}">
+                <view class="common-btn font-sm cancle" data-id="{{item.id}}" bindtap="refused">拒绝</view>
+                <view class="common-btn font-sm sign" data-id="{{item.id}}" bindtap="pass">通过</view>
+            </view>
+            <view class="audit-status-content" wx:else>
+                <view class="audit-status flex-box flex-a-center">
+                    <image class="flex-shrink" src="{{statusMap[item.leave_check_status].icon}}"></image>
+                    <view class="font-sm color-333 audit-status-title flex-shrink">{{statusMap[item.leave_check_status].title}}</view>
+                    <view class="font-sm color-666">{{item.leave_refuse_cause}}</view>
+                </view>
+                <view class="audit-status flex-box flex-a-center">
+                    <image class="flex-shrink" src="{{statusMap[5].icon}}"></image>
+                    <view class="font-sm color-333 audit-status-title flex-shrink">{{statusMap[5].title}}</view>
+                    <view class="font-sm color-666">{{item.leave_start_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:else class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+        <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/112e6616cc5386182ec63e80803ff084.png"></image>
+        <view class="font-sm color-999">暂无请假记录~</view>
+    </view>
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showSheet ? 'show' : ''}}"></view>
+    <!-- 操作框 -->
+    <view class="action-sheet-box" wx:if="{{showSheet}}">
+        <view class="box-content">
+            <view class="title color-333 font-lg">请假审批</view>
+            <view class="content common-relative">
+                <textarea class="color-999 font-sm" value="{{refuseMsg}}" maxlength="30" placeholder="请输入拒绝原因" bindinput="getTextVal"></textarea>
+                <view class="font-number font-base"><text class="color-e83">{{refuseMsg.length}}</text>/30</view>
+            </view>
+            <view class="action-btn flex-box flex-a-center" bindtap="submitRefuse">
+                <view class="refuse-cancle btn color-333" data-sub="1" >取消</view>
+                <view class="sure btn base-color" data-sub="2">确认</view>
+            </view>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>

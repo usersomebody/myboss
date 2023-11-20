@@ -1,0 +1,34 @@
+<view class="container">
+        <view class="li {{index == showList.length - 1 ? '' : 'flex-box flex-a-center flex-j-between'}} " wx:for="{{showList}}" wx:key="index">
+            <view class="item-label font-md color-333 bold">{{item.name}}</view>
+            <view class="{{index == showList.length - 1 ? 'margin-t-20' : 'item-value'}}  flex-box flex-a-center">
+                <view wx:if="{{item.inputBox}}" class="value-placeholder font-sm color-999 "><input always-embed="{{true}}" placeholder-class="color-999" class="text-right font-md {{item.value ? 'color-504' : 'color-999'}}" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+                <view wx:elif="{{item.key == 'qr_type'}}">
+                    <picker mode="selector" bindchange="bindRegionChange" value="{{index}}" range-key="name" range="{{region}}">
+                        <view class="picker font-md {{region[1] ? 'color-504' : 'color-999'}}" style="margin-right:16rpx;">
+                        {{region[storeInfo.qr_type - 1].name}}
+                        </view>
+                    </picker>
+                </view>
+                <view wx:elif="{{item.key == 'qr_img'}}" class="upload">
+                    <view wx:if="{{!item.value}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <image wx:else src="{{item.value}}" bindtap="getImg"></image>
+                    <view class="tailoring" wx:if="{{imgSrc}}">
+                        <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                        
+                        <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                        <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                    </view>
+                </view>
+                <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+        <code-poster name="{{storeInfo.qr_name}}" info="{{storeInfo.guide}}" logo="{{storeInfo.qr_img}}" bind:drawCard="getCover"></code-poster>
+        <view class="edit-btn flex-box flex-a-center flex-j-center" bindtap="sure">
+            <view class="common-edit-btn edit-back" data-type="1">返回</view>
+            <view class="common-edit-btn edit-sure" data-type="2">保存</view>
+        </view>
+</view>

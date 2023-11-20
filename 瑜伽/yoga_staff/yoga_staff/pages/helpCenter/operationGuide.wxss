@@ -1,0 +1,15 @@
+.container{
+    padding:40rpx 30rpx;
+    background: #fff;
+}
+.title{
+    margin-bottom:40rpx;
+}
+.content{
+    margin-bottom:30rpx;
+}
+.img-list image{
+    width:100%;
+    display:block;
+    margin-bottom:20rpx;
+}

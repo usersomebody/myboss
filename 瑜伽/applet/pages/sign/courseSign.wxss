@@ -1,0 +1,899 @@
+/* pages/courseBooking/courseBooking.wxss */
+.container {
+    padding-bottom: 98rpx;
+  }
+  
+  .header {
+    position: relative;
+  }
+  
+  .header .user_photo {
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 50%;
+    opacity: 1;
+    position: absolute;
+    right: 12rpx;
+    bottom: -50rpx;
+  }
+  
+  .lesson-img {
+    /* width: 702rpx; */
+    width: 100%;
+    height: 336rpx;
+    /* margin: 20rpx auto 0; */
+  }
+  .head-img{
+    position: absolute;
+    top: 12rpx;
+    right:70rpx;
+  }
+  .head-img image{
+    right: 24rpx;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+  }
+  
+  .lesson {
+    background-color: #fff;
+    padding: 24rpx;
+    box-sizing: border-box;
+  }
+  
+  .lesson-title {
+    height: 50rpx;
+    font-size: 36rpx;
+    line-height: 50rpx;
+    color: #333333;
+  }
+  
+  .lesson-info {
+    display: flex;
+    align-items: center;
+    height: 44rpx;
+    font-size: 28rpx;
+    line-height: 44rpx;
+    color: #333;
+  }
+  
+  .lesson-info .icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 16rpx;
+  }
+  
+  .lesson-person {
+    margin-top: 32rpx;
+  }
+  
+  .lesson-time {
+    margin-top: 16rpx;
+  }
+  
+  .lesson-intro {
+    margin-top: 12rpx;
+    color: #333333;
+  }
+  
+  .intro-item {
+    font-size: 26rpx;
+    line-height: 48rpx;
+    color: #999999;
+    text-indent: 2em;
+  }
+  
+  .member {
+    margin-top: 24rpx;
+    padding: 24rpx 24rpx 0 24rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .member-title {
+    height: 42rpx;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .member_tit {
+    width: 96px;
+    height: 22px;
+    font-size: 16px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 22px;
+    color: #21DBC3;
+    opacity: 1;
+  }
+  
+  .member-title .card {
+    display: flex;
+    align-items: center;
+    color: #666666;
+  }
+  
+  .member-title .card .arrow-r {
+    width: 16rpx;
+    height: 28rpx;
+    margin-left: 16rpx;
+  }
+  
+  .member .line {
+    margin: 24rpx 0;
+    height: 2rpx;
+    background: #E5E5E5;
+  }
+  
+  .member .member-info {
+    height: 36rpx;
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #333333;
+  }
+  
+  .member .member-info .card-booking {
+    color: #21DBC3;
+    padding-bottom: 5rpx;
+    border-bottom: 2rpx solid #21DBC3;
+  }
+  
+  .card-info {
+    margin-bottom: 24rpx;
+    color: #fff;
+    position: relative;
+  }
+  
+  .card-info .card-bg {
+    width: 702rpx;
+    height: 114rpx;
+  }
+  
+  .card-info .card-content {
+    width: 702rpx;
+    height: 114rpx;
+    position: absolute;
+    top: 0;
+    padding: 24rpx;
+    box-sizing: border-box;
+  }
+  
+  .card-info .card-title {
+    display: flex;
+    justify-content: space-between;
+    height: 40rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+  }
+  
+  .card-info .card-validate {
+    display: flex;
+    justify-content: space-between;
+    height: 34rpx;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    margin-top: 8rpx;
+  }
+  
+  .warning {
+    padding: 24rpx;
+    box-sizing: border-box;
+    height: 170rpx;
+    margin: 24rpx 0;
+  }
+  
+  .warning .title {
+    height: 42rpx;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color:#FFBC0B;
+  }
+  
+  .warning .con {
+    margin-top: 4rpx;
+    height: 36rpx;
+    font-size: 26rpx;
+    line-height: 36rpx;
+  }
+  
+  .sign {
+    width: 702rpx;
+    height: 96rpx;
+    position: fixed;
+    bottom: 26rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 96rpx;
+    background: #21DBC3;
+    border-radius: 48rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #FFFFFF;
+    z-index: 4;
+  }
+  
+  .full {
+    background-color: #FF9387;
+  }
+  
+  .arranged {
+    background-color: #FFA987;
+  }
+  
+  .cover {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  
+  .cover .content {
+    margin: 260rpx auto 0;
+    width: 640rpx;
+    height: 714rpx;
+    background: #FFFFFF;
+    border-radius: 10rpx;
+    position: relative;
+    text-align: center;
+  }
+  
+  .cover .cover-bg {
+    width: 100%;
+    height: 240rpx;
+  }
+  
+  .cover .status {
+    position: absolute;
+    top: 166rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 148rpx;
+    height: 148rpx;
+    border-radius: 50%;
+  }
+  
+  .cover .title {
+    margin: 98rpx 0 30rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #999999;
+  }
+  
+  .cover .tip {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #333333;
+    margin-bottom: 8rpx;
+  }
+  
+  .cover .open {
+    text-align: center;
+    font-size: 36rpx;
+    color: #fff;
+    width: 460rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    background: #21DBC3;
+    margin: 34rpx auto 0;
+    border-radius: 48px;
+  }
+  
+  .cover .close {
+    width: 48rpx;
+    height: 48rpx;
+    margin: 48rpx auto;
+  }
+  
+  .overdue {
+    background-color: #9c9c9c;
+  }
+  
+  .operate {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+  }
+  
+  .operate .btn {
+    width: 272rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    border: 2rpx solid #21DBC3;
+    border-radius: 48rpx;
+    font-size: 36rpx;
+    color: #21DBC3;
+  }
+  
+  .operate .call {
+    color: #fff;
+    background-color: #21DBC3;
+  }
+  
+  /* 复制 */
+  .copy {
+    margin: 260rpx auto 0;
+    width: 560rpx;
+    height: 362rpx;
+    background: #FFFFFF;
+    border-radius: 8rpx;
+    text-align: center;
+    padding: 48rpx 0;
+    box-sizing: border-box;
+  }
+  
+  .copy .tit {
+    height: 58rpx;
+    font-size: 42rpx;
+    font-weight: bold;
+    line-height: 58rpx;
+    color: #333333;
+  }
+  
+  .copy .tip {
+    margin-top: 44rpx;
+    height: 44rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #333333;
+  }
+  
+  .copy .agree {
+    width: 272rpx;
+    height: 72rpx;
+    margin: 48rpx auto 0;
+    line-height: 72rpx;
+    background: #21DBC3;
+    border-radius: 48rpx;
+    color: #fff;
+  }
+  
+  /* 课程预约 */
+  .subscribeone {
+    /* width: 750rpx; */
+    /* background: #FFFFFF; */
+    opacity: 1;
+    box-sizing: border-box;
+    /* padding: 30rpx 0; */
+  }
+  
+  .subscribeone .tit {
+    width: 100%;
+    padding-left: 12rpx;
+    box-sizing: border-box;
+    height: 44rpx;
+    font-size: 32rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 44rpx;
+    color: #21DBC3;
+    opacity: 1;
+  }
+  
+  .subscribeone .line {
+    width: 702rpx;
+    height: 2rpx;
+    background: #E5E5E5;
+    opacity: 1;
+    margin: 12rpx 0 16rpx 0;
+  }
+  
+  .subscribeone .describe {
+    padding: 30rpx 30rpx 24rpx;
+    overflow-x: hidden;
+    background:#fff;
+  }
+  
+  .subscribeone .describe .describe_l {
+    width: 148rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 40rpx;
+    color: #333333;
+    opacity: 1;
+    float: left;
+  }
+  
+  .subscribeone .describe .describe_r {
+    width: 232rpx;
+    height: 34rpx;
+    font-size: 24rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 34rpx;
+    color: #999999;
+    opacity: 1;
+    float: right;
+  }
+  
+  .subscribeone .num {
+    overflow: hidden;
+    margin-bottom: 24rpx;
+    padding-bottom:24rpx;
+    background:#fff;
+  }
+  
+  .subscribeone .num .num_round {
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    border: 2px solid #21DBC3;
+    border-radius: 50%;
+    opacity: 1;
+    float: left;
+    margin-right: 8rpx;
+  }
+  
+  .subscribeone .num_text {
+    height: 34rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 34rpx;
+    color: #333333;
+    opacity: 1;
+    float: left;
+    margin-right:100rpx;
+  }
+  
+  .subscribeone .img {
+    width: 100%;
+  }
+  
+  .subscribeone .img image {
+    width: 290rpx;
+    height: 216rpx;
+    background: rgba(232, 255, 252, 0);
+    opacity: 1;
+    margin: 0 auto;
+  }
+  
+  .subscribeone .img text {
+    width: 100%;
+    text-align: center;
+    margin-top: 24rpx;
+  }
+  
+  .subscribeone .categories {
+    width: 750rpx;
+    white-space: nowrap;
+    display: flex;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+  
+  .subscribeone .imgone {
+    background: #ffffff;
+  }
+  .categoriesone {
+    width: 700rpx;
+    white-space: nowrap;
+    display: flex;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 24rpx;
+    padding: 24rpx 0 24rpx 0;
+  }
+  .categoriesone .date-item{
+    width: 480rpx;
+    height: 270rpx;
+    opacity: 1;
+    border-radius: 24rpx;
+    display: inline-block;
+    text-align: center;
+    opacity: 1;
+    margin-right: 24rpx;
+    position: relative;
+  }
+  .categoriesone .date-item image{
+    width: 480rpx;
+    height: 270rpx;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  .categoriesone .date-item .date_item_list .name {
+    position: absolute;
+    width: 68rpx;
+  height: 32rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+    opacity: 1;
+    z-index: 2;
+    top: 68rpx;
+    left: 64rpx;
+  }
+  .categoriesone .date-item .date_item_list .surplus_day {
+    width: 176rpx;
+  height:32rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+  text-align: left;
+  opacity: 1;
+    opacity: 1;
+    position: absolute;
+    z-index: 2;
+    left: 24rpx;
+    bottom:54rpx;
+  }
+  .categoriesone .date-item .date_item_list .indate {
+    width: 198rpx;
+  height: 32rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+  text-align: left;
+    opacity: 1;
+    position: absolute;
+    z-index: 2;
+    left: 24rpx;
+    bottom: 14rpx;
+  }
+  
+  /* 显示可以预约的会员卡 */
+  .container {
+    width: 750rpx;
+  }
+  
+  .categoriestwo {
+    width: 750rpx;
+    white-space: nowrap;
+    display: flex;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 24rpx;
+    padding: 24rpx 0 24rpx 0;
+    
+  }
+  
+  .categoriestwo .date-item {
+    width: 320rpx;
+    height: 240rpx;
+    border-radius: 24rpx;
+    display: inline-block;
+    text-align: center;
+    opacity: 1;
+    border-radius: 24rpx;
+    margin-right: 24rpx;
+    position: relative;
+  }
+  .categoriestwo .date-item image{
+    width: 320rpx;
+    height: 178rpx;
+    border-radius: 24rpx;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  
+  .categoriestwo .date-item .date_item_list .name {
+    width: 44rpx;
+  height: 18rpx;
+  font-size: 14rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 18rpx;
+  letter-spacing: 2rpx;
+  opacity: 1;
+    position: absolute;
+    z-index: 2;
+    top: 44rpx;
+    left: 42rpx;
+  }
+  
+  .categoriestwo .date-item .card_name {
+    position: absolute;
+    width: 96rpx;
+    height: 44rpx;
+    font-size: 32rpx;
+    font-family: PingFang SC;
+    font-weight: 400;
+    line-height: 44rpx;
+    letter-spacing: 2rpx;
+    opacity: 1;
+    z-index: 3;
+    bottom: 0rpx;
+    left: 20%;
+  }
+  
+  .categoriestwo .date-item .date_item_list .surplus_day {
+    width: 112rpx;
+  height: 18rpx;
+  font-size: 14rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 18rpx;
+  letter-spacing: 2rpx;
+  text-align: left;
+  opacity: 1;
+    position: absolute;
+    z-index: 2;
+    left: 16rpx;
+    bottom: 46rpx;
+  }
+  
+  .categoriestwo .date-item .date_item_list .surplus_day_height {
+    bottom: 110rpx;
+  }
+  
+  .bg1 {
+    color: #c88707;
+  }
+  
+  .bg2 {
+    color: #5f82f1;
+  }
+  
+  .bg3 {
+    color: #df4b3e;
+  }
+  
+  .bg4 {
+    color: #8b8d9d;
+  }
+  
+  .bgcolor1 {
+    /* background-color: #fac154; */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAyBJREFUeF7l2D1oE2Ecx/HvE8iig12lghXEuS5mURAnFzFaiAm+1UncLC5ubUcrok66SNtBpJMvm4tWdIg6aKGCCmoGO/iCpEWREtqT52Ka5HqXe7977smN4clzz+/z/O/+TyKMe0wgGCcbVxWoYvCadariJJ/DLlvICTKG0Jl5EYNrrHBXnKcRBMMEyDgCGHwFrtLgjjjDHz8QGwCZRzAD8BPBFDluiRK/vUB0AWiB0ExdI8dhUeKDG8ImAG0QDFaA06LCo14ItgDaIMAacEmUuemE4AigEYKMMibK3LBD6AmgDYLBOjlGxAkeWBFcAbRBgGVyFKwvRk8A2iAYvGeNgjhlviDNyzOARgiTosJEIADlEfIDUJiGwSK8m4TFjZydj/4qeXaLEfP06K8CWrMo+dtBhj/0FAaG22HnHArc4IqocDkwgHKVIEPvvw9bh9rha7PwctSp/f8ixw5R4q+vd4B1NiUqQYaXOy8roHX1Dt8cZXBBVLgdCiD1Stg1Cvumu/fF+dm37t+CKDMcGiA1hD0XYe/17lCvzsGXGaey3/x5ju2RAARGkOU7eBR+PIPv894XXpiBobPt8Y3l5vO+tOmg13tOwbHIAEyEOcYx2j3WNdGRGmzZ2RzmZfc621xrchn+yUGov3W9nc2AqUgBfFfC8Trkt7XX1QvBrs3VF5o7Hyy8vO/jyAF8IZhv8Hl3BLs2J8PLnW/Ug+x86zufYgGIFMGuzS09bO58uPCyFX6LDSASBDmJtc156fHea2I1VoDQCNYgb8bgo+3/Gt4jW0bGDhAZgpcuEYAhEYBQCLLNvSj6Oyf4gEgMwDfCgf+HmufFMG3OlSJRAF8IrkuPZkDiAKohpAKgEkJqAKogpAqgAkLqAGkjKAGQJoIyAGkhKAWQBoJyAEkjKAmQJIKyAEkhKA2QBILyAHEjZAIgToTMAMSFkCmAOBAyBxA1QiYBokTILEBUCJkGiAIh8wBhEbQACIOgDUBQBK0AgiBoB+AXQUsAPwjaAnhF0BrAC4L2AG4IfQHQC6FvAJwQ+grADqHvAKwIfQnQidC3AC2EfwjeRbi7ao21AAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .bgcolor2 {
+    /* background-color: #df4b3e; */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAA1RJREFUeF7l1s9r02AYB/DnTdNC69EfIDjpwT9ABd1hl10EwZOoBw/C0JOIgohut7Y37RB02CmyzQwpglmLE0TUixehUGQIKvagTNxFEMG5tcy2eSTZWtuaNr/eJG/e5JqXN+/3kyfPE1IfO5kGAikIwoVYAiAlAko5IkCJzBW/OD02UTcIFEJHYgR8LyDejMS+5sn9t3U7GBpAkBE2T48rCDAZbfyeJQ9frluBaAMEH0GL/QMQs+K6cJfI8poZiC4AThAAEZejgnCUzMkVI4T/AHhBAIRVgsoZcb74dBCCLgBHCE0EvBKTCrf7IfQF4AZBbZEIl2PSwi09hIEAHCEoBPGEKBWe9CIYAnCE8EskZLi3MZoC4AUBET9F69Vhkn++2qoE0wC8IABCJiotpG0BMI8QT0Dk3AUgBw+DsiiDsvhYp+/hhvgH95F8cUW9aakCmP5tjidAHM8A7E22QzfOntKffqjciErFCdsAzFXCUBLEi1cBduxqB8Y3r6E5m+s3/n+Ka2QPkeWarQpgqhLU8ONpgMQ2s+G1dYh4PiYV7jkC8LsSyMio9s13Xv2//e5iQMB3sQeF/Y4B/EIQjhwD4fRYVyq15NXSN3uJSHZTAbCNMJQE4cAhwMpHwMoHs+fe7PQjo//W16rQnLkDuFQ2vYfWABGPUwPYQkgBgfaMNTqNODkNsH2ntszU2+sYc+29a1VoXE8BfFs2epze/SxVAKuVIObmAeKJ9sEGIuiMOTV0YyZnN7zaCl9QB7CEoHbwiYwxgs6Y08Krb75WtfPmW5PgsysAVBH0xtxSWfvmnYTfUvvuGgANBHWP3jFn8INjsRpww1UApwi9aZRHEiivnlkMOXi56wC0EExNCRs0ngA4QlBn/FTW0n+CFQfPACwjXLqm5WhMZR2MOWMKTwEsIRifncoKzwFYQ/AFgCUE3wBYQfAVgAUE3wH8RmACwE8EZgD8QmAKwA8E5gC8RmASwEsEZgG8QmAawAsE5gHcRggEgJsIgQFwCyFQAG4gBA6ANkIgAWgiBBaAFkKgAWggBB7AKQIXAE4QuAGwi8AVgB0E7gCsInAJYAWBWwCzCFwDmEHgHsAIIRQAgxBCA9APIVQAegihA+hFCCVAJ0JoAVoIfwGFP6NbK7gTfgAAAABJRU5ErkJggg==");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .bgcolor3 {
+    /* background-color: #5f82f1; */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAA2FJREFUeF7l2D9oE1EcB/Dfi401RaQ1jRexOjkXdcng4iK4SidBQRQFwbaIQ7u13bRVtO3FSGxrpC0ORbAOiri4CBUHURwM/kGwDhXRGlJr2vR+8tImJtdL7t3/dy9vzXH3vp/3+93vCDl9caGfAPSBDxYCzAGSOSDKq8AamZtISJ+tbpvQG/gJoTIwvkMlcH1rPjKdTJJVMxgFAH8jFLY/D0iG8iFlfPJadMkIRAlAAAQAxB8IZHAJSWLm1q4sC0QFgBAIQB3wS0DZcmwiEUnrIWwCEAYBIIOAp+7J0Ue1EDQBhEFAWAOCl1NydLgaQlUAURBoDkS8lIpHb2oh1AQQCEFBgI6ULD1UI+gCCIOA8JsogZj6xcgEIAoCAr5fJcHY9Gg4U6wEZgBxEGAgJUv9pgB4RwiFCJw9uQMOtTfC7JMlmH2s9VGIuRUS3D89Gp6neQxVAM+fzTR8T1cL7GtrKL3nznR+15x+iHA1FZd6TQPwVgl79zRA57lmaA0HSoFfvPwL41OlVldB4M9sUGqbuUGWTVUAT5VAw/d0t0BT6H+U2uHXd48AF1KydNsSgNeVcDi2rdDz5at672/qhjd3ZemAZQCvEI4eaYITHdsrUtGSp6fPulAhu20BMItAy/dgeyOkP65A+gP7/xn01OnpF9fyMsLYVAZev82xZi+2wXHbADYQ+ghAacbq7WZooBXCO9dfXCynVz7mysNfGf4FX7/l9R6n9fugrQBGKyE+GAEaqrhqIWiNORp6bDJjNjx97FPbAYwg0Bbo7W7RRdAaczQ8PXla/mYXAnxyBMBOBK0xR3ud9ryV8BtoC44B2IFA76Eecywznr0iMOcogFUEdZD7D7Lw7Pkf9nwMVzoOYBcCy5RgyLvpElcArCDQPh+5s2joO8EIhGsARhG6zjcXcowkF62MOV0LVwGMIOju3KYLXAfgDcETAJ4QPAPgBcFTAB4QPAfwGoELAC8RuAHwCoErAC8QuANwG4FLADcRuAVwC4FrADcQuAdwGsEXAE4i+AbAKQRfATiB4DsAuxF8CWAngm8B7ELwNYAdCL4HsIogBIAVBGEAzCIIBWAGQTgAowhCAhhBEBaAFUFoABYE4QH0EOoCoBZC3QBUQ6grAC2EugNQI9QlQDlC3QIUEf4BzxOpcsmRpxkAAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .bgcolor4 {
+    /* background-color: #8b8d9d; */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAA3pJREFUeF7l1k9IVEEcB/DvM8SVDqEEUnaMuph0UW91CrpIRQgaecgOkXpILShwayMkMt2325aFYJdIhS6ml6xTdhH3lO2hpI0KE4QIEks31/3FrLq469vd9//Nm93rzJud72d+7/1GutJ5xwdIt+CCHwHTEjBNlAgXoXhalm98MbptiS3gJoTtgQmISJD6/y7vfT44eGlND0YSwM0IbO9ENA9Jul9cVDLU13ftjxaIFIDbETZC008i9K7F1h8PDPiW1UCkAYiBwBzwlRJ0Mhj0fsqHsANAFAQiWoKE5qDfO54LQRFAHASsF4G6ZNkbzIaQFUAUhM3gHQF/d0AJISeAOAiUgISzgX7vWCZCXgBxEPCb1qku88OoCkAUBAI+JtbidaGQb2mrElQDiIIA0O2A3+vTBcA7QqmnBE1N9ThSdRiTr9/h1eTUju8eEWKJePxgKOSbZ4OaKoDnazML39bajMrKilTojq4exe5HoHtBv/e6bgDeKqFyfwVaLjSgvHxPKnA4PIvh0Qnl9k/0S8LuA7LcuaKrAniqBBa+rfU8Sks96sJvzkoQLj+Qu58YAnC6EmprqtHUWJ92ytne/Z2lQO8Dfu9RwwBOIRw/VovTp06k5RoZncBMeDbX1T9t7N+u+D5TAPQisPKtqjqEaPQ7Pke/qd74ucZ61NRUp+avrsYwPDKOD5E51WskJ0p0xjSADYSeWwClemy+3dzsbkdZ2caHS83pbW9zW2uz8A8fPcOPhcV8f6c03msqgNZKuNtzFR5PSWpjuRCU2tzCwiKGRyb0hgcBk6YDaEFgr0B7W3NeBKU2x8Kzk19Zjek5+eQzBIpaAmAmglKbi0Tmku+8kfBJAMKiZQBmILA1MttczguOxlpg12JLAYwiZOYZe/kGb6dmNMbMPd1yALMQ1HQJPTK2ABhBYG1u6OkLTfcELRC2AWhFuNjSkMzBwuvs8aocbAXQgqBq9yZMsh2ANwRHAHhCcAyAFwRHAXhAcBzAaQQuAJxE4AbAKQSuAJxA4A7AbgQuAexE4BbALgSuAexA4B7AagRXAFiJ4BoAqxBcBWAFgusAzEZwJYCZCK4FMAvB1QBmILgewCiCEABGEIQB0IsgFIAeBOEAtCIICaAFQVgAtQhCA6hBEB4gH0JBAORCKBiAbAgFBaCEUHAAmQgFCbAdoWABthD+A4qwpLmvjO2rAAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .categoriestwo .date-item .date_item_list .surplus_day text {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .categoriestwo .date-item .date_item_list .indate {
+    width: 172rpx;
+  height: 18rpx;
+  font-size: 14rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 18rpx;
+  letter-spacing: 2rpx;
+  text-align: left;
+  opacity: 1;
+    position: absolute;
+    z-index: 2;
+    left: 16rpx;
+    bottom: 88rpx;
+  }
+  
+  .categoriesone .date-item .absolute_status {
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    line-height: 70rpx;
+    border-radius: 0 24rpx;
+  }
+  .img_icon{
+    /* width: 500rpx; */
+    margin: 0 auto;
+    text-align: center;
+    background:#fff;
+  }
+  .img_icon image{
+    width: 314rpx;
+    height: 240rpx;
+    opacity: 1;
+    margin: 0 auto;
+    margin-bottom: 20rpx;
+  }
+    .img_icon text{
+      color: #999999;
+    }
+    .img_icon_topclear{
+      width: 750rpx;
+      margin-top: 0;
+      line-height: 100rpx;
+    background-color: #fff;
+  
+    }
+  
+  .course-type{
+    background:#fff;
+    width:100%;
+    border-bottom:2rpx solid #F7F7F7;
+    margin-top:28rpx;
+  }
+  .course-type-item{
+    padding:20rpx 0 14rpx;
+  }
+  .type-bottom-line{
+    background:#21DBC3;
+    width:50%;
+    margin:0 auto;
+    height:6rpx;
+  }
+  .typeActive{
+    color:#21DBC3;
+    font-weight:600;
+  }
+  .imgList{
+    display:flex;
+    align-items: center;
+  }
+  .buying-people{
+    width:46rpx;
+    height:46rpx;
+    border-radius:50%;
+    margin-left:-23rpx;
+  }
+  
+  
+  .categories {
+    width: 750rpx;
+    height: 200rpx;
+    white-space: nowrap;
+    display: flex;
+    padding: 16rpx 20rpx;
+    box-sizing: border-box;
+    background:#ffffff;
+  }
+  
+  .date-item-check {
+    width:70rpx;
+    display: inline-block;
+    text-align: center;
+    padding:20rpx 16rpx;
+  }
+  
+  .date-item-check .week {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #666666;
+    margin-bottom: 14rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+  }
+  
+  .date-item-check .week-checked {
+    color: #21DBC3;
+  }
+  .date-item-check.checked-date{
+    background:rgba(38,219,196,.1);
+    border:1px solid #21DBC3;
+    border-radius:16rpx;
+    color:#21DBC3!important;
+  }
+  .date-item-check .date {
+    font-size: 28rpx;
+    font-family: SF Pro Display;
+    color: #999999;
+  }
+  
+  .date-item-check .date-checked {
+    background: #21DBC3;
+    border-radius: 50%;
+    color: #fff;
+  }
+  
+  
+  .time-list{
+    background:#fff;
+    padding:0 30rpx 30rpx;
+  }
+  .time-list .booking-intro{
+    margin-bottom:20rpx;
+  }
+  .booking-list{
+    flex-wrap: wrap;
+    
+  }
+  .booking-list .booking-item{
+    position: relative;
+    width:18%;
+    margin-right:2.5%;
+    margin-bottom:20rpx;
+    border-radius:6rpx;
+    background:#f2f2f2;  
+    height:74rpx;
+    line-height:74rpx;
+    text-align: center;
+  }
+  .booking-list .booking-item.active{
+    background:#21DBC3;
+    color:#fff;
+  }
+  .item-sign{
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .item-sign image{
+    width:70rpx;
+    height:50rpx;
+    line-height: 50rpx;
+  }
+  .item-sign .label{
+    position: absolute;
+    left:0;
+    top:0;
+    color:#fff;
+  }
+  .beyond-true{
+    background:#999999;
+  }
+  .booking-list .booking-item:nth-child(5n){
+    margin-right:0;
+  }
+  
+  .margin-top-28{
+    margin-top:28rpx;
+  }
+  
+  .common-space{
+    padding:0 30rpx;
+  }
+  .can-use-card{
+    padding-top:18rpx;
+    font-weight:600;
+    text-align: left;
+  }
+  
+  .margin-bottom-0{
+    margin-bottom: 0!important;
+  }
+  .course-intro{
+    padding:28rpx 36rpx;
+    background:#fff;
+    color:#333;
+  }
+  
+  .lesson-info .coordinates-address{
+    width:26rpx;
+    height:28rpx;
+  }
+  .teacher-name{
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .personalTimeData{
+    padding:20rpx 30rpx;
+    width:100%;
+  }

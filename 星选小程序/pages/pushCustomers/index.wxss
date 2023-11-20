@@ -1,0 +1,41 @@
+.list-box{
+    min-height:100vh;
+}
+.margin-r-50{
+    margin-right:50rpx;
+}
+.push-customer-list{
+    padding:20rpx;
+}
+.push-customer-item{
+    padding:30rpx 22rpx;
+    border-radius:16rpx;
+    margin-bottom:20rpx;
+}
+.customer-cover{
+    width:120rpx;
+    height:120rpx;
+    border-radius:50rpx;
+    margin-right:28rpx;
+}
+.margin-b-12{
+    margin-bottom:12rpx;
+}
+.customer-info{
+    width:80%;
+}
+.free-sample-btn{
+    width:77%;
+    position: absolute;
+    bottom:150rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: linear-gradient(rgba(252,86,57,255) 0%,rgba(252,132,57,255) 100%);
+    border-radius: 70rpx;
+}
+.no-data-bottom{
+    bottom:300rpx;
+}

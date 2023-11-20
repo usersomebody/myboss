@@ -1,0 +1,19 @@
+<view class="{{detailShow ? 'hidden-canvas' : ''}} poster" id="drawPoster">
+    <!-- 名片样式 -->
+    <view class="business-style">
+        <view class="business-title font-md color-333">名片样式</view>
+        <view class="business-list flex-box flex-a-center">
+            <image wx:for="{{businessList}}" wx:key="index" src="{{item}}" data-cover="{{item}}" data-idx="{{index}}" bindtap="switchTab"></image>
+        </view>
+    </view>
+    <!-- 海报预览图片  -->
+    <!-- 最终生成的图片 -->
+    <view scroll-y="{{true}}" class="poster-image poster-preview-wrap">
+        <view class="business-title font-md color-333">预览图</view>
+        <image class="previewImg" wx:if="{{prviewPoster}}" src="{{prviewPoster}}" style="width:{{posterWidth}};height:{{posterHeight}}"></image>
+        <!-- <view class="save" bindtap="checkSaveStatus">保存图片</view> -->
+    </view>
+    <view class="canvas">
+        <canvas type="2d" canvas-id="poster" id="poster" style="width:{{sWidth}}px;height:{{sHeight}}px" />
+    </view>
+</view>

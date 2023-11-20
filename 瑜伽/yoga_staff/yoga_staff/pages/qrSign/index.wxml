@@ -1,0 +1,4 @@
+<view class="container">
+    <!-- <view>扫码签到</view> -->
+    <sign-code wx:if="{{qrcode}}" qrcode="{{qrcode}}" ></sign-code>
+</view>

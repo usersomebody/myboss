@@ -1,0 +1,59 @@
+<view class="container">
+    <view class="form">
+        <view class="li flex-box flex-a-center flex-j-between" wx:for="{{showList}}" wx:key="index">
+            <view class="li-item-title font-md color-333 flex-box flex-a-center">{{item.name}}</view>
+            <view class="li-item-content flex-box flex-a-center flex-j-end {{ !item.isShowIcon ? 'pad-r-34' : ''}}">
+                <view wx:if="{{item.isInput}}" class="value-placeholder font-md color-999 "><input always-embed="{{true}}" class="text-right font-md {{identityName ? 'color-504' : 'color-999'}}" placeholder-class="font-md color-b3b" type="text" placeholder="{{item.placeholder}}" value="{{identityName}}" disabled="{{isNotUpdate}}" data-key="{{item.key}}" disable="{{issystem == 1 ? true : false}}" bindinput="getNumberValue"/></view>
+                <view wx:else class="value-placeholder font-md color-999" bindtap="toggleRoot"><view class="codesNum">{{total}}</view></view>
+                <view wx:if="{{item.isShowIcon }}" class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+            </view>
+        </view>
+    </view>
+    <!-- 确认btn -->
+    <view class="submitBtn flex-box flex-a-center flex-j-center">
+        <view class="btn back" bindtap="deleteRole">{{rid ? '删除' : '返回'}}</view>
+        <view class="btn sure" bindtap="submit">确定</view>
+    </view>
+</view>
+
+<!-- 权限配置 -->
+<scroll-view wx:if="{{showOverlayer}}" class="powerList-box" scroll-y="{{true}}">
+    <view class="powerList-title font-lg color-333">权限设置</view>
+    <view class="switch-list flex-box flex-a-center flex-j-center">
+        <view class="in-border flex-box flex-a-center flex-j-center">
+            <view class="switch-item font-md {{item.id == switchId ? 'active' : ''}}" wx:for="{{switchRoleList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+        </view>
+    </view>
+    <!-- 权限配置 -->
+    <view wx:if="{{switchId == 1}}" class="powerList flex-box" >
+        <view class="left">
+            <view class="left-item color-666 font-md common-relative {{checkId == item.id ? 'active' : ''}}" wx:for="{{allAuthRole}}" wx:key="index" data-id="{{item.id}}" bindtap="checkLeft">{{item.name}}<view class="left-num {{checkId == item.id ? 'base-deep-bg' : ''}}">{{item.checkNum}}</view></view>
+        </view>
+        <view class="right">
+            <view class="right-item font-md flex-box flex-a-start flex-j-between {{checkId == item.id ? 'bg-white color-333' : ''}}" wx:for="{{allAuthRole}}" wx:key="index" wx:if="{{checkId == item.id}}">
+                <view class="right-itm font-md {{itm.checked ? 'base-color' : ''}}" wx:for="{{item.children}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx" data-id="{{itm.id}}" data-code="{{itm.auth_code}}" data-oid="{{item.id}}" bindtap="checkChildren">
+                    <view class="power-icon {{itm.checked ? 'active' : ''}}"><image class="power-img" src="{{itm.checked ? item.click_icon : item.icon}}"></image></view>
+                    <view class="font-sm">{{itm.name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 数据可见范围 -->
+    <view class="data-range" wx:if="{{switchId == 2}}">
+        <view class="color-333 font-lg data-range-title">数据可见范围</view>
+        <van-radio-group value="{{ dataRangeVal }}" bind:change="onDataRangeChange">
+            <view class="radio-item bg-white" wx:for="{{dataCanSeeRange}}" wx:key="index">
+                <van-radio name="{{item.id}}" checked-color="#9B77F4" icon-size="20px" class="font-md">{{item.name}}</van-radio>
+            </view>
+        </van-radio-group>
+        <view class="data-range-warn font-sm">选择个人数据只看到自己添加的会员信息；选择全部数据能看到所有的会员信息</view>
+    </view>
+    <!-- 确认btn -->
+    <view class="submitBtn flex-box flex-a-center flex-j-center shadow-btn">
+        <view wx:if="{{switchId == 1}}" class="btn back" bindtap="actionType">{{isSelectAll ? '全选' : '重置'}}</view>
+        <view wx:if="{{switchId != 1}}" class="btn back" bindtap="cancle">取消</view>
+        <view class="btn sure" bindtap="sure">确定</view>
+    </view>
+</scroll-view>
+
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="closeRootList"></view>

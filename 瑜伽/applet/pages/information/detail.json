@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+      "article-poster":"/components/articlePoster/index"
+    },
+    "navigationBarTitleText": "资讯详情",
+    "navigationBarBackgroundColor": "#A37FFC",
+    "navigationBarTextStyle": "white"
+  }

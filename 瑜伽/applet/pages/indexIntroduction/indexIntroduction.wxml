@@ -1,0 +1,24 @@
+<!--pages/indexIntroduction/indexIntroduction.wxml-->
+<view class="container">
+  <view class="index">
+    <view class="index-item">
+      <view class="index-name">BMI</view>
+      <view class="index-content">
+        指身高体重指数，主要用于统计用途。BMI值原来的设计是一个用于公众健康研究的统计工具。当我们需要知道肥胖是否对某一疾病的致病原因时，我们可以把病人的身高及体重换算成BMI值，再找出其数值及病发率是否有线性关联。</view>
+    </view>
+    <view class="index-item">
+      <view class="index-name">体脂率</view>
+      <view class="index-content">脂率是指人体内脂肪重量在人体总体重中所占的比例，又称体脂百分数，它反映人体内脂肪含量的多少。正常成年人的体脂率分别是男性15%~18%和女性25%~28%。</view>
+    </view>
+    <view class="index-item">
+      <view class="index-name">基础代谢值</view>
+      <view class="index-content">
+        指身高体重指数，主要用于统计用途。BMI值原来的设计是一个用于公众健康研究的统计工具。当我们需要知道肥胖是否对某一疾病的致病原因时，我们可以把病人的身高及体重换算成BMI值，再找出其数值及病发率是否有线性关联。</view>
+    </view>
+    <view class="index-item">
+      <view class="index-name">理想体重</view>
+      <view class="index-content">谓理想体重又称为标准体重，是利用科学原理测算的、与自己的身高密切相关的体重数据，可简略的计算为：1、标准体重(kg)=身高(厘米)―105
+        2、实际体重超过标准体重的10％为超重，超过20％为肥胖。3、目前医学界又常常以体重指数来表示理想体重，体重指数(BMI)=身高(kg)/体重(m)2</view>
+    </view>
+  </view>
+</view>

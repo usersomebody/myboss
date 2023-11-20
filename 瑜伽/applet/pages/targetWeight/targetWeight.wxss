@@ -1,0 +1,119 @@
+/* pages/targetWeight/targetWeight.wxss */
+.head {
+  width: 750rpx;
+  height: 270rpx;
+  background: #21DBC3;
+  display: flex;
+  padding: 48rpx 24rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.head-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 22rpx;
+}
+
+.head .name {
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+.head .nickname {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  height: 44rpx;
+  margin-bottom: 8rpx;
+}
+
+.weight {
+  position: relative;
+  top: -86rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 702rpx;
+  height: 558rpx;
+  z-index: 99;
+}
+
+.weight-bg {
+  width: 702rpx;
+  height: 558rpx;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  width: 702rpx;
+  height: 558rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.target .target-bg2 {
+  width: 272rpx;
+  height: 225rpx;
+  margin-top: 24rpx;
+}
+
+.target .target-num {
+  position: absolute;
+  top: 96rpx;
+  width: 136rpx;
+  height: 66rpx;
+  font-size: 48rpx;
+  line-height: 66rpx;
+  color: #21DBC3;
+}
+.target .unit{
+  font-size: 28rpx;
+}
+.target .target-txt{
+  position: absolute;
+  top: 182rpx;
+}
+.progress {
+  margin-top: 24rpx;
+  height: 220rpx;
+}
+
+.weight-info {
+  margin-top: 74rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weight-info .info-item {
+  font-size: 32rpx;
+  text-align: center;
+  color: #333333;
+  line-height: 44rpx;
+  height: 44rpx;
+}
+
+.weight-info .info-item .info-b {
+  color: #21DBC3;
+  margin-top: 24rpx;
+}
+
+.reset {
+  width: 702rpx;
+  height: 96rpx;
+  background: #21DBC3;
+  font-size: 36rpx;
+  line-height: 96rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 96rpx auto 0;
+  border-radius: 48rpx;
+}

@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+      "no-data-cover":"/components/no-data/index"
+    },
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  }

@@ -1,0 +1,81 @@
+.tab-list{
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:#fff;
+}
+.tab-item-title{
+    display: inline-block;
+    padding:30rpx 0 16rpx;
+}
+.tab-item-title.active{
+    color:#8F33FF;
+    border-bottom:6rpx solid #8F33FF;
+}
+.color-fc8{
+    color:#FC8C10;
+}
+.list{
+    padding:110rpx 30rpx 20rpx;
+}
+.list .li{
+    background:#fff;
+    border-radius:10rpx;
+    margin-bottom:20rpx;
+}
+.list .li .content{
+    padding:20rpx 38rpx 40rpx 38rpx;
+}
+.content .title:nth-child(2){
+    margin:14rpx 0;
+}
+
+.content .title:nth-child(4){
+    margin:10rpx 0 16rpx;
+}
+
+.list .li .li-btn{
+    padding:30rpx 20rpx 26rpx;
+    border-top:1rpx solid #E2E3E8;
+}
+
+.li-btn .btn{
+    padding:18rpx 24rpx;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    border-radius: 10rpx;
+    color:#999;
+}
+.li-btn .btn:nth-child(2){
+    margin:0 20rpx;
+}
+.li-btn .btn:last-child{
+    margin-right:0;
+}
+.li-btn .btn.share{
+    width:140rpx;
+    height:74rpx;
+    line-height: 74rpx;
+    text-align: center;
+    border: 1rpx solid #8F33FF;
+    color:#8F33FF;
+}
+.addIconlink{
+    position: fixed;
+    right:0;
+    bottom:30%;
+}
+.addIcon{
+    width:166rpx;
+    height:166rpx;
+}
+.no-list-data{
+    padding-top:220rpx;
+    margin:0 auto;
+}
+.no-list-data image{
+    width:424rpx;
+    height:360rpx;
+    margin-bottom:20rpx;
+}

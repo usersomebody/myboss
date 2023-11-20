@@ -1,0 +1,24 @@
+<import src="../../components/loading/index.wxml" />
+
+<view class="container">
+    <view class='type-list bg-white flex-box flex-a-center flex-j-around'>
+        <view class="type-item color-666 font-md {{ checkedId == item.id ? 'active font-weight' : ''}}" wx:for="{{courseType}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+    </view>
+    <view class="course-list">
+        <view wx:if="{{list.length}}" class="list-item bg-white flex-box flex-a-center flex-j-between" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-sid="{{item.store_id}}"  bindtap="goDetail">
+            <view class="left">
+                <view class="course-name color-333 font-lg">{{item.name}}</view>
+                <view class="course-time color-666 font-md">课程时长：{{item.duration}}min</view>
+            </view>
+            <view class="right"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+        <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/d88c6939601396d0498e5d090a993a1f.png"></image>
+                <view class="font-sm color-999">未添加课程信息~</view>
+            </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>
+<common-bottom-frame showData="{{showData}}"></common-bottom-frame>

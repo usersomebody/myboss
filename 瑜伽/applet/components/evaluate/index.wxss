@@ -1,0 +1,257 @@
+@import "../../common.wxss";
+
+.evaluate-box{
+    position: fixed;
+    width:92%;
+    bottom:0;
+    z-index:2001;
+    padding:30rpx 4%;
+    background:#fff;
+    border-radius:16rpx 16rpx 0 0;
+    height:1200rpx;
+}
+.evaluate-head{
+    /* position: fixed;
+    top: 13%;
+    width: 92%;
+    background: #fff;
+    padding: 20rpx 0;
+    z-index: 200; */
+}
+.close-btn{
+    width:24rpx;
+    height:24rpx;
+}
+
+.split-line{
+    margin:0 10rpx;
+}
+
+.evaluate-course-content{
+    margin-top:50rpx;
+}
+
+.content-score{
+    padding-right:40rpx;
+    border-right:1rpx solid #E7E4ED;
+}
+
+.content-score .stars{
+    margin:16rpx 0;
+}
+
+.content-proportion{
+    padding:0 40rpx;
+}
+
+.proportion-progress{
+    width:180rpx;
+}
+
+.proportion{
+    margin:10rpx 0;
+}
+
+.content-action{
+    padding-left:40rpx;
+    border-left:1rpx solid #E7E4ED;
+    height:160rpx;
+}
+
+.progress-name{
+    margin-right:20rpx;
+}
+
+.evaluate-action-img{
+    width:50rpx;
+    height:50rpx;
+    margin-bottom:20rpx;
+}
+
+.evaluate-list{
+    margin-top:40rpx;
+}
+
+.evaluate-item{
+    padding:20rpx;
+    border-radius:10rpx;
+    background:#F5F5F5;
+    margin-bottom:20rpx;
+}
+
+.item-head{
+    margin-bottom:30rpx;
+}
+
+.avatar{
+    width:80rpx;
+    height:80rpx;
+    border-radius:50%;
+    margin-right:20rpx;
+}
+
+.user-info .user-name{
+    margin-bottom:16rpx;
+}
+
+.item-label{
+    margin-top:30rpx;
+    flex-wrap: wrap;
+}
+
+.label-item{
+    padding:18rpx 26rpx;
+    background:#EFE9FF;
+    color:#9169FB;
+    border-radius:10rpx;
+    margin-right:16rpx;
+    margin-bottom:20rpx;
+}
+
+.comment-img{
+    width:32rpx;
+    height:26rpx;
+    margin-right:14rpx;
+}
+
+.fabulous-img{
+    width:32rpx;
+    height:32rpx;
+    margin-right:14rpx;
+}
+
+.item-action-left{
+    margin-right:48rpx;
+}
+
+.evaluatling-head{
+    padding:60rpx 0 30rpx;
+    border-bottom:1rpx solid #E7E4ED;
+}
+
+.evaluatling-satisfied{
+    padding:40rpx 0 0;
+}
+.satisfied-label{
+    margin-top:40rpx;
+}
+.dissatisfied{
+    margin-left:40rpx;
+}
+.satisfied,.dissatisfied{
+    border:2rpx solid #E1DFE6;
+    color:#AFADB3;
+    width:260rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:40rpx;
+}
+
+.evaluatling-satisfied .active{
+    border:2rpx solid #9169FB;
+    color:#A37FFC;
+}
+
+.satisfied-icon{
+    width:48rpx;
+    height:48rpx;
+    margin-right:14rpx;
+}
+
+.label-list-item{
+    width:23%;
+    margin:0 2% 22rpx 0;
+    height: 60rpx;
+    line-height:60rpx;
+    color:#AFADB3;
+    border: 2rpx solid #E1DFE6;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.label-list-item.checked{
+    color:#9169FB;
+    background: rgba(163, 127, 252, 0.2);
+    border: 2rpx solid #A37FFC;
+}
+
+.evaluatling-textarea{
+    margin-bottom:30rpx;
+}
+.textarea-box{
+    width:92%;
+    padding:30rpx 20rpx;
+    height: 160rpx;
+    background: #F8F8F8;
+    border: 2rpx solid #E1DFE6;
+    border-radius: 10rpx;
+}
+
+.textarea-class{
+    color:#AFADB3;
+}
+
+.submit-btn{
+    margin: 30rpx auto 0;
+    width: 640rpx;
+    height: 88rpx;
+    line-height:88rpx;
+    text-align: center;
+    background: #9169FB;
+    border-radius: 44rpx;
+}
+
+.reply-delete-icon{
+    padding:10rpx;
+    margin-right:46rpx;
+    
+}
+.reply-delete-icon .delete-icon{
+    width:8rpx;
+    height:8rpx;
+    border-radius:50%;
+}
+
+.delete-icon:nth-child(2){
+    margin:0 8rpx;
+}
+.delete-box{
+    position: absolute;
+    top:40rpx;
+    left:-60rpx;
+}
+.triggle{
+    position: absolute;
+    left: 45%;
+    top: -10rpx;
+    transform: rotate(135deg);
+    width: 0;
+    height: 0;
+    border-top: 10rpx solid #fff;
+    border-right: 10rpx solid #fff;
+    border-bottom: 10rpx solid #fff;
+    border-left: 10rpx solid #fff;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .2));
+}
+
+.delete-reply-title{
+    position: relative;
+    width: 164rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3rpx 7rpx 0px rgba(139, 139, 139, 0.38);
+    border-radius: 10rpx;
+}
+
+.limit-fonts{
+    position: absolute;
+    right:40rpx;
+    bottom:20rpx;
+    color:#AFADB3;
+    z-index:1;
+}

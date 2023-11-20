@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="li {{item.key == 'suggest' || item.key == 'cover_url' ? '' : 'flex-box flex-a-center flex-j-between'}} {{index == showList.length - 1 ? 'border-none' : ''}}" wx:for="{{showList}}" wx:key="index">
+        <view class="item-label font-md color-333 bold">{{item.name}}<text class="margin-right-10 font-md color-99">{{item.symbol}}</text></view>
+        <view class="{{item.key == 'suggest' || item.key == 'cover_url' ? 'margin-t-20' : 'item-value'}} {{ !item.isHandle ? 'pad-r-34' : ''}} flex-box flex-a-center">
+            <view wx:if="{{item.inputBox}}" class="value-placeholder font-sm color-999 "><input always-embed="{{true}}" placeholder-class="color-b3b" class="text-right font-md {{item.value ? 'color-504' : 'color-999'}}" style="width:500rpx;" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" disabled="{{item.disable}}" bindblur="getNumberValue"/></view>
+            <view wx:elif="{{item.key == 'fitness_test_time'}}" style="width:100%;">
+                <picker mode="date" value="{{item.value}}" start="1970-01-01" :end="{{currentDate}}" data-key="{{item.key}}" bindchange="bindDateChange">
+                    <view class="picker font-md text-right {{item.value ? 'color-504' : 'color-b3b'}}">
+                        {{item.value ? item.value : '选填'}}
+                    </view>
+                </picker>
+            </view>
+            <view wx:elif="{{item.key == 'cover_url'}}" class="upload flex-box flex-a-center">
+                <view class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                    <image src="{{itm}}"></image>
+                    <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                </view>
+                <view wx:if="{{alyunFilePath.length < 9}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                    <view class="font-lg">+</view>
+                    <view>上传图片</view>
+                </view>
+            </view>
+            <view wx:elif="{{item.key == 'suggest'}}" class="value-placeholder font-md"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="suggest" bindinput="getMemoValue"></textarea></view>
+            <view class="right-icon" wx:if="{{item.isHandle}}"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>    
+    </view>
+    <view class="edit-btn flex-box flex-a-center flex-j-center" bindtap="sure">
+        <view class="common-edit-btn edit-back" data-type="1">返回</view>
+        <view class="common-edit-btn edit-sure" data-type="2">保存</view>
+    </view>
+</view>

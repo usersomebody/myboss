@@ -1,0 +1,13 @@
+<!-- 权限店铺列表 -->
+<view class="container">
+    <view wx:if="{{identityList.length}}" class="item-padding">
+        <view class="store-item flex-box flex-a-center flex-j-between" wx:for="{{identityList}}" wx:key="index"  data-id="{{item.id}}" data-name="{{item.name}}" data-issystem="{{item.is_system}}" data-type="1" bindtap="goSetIdentityRoot">
+            <view class="font-md color-333">{{item.name}}</view>
+            <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <view wx:if="{{isLoaded && !identityList.length}}" class="text-center font-md color-666" style="padding-top:60rpx;">暂无数据</view>
+</view>
+<view class="addVipCard" bindtap="goSetIdentityRoot" data-type="2">
+    <image class="add-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/3a5abd6b221783c81aac8584f9069bc9.png"></image>
+</view>

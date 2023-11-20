@@ -1,0 +1,71 @@
+<import src="../../components/loading/index.wxml" />
+
+<view class="container">
+    <!-- 筛选时间 -->
+    <view class="screen-time flex-box flex-a-center flex-j-between">
+        <view class="flex-box flex-a-center">
+            <view class="date-cover"><image class="cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image></view>
+            <view class="color-504 font-md">{{submitData.start_time && submitData.end_time ? submitData.start_time + '~' + submitData.end_time : '暂无时间筛选条件'}}</view>
+        </view>
+        <view class="font-md base-color" bindtap="goScreen">更多筛选</view>
+    </view>
+    <view class="comment-list-box">
+        <!-- 筛选条件 -->
+        <view class="screen-list flex-box flex-a-center" wx:if="{{submitData.showScreenList.length}}">
+            <view class="screen-item color-666 font-sm common-relative" wx:for="{{submitData.showScreenList}}" wx:key="index">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220216/0a8f443c7d778b2d2493fb8e3f33d957.png" class="screen-item-delete"  data-type="{{item.screenType}}" bindtap="delete"></image>
+                {{item.name}}
+            </view>
+        </view>
+        <!-- 列表 -->
+        <view class="comment-list">
+            <view class="comment-list-title font-sm color-999">共{{totalCount}}人评价</view>
+            <view class="comment-list-data">
+                <view class="comment-list-item" wx:for="{{list}}" wx:key="index">
+                    <view class="list-item-info flex-box flex-a-center flex-j-btween">
+                        <view class="info flex-box flex-a-center">
+                            <image class="avatar flex-shrink" src="{{item.head_img}}"></image>
+                            <view class="comment-start">
+                                <view class="name flex-box flex-a-center">
+                                    <view class="color-333 font-md">{{item.name}}</view>
+                                    <image src="{{satisfy[item.is_satisfy]}}" class="satisfied-icon"></image>
+                                </view>
+                                <view class="star">
+                                    <van-rate readonly="{{true}}" value="{{ item.star }}" count="{{ 5 }}" size="{{14}}" gutter="{{2}}" color="#FFA64C"/>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="time font-sm color-b3b">{{iterm.create_time}}</view>
+                    </view>
+                    <view class="content font-md color-333 two-line">
+                        {{item.content}}
+                    </view>
+                    <view class="label flex-box flex-a-center">
+                        <view class="label-item font-md" wx:for="{{item.label_content}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">{{itm}}</view>
+                    </view>
+                    <view class="font-sm color-999 one-line">{{item.course_name}}</view>
+                    <view class="font-sm color-999 one-line staff-info">{{item.staff_name}} {{item.start_time}} 开课</view>
+                    <view class="action flex-box  flex-a-center flex-j-between">
+                        <view class="left flex-box flex-a-baseline">
+                            <view class="font-md base-color is-show" data-id="{{item.id}}" data-isshow="{{item.is_show}}" data-istop="{{item.is_top}}" data-type="1" bindtap="setTopHidden">{{item.is_show == 1 ? '隐藏' : '取消隐藏'}}</view>
+                            <view class="font-md base-color is-top" data-id="{{item.id}}" data-isshow="{{item.is_show}}" data-istop="{{item.is_top}}" data-type="2" bindtap="setTopHidden">{{item.is_top == 1 ? '取消置顶' : '置顶显示'}}</view>
+                        </view>
+                        <view class="right flex-box  flex-a-center">
+                            <view class="flex-box flex-a-center item-action-left" data-id="{{item.id}}" bindtap="goCommentDetail">
+                                <image class="comment-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220216/efc92b0fec02fa7ebe967a9dad629540.png" data-id="{{item.id}}" ></image>
+                                <view class="font-md color-666" data-id="{{item.id}}" >{{item.sons}}</view>
+                            </view>
+                            <view class="flex-box flex-a-center">
+                                <image class="fabulous-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220212/adc7f3696ffcae3c4f0933255908b220.png"></image>
+                                <view class="font-md color-666">{{item.like_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view hidden="{{isLast}}">
+        <template is="loader" data="{{title:'加载中...'}}"></template>
+    </view>
+</view>

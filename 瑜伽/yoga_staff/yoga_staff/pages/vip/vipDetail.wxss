@@ -1,0 +1,345 @@
+.container{
+    padding:20rpx 30rpx;
+    background:#ECECEC;
+}
+.vip-info{
+    background:#fff;
+    border-radius:10rpx;
+}
+
+.info-content{
+    padding:30rpx 0 20rpx 30rpx;
+}
+
+.avatar image{
+    width:112rpx;
+    height:112rpx;
+    border-radius:50%;
+}
+
+.info-content .info{
+    width:100%;
+    margin-left:62rpx;
+}
+
+.info .item{
+    margin-bottom:14rpx;
+}
+
+.info .item:last-child{
+    margin-bottom:0;
+}
+.star-btn{
+    padding:24rpx 30rpx 24rpx 30rpx;
+    border-top:1rpx solid #F3F3F3;
+}
+.star-btn .set-btn{
+    width:210rpx;
+    height:60rpx;
+    line-height:60rpx;
+    background:#9169FB;
+    border-radius:16rpx;
+    text-align: center;
+}
+
+.vipCard-course{
+    margin-top:20rpx;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.switchTab{
+    padding:0 46rpx;
+    border-bottom:1rpx solid #F3F3F3;
+}
+
+.switchTab .switch-item{
+    padding:18rpx 0;
+}
+
+.switchTab .switch-item.active{
+    color:#7D49FB;
+    border-bottom:6rpx solid #7D49FB;
+}
+
+.send-card-btn{
+    width: 150rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: #E6DBFF;
+    border: 1rpx solid #9169FB;
+    border-radius: 10rpx;
+    margin:20rpx 0;
+    color:#9169FB;
+}
+.card-item {
+    padding:30rpx 20rpx;
+    border-radius:10rpx;
+    margin-bottom:30rpx;
+}
+.card-item .card-image{
+    margin-right:32rpx;
+    position: relative;
+}
+
+.card-item .card-image .card-img{
+    width:240rpx;
+    height:148rpx;
+    border-radius:20rpx;
+}
+
+.card-item .card-image .card-status{
+    position: absolute;
+    right:0;
+    top:0;
+    width:86rpx;
+    height:28rpx;
+    border-radius:0 18rpx 0 18rpx;
+}
+.card-item .card-info .item.second{
+    margin:14rpx 0;
+}
+.right-icon image{
+    position: absolute;
+    right:40rpx;
+    top:50%;
+    transform: translateY(-50%);
+    width:14rpx;
+    height:26rpx;
+}
+.booking-list .booking-item .course-sign{
+    position: absolute;
+    right:0;
+    top:0;
+    width: 104rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    text-align: center;
+    background: #FF9D00;
+    border-radius: 0px 10rpx 0px 10rpx;
+}
+
+.booking-list .booking-item .booking-status image{
+    position: absolute;
+    right:26rpx;
+    top:50%;
+    transform: translateY(-50%);
+    width:96rpx;
+    height:88rpx;
+}
+
+.booking-info .item{
+    margin-bottom:14rpx;
+}
+
+.booking-list{
+    padding:22rpx 24rpx;
+    background:#fff;
+}
+
+.booking-list .booking-item{
+    padding:16rpx 22rpx;
+    border-radius:10rpx;
+    box-shadow: 0px 0px 6rpx rgba(0, 0, 0, 0.08);
+    margin-bottom:20rpx;
+}
+
+.add-card image{
+    position: fixed;
+    right:0;
+    bottom:20%;
+    width:218rpx;
+    height:154rpx;
+}
+.no-booking-data{
+    padding-top:50rpx;
+    margin:0 auto;
+}
+.no-booking-data image{
+    width:382rpx;
+    height:356rpx;
+    margin-bottom:20rpx;
+}
+.width-30{
+    width:30%;
+    white-space: nowrap;
+}
+.width-25{
+    width: 25%;
+    white-space: nowrap
+}
+.width-60{
+    width:60%;
+}
+.integral{
+    margin-right:40rpx;
+}
+.integral image{
+    width:32rpx;
+    height:32rpx;
+    margin-right:10rpx;
+}
+.card-action-list{
+    margin-top:34rpx;
+}
+.card-action{
+    margin-right:34rpx;
+}
+.card-action image{
+    width:28rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+.card-operation{
+    flex-wrap: wrap;
+    padding-top:40rpx;
+    background:#fff;
+    border-radius:10rpx;
+    margin-top:20rpx;
+}
+.card-operation-item{
+    width:25%;
+    margin-bottom:40rpx;
+}
+.card-operation-item .operation-cover{
+    width:88rpx;
+    height:88rpx;
+    border-radius:50%;
+    margin-bottom:16rpx;
+}
+.relieve,.leaveOver,.delCard{
+    width:30rpx;
+    height:30rpx;
+}
+.cardType-name{
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    font-size: 10px;
+}
+.body-btn{
+    padding:16rpx 20rpx;
+    background:#E6DBFF;
+    color:#9169FB;
+    border-radius:8rpx;
+    margin-right:20rpx;
+}
+.body-action-btn{
+    margin:20rpx 0;
+}
+.bodyData-item{
+    margin-bottom:20rpx;
+}
+.bodyData-item .head .left image{
+    width:28rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+.color-343{
+    color:#343434;
+}
+.color-1a0{
+    color:#1A0F37;
+}
+.color-584{
+    color:#584E66;
+}
+.content-icon{
+    width:72rpx;
+    height:72rpx;
+    border-radius:50%;
+    margin-right:40rpx;
+}
+.common-padding{
+    padding:34rpx 40rpx;
+    border-radius:10rpx;
+    background:#FFF7E9;
+    
+}
+.more-data{
+    margin-right:16rpx;
+    color:#9169FB;
+}
+.content{
+    margin:30rpx 0 40rpx;
+}
+.bodyData-item{
+    padding:30rpx 20rpx;
+    background:#fff;
+    border-radius:10rpx;
+}
+.content .height{
+    background:#E5FBFB;
+    width:236rpx;
+}
+.content .weight{
+    background:#FFF7E9;
+    width:236rpx;
+}
+.color-242{
+    color:#242424;
+}
+.right-icons image{
+    width:14rpx;
+    height:26rpx;
+}
+.pd-left{
+    padding-left:20rpx;
+}
+.mg-bottom{
+    margin-bottom:20rpx;
+}
+.data-change-box{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    z-index:3000;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.shadow-box{
+    width:75%;
+    background:#fff;
+    padding:52rpx 0  72rpx;
+    border-radius:16rpx;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.shadow-box .head-img{
+    width:172rpx;
+    height:156rpx;
+}
+.head-title{
+    margin:38rpx 0 28rpx;
+}
+.common-btn{
+    width: 360rpx;
+    height: 88rpx;
+    line-height:88rpx;
+    text-align: center;
+    background: #9B77F4;
+    border-radius: 44rpx;
+    margin-bottom:20rpx;
+}
+.common-btn.img{
+    background: #F1B258;
+}
+.close-btn{
+    width:48rpx;
+    height:48rpx;
+    margin-top:60rpx;
+}
+.no-list-data{
+    padding-top:80rpx;
+    margin:0 auto;
+}
+.no-list-data image{
+    width:424rpx;
+    height:360rpx;
+    margin-bottom:20rpx;
+}

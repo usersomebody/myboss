@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="notice-list">
+        <view wx:if="{{list.length}}" class="notice-item bg-white common-relative" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" data-item="{{item}}" bindtap="goDetail">
+            <view class="notice-title color-333 font-lg one-line">{{item.title}}</view>
+            <view class="notice-time color-999 font-md flex-box flex-a-center">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211227/90b481dc3e836946dcd96daef0112551.png"></image>
+                <view class="color-999 font-md">{{item.send_start_time}} ~ {{item.send_end_time}}</view>
+            </view>
+            <view class="notice-info color-666 font-md common-relative">
+                <view>{{item.showBtn ? item.showContent : item.content}}</view>
+                <view wx:if="{{item.ellipsisShow}}" class="font-md base-must-color text-right" catchtap="showAllContent" data-id="{{item.id}}">{{item.showBtn ? '展开' : '收起'}}</view>
+                <!-- {{item.ellipsisInit && item.remainder && !item.showBtn ? 'text-right' : 'showAll'}} -->
+            </view>
+            <view class="notice-status color-white font-sm" style="background:{{statusMap[item.type].color}}">{{statusMap[item.type].name}}</view>
+        </view>
+        <view wx:if="{{!list.length}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220208/fba04eecfc9de47929cf23923acd3ff8.png"></image>
+            <view class="font-sm color-99">暂无记录~</view>
+        </view>
+    </view>
+</view>
+<view class="addVipCard" bindtap="goDetail" data-type="1">
+    <image class="add-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211214/3a5abd6b221783c81aac8584f9069bc9.png"></image>
+</view>

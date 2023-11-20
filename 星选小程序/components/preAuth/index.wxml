@@ -1,0 +1,11 @@
+<view class="fixed-mask pre-login-flex">
+  <view class="pre-login-main">
+    <view class="font-top pre-login-title">{{ title || '授权登录'}}</view>
+    <view class="font-md color-thin pre-login-content">{{info || '授权后' + mini_program_name + '将获得您的昵称、头像等公开信息'}}</view>
+    <view class="font-max pre-login-flex pre-login-btn">
+      <button wx:if="{{!hideCancel}}" class="pre-login-item" plain="{{true}}" bindtap="pipeResult">取消</button>
+      <button wx:if="{{type === 'openSetting'}}" class="pre-login-item pre-login-yes" plain="{{true}}" open-type="openSetting" bindopensetting="pipeResult">确认</button>
+      <button class="pre-login-item pre-login-yes" plain="{{true}}" bindtap="onGetUserProfile">确认</button>
+    </view>
+  </view>
+</view>

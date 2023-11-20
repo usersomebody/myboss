@@ -1,0 +1,22 @@
+<scroll-view scroll-y="{{true}}" class="container">
+        <view class="common-relative list-box">
+            <!-- 地址列表 -->
+            <view class="push-customer-list" wx:if="{{customerList.length}}"> 
+                <view class="push-customer-item flex-box flex-a-center bg-white" wx:for="{{customerList}}" wx:key="index">
+                    <image class="customer-cover flex-shrink" src="{{item.cover ? item.cover : 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220602/276f319dd610c3847553cf1b4722cbc7.png'}}"></image>
+                    <view class="customer-info">
+                        <view class="customer-name font-lg color-51 one-line margin-b-12">{{item.promotor_name}}</view>
+                        <view class="customer-channle font-md color-153 margin-b-12">推广途径：{{item.promotor_way}}</view>
+                        <view class="customer-belong font-md color-153 margin-b-12">主体：{{item.principal_name}}</view>
+                        <view class="customer-time font-md color-153">绑定时间：{{item.create_time_name}}</view>
+                    </view>
+                </view>
+            </view>
+            <view wx:if="{{!customerList.length}}" class="text-center font-sm shallow-color no-data">
+                <no-data text="您还没有推客账号~" cover="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/wechat/images/20220621/47e87681bea5653c2afed96fed3f79ae.png"></no-data>
+            </view>
+            <!-- 新增地址 -->
+            <view class="free-sample-btn font-lg color-white {{!customerList.length ? 'no-data-bottom' : ''}}" bindtap="editAddress">新增推客账号</view>
+        </view>
+        
+    </scroll-view>

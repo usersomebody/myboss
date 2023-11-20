@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="coach-list">
+        <view class="coach-item flex-box flex-a-center flex-j-between" wx:for="{{list}}" wx:key="index">
+            <view class="left flex-box">
+                <image src="{{item.head_img}}" class="coach-avatar"></image>
+                <view class="coach-info">
+                    <view class="coach-name font-lg color-333">{{item.name}}</view>
+                    <view class="coach-phone font-base color-666">{{item.phone}}</view>
+                </view>
+            </view>
+            <switch bindchange="switchChange" data-id="{{item.is_show_applet}}" data-item="{{item}}" checked="{{item.is_show_applet == 1 ? true : false}}" color="#9B77F4"></switch>
+        </view>
+    </view>
+</view>

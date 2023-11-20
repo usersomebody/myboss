@@ -1,0 +1,161 @@
+/* pages/memberCard/memberCard.wxss */
+.container {
+  background-color: #fff;
+}
+
+.head {
+  width: 750rpx;
+  height: 304rpx;
+  background: #21DBC3;
+  position: relative;
+}
+
+.head-bg {
+  width: 750rpx;
+  height: 304rpx;
+}
+
+.head-content {
+  width: 702rpx;
+  height: 218rpx;
+  position: absolute;
+  top: 48rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: flex;
+  padding: 26rpx 24rpx 0 26rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.head .head-l {
+  display: flex;
+}
+
+.head-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 26rpx;
+}
+
+.head .nickname {
+  margin-top: 2rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.head .time {
+  margin:10rpx 10rpx 0 0;
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #333333;
+}
+
+.head .cardId {
+  margin-top: 6rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #333333;
+}
+
+.head .addTime {
+  margin-top: 12rpx;
+  text-align: center;
+  line-height: 52rpx;
+  width: 156rpx;
+  height: 52rpx;
+  background: #BC9250;
+  border-radius: 34rpx;
+  color: #ffffff;
+  float: right;
+}
+
+.note {
+  width: 702rpx;
+  height: 792rpx;
+  margin: 24rpx auto;
+  background: #FFFCF8;
+  padding: 48rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  height: 50rpx;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #333333;
+  text-align: center;
+}
+
+.tips {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  z-index: 199;
+  width: 750rpx;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6)
+}
+
+.cover .content {
+  width: 640rpx;
+  height: 590rpx;
+  margin: 224rpx auto 0;
+  background: #FFFFFF;
+  opacity: 1;
+  border-radius: 8rpx;
+  padding: 48rpx 24rpx 0;
+  box-sizing: border-box;
+}
+
+.cover .content .title {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.cover .content .tip {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #333333;
+}
+
+.operation {
+  margin-top: 104rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.operation .btn {
+  width: 272rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  border: 2rpx solid #999999;
+  border-radius: 48rpx;
+  font-size: 36rpx;
+  color: #999999;
+}
+
+.operation .btn-confirm {
+  background: #21DBC3;
+  border: 0;
+  color: #fff;
+}
+
+.close {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 48rpx auto;
+}

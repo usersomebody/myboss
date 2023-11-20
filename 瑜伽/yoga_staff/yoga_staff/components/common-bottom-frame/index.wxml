@@ -1,0 +1,14 @@
+<view class="add-course font-md color-white" bindtap="showPop">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/a784f338075c230e0f9c86e09c5069f6.png"></image>
+</view>
+<!-- 添加课程弹窗和分享课表 -->
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>
+<view class="share-popup" wx:if="{{showOverlayer}}">
+    <view class="flex-box flex-j-center">
+        <view class="img-icon" wx:for="{{showData}}" wx:key="index" data-link="{{item.link}}" data-type="{{item.type}}" bindtap="gotoEdit">
+            <image src="{{item.cover}}" alt=""></image>
+            <view class="text-center">{{item.name}}</view>
+        </view>
+    </view>
+    <image bindtap="showPop" class="close-share-popup" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211118/0540cb2e4f513083ed916ad4da361506.png"></image>
+</view>

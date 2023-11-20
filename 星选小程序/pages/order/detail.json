@@ -1,0 +1,11 @@
+{
+    "component": true,
+    "usingComponents": {
+      "van-action-sheet": "@vant/weapp/action-sheet/index",
+      "van-steps": "@vant/weapp/steps/index",
+      "count-down": "/components/count-down/index"
+    },
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  }

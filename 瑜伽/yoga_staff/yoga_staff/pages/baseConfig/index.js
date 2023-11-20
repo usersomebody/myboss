@@ -1,0 +1,58 @@
+Page({
+    data:{
+        configList:[{
+            name:'场馆设置',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/719cc9cce1ff69f88eeaf6b3d5204674.png',
+            link:'/pages/baseConfig/venueSetting',
+            width:'34rpx',
+            height:'36rpx',
+        },{
+            name:'约课端设置',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/1bd4a66df3fe4f9f727482098d893d7c.png',
+            link:'/pages/baseConfig/clientSetting',
+            isHasMargin:true,
+            width:'34rpx',
+            height:'36rpx',
+        },{
+            name:'教室管理',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/0b7eff36aa185d745a680923f25bb545.png',
+            link:'/pages/baseConfig/classroom',
+            width:'34rpx',
+            height:'36rpx',
+        },{
+            name:'标签管理',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/d6172c9d634c8b7f9de5ba93298fc23d.png',
+            link:'/pages/baseConfig/label',
+            width:'32rpx',
+            height:'40rpx',
+        },{
+            name:'企微配置',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/4dc8719b28c3d0b94381e88c5e185ee0.png',
+            link:'',
+            width:'38rpx',
+            height:'36rpx',
+        },{
+            name:'角色管理',
+            cover:'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211228/aa1769be9d89366f61ad0660c6eb08c5.png',
+            link:'/pages/baseConfig/identity',
+            width:'30rpx',
+            height:'36rpx',
+        }]
+    },
+    onLoad(){
+
+    },
+    nextDetail(e){
+        const { link } = e.currentTarget.dataset
+        if(!link){
+            wx.showModal({
+                title:'暂未开放',
+                showCancel:false
+            })
+            return
+        }
+        wx.navigateTo({
+            url: link
+        })
+    }
+})

@@ -1,0 +1,63 @@
+<view class="container">
+        <view class="form">
+            <view class="li flex-box flex-a-center flex-j-between" wx:for="{{showList}}" wx:key="index" wx:if="{{!item.isShow}}">
+              <view class="li-item-title font-md color-333 flex-box flex-a-center">{{item.name}}<view wx:if="{{item.key == 'member_id'}}" class="message-show font-base" bindtap="closeMessage">?</view></view>
+              <view class="li-item-content flex-box flex-a-center flex-j-end {{ !item.isShowIcon ? 'pad-r-34' : ''}}">
+                    <view wx:if="{{item.isInput}}" class="value-placeholder font-md color-999 "><input always-embed="{{true}}" class="text-right font-md {{item.value ? 'color-504' : 'color-b3b'}}" disabled="{{action == 2 || (item.key == 'work_userid' && !workDisable) ? true : false}}" placeholder-class="font-md color-b3b" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" data-key="{{item.key}}" bindtap="workUserAlert" bindblur="getNumberValue"/></view>
+                    <view wx:elif="{{item.key == 'head_img'}}" class="upload">
+                        <view wx:if="{{!avatarSrc}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImg">
+                            <!-- <view class="font-lg">+</view>
+                            <view>上传图片</view> -->
+                            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211102/6cca52bbf8b80143fa755efded1af413.png"></image>
+                        </view>
+                        <image wx:else src="{{avatarSrc}}" bindtap="getImg"></image>
+                        <view class="tailoring" wx:if="{{imgSrc}}">
+                            <image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{imgSrc}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" bindtap="getImg"></image-cropper>
+                            
+                            <view class="btn tailoringSure" bindtap="effectiveImg">确定</view>
+                            <view class="btn tailoringCancle" bindtap="cancleTailoring">取消</view>
+                        </view>
+                    </view>
+                    <view wx:elif="{{item.isPicker}}" class="">
+                        <picker wx:if="{{item.key == 'birthday' || item.key == 'entry_time'}}" mode="date" value="{{item.value}}" start="1970-01-01" :end="{{currentDate}}" disabled="{{action == 2 ? true : false}}" data-key="{{item.key}}" bindchange="bindDateChange">
+                            <view class="picker font-md {{item.value ? 'color-504' : 'color-b3b'}}">
+                                {{item.value ? item.value : '选填'}}
+                            </view>
+                        </picker>
+                        <picker wx:else mode="selector" value="{{item.index}}" range="{{item.list}}" range-key="name" data-key="{{item.key}}" disabled="{{action == 2 ? true : false}}" bindchange="bindPickerChange">
+                            <view class="picker font-md {{item.value ? 'color-504' : 'color-b3b'}}">
+                                {{item.value ? item.value : '选填'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view wx:elif="{{item.key == 'store_name_arr'}}" class="value-placeholder font-md color-999" data-link="{{item.link}}" bindtap="goSendRole">
+                        <view class="font-md {{item.value ? 'color-504' : 'color-999'}}">{{item.value ? item.value : '必填'}}</view>
+                    </view>
+                    <!-- textarea输入框 -->
+                    <!-- <view wx:elif="{{item.key == 'synopsis'}}" class="{{item.isShowIcon ? 'value-placeholder' : 'value-nohandle-placeholder'}} font-md color-999"><textarea always-embed="{{true}}" class="memo" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="synopsis"  disabled="{{item.disable}}"  bindinput="getMemoValue"></textarea></view> -->
+                    <view wx:else class="value-placeholder font-md {{item.value ? 'color-504' : 'color-b3b'}}" data-link="{{item.link}}" bindtap="goResume">{{item.value ? item.value : item.placeholder}}</view>
+                    <view wx:if="{{item.isShowIcon}}" class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+              </view>
+            </view>
+        </view>
+        <view wx:if="{{action != 2}}" class="add-btn">
+            <view class="cancle btn font-lg" bindtap="cancle">{{editId ? '删除' : '返回'}}</view>
+            <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+        </view>
+    </view>
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="closeMessage"></view>
+    <view wx:if="{{showOverlayer}}" class="member-id-info">
+        <view class="id-message">
+            <view class="font-md color-666">当需要通过企业微信和员工联络时，请配置成员ID，详细说明可前往基本设置-通知管理查看</view>
+            <view class="font-md color-333 margin-d">成员ID获取路径：</view>
+            <view class="p-l-42">
+                <view class="font-md color-666 line-height-42">1、登录企业微信</view>
+                <view class="font-md color-666 line-height-42">2、点击通讯录</view>
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211220/7a37801656a849ec43c1af533ec07340.png" class="message-img-one"></image>
+                <view class="font-md color-666">3、点击成员进入详情页面、复制账号</view>
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211220/3dc70084b20c864ec41a60e44a4bd816.png" class="message-img-two"></image>
+            </view>
+            
+        </view>
+    </view>
+    

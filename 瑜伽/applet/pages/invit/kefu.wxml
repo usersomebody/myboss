@@ -1,0 +1,24 @@
+<view class="container">
+    <!-- 顶部banner -->
+    <view class="banner"><image src="{{showData.desc_img}}"></image></view>
+    <!-- qrcode -->
+    <view class="qrcode">
+        <view class="qrcode-content bg-white">
+            <view class="kefu-info flex-box flex-a-center">
+                <view class="avatar"><image src="{{showData.other_head_img}}"></image></view>
+                <view class="kefu-name font-md color-black">
+                    <view class="user-name flex-box flex-a-content">
+                        <view class="color-333">{{showData.other_name}}</view>
+                        <view class="color-white public color-white font-sm">{{codeType[showData.qr_type]}}</view>
+                    </view>
+                    <view class="shop-name color-66">{{showData.shop_name}}</view>
+                </view>
+            </view>
+            <view class="text-center text color-66 font-base">{{showData.guide}}</view>
+            <view class="qrcode-img flex-box flex-a-center flex-j-center">
+                <image src="{{showData.qr_img}}" show-menu-by-longpress="true" bindtap="checkImg"></image>
+            </view>
+        </view>
+        <view class="font-md color-99 text-center">{{showData.codeType}}</view>
+    </view>
+</view>

@@ -1,0 +1,76 @@
+<view class="container">
+    <view class="common-relative">
+        <image class="index-nav-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/merchant_applet/20211018/index-bg.png"></image>
+        <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/af0b6d4d5e788ff46ddc3742480aa9e6.png"></image></view>
+        <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">提现</view>
+    </view>
+    <view class="withdrawal-info-box">
+        <!-- 提现金额 -->
+        <view class="withdrawal-info">
+            <view class="withdrawal-total">
+                <view class="money-title color-949 font-md text-center">总金额(元)</view>
+                <view class="money-num font-36 color-333">{{balance.total_balance}}</view>
+            </view>
+            <view class="money-detail flex-box flex-a-center flex-j-between">
+                <view class="money-item">
+                    <view class="money-item-title font-sm color-999">可提现金额(元)</view>
+                    <view class="font-lger color-575">{{balance.balance}}</view>
+                </view>
+                <view class="money-item">
+                    <view class="money-item-title font-sm color-999">已提现(元)</view>
+                    <view class="font-lger color-575">{{balance.expense_balance}}</view>
+                </view>
+                <view class="money-item">
+                    <view class="money-item-title font-sm color-999">提现中(元)</view>
+                    <view class="font-lger color-575">{{balance.check_balance}}</view>
+                </view>
+            </view>
+            <view class="withdrawal-btn color-white" bindtap="login">
+                申请提现
+            </view>
+        </view>
+        <!-- 提现记录 -->
+        <view class="withdrawal-record">
+            <view class="record-title font-lg color-575">提现记录</view>
+            <view wx:if="{{list.length}}" class="record-list">
+                <view wx:for="{{list}}" wx:key="index" class="record-item flex-box flex-a-center flex-j-between" data-item="{{item}}" bindtap="checkDetail">
+                    <view class="left">
+                        <view class="left-title font-lg color-333">提现{{item.money}}元</view>
+                        <view class="font-md color-666">{{item.create_time}}</view>
+                    </view>
+                    <view class="right font-md {{item.status == 3 || item.status == 5 ? 'active' : ''}}">{{statusMap[item.status]}}</view>
+                </view>
+            </view>
+            <view wx:if="{{!list.length && isLast}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/54f3ad45891bbc8adbd4203a9ef81d3b.png"></image>
+                <view class="font-sm color-999">暂无提现记录~</view>
+            </view>
+        </view>
+    </view>
+    <view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="toggleDetail"></view>
+    <view wx:if="{{showOverlayer}}" class="withdrawal-detail">
+        <view class="flex-box flex-j-end" style="width:100%;">
+            <image  bindtap="toggleDetail" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211224/02c9fa033980e32011284bddb774f97f.png" class="close-image">关闭</image>
+        </view>
+        <view class="detail-box">
+            <view class="detail-title color-333 font-lger text-center">提现详情</view>
+            <view class="detail-info">
+                <view class="font-md color-666 detail-info-item">订单编号：{{withdrawDetail.withdraw_sn}}</view>
+                <view class="font-md color-666 detail-info-item">提现账号：{{withdrawDetail[accountMap[withdrawDetail.type]]}}</view>
+                <view wx:if="{{withdrawDetail.type == 2}}" class="font-md color-666 corporate-Information detail-info-item">
+                    <view class="color-666 font-sm margin-b-20">收款账户类型：对公银行账户</view>
+                    <view class="color-666 font-sm margin-b-20">户名：{{withdrawDetail.account_name}}</view>
+                    <view class="color-666 font-sm margin-b-20">账号：{{withdrawDetail.account}}</view>
+                    <view class="color-666 font-sm margin-b-20">省市区：{{withdrawDetail.province}}{{withdrawDetail.city}}{{withdrawDetail.area}}</view>
+                    <view class="color-666 font-sm">银行支行：{{withdrawDetail.branch}}</view>
+                </view>
+                <view class="font-md color-666 detail-info-item">提现金额：{{withdrawDetail.money}}元</view>
+                <view class="font-md color-666 detail-info-item">实际打款金额：{{withdrawDetail.amount}}元</view>
+                <view class="font-md color-666 detail-info-item">申请时间：{{withdrawDetail.create_time}}</view>
+                <view class="font-md color-666 detail-info-item">审核状态：{{statusMap[withdrawDetail.status]}}</view>
+                <view class="font-md color-666 detail-info-item">拒绝时间：{{withdrawDetail.check_time}}</view>
+                <view class="font-md color-666 detail-info-item">备注：{{withdrawDetail[remark[withdrawDetail.status]]}}</view>
+            </view>
+        </view>
+    </view>
+</view>

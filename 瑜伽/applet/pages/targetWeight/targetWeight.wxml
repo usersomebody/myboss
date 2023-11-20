@@ -1,0 +1,41 @@
+<!--pages/targetWeight/targetWeight.wxml-->
+<view class="container">
+  <view class="head">
+    <image src="{{head_url}}" class="head-img"></image>
+    <view class="name">
+      <view class="nickname">{{nickname}}</view>
+      <view class="dictum">最可怕的敌人就是没有坚强的信念，加油~</view>
+    </view>
+
+  </view>
+  <!-- 体重显示 -->
+  <view class="weight">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/04e7e6ae979a6ee8433768e6e74a4ff.png" class="weight-bg"></image>
+    <view class="content">
+      <view class="target">
+        <image src="http://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/f4a9b33655dab28db558a6bb82861ab.png?OSSAccessKeyId=LTAI4G6GroDT583srBiqubqG&Expires=37623220398&Signature=LbtHriMrj43VIvebcbqkzDVcYMA%3D" class="target-bg2"></image>
+        <view class="target-num">{{target_weight}}<text class="unit">kg</text></view>
+        <view class="target-txt">目标体重</view>
+        <view class="target-date">{{target_date}}</view>
+      </view>
+      <view class="weight-info">
+        <view class="info-item">
+          <view class="info-t">初始体重</view>
+          <view class="info-b">{{initWeight}}kg</view>
+        </view>
+        <view class="info-item">
+          <view class="info-t">当前体重</view>
+          <view class="info-b">{{weight}}kg</view>
+        </view>
+        <view class="info-item">
+          <view class="info-t">剩余天数</view>
+          <view class="info-b">{{remain_days}}天</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="reset" bindtap="resetTarget">
+    重新设置
+  </view>
+</view>

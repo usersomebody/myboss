@@ -1,0 +1,47 @@
+<!--pages/myPage/myPage.wxml-->
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <view class="tips">头像</view>
+      <view class="right" bindtap="chooseImage">
+        <image src="{{head_img}}" class="head-img"></image>
+        <!-- <image src="/imgs/arrow-r.png" class="arrow_r"></image> -->
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="tips">昵称</view>
+      <view class="right">
+        {{nickname}}
+      </view>
+    </view>
+    <picker bindchange="bindSexChange" value="{{sexIdx}}" range="{{sex}}">
+      <view class="form-item">
+        <view class="tips">性别</view>
+        <view class="right">
+          {{sex[sexIdx]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker>
+    <picker bindchange="bindAgeChange" value="{{ageIdx}}" range="{{age}}">
+      <view class="form-item">
+        <view class="tips">年龄</view>
+        <view class="right">
+          {{age[ageIdx]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker>
+    <picker mode="multiSelector" bindcolumnchange="bindHeightcolumnchange" bindchange="bindHeightChange"
+      value="{{heightIdx}}" range="{{height}}">
+      <view class="form-item">
+        <view class="tips">身高</view>
+        <view class="right">
+          {{height[0][heightIdx[0]]}}{{height[1][heightIdx[1]]}}
+          <image src="/imgs/arrow-r.png" class="arrow_r"></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view class="tip">完善个人信息用于计算BMI及体脂率</view>
+</view>

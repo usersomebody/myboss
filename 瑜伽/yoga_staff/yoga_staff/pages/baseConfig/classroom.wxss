@@ -1,0 +1,38 @@
+.classroom-item{
+    padding:34rpx 32rpx;
+    border-bottom:1rpx solid #EDEDED;
+}
+.del-icon{
+    width:24rpx;
+    height:28rpx;
+}
+.edit-btn{
+    width:32rpx;
+    height:28rpx;
+    margin:0 40rpx;
+}
+.add-cover{
+    position: fixed;
+    right:30rpx;
+    bottom:200rpx;
+    width:100rpx;
+    height:100rpx;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width:88rpx !important;
+    height:44rpx !important;
+    background: #9B77F4 !important;
+    border: #7D49FB !important; /* 2018-07-18 重置开关边框颜色 */
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width:88rpx !important;
+    height: 44rpx !important;
+    background:#c7cad1!important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 44rpx !important;
+    height: 44rpx !important;
+}

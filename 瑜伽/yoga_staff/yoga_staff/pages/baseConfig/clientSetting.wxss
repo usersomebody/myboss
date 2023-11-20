@@ -1,0 +1,15 @@
+.color-504{
+    color:#504766;
+}
+.right-icon image{
+    width:10rpx;
+    height:18rpx;
+    margin-left:22rpx;
+}
+.setting-list{
+    padding:0 30rpx;
+}
+.setting-item{
+    padding:36rpx 0;
+    border-bottom:1rpx solid #ECECEC;
+}

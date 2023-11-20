@@ -1,0 +1,48 @@
+<!--pages/memberCard/memberCard.wxml-->
+<view class="container">
+  <view class="head">
+    <image class="head-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/a83b77ddf08ba55ef1c9108def870ce.png"></image>
+    <view class="head-content">
+      <view class="head-l">
+        <image class="head-img" src="{{head_url}}"></image>
+        <view class="name">
+          <view class="nickname">{{cardInfo.name}}</view>
+          <view class="time">{{cardInfo.use_end_time}}到期</view>
+        </view>
+      </view>
+      <view class="head-r">
+        <view class="cardId">ID：{{cardInfo.card_number}}</view>
+        <!-- <view class="addTime" bindtap="addTime">延期</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="note">
+    <view class="title">会员须知</view>
+    <view class="tips">1、当您不能练习时，可申请会员卡的转让，会员卡一经转让，您便不再享有练习时间。
+    </view>
+    <view class="tips">2、当您进入场馆后，请及时签到，不签到将视为旷课，旷课次数达到3次或以上，您将只能预约当天的课程不再享受提前预约服务。
+    </view>
+    <view class="tips">3、若您因个人原因无法正常到课，请务必于课程开始的前两个小时取消预约，以便将宝贵的课程留给其他会员，也让我们有充足的时间，通知其他会员。
+    </view>
+    <view class="tips">4.您因突发情况无法上课，请务必于课程开始前2个小时取消预约，以便将宝贵的课程留给其他后补会员，也让我们有充足的时间，通知其他会员。
+    </view>
+    <view class="tips">
+      5.本卡最终解释权归本店所有。
+    </view>
+  </view>
+</view>
+<view class="cover" wx:if="{{showCover}}">
+  <view class="content">
+    <view class="title">注意事项 </view>
+    <view class="tip">1.申请后，我们将进行审核，审核通过后生效，
+      请关注审核进度。</view>
+    <view class="tip">2.审核通过后，延期期间不可约课。</view>
+    <view class="tip">3.卡可享受每年免费请假的服务，审核通过后
+      扣除次数,超出后按照100/次收费。</view>
+      <view class="operation">
+        <view class="btn">我再想想</view>
+        <view class="btn btn-confirm">确认</view>
+      </view>
+  </view>
+  <image src="/imgs/close.png" class="close" bindtap="closeCover"></image>
+</view>

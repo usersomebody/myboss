@@ -1,0 +1,25 @@
+.cancle-title{
+    color:#E83926;
+    text-align: center;
+    padding-top:20rpx;
+}
+.cancle-list{
+    padding:20rpx 30rpx;
+}
+.cancle-item{
+    background:#fff;
+    padding:30rpx;
+    border-radius:10rpx;
+    margin-bottom:20rpx;
+}
+.cancle-item .cancle-avatar{
+    margin-right:62rpx;
+}
+.cancle-item .cancle-avatar image{
+    width:112rpx;
+    height:112rpx;
+    border-radius:50%;
+}
+.booking-info .info-item{
+    margin-bottom:16rpx;
+}

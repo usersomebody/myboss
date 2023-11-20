@@ -1,0 +1,75 @@
+<view class="container">
+    <view class="content">
+        <view class="selectTime-start">
+            <view class="start flex-box flex-a-center flex-j-between">
+                <view class="font-md color-333">体测时间</view>
+                <view class="flex-box flex-a-center" wx:if="{{timeList.length}}">
+                    <picker mode="selector" value="{{selectStartIndex}}" range="{{timeList}}" range-key="fitness_test_time" data-key="selectStart" bindchange="bindPickerChange">
+                        <view class="picker font-md {{selectStart ? 'color-504' : 'color-b3b'}}">
+                            {{selectStart ? selectStart : '请选择参照时间'}}
+                        </view>
+                    </picker>
+                    <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+                </view>
+            </view>
+            <view wx:if="{{images.length}}" class="image-drag-container">
+                <!-- <movable-area class="movable-area" style="min-height:{{imageWitdh}}px;height:{{areaHeight}}px"> -->
+                    <view class="image-choose-container">
+                        <view class="image-item" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:for="{{images}}" wx:for-item="url" wx:key="url" data-url="{{url.url}}" data-index="{{index}}" >
+                                <!-- bindlongpress='handleLongTap' bindtouchend='handleTouchEnd' data-type="1" catchtouchmove='handleTouchMove'  -->
+                            <image src="{{url.url}}" mode="aspectFill" data-type="1" bindtap="handlePreview" data-index="{{index}}" data-url="{{url.url}}"></image>
+                            <!-- <view class="close" bindtap="handleDelete" data-index="{{index}}">X</view> -->
+                        </view>
+                        <!-- <view class="add-button" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:if="{{images.length >= 0 && images.length < 9}}" bindtap="handleChooseImage">+</view> -->
+                        <view style="width:{{imageWitdh}}px" class="image-item image-item-temp" wx:if="{{images.length%3==1}}"></view>
+                    </view>
+                    <!-- <movable-view class="movable-view" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" hidden="{{hidden}}" x="{{x}}" y="{{y}}"  direction="all" damping="{{5000}}" friction="{{1}}">
+                        <image src="{{currentImg}}" wx:if="{{currentImg.length>0}}"></image>
+                    </movable-view> -->
+                <!-- </movable-area> -->
+            </view>
+            <view wx:if="{{!images.length && contrast_type == 1}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/94478cbcaeb8d5fca734714978ecb22b.png"></image>
+                <view class="font-sm color-999">暂无图片~</view>
+            </view>
+        </view>
+
+        <!-- 代码冗余操作 暂时没想出来怎么写成可配置化组件 -->
+        <view class="selectTime-start">
+            <view class="start flex-box flex-a-center flex-j-between">
+                <view class="font-md color-333">体测时间</view>
+                <view class="flex-box flex-a-center" wx:if="{{timeList.length}}">
+                    <picker mode="selector" value="{{selectEndIndex}}" range="{{timeList}}" range-key="fitness_test_time" data-key="selectEnd" bindchange="bindPickerChange">
+                        <view class="picker font-md {{selectEnd ? 'color-504' : 'color-b3b'}}">
+                            {{selectEnd ? selectEnd : '请选择对比时间'}}
+                        </view>
+                    </picker>
+                    <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+                </view>
+            </view>
+            <view wx:if="{{imagesEnd.length}}" class="image-drag-container">
+                <!-- <movable-area class="movable-area" style="min-height:{{imageWitdh}}px;height:{{eareaHeight}}px"> -->
+                    <view class="image-choose-container-end">
+                        <view class="image-item-end" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:for="{{imagesEnd}}" wx:for-item="url" wx:key="url" data-url="{{url.url}}" data-index="{{index}}" >
+                                <!-- bindlongpress='handleLongTapEnd' bindtouchend='handleTouchEndEnd' data-type="1" catchtouchmove='handleTouchMoveEnd'  -->
+                            <image src="{{url.url}}" mode="aspectFill" data-type="2" bindtap="handlePreview" data-index="{{index}}" data-url="{{url.url}}"></image>
+                            <!-- <view class="close" bindtap="handleDelete" data-index="{{index}}">X</view> -->
+                        </view>
+                        <!-- <view class="add-button" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:if="{{imagesEnd.length >= 0 && imagesEnd.length < 9}}" bindtap="handleChooseImage">+</view> -->
+                        <view style="width:{{imageWitdh}}px" class="image-item image-item-temp" wx:if="{{imagesEnd.length%3==1}}"></view>
+                    </view>
+                    <!-- <movable-view class="movable-view" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" hidden="{{ehidden}}" x="{{ex}}" y="{{ey}}"  direction="all" damping="{{5000}}" friction="{{1}}">
+                        <image src="{{ecurrentImg}}" wx:if="{{ecurrentImg.length>0}}"></image>
+                    </movable-view> -->
+                <!-- </movable-area> -->
+            </view>
+            <view wx:if="{{!imagesEnd.length && contrast_type == 1}}" class="no-list-data flex-box flex-a-center flex-j-center flex-v-type">
+                <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/94478cbcaeb8d5fca734714978ecb22b.png"></image>
+                <view class="font-sm color-999">暂无图片~</view>
+            </view>
+        </view>
+    </view>
+    <view class="check-compare-cover" bindtap="checkCompare">
+        <view class="check-compare-btn">查看对比图</view>
+    </view>
+</view>

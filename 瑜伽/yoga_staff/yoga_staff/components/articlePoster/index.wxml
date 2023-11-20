@@ -1,0 +1,13 @@
+<view class="poster">
+    <!-- 最终生成的图片 -->
+    <view wx:if="{{imgSrc}}"scroll-y="{{true}}" class="poster-image poster-preview-wrap">
+        <image src="{{imgSrc}}" style="width:{{posterWidth}};height:{{posterHeight}}"></image>
+        <view class="save color-white" bindtap="checkSaveStatus">保存图片</view>
+        <view class="poster-info color-white font-md text-center">保存图片至相册，分享至朋友圈</view>
+        <image bindtap="closeBox" class="close-btn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220107/b3d6d65a2c18135a2146a9083288f7c9.png"></image>
+    </view>
+    <view class="canvas">
+        <canvas type="2d" canvas-id="poster" id="poster" style="width:{{sWidth}}px;height:{{sHeight}}px" />
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{showOverlayer ? 'show' : ''}}"></view>

@@ -1,0 +1,250 @@
+/* pages/activity/help.wxss */
+.container{
+    padding:0 30rpx;
+    background:#fff;
+    padding-bottom:40rpx;
+    padding-bottom:env(safe-area-inset-bottom);
+}
+
+.li{
+    padding:28rpx 0 30rpx;
+    border-bottom:2rpx solid #E2E3E8;
+}
+
+.border-none{
+    border-bottom:none;
+}
+.li .item-value{
+    width:70%;
+    justify-content: flex-end;
+}
+.li .item-value .value-placeholder{
+    margin-right:16rpx;
+}
+
+.right-icon image{
+    width:10rpx;
+    height:18rpx;
+}
+
+.color-block{
+    width:60rpx;
+    height:30rpx;
+}
+
+.color-e83{
+    color:#E83926!important;
+}
+
+.memo{
+    width:500rpx;
+    height:176rpx;
+    padding:10rpx 20rpx;
+    border:1rpx solid #C5C5C5;
+    border-radius:4rpx;
+}
+
+.color-d2d{
+    color:#D2D2D2;
+}
+
+.add-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:60rpx;
+}
+
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+
+
+
+.del-btn{
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    width:100%;
+    bottom:0;
+    left:0;
+    padding: 2rpx 0;
+    color: #fff;
+}
+.rulers-imgs{
+    flex-wrap: wrap;
+}
+.rule-img{
+    margin-right:10rpx;
+    margin-bottom:10rpx;
+}
+
+  /* 上传 */
+  .upload image{
+    width: 104rpx;
+    height: 104rpx;
+  }
+  .uploadImg{
+    width: 104rpx;
+    height: 104rpx;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1rpx solid rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tailoring{
+    position: absolute;
+    width: 100%;
+    bottom: 100rpx;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .tailoring .tailoringSure{
+      width: 200rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      text-align: center;
+      z-index:100;
+      color:#fff;
+      background:#7D49FB;
+      margin-right:20rpx;
+  }
+  .tailoring .tailoringCancle{
+    width: 200rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: rgba(125, 73, 251, 0.1);
+    border: 1px solid #7D49FB;
+    color:#7D49FB;
+    z-index:100;
+  }
+  .popup-box{
+      position:fixed;
+      top:0;
+      left:0;
+      background:rgba(0,0,0,.5);
+      width:100%;
+      min-height:100vh;
+      z-index:2001;
+  }
+  
+  .popup-content{
+      padding:24rpx 30rpx;
+      border-radius:0 0 20rpx 20rpx;
+  }
+  
+  .spceing{
+      margin-top:16rpx;
+      
+  }
+  
+  .input-box{
+      margin:20rpx 0 34rpx;
+  }
+  
+  .input-box input{
+      padding-left:10%;
+      width: 75%;
+      height:60rpx;
+      line-height: 60rpx;
+      background:#F2F2F2;
+      color:#333;
+      border-radius:40rpx;
+  }
+  
+  .searc-btn{
+      margin-left:32rpx;
+  }
+  
+  .list{
+      flex-wrap: wrap;
+  }
+  
+  .list .li-item{
+      position: relative;
+      width: 154rpx;
+      height: 72rpx;
+      line-height: 72rpx;
+      border-radius:6rpx;
+      background:#F2F2F2;
+      margin-right:22rpx;
+      margin-bottom:26rpx;
+      box-sizing: border-box;
+  }
+  
+  .list .li-item:nth-child(4n){
+      margin-right:0;
+  }
+  
+  .list .li-item.active{
+      background:#F2EEFF;
+      border:2rpx solid #9169FB;
+      color:#9169FB;
+  }
+  
+  .saveBtn{
+      position: relative;
+      z-index:99;
+      margin:18rpx auto 0;
+      padding:30rpx 0;
+      border-top:1rpx solid #F2F2F2;
+  }
+  .saveBtn .left{
+    width: 260rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border:1rpx solid #7D49FB;
+    color:#7D49FB;
+    text-align: center;
+    border-radius: 10rpx;
+  }
+  .saveBtn .right{
+    width: 260rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #7D49FB;
+    text-align: center;
+    border-radius: 10rpx;
+  }
+  .sign-symbol{
+      position: absolute;
+      right:0;
+      top:0;
+      width:19rpx;
+      height:12rpx;
+      padding:7rpx 11rpx;
+      background:#FFB7B7;
+  }
+  
+  .sign-symbol image{
+      width:20rpx;
+      height:15rpx;
+  }
+  
+  .search-place-style{
+      color:#D2D2D2;
+      padding-left:70rpx;
+  }
+  
+  .delete-icon{
+      position: absolute;
+      right:0;
+      top:0;
+      width:24rpx;
+      height:24rpx;
+  }

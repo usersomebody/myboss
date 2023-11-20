@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tab-bar": "/components/tab-bar/tabbar"
+    
+  },
+  "navigationBarBackgroundColor": "#9B77F4",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "管理"
+}

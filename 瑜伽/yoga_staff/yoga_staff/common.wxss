@@ -1,0 +1,342 @@
+/*
+    全局样式文件 
+    公共样式 请放在这里！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    可以根据项目常用进行常规配置
+*/
+
+/* 公共常用字体颜色 */
+.base-color{
+    color:#8F33FF;
+}
+.base-must-color{
+    color:#8F33FF!important;
+}
+.base-color-50{
+    color:#B69BFF;
+}
+.color-333{
+    color:#333333
+}
+.color-504{
+    color:#504766;
+}
+.color-white{
+    color:#FFFFFF
+}
+
+.color-must-white{
+    color:#FFFFFF!important;
+}
+
+.color-vip{
+    color:#F0DCB9;
+}
+
+.color-thin{
+    color:#9b9b9b;
+}
+
+.color-909{
+    color:#909499;
+}
+
+.color-black{
+    color:#000000;
+}
+
+.color-10{
+    color:#101010;
+}
+
+.color-666{
+    color:#666666;
+}
+
+.color-999{
+    color:#999999!important;
+}
+
+.color-act{
+    color:rgb(253,83,107)
+}
+
+.color-333{
+    color:#333;
+}
+
+.color-b3b{
+    color:#b3b3b3
+}
+
+.color-525{
+    color:#525252;
+}
+.color-504{
+    color:#504766;
+}
+/* 公共常用背景色 */
+
+.base-bg{
+    background:#A474FF;
+}
+
+.base-deep-bg{
+    background:#7D49FB;
+}
+.bg-white{
+    background:#ffffff!important;
+}
+
+.bg-black{
+    background:#000000;
+}
+
+.bg-f7{
+    background:#f7f7f7;
+}
+
+.base-30-bg{
+    background:#E8FFFC;
+}
+
+.base-rgb-bg{
+    background: linear-gradient(0deg, #7D49FB, #A474FF);
+}
+
+.container{
+    background: #ECECEC;
+}
+
+/* 字体大小 */
+.font-base{
+    font-size:20rpx;
+}
+
+.font-sm{
+    font-size:24rpx;
+}
+
+.font-md{
+    font-size:28rpx;
+}
+
+.font-lg{
+    font-size:32rpx;
+}
+
+.font-15{
+    font-size:30rpx;
+    
+}
+.font-lger{
+    font-size:36rpx;
+}
+
+.font-20{
+    font-size:40rpx;
+}
+
+.font-22{
+    font-size:44rpx;
+}
+
+.font-24{
+    font-size:48rpx;
+}
+
+/* 常规字体样式 */
+.font-regular {
+    font-family: PingFangSC-Regular, Helvetica, "Droid Sans", Arial, sans-serif !important;
+}
+  
+.font-light{
+    font-family: PingFangSC-Light, Helvetica,"Droid Sans",Arial, sans-serif !important;
+}
+
+.font-bold {
+    font-family: PingFangSC-Medium, Helvetica,"Droid Sans",Arial, sans-serif !important;
+}
+
+.font-weight{
+    font-weight:600;
+}
+
+/* 常规定位 */
+.common-relative{
+    position: relative;
+}
+
+.common-fixed, .common-layout-fix {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+/* 弹性盒常规样式 */
+
+.flex-box{
+    display:flex;
+}
+
+.flex-j-between{
+    justify-content: space-between
+}
+
+.flex-j-start{
+    justify-content: flex-start!important
+}
+
+.flex-j-end{
+    justify-content: flex-end!important
+}
+
+.flex-j-center{
+    justify-content: center;
+}
+
+.flex-j-around{
+    justify-content: space-around
+}
+
+.flex-a-end{
+    align-items: flex-end;
+}
+
+.flex-a-start{
+    align-items: flex-start;
+}
+
+.flex-a-center{
+    align-items: center;
+}
+
+.flex-a-baseline{
+    align-items: baseline;
+    
+}
+.flex-v-type{
+    flex-direction: column;
+}
+
+.flex-shrink {
+    flex-shrink: 0;
+}
+
+.flex-1{
+    flex:1;
+}
+/* css3模型块 */
+
+/* 小三角形 */
+.triangle{
+    position: absolute;
+    right:28rpx;
+    top:10%;
+    bottom:0;
+    margin:auto 0;
+    width: 0;
+    height: 0;
+    border-left: 11rpx solid transparent;
+    border-right: 11rpx solid transparent;
+    border-bottom:10rpx solid transparent;
+    border-top: 10rpx solid #282828;
+  }
+  .triangle.active{
+    position: absolute;
+    right:28rpx;
+    top:-10%;
+    bottom:0;
+    margin:auto 0;
+    width: 0;
+    height: 0;
+    border-left: 11rpx solid transparent;
+    border-right: 11rpx solid transparent;
+    border-top: 10rpx solid transparent;
+    border-bottom: 10rpx solid #282828;
+  }
+
+  /* 文本对齐 */
+  .text-center{
+    text-align: center;
+  }
+
+  .text-left{
+    text-align: left;
+  }
+
+  .text-right{
+    text-align: right;
+  }
+
+  /* 划线 */
+  .line-through{
+    text-decoration:line-through
+  }
+  
+  .ellipsis, .one-line {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  
+  .ellipsisMulti, .two-line {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  button{
+      font-size:36rpx;
+  }
+
+  button:after{
+    content: none;
+  }
+  /* button,button[type="default"][plain],
+  button[size="mini"]{
+    color: #21DBC3;
+    border: 2rpx solid #21DBC3;
+  }
+  
+  button,button[type="default"] {
+    color: #fff;
+    background: #21DBC3;
+  }
+  
+  button:after{
+    content: none;
+  } */
+
+  .overlayer.show{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    transition: opacity .3s ease-in;
+    opacity: 1;
+    visibility: visible;
+
+}
+.white-space{
+    white-space: nowrap;
+    
+}
+.iphonex-style{
+    padding-bottom:env(safe-area-inset-bottom);
+}
+
+/* 全局loading */
+.common-loading-border {
+    border-top-color: rgba(163,127,252, .2);
+    border-right-color: rgba(163,127,252, .2);
+    border-bottom-color: rgba(163,127,252, .2);
+    border-left-color: #A37FFC;
+}
+
+  

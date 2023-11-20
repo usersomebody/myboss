@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "book-base-info": "/components/bookBaseInfo/bookBaseInfo"
+    },
+    "navigationBarBackgroundColor": "#9B77F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "预约详情"
+    
+  }

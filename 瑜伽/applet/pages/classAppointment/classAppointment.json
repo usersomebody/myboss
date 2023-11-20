@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "drap-down-select":"/components/drapDownSelect/index",
+    "tab-bar": "/components/tab-bar/tabbar",
+    "no-data-cover":"/components/no-data/index",
+    "van-rate": "@vant/weapp/rate/index"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

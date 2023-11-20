@@ -1,0 +1,32 @@
+.course-list{
+    padding:20rpx 0;
+}
+.course-item{
+    padding:20rpx 30rpx;
+    background:#fff;
+    margin-bottom:20rpx;
+}
+.course-item .course-info .course-title{
+    margin-bottom:16rpx;
+}
+.course-btn{
+    position: absolute;
+    right:38rpx;
+    top:24rpx;
+    width: 150rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    background: #9169FB;
+    border-radius: 8rpx;
+}
+.course-img image{
+    width:96rpx;
+    height:88rpx;
+    position: absolute;
+    right:80rpx;
+    bottom:80rpx;
+}
+.color-e83{
+    color:#E83926;
+}

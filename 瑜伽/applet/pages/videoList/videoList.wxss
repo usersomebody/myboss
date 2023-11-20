@@ -1,0 +1,55 @@
+.live{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:100rpx;
+}
+.pd-x{
+    padding-bottom:168rpx;
+}
+.pd-un{
+    padding-bottom:100rpx;
+}
+.live image{
+    width:288rpx;
+    height:400rpx;
+    display:block;
+}
+
+.live .title{
+    margin-top:20rpx;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.left{
+    width:10%;
+    height:100%;
+}
+
+.right{
+    width:90%;
+    height:100vh;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.right .item .items{
+    display:inline-flex;
+    width:200rpx;
+    height:100vh;
+    background:red;
+    border:1rpx solid #fff;
+}
+
+.right .item .items.week{
+    display:inline-flex;
+    width:200rpx;
+    height:100rpx;
+    background:red;
+    border:1rpx solid #fff;
+}

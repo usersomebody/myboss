@@ -1,0 +1,5 @@
+<!--pages/point/point.wxml-->
+<view class="container">
+    <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/applet/8a83ce856adef489ce8fb08e6b4a946.png" class="notOpen"></image>
+    <view class="tips">积分暂未开放</view>
+</view>

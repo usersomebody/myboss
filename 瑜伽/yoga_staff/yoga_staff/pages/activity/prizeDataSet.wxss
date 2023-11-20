@@ -1,0 +1,119 @@
+.container{
+    padding:30rpx 28rpx;
+}
+.failed-win-prize{
+    padding:24rpx 32rpx;
+    margin-bottom:20rpx;
+    border-radius:16rpx;
+}
+.prize-set-content{
+    margin-top:20rpx;
+}
+.win-prize-name{
+    margin-top:20rpx;
+}
+.common-prize-input{
+    width: 150rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: #F5F5F5;
+    border-radius: 10rpx;
+    margin-left:20rpx;
+}
+.prize-input{
+    width: 80%;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left:20rpx;
+    background: #F5F5F5;
+    border-radius: 10rpx;
+    margin-left:20rpx;
+}
+.width-112{
+    width:112rpx;
+}
+.delete-icon{
+    width: 24rpx;
+    height: 28rpx;
+    margin-top:30rpx;
+}
+.add-icon{
+    width:32rpx;
+    height:32rpx;
+    margin-right:12rpx;
+}
+.m-l-24{
+    margin-left:24rpx;
+}
+.add-btn{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:60rpx;
+}
+
+.add-btn .btn{
+    width: 238rpx;
+    height: 82rpx;
+    line-height:82rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+/* 上传 */
+.upload-box{
+    margin-top:30rpx;
+}
+.upload{
+    margin-left:20rpx;
+}
+.upload image{
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .uploadImg{
+    width: 100rpx;
+    height: 100rpx;
+    border: 2rpx dashed #E0E0E0;
+    /* background: rgba(0, 0, 0, 0.04); */
+    border-radius: 2rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tailoring{
+    position: absolute;
+    width: 100%;
+    bottom: 100rpx;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .tailoring .tailoringSure{
+      width: 200rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      text-align: center;
+      z-index:100;
+      color:#fff;
+      background:#7D49FB;
+      margin-right:20rpx;
+  }
+  .tailoring .tailoringCancle{
+    width: 200rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: rgba(125, 73, 251, 0.1);
+    border: 1px solid #7D49FB;
+    color:#7D49FB;
+    z-index:100;
+  }

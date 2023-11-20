@@ -1,0 +1,36 @@
+.actionList{
+    padding:0 30rpx;
+
+}
+
+.limit-type-radio{
+    padding:32rpx 0;
+    border-bottom:1rpx solid #ececec;
+}
+
+.limit-type-input{
+    padding:32rpx 0;
+    
+}
+
+.add-btn{
+    margin-top:80rpx;
+}
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}
+
+.color-b3b{
+    color:#B3B3B3;
+}

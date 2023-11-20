@@ -1,0 +1,194 @@
+
+<view class="container">
+    <!-- 体测时间 -->
+    <view class="bodyData-time-title flex-box flex-a-center flex-j-between bg-white">
+        <view class="flex-box flex-a-center">
+            <image class="calendar-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211018/f2ada90f5934e71469437eca2e3f2d85.png"></image>
+            <view class="font-md color-333">{{bodyDataList.fitness_test_time}}</view>
+        </view>
+        <view class="flex-box flex-a-center" bindtap="goList">
+            <view class="font-md color-749">查看其他日期</view>
+            <view class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+        </view>
+    </view>
+    <!-- 顶部切换 -->
+    <view class="switch-list flex-box flex-a-center flex-j-around">
+        <view class="switch-item color-666 {{switchId == item.id ? 'active' : ''}}" wx:for="{{switchList}}" wx:key="index" data-id="{{item.id}}" bindtap="switchTab">{{item.name}}</view>
+    </view>
+    <view wx:if="{{switchId == 1}}" class="edit-type-one">
+        <view class="edit-content">
+            <!-- 可视图 -->
+            <view class="body-data-picture">
+                <view class="action-title flex-box flex-j-between flex-a-center">
+                    <view class="font-lg color-333">体测照片</view>
+                    <view class="font-md color-749" bindtap="editBodyData">{{actionStart ? '完成' : '编辑'}}</view>
+                </view>
+                <view class="data-picture-content flex-box flex-j-between common-relative">
+                    <view class="left" style="height:762rpx;">
+                            <image wx:if="{{sex == 2}}" style="width:188rpx;height:762rpx;" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/venue/20220113/woman@2x.png"></image>
+                            <image  wx:if="{{sex == 1}}" style="width:234rpx;height:762rpx;" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/system/venue/20220113/man@2x.png"></image>
+                        <!-- https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220108/ecdbecd87bc691e7f6cc2610785386b7.png 男 233 762 -->
+                        <!-- https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220108/6381b18de1a3177036cd8bbac40cd490.png 女 188 762 -->
+                        <view wx:if="{{switchKey}}" class="wrap" style="width:{{selectData.width}}rpx;height:{{selectData.height}}rpx;top:{{selectData.top}}%;left:{{selectData.left}}%">
+                            <view class="circle"></view>
+                            <view class="top-circle"></view>
+                            <view class="bottom-circle"></view>
+                        </view>
+                    </view>
+                    <view wx:if="{{selectData.value}}" class="show-data-box " style="top:{{boxTop}}rpx">
+                        <view class="common-relative">
+                            <!-- <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/a2c082a7cfda083f1c0f4e27ad8b7265.png"></image><view class="boxText">{{selectData.value || ''}}<text  class="font-sm">{{selectData.unit}}</text></view> -->
+                            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/a2c082a7cfda083f1c0f4e27ad8b7265.png"></image><view class="boxText {{selectData.value == '暂无数据' ? 'font-sm' : ''}}">{{selectData.value || ''}}<text wx:if="{{selectData.value != '暂无数据'}}" class="font-sm">{{selectData.unit}}</text></view>
+                        </view>
+                    </view>
+                    <!-- <view class="line" style="{{styleObj}}"></view> -->
+                    <view class="right">
+                        <view wx:for="{{systemData}}" wx:key="index" wx:if="{{item.field_key != 'weight' && item.field_key != 'height' && item.field_key != 'bmi' && item.field_key != 'body_fat'}}" data-key="{{item.field_key}}" class="update-data common-relative {{item.field_key == switchKey ? 'active' : ''}} flex-box flex-a-center flex-j-between" data-item="{{item}}" bindtap="switchTabKey">
+                            <view>{{item.name}}</view>
+                            <image wx:if="{{actionStart}}" class="editBtn" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220108/e3296fdbf5119fb8dcf8ed336a00b76b.png" data-key="{{item.field_key}}" data-type="1" catchtap="closeBodyData"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>    
+            <view class="body-data-list">
+                <view class="bodyData-item">
+                        <view class="content flex-box flex-a-center flex-j-between">
+                            <view class="common-relative common-padding weight flex-box flex-a-center">
+                                <image class="content-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/c6757487364f4ef81b50720ffcf7d528.png"></image>
+                                <view>
+                                    <view class="color-343 font-md mg-bottom">体重</view>
+                                    <view><text class="font-lger color-1a0 font-weight">{{bodyDataList.weight}}</text><text class="font-sm color-584 pd-left">kg</text></view>
+                                </view>
+                                <image wx:if="{{actionStart}}" class="editBtn editBtn-h-w" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220108/e3296fdbf5119fb8dcf8ed336a00b76b.png" data-key="weight" data-type="1" catchtap="closeBodyData"></image>
+                            </view>
+                            <view class="common-relative common-padding height flex-box flex-a-center">
+                                <image class="content-icon" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220105/a64548450f0660a3d165b3d95d111bf0.png"></image>
+                                <view>
+                                    <view class="color-343 font-md mg-bottom">身高</view>
+                                    <view><text class="font-lger color-1a0 font-weight">{{bodyDataList.height}}</text><text class="font-sm color-584 pd-left">cm</text></view>
+                                </view>
+                                <image wx:if="{{actionStart}}" class="editBtn editBtn-h-w" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220108/e3296fdbf5119fb8dcf8ed336a00b76b.png" data-key="height" data-type="1" catchtap="closeBodyData"></image>
+                            </view>
+                        </view>
+                        <view class="bottom flex-box flex-a-center flex-j-between">
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{bodyDataList.best_weight}}</text><text class="font-sm">kg</text></view>
+                                <view class="color-99 font-sm text-center">理想体重</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{bodyDataList.body_fat || 0}}</text></view>
+                                <view class="color-99 font-sm text-center">体脂率</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{bodyDataList.bmi || 0}}</text></view>
+                                <view class="color-99 font-sm text-center">BMI</view>
+                            </view>
+                            <view class="item">
+                                <view class="color-333 text-center"><text class="font-lg">{{bodyDataList.basal_metabolism || 0}}</text></view>
+                                <view class="color-99 font-sm text-center">基础代谢</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                
+            </view>  
+            <!-- //图片上传 -->
+            <view class="upload-cover bg-white">
+                <view class="flex-box flex-a-center flex-j-between">
+                    <view class="font-lg color-333">体测数据</view>
+                    <!-- <view class="color-749 font-lg" bindtap="editImg">{{ editImgIng ? '完成' : '编辑'}}</view> -->
+                </view>
+                <view class="upload flex-box flex-a-center ">
+                    <view wx:if="{{alyunFilePath.length}}" class="common-relative rule-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                        <image class="body-data-cover" src="{{itm.url}}"></image>
+                        <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                        <image wx:if="{{editImgIng}}" class="select-icon" src="{{itm.checked ? 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220110/76ba79c2c68066670bab868326dbb7a9.png' : 'https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220110/b0cd0c0c7bd976bd2b4c46055db32518.png'}}" data-idx="{{idx}}" bindtap="selectImg"></image>
+                        <!-- https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220110/b0cd0c0c7bd976bd2b4c46055db32518.png -->
+                    </view>
+                    <view wx:if="{{alyunFilePath.length && alyunFilePath.length < 9}}" class="uploadImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                        <view class="font-lg">+</view>
+                        <view>上传图片</view>
+                    </view>
+                    <view class="no-data-content" wx:if="{{!alyunFilePath.length}}">
+                        <image class="no-cover-img" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220311/c373dace46fd45d4657fb8250f94d8cc.png"></image>
+                        <view class="font-md no-cover-title">暂无图片</view>
+                        <view class="no-cover-btn color-749" bindtap="getImgs">添加图片</view>
+                    </view>
+                </view> 
+            </view>
+            <view class="value-placeholder font-md bg-white">
+                <view class="font-lg color-333">指导意见</view>
+                <textarea always-embed="{{true}}" class="memo {{suggest ? 'color-504' : 'color-999'}}" type="number" placeholder="请输入" placeholder-calss="color-d2d" value="{{suggest}}" data-key="suggest" bindinput="getMemoValue"></textarea>
+            </view>
+        </view>
+        <view wx:if="{{switchId == 2}}" class="edit-type-two">
+            <!-- //姓名 -->
+            <view class="li flex-box flex-a-center flex-j-between">
+                <view class="item-label font-md color-333 bold">会员姓名</view>
+                <view class="item-value pad-r-34 flex-box flex-a-center">
+                    <view class="font-sm color-999 "><input always-embed="{{true}}" placeholder-class="color-999" class="text-right font-md {{name ? 'color-504' : 'color-999'}}" style="width:500rpx;" type="text" value="{{name}}" data-key="name" disabled="true" bindblur="getNumberValue"/></view>
+                </view>  
+            </view>
+            <!-- 时间 -->
+            <view class="li flex-box flex-a-center flex-j-between">
+                <view class="item-label font-md color-333 bold">体测时间</view>
+                <view class="item-value pad-r-34 flex-box flex-a-center">
+                    <view style="width:100%;">
+                        <picker mode="date" value="{{bodyDataList.fitness_test_time}}" start="1970-01-01" :end="{{currentDate}}" disabled="{{true}}">
+                            <view class="picker text-right font-md {{bodyDataList.fitness_test_time ? 'color-504' : 'color-999'}}">
+                                {{bodyDataList.fitness_test_time}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>  
+            </view>
+            <!-- 身体数据 -->
+            <view class="li flex-box flex-a-center flex-j-between {{index == showList.length - 1 ? 'border-none' : ''}}" wx:for="{{systemData}}" wx:key="index">
+                <view class="item-label font-md color-333 bold">{{item.name}}<text class="margin-right-10 font-md color-99">（{{item.unit}}）</text></view>
+                <view class="item-value pad-r-34 flex-box flex-a-center">
+                    <view class="font-sm color-999 "><input always-embed="{{true}}" placeholder-class="color-b3b" class="text-right font-md {{item.value ? 'color-504' : 'color-999'}}" style="width:500rpx;" type="text" placeholder="选填" value="{{item.value}}" disabled="{{item.field_key == 'bmi' || item.field_key == 'body_fat' ? true : false}}" data-key="{{item.field_key}}" bindblur="getNumberValue"/></view>
+                </view>    
+            </view>
+            <view class="li">
+                <view class="item-label font-md color-333 bold">体测照片<text class="margin-right-10 font-sm color-99">（限9张，建议图片尺寸690x518px比例4:3）</text></view>
+                <view class="margin-t-20 pad-r-34 flex-box flex-a-center">
+
+                    <view class="upload-type-two flex-box flex-a-center">
+                        <view class="common-relative body-img" wx:for="{{alyunFilePath}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                            <image src="{{itm.url}}"></image>
+                            <view class="del-btn font-sm text-center" data-idx="{{idx}}" bindtap="delImg">删除</view>
+                        </view>
+                        <view wx:if="{{alyunFilePath.length < 9}}" class="uploadTypeImg font-base color-666 flex-box flex-v-type flex-a-center flex-j-center" bindtap="getImgs">
+                            <view class="font-lg">+</view>
+                            <view>上传图片</view>
+                        </view>
+                    </view>
+                    <!-- <view wx:elif="{{item.key == 'suggest'}}" class="value-placeholder font-md"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="number" placeholder="{{item.placeholder}}" placeholder-calss="color-d2d" value="{{item.value}}" data-key="suggest" bindinput="getMemoValue"></textarea></view> -->
+                </view>    
+            </view>
+            <view class="li">
+                    <view class="item-label font-md color-333 bold">指导意见<text class="margin-right-10 font-sm color-999"></text></view>
+                    <view class="pad-r-34 flex-box flex-a-center">
+                        <view class="font-md"><textarea always-embed="{{true}}" class="memo {{item.value ? 'color-504' : 'color-999'}}" type="number" placeholder="选填" placeholder-calss="color-d2d" value="{{suggest}}" data-key="suggest" bindinput="getMemoValue"></textarea></view>
+                    </view>    
+                </view>
+        </view>
+        <view class="edit-btn flex-box flex-a-center flex-j-center">
+            <view class="common-edit-btn edit-back" data-type="1" bindtap="delete">删除</view>
+            <view class="common-edit-btn edit-sure" data-type="2" bindtap="sure">保存</view>
+        </view>
+        <!-- <view class="saveBtn" bindtap="sure">保存</view> -->
+    </view>
+<van-dialog
+    use-slot
+    data-type="2"
+    title="{{showAddObj.name}}"
+    show="{{ showBodyData }}"
+    show-cancel-button
+    confirm-button-text="保存"
+    cancel-button-text="取消"
+    confirm-button-color="#576B95"
+    bind:confirm="addBodyData"
+    bind:cancel="closeBodyData">
+    <view class="common-relative"><input class="addKeyInput font-md" type="text" value="{{showAddObj.value}}" placeholder="请输入" bindinput="getNewValKey"/><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220114/4cc5683c410dc9971d59dc815ecc3ac1.png" class="clearInput" bindtap="clearValue"></image></view>
+</van-dialog>

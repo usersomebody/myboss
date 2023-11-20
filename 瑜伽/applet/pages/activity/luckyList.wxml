@@ -1,0 +1,39 @@
+<view class="container">
+    <image class="record-list-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/c7fae90b9b08566903ee68ff1df44c4a.png"></image>
+    <view class="custom-top">
+        <view class="back common-fixed" style="top:{{statusBarHeight + 2}}px" bindtap="back"><image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220118/af0b6d4d5e788ff46ddc3742480aa9e6.png"></image></view>
+        <view class="myVipCardTitle color-white" style="top:{{statusBarHeight + 8}}px">幸运抽奖</view>
+    </view>
+    <image class="prize-list-title" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/dc42de69593db74c6dd8edef6edac31e.png"></image>
+    <view class="record-list-box">
+        <!-- <image class=""src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/17f4f6e4273e53e778bbc28ee4962893.png"></image> -->
+        <scroll-view srcoll-y="true" class="record-scroll">
+            <view wx:if="{{recordList.length}}" class="record-list">
+                <view class="record-item common-relative" wx:for="{{recordList}}" wx:key="index">
+                    <view class="font-md color-333 prize-name">{{item.prize_name}}</view>
+                    <view class="flex-box flex-a-center flex-j-between">
+                        <view class="font-sm color-99">
+                            <view>中奖时间:{{item.create_time}}</view>
+                            <view>兑奖期限:{{startTime}} ~ {{endTime}}</view>
+                            <view wx:if="{{item.redeem_status == 2}}">兑奖时间:{{item.redeem_time}}</view>
+                        </view>
+                        <view class="color-white font-md prize-btn" wx:if="{{item.redeem_status == 1}}" data-number="{{item.redeem_number}}" bindtap="getNumber">兑奖码</view>
+                    </view>
+                    <image class="common-absolute prize-label" wx:if="{{item.redeem_status == 2}}" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/a42ac9d22d2c75c3b7dc335398106fe5.png"></image>
+                </view>
+            </view>
+            <view>
+                <image wx:if="{{!recordList.length}}" class="no-data" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220224/6b7bd4d14cbebac648c11140ee197620.png"></image>
+                <view wx:if="{{!recordList.length}}" class="no-data-text font-sm color-99 text-center">暂无抽奖记录</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view style="background:rgba(0,0,0,.7);" class="overlayer {{showOverlayer ? 'show' : ''}}" bindtap="toggleShowOver"></view>
+<view wx:if="{{showOverlayer}}" class="common-fixed pay-fixed">
+    <view class="common-relative">
+        <image class="prize-number-bg" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220222/db8f18a0274a300d8e5531bea2b1a1ac.png"></image>
+        <view class="font-lg color-916 prize-number">{{prizeNumber}}</view>
+    </view>
+    <image class="closeBtn" bindtap="toggleShowOver" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220225/06119b3006fbd066222d662355ad04bb.png"></image>
+</view>

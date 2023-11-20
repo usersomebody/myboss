@@ -1,0 +1,24 @@
+<view class="container">
+    <!-- 操作指南 -->
+    <view class="guide">
+        <image class="guide-cover" src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20220308/d6a54eb4326d840164c623bce671d831.png" data-type="1" bindtap="goNextPage"></image>
+    </view>
+    <!-- 常见问题 -->
+    <view class="problem">
+        <view class="problem-title font-lg color-333 font-weight">常见问题</view>
+        <view class="problem-list bg-white">
+            <view class="problem-li flex-box flex-a-center flex-j-between" wx:for="{{problemList}}" wx:key="index" data-type="2" data-id="{{item.id}}" bindtap="goNextPage">
+                <view class="problem-left flex-box flex-a-start">
+                    <view class="problem-sort font-lg base-color font-weight">{{index + 1}}</view>
+                    <view class="problem-li-title font-md color-333 two-line">{{item.title}}</view>
+                </view>
+                <image class="right-icon" src="../../imgs/arrow-r.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- <movable-area>
+        <movable-view x="{{x}}" y="{{y}}" direction="all">
+            <image src="https://qizhifan.oss-cn-hangzhou.aliyuncs.com/yoga/images/20211011/724d39da75e721f1a05502bd656a7cae.png" class="course-table"></image>
+        </movable-view>
+    </movable-area> -->
+</view>

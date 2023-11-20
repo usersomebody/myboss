@@ -1,0 +1,45 @@
+.val{
+    padding:0 30rpx;
+
+}
+
+.radio-item{
+    padding:34rpx 0;
+    border-bottom:1rpx solid #ececec;
+}
+
+.input-form{
+    padding-left:46rpx;
+}
+
+.input-item{
+    margin:32rpx 0;
+}
+
+.input-box{
+    width: 466rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    padding-left:40rpx;
+    background: #F6F6FA;
+    border-radius: 14rpx;
+    margin-top:20rpx;
+}
+
+.add-btn{
+    margin-top:84rpx;
+}
+.add-btn .btn{
+    width: 238rpx;
+    height: 66rpx;
+    line-height:66rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    background: #7D49FB;
+}
+.add-btn .cancle{
+    border:2rpx solid #7D49FB;
+    background:#fff;
+    color:#7D49FB;
+    margin-right:56rpx;
+}

@@ -1,0 +1,11 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-area": "@vant/weapp/area/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "no-data": "/components/no-data/index"
+    },
+    "navigationBarTitleText": "地址管理",
+    "navigationBarTextStyle": "black"
+  }

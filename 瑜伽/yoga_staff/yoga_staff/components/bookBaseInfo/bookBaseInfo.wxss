@@ -1,0 +1,73 @@
+@import "../../common.wxss";
+
+.color-num{
+    color:#9169FB;
+}
+
+.middle .progress-bg{
+    width:100%;
+    background: rgba(255,157,0,.3);
+    border-radius: 20px;
+    height:40rpx;
+}
+
+.middle .progress-fill-bg{
+    position: absolute;
+    left:0;
+    top:0;
+    height:40rpx;
+    border-radius: 20px;
+    background:#FF9D00;
+    z-index:1;
+}
+
+.middle .progress-current-price{
+    position: absolute;
+    left:0;
+    right:0;
+    top:2rpx;
+    bottom:0;
+    margin:auto;
+    z-index:9;
+    text-align: center;
+}
+
+.base-info{
+    padding:30rpx 20rpx 14rpx 30rpx;
+    border-radius:10rpx;
+}
+.base-info .top{
+    padding-bottom:10rpx;
+}
+.top .avatar image{
+    width:112rpx;
+    height:112rpx;
+    border-radius:50%;
+}
+
+.course-info{
+    margin-left:62rpx;
+}
+
+.course-info .course-name{
+    margin:12rpx 0;
+}
+
+.course-btn{
+    width: 104rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    text-align: center;
+    background: #9169FB;
+    border-radius: 10rpx;
+}
+
+.middle{
+    width:100%;
+    margin:20rpx 0;
+}
+
+.courseType_4{
+    padding:10rpx 0;
+    border-top:1rpx solid #f3f3f3;
+}

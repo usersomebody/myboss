@@ -1,0 +1,26 @@
+<!--pages/appointmentCard/appointmentCard.wxml-->
+<view class="container">
+  <view class="card">
+    <view class="card-item" wx:for="{{cardList}}" wx:for-item="item" wx:key='id'>
+      <image class="card-bg" src="/imgs/type-bg1.png" wx:if="{{item.type==1}}"></image>
+      <image class="card-bg" src="/imgs/type-bg2.png" wx:if="{{item.type==2}}"></image>
+      <image class="card-bg" src="/imgs/type-bg3.png" wx:if="{{item.type==3}}"></image>
+      <image class="card-bg" src="/imgs/type-bg4.png" wx:if="{{item.type==4}}"></image>
+      <view class="card-content">
+        <view class="card-title">
+          <view class="cardname">{{item.name}} 
+            <view class="card-type" wx:if="{{item.type==1}}">期限卡</view>
+            <view class="card-type" wx:if="{{item.type==2}}">次数卡</view>
+            <view class="card-type" wx:if="{{item.type==3}}">储值卡</view>
+            <view class="card-type" wx:if="{{item.type==4}}">计时卡</view>
+          </view>
+          <!-- <view class="balance"><text class="unit">￥</text>{{item.price/100}}</view> -->
+        </view>
+        <!-- <view class="card-validate">
+          <view class="use_day">使用天数：{{item.day}}天</view>
+          <view>会员专享</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="container">
+        <view class="form">
+            <view class="li flex-box flex-a-center flex-j-between" wx:for="{{showList}}" wx:key="index" wx:if="{{!item.isShow}}">
+              <view class="li-item-title font-md color-333">{{item.name}}</view>
+              <view class="li-item-content flex-box flex-a-center {{ !item.isShowIcon ? 'pad-r-34' : ''}}">
+                    <view wx:if="{{item.isInput}}" class="value-placeholder font-md color-999 "><input always-embed="{{true}}" class="text-right {{item.value ? 'color-504' : 'color-999'}}" placeholder-class="font-md" type="text" placeholder="{{item.placeholder}}" value="{{item.value}}" disabled="{{item.disable}}" data-key="{{item.key}}" bindblur="getNumberValue"/></view>
+                    <view wx:elif="{{item.isPicker}}" class="">
+                        <picker mode="selector" value="{{item.index}}" range="{{item.list}}" range-key="name" data-key="{{item.key}}" bindchange="bindPickerChange">
+                            <view class="picker font-md {{item.value ? 'color-504' : 'color-b3b'}}">
+                                {{item.value ? item.value : '选填'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view wx:elif="{{item.key == 'course_arr'}}" class="value-placeholder font-md color-999" data-link="{{item.link}}" bindtap="getData">
+                        <view wx:if="{{item.value.length}}" class="sendCardList">
+                            <view class="card-list-item {{itm.switchVal ? 'color-504' : 'color-999'}}" wx:for="{{item.value}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">{{itm.switchVal ? itm.name : ''}}</view>
+                        </view>
+                        <view wx:else class="font-md color-999" >选填</view>
+                    </view>
+                    <view wx:elif="{{item.link}}" class="value-placeholder font-md {{item.value ? 'color-504' : 'color-999'}}" data-link="{{item.link}}" bindtap="getData">{{item.value ? item.value : item.placeholder}}</view>
+                    <view wx:else class="value-placeholder font-md {{item.value ? 'color-504' : 'color-999'}}">{{item.value ? item.value : item.placeholder}}</view>
+                    <view wx:if="{{item.isShowIcon}}" class="right-icon"><image src="../../imgs/arrow-r.png"></image></view>
+              </view>
+            </view>
+        </view>
+        <view class="add-btn" wx:if="{{isSameStore}}">
+            <view class="cancle btn font-lg" bindtap="cancle">{{editId ? '删除' : '返回'}}</view>
+            <view class="sure btn font-lg color-white" bindtap="sure">确认</view>
+        </view>
+    </view>

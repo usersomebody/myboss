@@ -1,0 +1,112 @@
+<view class="container">
+    <!-- 评价详情 -->
+    <view class="evaluate-list">
+        <view class="evaluate-item">
+            <view class="item-head flex-box flex-a-center flex-j-between">
+                <view class="head-user-info flex-box flex-a-center">
+                    <image class="avatar flex-shrink" src="{{detail.head_img}}"></image>
+                    <view class="user-info">
+                        <view class="user-name font-md color-1a font-weight">{{detail.nickname}}</view>
+                        <view class="date font-sm color-99">{{detail.create_time}}</view>
+                    </view>
+                </view>
+                <view class="head-score-info">
+                    <view class="score flex-box flex-a-baseline flex-j-end"><text class="color-4d font-lger font-weight">{{detail.star}}</text><text class="color-b3 font-lg split-line">/</text><text class="color-99 font-md">5.0</text></view>
+                    <view class="stars">
+                        <van-rate readonly="{{true}}" value="{{ detail.star }}" count="{{ 5 }}" size="{{14}}" gutter="{{2}}" color="#FFA64C" data-id="{{detail.id}}"/>
+                    </view>
+                </view>
+            </view>
+            <!-- 评价内容 -->
+            <view class="item-content color-333 font-md">
+                {{detail.content}}
+            </view>
+            <!-- 评价标签 -->
+            <view class="item-label flex-box flex-a-center">
+                <view wx:for="{{detail.label_content}}" wx:for-item="itm" wx:for-index="idx" wx:key="idx" class="label-item font-md">{{itm}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 回复列表 -->
+    <view class="reply-box">
+        <view class="color-333 font-lg reply-title">共{{replyList.length}}条回复</view>
+        <view class="reply-list" >
+            <view class="reply-item" wx:for="{{replyList}}" wx:key="index">
+                <view class="reply-item-head flex-box flex-a-center flex-j-between">
+                    <view class="reply-item-head-left flex-box flex-a-center">
+                        <image class="flex-shrink avatar" src="{{item.head_img}}"></image>
+                        <view class="reply-time-name">
+                            <view class="name font-md color-333 font-weight">{{item.nickname}}</view>
+                            <view class="time font-sm color-99">{{item.create_time}}</view>
+                        </view>
+                    </view>
+                    <view class="flex-box flex-a-center">
+                        <view wx:if="{{user_id == item.user_id}}" class="flex-box common-relative">
+                            <view class="reply-delete-icon flex-box flex-a-center" data-id="{{item.id}}" bindtap="showDeleteIcon">
+                                <view class="delete-icon bg-dbd"></view>
+                                <view class="delete-icon bg-666"></view>
+                                <view class="delete-icon bg-dbd"></view>
+                            </view>
+                            <view wx:if="{{item.deleteShow}}" class="font-md color-66 delete-box">
+                                <view class="triggle"></view>
+                                <view class="delete-reply-title" data-id="{{item.id}}" bindtap="deleteReply">删除评价</view>
+                            </view>
+                        </view>
+                        <view class="reply-item-head-right flex-box flex-a-center" data-id="{{item.id}}" data-islike="{{item.is_like}}" bindtap="isLike">
+                            <image class="reply-fabulous" data-id="{{item.id}}" data-islike="{{item.is_like}}" src="{{fabulousType[item.is_like]}}"></image>
+                            <view class="font-md color-66" data-id="{{item.id}}" data-islike="{{item.is_like}}">{{item.like_num}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="reply-content font-md color-333" catchtap="showKeyBoard" data-type="2" data-rid="{{item.id}}" data-username="{{item.nickname}}">{{item.content}}</view>
+                <view class="reply-child-content" wx:if="{{item.reply_list.length}}">
+                    <view class="reply-child-item" wx:for="{{item.reply_list}}" wx:key="idx" wx:for-item="itm" wx:for-index="idx">
+                        <view class="reply-item-head flex-box flex-a-center flex-j-between">
+                            <view class="reply-item-head-left flex-box flex-a-center">
+                                <image class="flex-shrink avatar" src="{{itm.head_img}}"></image>
+                                <view class="reply-time-name">
+                                    <view class="name font-md color-333 font-weight">{{itm.nickname}}</view>
+                                    <view class="time font-sm color-99">{{itm.create_time}}</view>
+                                </view>
+                            </view>
+                            <view class="flex-box flex-a-center">
+                                <view wx:if="{{user_id == itm.user_id}}"  class="flex-box common-relative">
+                                    <view class="reply-delete-icon flex-box flex-a-center" data-id="{{itm.id}}" bindtap="showDeleteIcon">
+                                        <view class="delete-icon bg-dbd"></view>
+                                        <view class="delete-icon bg-666"></view>
+                                        <view class="delete-icon bg-dbd"></view>
+                                    </view>
+                                    <view wx:if="{{itm.deleteShow}}" class="font-md color-66 delete-box">
+                                        <view class="triggle"></view>
+                                        <view class="delete-reply-title" data-id="{{itm.id}}" bindtap="deleteReply">删除评价</view>
+                                    </view>
+                                </view>
+                                <view class="reply-item-head-right flex-box flex-a-center" data-id="{{itm.id}}" data-islike="{{itm.is_like}}" bindtap="isLike">
+                                    <image class="reply-fabulous" data-id="{{itm.id}}" data-islike="{{itm.is_like}}" src="{{fabulousType[itm.is_like]}}"></image>
+                                    <view class="font-md color-66" data-id="{{itm.id}}" data-islike="{{itm.is_like}}">{{itm.like_num}}</view>
+                                </view>
+                            </view>
+                            
+                        </view>
+                        <view class="child-reply-detail color-333 font-md " catchtap="showKeyBoard" data-type="2" data-rid="{{itm.id}}" data-username="{{itm.nickname}}">
+                            回复<text class="reply-user color-b3 font-md" data-type="2">{{itm.reply_nickname}}</text>{{itm.content}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 回复按钮 -->
+<view class="reply-btn" bindtap="showKeyBoard" data-type="1">
+    <view class="input-box" data-type="1"></view>
+    <view class="reply-send-btn color-white" data-type="1">发送</view>
+</view>
+<view style="background:rgba(0,0,0,.5);" class="overlayer {{ showOverlayer ? 'show' : ''}}" bindtap="toggleLayer"></view>
+<view wx:if="{{showOverlayer}}" class="comment-input-box">
+    <view class="flex-box flex-a-center">
+        <input class="comment-content-box" type="text" 	value="{{content}}" confirm-type="send" placeholder="{{placeholderVal}}" adjust-position="{{true}}" cursor-spacing="10" focus="{{autoFocus}}" bindfocus="inputFocus" bindinput="getVal" placeholder-class="color-b3 font-sm" />
+        <view class="send-btn font-md color-white" bindtap="sendMsg">发送</view>
+    </view>
+    
+</view>

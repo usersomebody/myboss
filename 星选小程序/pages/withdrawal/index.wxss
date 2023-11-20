@@ -1,0 +1,47 @@
+.withdrawal-account{
+    padding:20rpx 30rpx;
+}
+.withdrawal-account{
+    margin-bottom:20rpx;
+}
+.withdrawal-content{
+    padding:30rpx;
+}
+.withdrawal-input{
+    padding:30rpx 0;
+    border-bottom: 1rpx solid rgb(238, 238, 238);
+}
+.withdrawal-input .clear-icon{
+    padding:4rpx;
+    width:32rpx;
+    height:32rpx;
+}
+.withdrawal-money{
+    width:90%;
+}
+.color-82{
+    color: rgb(82, 103, 179);
+}
+.all-money{
+    margin-top:20rpx;
+}
+.withdrawal-all-btn{
+    margin-left:26rpx;
+}
+.free-sample-btn{
+    width:77%;
+    position: absolute;
+    bottom:150rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: linear-gradient(rgba(252,86,57,255) 0%,rgba(252,132,57,255) 100%);
+    border-radius: 70rpx;
+}
+.withdraw-icon{
+    width:30rpx;
+    height:26rpx;
+    margin-right:12rpx;
+}

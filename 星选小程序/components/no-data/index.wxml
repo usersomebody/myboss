@@ -1,0 +1,4 @@
+<view class="flex-box flex-v-type flex-a-center flex-j-center no-data-box">
+    <image class="data-icon" src="{{cover}}"></image>
+    <view class="text-center font-sm shallow-color no-data">{{text}}</view>
+</view>

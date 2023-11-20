@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "count-down":"/components/countDown/index",
+    "progress-bar":"/components/progressBar/index"
+  },
+    "navigationBarTitleText": "助力登顶"
+  }
